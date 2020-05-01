@@ -87,8 +87,12 @@ namespace FareCalcLib
                                 exCostWkRow.vehicle_id == keisanWkRow.vehicle_id &&
                                 exCostWkRow.yuso_mode_kbn == keisanWkRow.yuso_mode_kbn &&
                                 exCostWkRow.carrier_company_cd == keisanWkRow.carrier_company_cd &&
-                                exCostWkRow.orig_date == keisanWkRow.orig_date
-                            ).ToList()
+                                exCostWkRow.orig_date == keisanWkRow.orig_date &&
+                                exCostWkRow.dest_jis == keisanWkRow.dest_cd &&
+                                exCostWkRow.dest_warehouse_cd == keisanWkRow.dest_warehouse_cd &&
+                                exCostWkRow.arriving_date == keisanWkRow.arriving_date &&
+                                exCostWkRow.dest_cd == keisanWkRow.dest_cd)
+                            .ToList()
                             .ForEach(exCostWkRow =>
                             {
                                 switch (exCostWkRow.extra_cost_kind_kbn)
@@ -349,11 +353,28 @@ namespace FareCalcLib
                             });
 
                             // set value from keisan_wk
+                            newExCostWkRow["calc_no"] = keisanWkRow["calc_no"];
+                            newExCostWkRow["calc_ym"] = keisanWkRow["calc_ym"];
+                            newExCostWkRow["contract_type"] = keisanWkRow["contract_type"];
+                            newExCostWkRow["yuso_kbn"] = keisanWkRow["yuso_kbn"];
+                            newExCostWkRow["orig_warehouse_block_cd"] = keisanWkRow["orig_warehouse_block_cd"];
+                            newExCostWkRow["orig_warehouse_cd"] = keisanWkRow["orig_warehouse_cd"];
+                            newExCostWkRow["terminal_id"] = keisanWkRow["terminal_id"];
+                            newExCostWkRow["vehicle_id"] = keisanWkRow["vehicle_id"];
+                            newExCostWkRow["dest_jis"] = keisanWkRow["dest_jis"];
+                            newExCostWkRow["dest_warehouse_cd"] = keisanWkRow["dest_warehouse_cd"];
+                            newExCostWkRow["yuso_mode_kbn"] = keisanWkRow["yuso_mode_kbn"];
+                            newExCostWkRow["carrier_company_cd"] = keisanWkRow["carrier_company_cd"];
+                            newExCostWkRow["orig_date"] = keisanWkRow["orig_date"];
+                            newExCostWkRow["arriving_date"] = keisanWkRow["arriving_date"];
+                            newExCostWkRow["dest_cd"] = keisanWkRow["dest_cd"];
+                            newExCostWkRow["yuso_means_kbn"] = keisanWkRow["yuso_means_kbn"];
+
                             newExCostWkRow["distance_km"] = keisanWkRow["distance_km"];
                             newExCostWkRow["time_mins"] = keisanWkRow["time_mins"];
                             newExCostWkRow["stopping_count"] = keisanWkRow["stopping_count"];
                             newExCostWkRow["weight_sum_kg"] = keisanWkRow["weight_sum_kg"];
-                            newExCostWkRow["base_charge_amount"] = keisanWkRow["base_char_amount"];
+                            newExCostWkRow["base_charge_amount"] = keisanWkRow["base_charge_amount"];
                             newExCostWkRow["extra_charge_amount"] = 0;
 
                             // add row to ex_cost_wk
@@ -497,6 +518,7 @@ namespace FareCalcLib
                 {
                     case extraCostKbn.StoppingCharge:
                         // 中継料　タリフ金額＊中継回数
+                        // TODO: 中継回数をNull check
                         exCostRow.extra_charge_amount = funcGetTriffPrice(exCostRow) * exCostRow.stopping_count;
                         break;
                     case extraCostKbn.CargoCharge:
@@ -748,8 +770,7 @@ namespace FareCalcLib
                         "stopping_charge_amount",
                         "cargo_charge_amount",
                         "other_charge_amount",
-                        "actual_time_surcharge_amount",
-                        "total_charge_amount"
+                        "actual_time_surcharge_amount"
                     };
                     var sumAmounts = new Dictionary<String, Decimal>();
                     var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
@@ -793,8 +814,14 @@ namespace FareCalcLib
                                 maxAmountRow[detailColName] = Decimal.Parse(maxAmountRow[detailColName].ToString()) + defference;
                             }
                         }
-
                     });
+
+                    // set total amount
+                    foreach (var detailRow in group)
+                    {
+                        detailRow.distributed_total_charge_amount = 0;  // TODO: Not Null制約入れる
+                        usoWkColNames.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
+                    }
                 }
 
             }
