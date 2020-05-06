@@ -19,42 +19,38 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using FareCalcLib.Datasets.ExtraCostPatternTableAdapters;
+using System.Transactions;
 
 namespace FareCalcLib
 
 
 {
-    public class Calculator
+    public class CalculateManager
     {
         #region "fields"
         private int CalcNo = 0;
         private CalcTrn CalcTrnDs;
         private CalcWk CalcWkDs;
         // TODO: バッチサイズConfigへ移動
-        // TODO: バッチ更新がエラーを解決するUpdatedRowSource property value of UpdateRowSource.FirstReturnedRecord or UpdateRowSource.Both is invalid
-        private static int UpdateBatchSize = 1;
+        private static int UpdateBatchSize = 100;
 
         #endregion
 
         #region "properties"
         public SqlConnection Connection { get; private set; }
-        public SqlTransaction Transaction { get; private set; }
         #endregion
 
-        public Calculator(int calcNo)
+        public CalculateManager(int calcNo)
         {
             CalcNo = calcNo;
-            CalcTrnDs = new CalcTrn();
             CalcWkDs = new CalcWk();
 
         }
 
-        public void Calcurate(SqlConnection conn)
+        public void Calcurate()
         {
             try
             {
-                //Transaction = sqlTrn;
-                Connection = conn;
                 this.PrepareCalculate();
                 this.CalculateBaseFare();
                 this.CalculateExtraCharge();
@@ -62,7 +58,6 @@ namespace FareCalcLib
                 this.SetResultToYusoWk();
                 this.DivideResultAmount();
                 this.RefrectToResultData();
-
             }
             catch (Exception)
             {
@@ -240,15 +235,15 @@ namespace FareCalcLib
                 detailAdp.FillOrigialDataByCalcNoByVehicle(this.CalcTrnDs.t_detail, this.CalcNo, (short)CnCalcStatus.Doing);
 
                 /* --------------------------------------
-                    * fill yuso_wk
-                    * -------------------------------------- */
+                * fill yuso_wk
+                * -------------------------------------- */
                 var yusoWkAdp = new CalcWkTableAdapters.t_yuso_wkTableAdapter();
                 yusoWkAdp.Connection = Connection;
                 yusoWkAdp.FillByCalcNo(this.CalcWkDs.t_yuso_wk, this.CalcNo);
 
                 /* --------------------------------------
-                    * insert data to keisan_wk and detail_wk
-                    * -------------------------------------- */
+                * insert data to keisan_wk and detail_wk
+                * -------------------------------------- */
                 //  copy keisan_trn datatable to keisan_wk
                 // TODO:クエリーにするか検討
                 var colnameOfKeisanWk = Enumerable.Range(0, CalcWkDs.t_keisan_wk.Columns.Count - 1)
@@ -267,7 +262,7 @@ namespace FareCalcLib
                 //  insert into keisan_wk
                 var keisanWkAdp = new CalcWkTableAdapters.t_keisan_wkTableAdapter();
                 keisanWkAdp.Connection = Connection;
-                keisanWkAdp.InnerAdapter.UpdateBatchSize = UpdateBatchSize;
+                keisanWkAdp.SetUpdateBatchSize(UpdateBatchSize);
                 keisanWkAdp.Update(this.CalcWkDs.t_keisan_wk);
 
                 //   copy detail_trn datatable to detail_wk
@@ -288,29 +283,29 @@ namespace FareCalcLib
                 // 　insert into detail_wk
                 var detailWkAdp = new CalcWkTableAdapters.t_detail_wkTableAdapter();
                 detailWkAdp.Connection = Connection;
-                detailWkAdp.InnerAdapter.UpdateBatchSize = UpdateBatchSize;
+                detailWkAdp.SetUpdateBatchSize(UpdateBatchSize);
                 detailWkAdp.Update(this.CalcWkDs.t_detail_wk);
 
                 /* --------------------------------------
-                    * set info to keisan_wk on server 
-                    * -------------------------------------- */
+                * set info to keisan_wk by server query
+                * -------------------------------------- */
                 // set calcinfo to keisan_wk by server update query
                 keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
-                // set vehicle info to keisan_wk on server
+                // set vehicle info to keisan_wk by server update query
                 keisanWkAdp.UpdateVehicleInfo(this.CalcNo, ((int)CnContractType.ByVehicle).ToString());
 
                 // fill keisan_wk after update
                 keisanWkAdp.Fill(CalcWkDs.t_keisan_wk);
 
                 /* --------------------------------------
-                    * set Sum of Weight to keisan_wk on server 
-                    * -------------------------------------- */
+                * set Sum of Weight to keisan_wk on server 
+                * -------------------------------------- */
                 SumWeightByKeisanUnit();
 
                 /* --------------------------------------
-                    * create extra charge data on server 
-                    * -------------------------------------- */
+                * create extra charge data on server 
+                * -------------------------------------- */
                 CreateExtraChargeData();
             }
             catch (Exception)
@@ -397,118 +392,25 @@ namespace FareCalcLib
                 .OrderBy(x => x.apply_tariff_id)
                 .GroupBy(g => g.apply_tariff_id);
 
-            // init tariff dataset and adapter
-            var tariffDs = new Tariff();
-            var tariffInfoAdp = new m_tariff_infoTableAdapter();
-            tariffInfoAdp.ClearBeforeFill = true;
-            var tariffDetailAdp = new m_tariff_detailTableAdapter();
-            tariffDetailAdp.ClearBeforeFill = true;
+            var tariffCalculator = new TariffCalculator();
 
             foreach (var group in query)
             {
-                // TODO: get info from m_tariff
-                tariffInfoAdp.FillByTariffInfoId(tariffDs.m_tariff_info, group.Key);
-                tariffDetailAdp.FillByTriffInfoId(tariffDs.m_tariff_detail, group.Key);
-
-                // get column name
-                var vartialValueColName = GetValueColName(tariffDs, CnTariffAxisKbn.Vertial);
-                var horizontalValueColName = GetValueColName(tariffDs, CnTariffAxisKbn.Horizontal);
+                var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
 
                 foreach (var item in group)
                 {
-                    Decimal vertialValue = Decimal.Parse(item[vartialValueColName].ToString());
-                    Decimal horizontalValue = Decimal.Parse(item[horizontalValueColName].ToString());
-                    item.apply_vertical_value = vertialValue;
-                    item.apply_horizonatl_value = horizontalValue;
-
-                    var tariffDetailQuery = tariffDs.m_tariff_detail
-                        .Where(r =>
-                            ((r.vertical_step_from < vertialValue && r.vertical_step_to >= vertialValue) ||
-                            (r.vertical_step_from == vertialValue && r.vertical_step_to == vertialValue))
-                            &&
-                            ((r.horizontal_step_from < horizontalValue && r.horizontal_step_to >= horizontalValue) ||
-                            (r.horizontal_step_from == horizontalValue && r.horizontal_step_to == horizontalValue))
-                        );
-
-                    if (tariffDetailQuery.Count() == 1)
-                    {
-                        // set the tariff price before adding
-                        var base_charge_before_adding = tariffDetailQuery.Select(tdr => tdr.tariff_price).ToArray()[0];
-
-                        // TODO: 加算ありの範囲の時、両端加算ありの時、繰返し範囲の時、
-                        var adding_charge = (decimal)0; 
-
-                        item.base_charge_amount = base_charge_before_adding + adding_charge;
-
-                    }
-                    else
-                    {
-                        // TODO: タリフが見つからないError処理
-                    }
-                    
+                    var calcVar = new CalcVariables(item);
+                    item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertial);
+                    item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                    item.base_charge_amount = tariffCalculator.GetTriffPrice(tariffDs, calcVar);                    
                 }
-
             }
         }
 
         private void CalculateExtraCharge()
         {
-            // TODO タリフ計算共通化
-            Func<int, Datasets.Tariff> funcGetTriffDataset = (tariffId) =>
-            {
-                var tariffDs = new Tariff();
-                var tariffInfoAdp = new m_tariff_infoTableAdapter();
-                tariffInfoAdp.ClearBeforeFill = true;
-                var tariffDetailAdp = new m_tariff_detailTableAdapter();
-                tariffDetailAdp.ClearBeforeFill = true;
-
-                tariffInfoAdp.FillByTariffInfoId(tariffDs.m_tariff_info, tariffId);
-                tariffDetailAdp.FillByTriffInfoId(tariffDs.m_tariff_detail, tariffId);
-                return tariffDs;
-            };
-
-            Func<DataRow, Decimal> funcGetTriffPrice = (exCostRow) =>
-             {
-                 if (!DBNull.Value.Equals(exCostRow["tariff_id"]))
-                 {
-                     var tariffDs = funcGetTriffDataset((int)exCostRow["tariff_id"]);
-
-
-                     // get column name
-                     var vartialValueColName = GetValueColName(tariffDs, CnTariffAxisKbn.Vertial);
-                     var horizontalValueColName = GetValueColName(tariffDs, CnTariffAxisKbn.Horizontal);
-
-                     Decimal vertialValue = Decimal.Parse(exCostRow[vartialValueColName].ToString());
-                     Decimal horizontalValue = Decimal.Parse(exCostRow[horizontalValueColName].ToString());
-
-                     var tariffDetailQuery = tariffDs.m_tariff_detail
-                         .Where(r =>
-                             ((r.vertical_step_from < vertialValue && r.vertical_step_to >= vertialValue) ||
-                             (r.vertical_step_from == vertialValue && r.vertical_step_to == vertialValue))
-                             &&
-                             ((r.horizontal_step_from < horizontalValue && r.horizontal_step_to >= horizontalValue) ||
-                             (r.horizontal_step_from == horizontalValue && r.horizontal_step_to == horizontalValue))
-                         );
-
-                     if (tariffDetailQuery.Count() == 1)
-                     {
-                         // set the tariff price before adding
-                         var base_charge_before_adding = tariffDetailQuery.Select(tdr => tdr.tariff_price).ToArray()[0];
-
-                         // TODO: 加算ありの範囲の時、両端加算ありの時、繰返し範囲の時、
-                         var adding_charge = (decimal)0;
-
-                         return  base_charge_before_adding + adding_charge;
-                     }
-                     else
-                     {
-                         // TODO: タリフが見つからないError処理
-                         return 0;
-                     }
-                 }
-                 return 0;
-             };
-
+            var tariffCalculator = new TariffCalculator();
             foreach (var exCostRow in CalcWkDs.t_extra_cost_wk)
             {
                 // if not applicable, break
@@ -519,11 +421,12 @@ namespace FareCalcLib
                     case extraCostKbn.StoppingCharge:
                         // 中継料　タリフ金額＊中継回数
                         // TODO: 中継回数をNull check
-                        exCostRow.extra_charge_amount = funcGetTriffPrice(exCostRow) * exCostRow.stopping_count;
+                        var tariffPrice = tariffCalculator.GetTriffPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
+                        exCostRow.extra_charge_amount = tariffPrice * exCostRow.stopping_count;
                         break;
                     case extraCostKbn.CargoCharge:
                         // 航送料　タリフ金額
-                        exCostRow.extra_charge_amount = funcGetTriffPrice(exCostRow);
+                        exCostRow.extra_charge_amount = tariffCalculator.GetTriffPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
                         break;
                     case extraCostKbn.DistanceCharge:
                         // TODO: 実績距離を取得する
@@ -542,7 +445,7 @@ namespace FareCalcLib
                         switch (exCostRow.calculate_type_kbn)
                         {
                             case CalculateTypeKbn.Triff:
-                                exCostRow.extra_charge_amount = funcGetTriffPrice(exCostRow);
+                                exCostRow.extra_charge_amount = tariffCalculator.GetTriffPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
                                 break;
                             case CalculateTypeKbn.Adding:
                                 exCostRow.extra_charge_amount = exCostRow.adding_price;
@@ -617,29 +520,31 @@ namespace FareCalcLib
             }
         }
 
-        public static int StartCalcBatch(SqlConnection conn)
+        public static int StartCalcBatch(SqlConnection sqlConn)
         {
             try
             {
                 // get new calc_no
                 var calcNoAdp = new calc_noTableAdapter();
-                calcNoAdp.Connection = conn;                
+                calcNoAdp.Connection = sqlConn;
                 int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
                 // update calc_no and calc_status to "doing"
                 // TODO: create calcstatus index on t_yuso
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
-                tYusoAdp.Connection = conn;
+                tYusoAdp.Connection = sqlConn;
                 var rtn = tYusoAdp.UpdateCalcStatus((short)CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", (short)CnCalcStatus.UnCalc);
 
                 var dsStartCalc = new StartCalc();
+                tYusoAdp.Connection = sqlConn;
                 var cnt = tYusoAdp.FillByCalcNo(dsStartCalc.t_yuso, newCalcNo, (short)CnCalcStatus.Doing);
 
                 // TODO: クエリに変更するかどうか検討
                 // copy tran to wk
                 var colNamesOfYusoWk = Enumerable.Range(0, dsStartCalc.t_yuso_wk.Columns.Count - 1)
                                             .Select(i => dsStartCalc.t_yuso_wk.Columns[i].ColumnName).ToList();
-                dsStartCalc.t_yuso.ToList().ForEach(r => {
+                dsStartCalc.t_yuso.ToList().ForEach(r =>
+                {
                     var newRow = dsStartCalc.t_yuso_wk.NewRow();
                     colNamesOfYusoWk.ForEach(colname =>
                     {
@@ -650,14 +555,15 @@ namespace FareCalcLib
 
                 // wk table update(batch)
                 var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
-                adpYusoWk.Connection = conn;
-                //adpYusoWk.InnerAdapter.UpdateBatchSize = UpdateBatchSize;
+                adpYusoWk.Connection = sqlConn;
+                adpYusoWk.SetUpdateBatchSize(100);
                 var updYusoWkCnt = adpYusoWk.Update(dsStartCalc);
 
                 // TODO: バッチ仕様に反映　出荷実績の連携時には、輸送単位が"doing"になっているときは取込みをスキップする
                 // TODO: 画面仕様に反映　"doing"が含まれる時、再計算指示できない。"doing"の時、実績値は登録できない
 
                 return newCalcNo;
+
             }
             catch (Exception)
             {
@@ -724,46 +630,72 @@ namespace FareCalcLib
         {
             try
             {
-                // TODO: 個建ロジックは後で対応する
-                var query = this.CalcWkDs.t_detail_wk.GroupBy(x => new {
-                    x.calc_ym,
-                    x.contract_type,
-                    x.yuso_kbn,
-                    x.orig_warehouse_block_cd,
-                    x.orig_warehouse_cd,
-                    x.terminal_id,
-                    x.vehicle_id,
-                    x.yuso_mode_kbn,
-                    x.carrier_company_cd,
-                    x.orig_date});
-            
-                foreach (var group in query)
+                Enumerable.Range((int)CnContractType.ByVehicle, (int)CnContractType.ByItem).ToList().ForEach(contractType =>
                 {
-                    // get yusoWkRow by group key
-                    var yusoWkRow = this.CalcWkDs.t_yuso_wk.Where(x =>
-                        x.calc_ym == group.Key.calc_ym &&
-                        x.contract_type == group.Key.contract_type &&
-                        x.yuso_kbn == group.Key.yuso_kbn &&
-                        x.orig_warehouse_block_cd == group.Key.orig_warehouse_block_cd &&
-                        x.orig_warehouse_cd == group.Key.orig_warehouse_cd &&
-                        x.terminal_id == group.Key.terminal_id &&
-                        x.vehicle_id == group.Key.vehicle_id &&
-                        //x.dest_jis == group.Key.dest_jis &&
-                        //x.dest_warehouse_cd == group.Key.dest_warehouse_cd &&
-                        x.yuso_mode_kbn == group.Key.yuso_mode_kbn &&
-                        x.carrier_company_cd == group.Key.carrier_company_cd &&
-                        x.orig_date == group.Key.orig_date
-                        //x.arriving_date == group.Key.arriving_date &&
-                        //x.dest_cd == group.Key.dest_cd
-                        ).FirstOrDefault();
+                    var query = this.CalcWkDs.t_detail_wk
+                        .Where(r => r.contract_type == ((int)CnContractType.ByVehicle).ToString())
+                        .GroupBy(x => new {
+                            x.calc_ym,
+                            x.contract_type,
+                            x.yuso_kbn,
+                            x.orig_warehouse_block_cd,
+                            x.orig_warehouse_cd,
+                            x.terminal_id,
+                            x.vehicle_id,
+                            x.yuso_mode_kbn,
+                            x.carrier_company_cd,
+                            x.orig_date
+                        });
 
-                    if (yusoWkRow == null )
+                    if (contractType == (int)CnContractType.ByItem)
                     {
-                        // TODO: エラー処理
-                        break;
+                        //query1 = this.CalcWkDs.t_detail_wk
+                        //    .Where(r => r.contract_type == ((int)CnContractType.ByItem).ToString())
+                        //    .GroupBy(x => new {
+                        //        x.calc_ym,
+                        //        x.contract_type,
+                        //        x.yuso_kbn,
+                        //        x.orig_warehouse_block_cd,
+                        //        x.orig_warehouse_cd,
+                        //        x.terminal_id,
+                        //        x.vehicle_id,
+                        //        x.dest_jis,
+                        //        x.dest_warehouse_cd,
+                        //        x.yuso_mode_kbn,
+                        //        x.carrier_company_cd,
+                        //        x.orig_date,
+                        //        x.arriving_date,
+                        //        x.dest_cd
+                        //    });
                     }
 
-                    var usoWkColNames = new List<String>()
+                    foreach (var group in query)
+                    {
+                        // get yusoWkRow by group key
+                        var yusoWkRow = this.CalcWkDs.t_yuso_wk.Where(x =>
+                            x.calc_ym == group.Key.calc_ym &&
+                            x.contract_type == group.Key.contract_type &&
+                            x.yuso_kbn == group.Key.yuso_kbn &&
+                            x.orig_warehouse_block_cd == group.Key.orig_warehouse_block_cd &&
+                            x.orig_warehouse_cd == group.Key.orig_warehouse_cd &&
+                            x.terminal_id == group.Key.terminal_id &&
+                            x.vehicle_id == group.Key.vehicle_id &&
+                            //x.dest_jis == group.Key.dest_jis &&
+                            //x.dest_warehouse_cd == group.Key.dest_warehouse_cd &&
+                            x.yuso_mode_kbn == group.Key.yuso_mode_kbn &&
+                            x.carrier_company_cd == group.Key.carrier_company_cd &&
+                            x.orig_date == group.Key.orig_date
+                            //x.arriving_date == group.Key.arriving_date &&
+                            //x.dest_cd == group.Key.dest_cd
+                            ).FirstOrDefault();
+
+                        if (yusoWkRow == null)
+                        {
+                            // TODO: エラー処理
+                            break;
+                        }
+
+                        var usoWkColNames = new List<String>()
                     {
                         "base_charge_amount",
                         "special_charge_amount",
@@ -772,58 +704,58 @@ namespace FareCalcLib
                         "other_charge_amount",
                         "actual_time_surcharge_amount"
                     };
-                    var sumAmounts = new Dictionary<String, Decimal>();
-                    var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
-                    //initialize dictionary
-                    usoWkColNames.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
-                    usoWkColNames.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
+                        var sumAmounts = new Dictionary<String, Decimal>();
+                        var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
+                        //initialize dictionary
+                        usoWkColNames.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
+                        usoWkColNames.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
 
-                    foreach (var detailRow in group)
-                    {
-                        usoWkColNames.ForEach(usoWkColname => 
+                        foreach (var detailRow in group)
                         {
-                            if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
+                            usoWkColNames.ForEach(usoWkColname =>
+                            {
+                                if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
+                                {
+                                    var detailColName = "distributed_" + usoWkColname;
+                                    var devidedlAmount = Decimal.Floor(
+                                                            (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
+                                    detailRow[detailColName] = devidedlAmount;
+
+                                    // add to summary
+                                    sumAmounts[detailColName] += devidedlAmount;
+
+                                    // set id and value if amount is greater than before
+                                    if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
+                                    {
+                                        maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
+                                    }
+                                }
+                            });
+                        }
+
+                        // compare yuso amount to max detail sum amount. if it's defferent, add the difference to row that has max amount
+                        usoWkColNames.ForEach(usoWkColname =>
+                        {
+                            if (!DBNull.Value.Equals(yusoWkRow[usoWkColname]))
                             {
                                 var detailColName = "distributed_" + usoWkColname;
-                                var devidedlAmount = Decimal.Floor(
-                                                        (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg );
-                                detailRow[detailColName] = devidedlAmount;
-
-                                // add to summary
-                                sumAmounts[detailColName] += devidedlAmount;
-
-                                // set id and value if amount is greater than before
-                                if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
+                                var defference = Decimal.Parse(yusoWkRow[usoWkColname].ToString()) - sumAmounts[detailColName];
+                                if (defference != 0)
                                 {
-                                    maxAmountInfo[detailColName] = new Dictionary<String, Decimal>(){ {"DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
+                                    var maxAmountRow = group.Where(x => x.detail_id == maxAmountInfo[detailColName]["DetailId"]).FirstOrDefault();
+                                    maxAmountRow[detailColName] = Decimal.Parse(maxAmountRow[detailColName].ToString()) + defference;
                                 }
                             }
                         });
-                    }
 
-                    // compare yuso amount to max detail sum amount. if it's defferent, add the difference to row that has max amount
-                    usoWkColNames.ForEach(usoWkColname =>
-                    {
-                        if (!DBNull.Value.Equals(yusoWkRow[usoWkColname]))
+                        // set total amount
+                        foreach (var detailRow in group)
                         {
-                            var detailColName = "distributed_" + usoWkColname;
-                            var defference = Decimal.Parse(yusoWkRow[usoWkColname].ToString()) - sumAmounts[detailColName];
-                            if (defference != 0)
-                            {
-                                var maxAmountRow = group.Where(x => x.detail_id == maxAmountInfo[detailColName]["DetailId"]).FirstOrDefault();
-                                maxAmountRow[detailColName] = Decimal.Parse(maxAmountRow[detailColName].ToString()) + defference;
-                            }
+                            detailRow.distributed_total_charge_amount = 0;  // TODO: Not Null制約入れる
+                            usoWkColNames.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
                         }
-                    });
-
-                    // set total amount
-                    foreach (var detailRow in group)
-                    {
-                        detailRow.distributed_total_charge_amount = 0;  // TODO: Not Null制約入れる
-                        usoWkColNames.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
                     }
-                }
-
+                });
             }
             catch (Exception)
             {

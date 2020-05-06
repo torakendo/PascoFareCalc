@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FareCalcLib
 {
-    class Constants
+    public class Constants
     {
         //public static Dictionary<string, short> CalcStatus = new Dictionary<string, short>()
         //{
@@ -57,5 +57,21 @@ namespace FareCalcLib
             public const string FuelCharge = "06";
             public const string Other = "11";
         }
+
+        public struct AxisKbn 
+        {
+            public const string WeightKg = "01";
+            public const string DistanceKm = "02";
+            public const string TimeMins = "03";
+            public const string YusoMeans = "04";
+        }
+
+        //public struct KeisanValueColumnName
+        //{
+        //    public const string WeightKg = "weight_sum_kg";
+        //    public const string DistanceKm = "distance_km";
+        //    public const string TimeMins = "time_mins";
+        //    public const string YusoMeans = "yuso_means_kbn";
+        //}
     }
 }

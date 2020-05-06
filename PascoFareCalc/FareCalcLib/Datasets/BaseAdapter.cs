@@ -24,12 +24,12 @@ namespace FareCalcLib.Datasets
             }
         }
 
-        public void SetTransaction(SqlTransaction sqlTrn)
+        public void SetUpdateBatchSize(int size)
         {
-            foreach (var cmd in InnerCommandCollection)
-            {
-                cmd.Transaction = sqlTrn;
-            }
+            this.InnerAdapter.UpdateBatchSize = size;
+            this.InnerAdapter.UpdateCommand.UpdatedRowSource = System.Data.UpdateRowSource.None;
+            this.InnerAdapter.InsertCommand.UpdatedRowSource = System.Data.UpdateRowSource.None;
+            this.InnerAdapter.DeleteCommand.UpdatedRowSource = System.Data.UpdateRowSource.None;
         }
     }
 }
