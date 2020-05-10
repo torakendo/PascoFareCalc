@@ -24,13 +24,15 @@ namespace FareCalcLib
 
         public enum CnContractType : short
         {
+            // TODO: 文字列コードに変更
             ByVehicle = 1,
             ByItem = 2
         }
 
         public enum CnTariffAxisKbn : short
         {
-            Vertial = 0,
+            // TODO: 文字列コードに変更
+            Vertical = 0,
             Horizontal = 1
         }
 

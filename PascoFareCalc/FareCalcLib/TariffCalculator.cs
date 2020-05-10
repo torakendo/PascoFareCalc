@@ -7,19 +7,27 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
 using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace FareCalcLib
 {
     public class TariffCalculator
     {
+        private SqlConnection connection;
+
+        public TariffCalculator(SqlConnection connection)
+        {
+            this.connection = connection;
+        }
 
         public Datasets.Tariff GetTariffDataset(int tariffId)
         {
             var tariffDs = new Tariff();
             var tariffInfoAdp = new m_tariff_infoTableAdapter();
-            tariffInfoAdp.ClearBeforeFill = true;
+            tariffInfoAdp.Connection = connection;
             var tariffDetailAdp = new m_tariff_detailTableAdapter();
-            tariffDetailAdp.ClearBeforeFill = true;
+            tariffDetailAdp.Connection = connection;
 
             var cntInfo = tariffInfoAdp.FillByTariffInfoId(tariffDs.m_tariff_info, tariffId);
             var cntDetail = tariffDetailAdp.FillByTriffInfoId(tariffDs.m_tariff_detail, tariffId);
@@ -36,7 +44,7 @@ namespace FareCalcLib
         {
             // TODO: get info from m_tariff_info
             var tariffInfo = tariffDs.m_tariff_info.First();
-            var axisKbnColName = tariffAxisKbn.ToString() + "_axis_kbn";
+            var axisKbnColName = tariffAxisKbn.ToString().ToLower() + "_axis_kbn";
             if (!tariffInfo.IsNull(axisKbnColName)) 
             {
                 string axisKvn = tariffInfo[axisKbnColName].ToString();
@@ -49,7 +57,7 @@ namespace FareCalcLib
                     case AxisKbn.TimeMins:
                         return calcVariables.TimeMinutes;
                     case AxisKbn.YusoMeans:
-                        return Decimal.Parse(calcVariables.YusoModeKbn);
+                        return Decimal.Parse(calcVariables.YusoMeansKbn);
                     default:
                         // TODO: data incorrect error
                         return 0;
@@ -62,10 +70,10 @@ namespace FareCalcLib
             }
         }
 
-        public Decimal GetTriffPrice(Tariff tariffDs, CalcVariables calcVariables)
+        public Decimal GetPrice(Tariff tariffDs, CalcVariables calcVariables)
         {
             // get column value
-            Decimal vertialValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Vertial);
+            Decimal vertialValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Vertical);
             Decimal horizontalValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Horizontal);
 
             var tariffDetailQuery = tariffDs.m_tariff_detail
@@ -95,12 +103,12 @@ namespace FareCalcLib
 
         }
 
-        public Decimal GetTriffPrice(int tariffId, CalcVariables calcVariables)
+        public Decimal GetPrice(int tariffId, CalcVariables calcVariables)
         {
             if (!DBNull.Value.Equals(tariffId))
             {
                 var tariffDs = GetTariffDataset(tariffId);
-                return GetTriffPrice(tariffDs, calcVariables);
+                return GetPrice(tariffDs, calcVariables);
             }
             return 0;
 

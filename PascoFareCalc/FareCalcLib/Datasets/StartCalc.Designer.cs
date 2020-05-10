@@ -24,9 +24,9 @@ namespace FareCalcLib.Datasets {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class StartCalc : global::System.Data.DataSet {
         
-        private t_yusoDataTable tablet_yuso;
-        
         private t_yuso_wkDataTable tablet_yuso_wk;
+        
+        private t_yusoDataTable tablet_yuso;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -56,11 +56,11 @@ namespace FareCalcLib.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["t_yuso"] != null)) {
-                    base.Tables.Add(new t_yusoDataTable(ds.Tables["t_yuso"]));
-                }
                 if ((ds.Tables["t_yuso_wk"] != null)) {
                     base.Tables.Add(new t_yuso_wkDataTable(ds.Tables["t_yuso_wk"]));
+                }
+                if ((ds.Tables["t_yuso"] != null)) {
+                    base.Tables.Add(new t_yusoDataTable(ds.Tables["t_yuso"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -84,9 +84,9 @@ namespace FareCalcLib.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public t_yusoDataTable t_yuso {
+        public t_yuso_wkDataTable t_yuso_wk {
             get {
-                return this.tablet_yuso;
+                return this.tablet_yuso_wk;
             }
         }
         
@@ -94,9 +94,9 @@ namespace FareCalcLib.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public t_yuso_wkDataTable t_yuso_wk {
+        public t_yusoDataTable t_yuso {
             get {
-                return this.tablet_yuso_wk;
+                return this.tablet_yuso;
             }
         }
         
@@ -167,11 +167,11 @@ namespace FareCalcLib.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["t_yuso"] != null)) {
-                    base.Tables.Add(new t_yusoDataTable(ds.Tables["t_yuso"]));
-                }
                 if ((ds.Tables["t_yuso_wk"] != null)) {
                     base.Tables.Add(new t_yuso_wkDataTable(ds.Tables["t_yuso_wk"]));
+                }
+                if ((ds.Tables["t_yuso"] != null)) {
+                    base.Tables.Add(new t_yusoDataTable(ds.Tables["t_yuso"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +206,16 @@ namespace FareCalcLib.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablet_yuso = ((t_yusoDataTable)(base.Tables["t_yuso"]));
-            if ((initTable == true)) {
-                if ((this.tablet_yuso != null)) {
-                    this.tablet_yuso.InitVars();
-                }
-            }
             this.tablet_yuso_wk = ((t_yuso_wkDataTable)(base.Tables["t_yuso_wk"]));
             if ((initTable == true)) {
                 if ((this.tablet_yuso_wk != null)) {
                     this.tablet_yuso_wk.InitVars();
+                }
+            }
+            this.tablet_yuso = ((t_yusoDataTable)(base.Tables["t_yuso"]));
+            if ((initTable == true)) {
+                if ((this.tablet_yuso != null)) {
+                    this.tablet_yuso.InitVars();
                 }
             }
         }
@@ -228,21 +228,21 @@ namespace FareCalcLib.Datasets {
             this.Namespace = "http://tempuri.org/StartCalc.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablet_yuso = new t_yusoDataTable();
-            base.Tables.Add(this.tablet_yuso);
             this.tablet_yuso_wk = new t_yuso_wkDataTable();
             base.Tables.Add(this.tablet_yuso_wk);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializet_yuso() {
-            return false;
+            this.tablet_yuso = new t_yusoDataTable();
+            base.Tables.Add(this.tablet_yuso);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializet_yuso_wk() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializet_yuso() {
             return false;
         }
         
@@ -302,795 +302,10 @@ namespace FareCalcLib.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void t_yusoRowChangeEventHandler(object sender, t_yusoRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void t_yuso_wkRowChangeEventHandler(object sender, t_yuso_wkRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class t_yusoDataTable : global::System.Data.TypedTableBase<t_yusoRow> {
-            
-            private global::System.Data.DataColumn columncalc_ym;
-            
-            private global::System.Data.DataColumn columncontract_type;
-            
-            private global::System.Data.DataColumn columnyuso_kbn;
-            
-            private global::System.Data.DataColumn columnorig_warehouse_block_cd;
-            
-            private global::System.Data.DataColumn columnorig_warehouse_cd;
-            
-            private global::System.Data.DataColumn columnterminal_id;
-            
-            private global::System.Data.DataColumn columnvehicle_id;
-            
-            private global::System.Data.DataColumn columndest_jis;
-            
-            private global::System.Data.DataColumn columndest_warehouse_cd;
-            
-            private global::System.Data.DataColumn columnyuso_mode_kbn;
-            
-            private global::System.Data.DataColumn columncarrier_company_cd;
-            
-            private global::System.Data.DataColumn columnorig_date;
-            
-            private global::System.Data.DataColumn columnarriving_date;
-            
-            private global::System.Data.DataColumn columndest_cd;
-            
-            private global::System.Data.DataColumn columnbase_charge_amount;
-            
-            private global::System.Data.DataColumn columnspecial_charge_amount;
-            
-            private global::System.Data.DataColumn columnstopping_charge_amount;
-            
-            private global::System.Data.DataColumn columncargo_charge_amount;
-            
-            private global::System.Data.DataColumn columnother_charge_amount;
-            
-            private global::System.Data.DataColumn columnactual_distance_km;
-            
-            private global::System.Data.DataColumn columnactual_time_mins;
-            
-            private global::System.Data.DataColumn columnactual_time_surcharge_amount;
-            
-            private global::System.Data.DataColumn columncalc_status;
-            
-            private global::System.Data.DataColumn columnverify_status;
-            
-            private global::System.Data.DataColumn columncalc_no;
-            
-            private global::System.Data.DataColumn columnlast_calc_at;
-            
-            private global::System.Data.DataColumn columncreated_at;
-            
-            private global::System.Data.DataColumn columncreated_user_id;
-            
-            private global::System.Data.DataColumn columnupdated_at;
-            
-            private global::System.Data.DataColumn columnupdated_user_id;
-            
-            private global::System.Data.DataColumn columnweight_sum_kg;
-            
-            private global::System.Data.DataColumn columntotal_charge_amount;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoDataTable() {
-                this.TableName = "t_yuso";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal t_yusoDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected t_yusoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn calc_ymColumn {
-                get {
-                    return this.columncalc_ym;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn contract_typeColumn {
-                get {
-                    return this.columncontract_type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn yuso_kbnColumn {
-                get {
-                    return this.columnyuso_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn orig_warehouse_block_cdColumn {
-                get {
-                    return this.columnorig_warehouse_block_cd;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn orig_warehouse_cdColumn {
-                get {
-                    return this.columnorig_warehouse_cd;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn terminal_idColumn {
-                get {
-                    return this.columnterminal_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vehicle_idColumn {
-                get {
-                    return this.columnvehicle_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn dest_jisColumn {
-                get {
-                    return this.columndest_jis;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn dest_warehouse_cdColumn {
-                get {
-                    return this.columndest_warehouse_cd;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn yuso_mode_kbnColumn {
-                get {
-                    return this.columnyuso_mode_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn carrier_company_cdColumn {
-                get {
-                    return this.columncarrier_company_cd;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn orig_dateColumn {
-                get {
-                    return this.columnorig_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn arriving_dateColumn {
-                get {
-                    return this.columnarriving_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn dest_cdColumn {
-                get {
-                    return this.columndest_cd;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn base_charge_amountColumn {
-                get {
-                    return this.columnbase_charge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn special_charge_amountColumn {
-                get {
-                    return this.columnspecial_charge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn stopping_charge_amountColumn {
-                get {
-                    return this.columnstopping_charge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cargo_charge_amountColumn {
-                get {
-                    return this.columncargo_charge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn other_charge_amountColumn {
-                get {
-                    return this.columnother_charge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn actual_distance_kmColumn {
-                get {
-                    return this.columnactual_distance_km;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn actual_time_minsColumn {
-                get {
-                    return this.columnactual_time_mins;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn actual_time_surcharge_amountColumn {
-                get {
-                    return this.columnactual_time_surcharge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn calc_statusColumn {
-                get {
-                    return this.columncalc_status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn verify_statusColumn {
-                get {
-                    return this.columnverify_status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn calc_noColumn {
-                get {
-                    return this.columncalc_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn last_calc_atColumn {
-                get {
-                    return this.columnlast_calc_at;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn created_atColumn {
-                get {
-                    return this.columncreated_at;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn created_user_idColumn {
-                get {
-                    return this.columncreated_user_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn updated_atColumn {
-                get {
-                    return this.columnupdated_at;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn updated_user_idColumn {
-                get {
-                    return this.columnupdated_user_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn weight_sum_kgColumn {
-                get {
-                    return this.columnweight_sum_kg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn total_charge_amountColumn {
-                get {
-                    return this.columntotal_charge_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoRow this[int index] {
-                get {
-                    return ((t_yusoRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event t_yusoRowChangeEventHandler t_yusoRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event t_yusoRowChangeEventHandler t_yusoRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event t_yusoRowChangeEventHandler t_yusoRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event t_yusoRowChangeEventHandler t_yusoRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addt_yusoRow(t_yusoRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoRow Addt_yusoRow(
-                        string calc_ym, 
-                        string contract_type, 
-                        string yuso_kbn, 
-                        string orig_warehouse_block_cd, 
-                        string orig_warehouse_cd, 
-                        string terminal_id, 
-                        string vehicle_id, 
-                        string dest_jis, 
-                        string dest_warehouse_cd, 
-                        string yuso_mode_kbn, 
-                        string carrier_company_cd, 
-                        System.DateTime orig_date, 
-                        System.DateTime arriving_date, 
-                        string dest_cd, 
-                        decimal base_charge_amount, 
-                        decimal special_charge_amount, 
-                        decimal stopping_charge_amount, 
-                        decimal cargo_charge_amount, 
-                        decimal other_charge_amount, 
-                        decimal actual_distance_km, 
-                        decimal actual_time_mins, 
-                        decimal actual_time_surcharge_amount, 
-                        short calc_status, 
-                        short verify_status, 
-                        int calc_no, 
-                        System.DateTime last_calc_at, 
-                        System.DateTime created_at, 
-                        string created_user_id, 
-                        System.DateTime updated_at, 
-                        string updated_user_id, 
-                        decimal weight_sum_kg, 
-                        decimal total_charge_amount) {
-                t_yusoRow rowt_yusoRow = ((t_yusoRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        calc_ym,
-                        contract_type,
-                        yuso_kbn,
-                        orig_warehouse_block_cd,
-                        orig_warehouse_cd,
-                        terminal_id,
-                        vehicle_id,
-                        dest_jis,
-                        dest_warehouse_cd,
-                        yuso_mode_kbn,
-                        carrier_company_cd,
-                        orig_date,
-                        arriving_date,
-                        dest_cd,
-                        base_charge_amount,
-                        special_charge_amount,
-                        stopping_charge_amount,
-                        cargo_charge_amount,
-                        other_charge_amount,
-                        actual_distance_km,
-                        actual_time_mins,
-                        actual_time_surcharge_amount,
-                        calc_status,
-                        verify_status,
-                        calc_no,
-                        last_calc_at,
-                        created_at,
-                        created_user_id,
-                        updated_at,
-                        updated_user_id,
-                        weight_sum_kg,
-                        total_charge_amount};
-                rowt_yusoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowt_yusoRow);
-                return rowt_yusoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoRow FindBycalc_ymcontract_typeyuso_kbnorig_warehouse_block_cdorig_warehouse_cdterminal_idvehicle_iddest_jisdest_warehouse_cdyuso_mode_kbncarrier_company_cdorig_datearriving_datedest_cd(string calc_ym, string contract_type, string yuso_kbn, string orig_warehouse_block_cd, string orig_warehouse_cd, string terminal_id, string vehicle_id, string dest_jis, string dest_warehouse_cd, string yuso_mode_kbn, string carrier_company_cd, System.DateTime orig_date, System.DateTime arriving_date, string dest_cd) {
-                return ((t_yusoRow)(this.Rows.Find(new object[] {
-                            calc_ym,
-                            contract_type,
-                            yuso_kbn,
-                            orig_warehouse_block_cd,
-                            orig_warehouse_cd,
-                            terminal_id,
-                            vehicle_id,
-                            dest_jis,
-                            dest_warehouse_cd,
-                            yuso_mode_kbn,
-                            carrier_company_cd,
-                            orig_date,
-                            arriving_date,
-                            dest_cd})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                t_yusoDataTable cln = ((t_yusoDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new t_yusoDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columncalc_ym = base.Columns["calc_ym"];
-                this.columncontract_type = base.Columns["contract_type"];
-                this.columnyuso_kbn = base.Columns["yuso_kbn"];
-                this.columnorig_warehouse_block_cd = base.Columns["orig_warehouse_block_cd"];
-                this.columnorig_warehouse_cd = base.Columns["orig_warehouse_cd"];
-                this.columnterminal_id = base.Columns["terminal_id"];
-                this.columnvehicle_id = base.Columns["vehicle_id"];
-                this.columndest_jis = base.Columns["dest_jis"];
-                this.columndest_warehouse_cd = base.Columns["dest_warehouse_cd"];
-                this.columnyuso_mode_kbn = base.Columns["yuso_mode_kbn"];
-                this.columncarrier_company_cd = base.Columns["carrier_company_cd"];
-                this.columnorig_date = base.Columns["orig_date"];
-                this.columnarriving_date = base.Columns["arriving_date"];
-                this.columndest_cd = base.Columns["dest_cd"];
-                this.columnbase_charge_amount = base.Columns["base_charge_amount"];
-                this.columnspecial_charge_amount = base.Columns["special_charge_amount"];
-                this.columnstopping_charge_amount = base.Columns["stopping_charge_amount"];
-                this.columncargo_charge_amount = base.Columns["cargo_charge_amount"];
-                this.columnother_charge_amount = base.Columns["other_charge_amount"];
-                this.columnactual_distance_km = base.Columns["actual_distance_km"];
-                this.columnactual_time_mins = base.Columns["actual_time_mins"];
-                this.columnactual_time_surcharge_amount = base.Columns["actual_time_surcharge_amount"];
-                this.columncalc_status = base.Columns["calc_status"];
-                this.columnverify_status = base.Columns["verify_status"];
-                this.columncalc_no = base.Columns["calc_no"];
-                this.columnlast_calc_at = base.Columns["last_calc_at"];
-                this.columncreated_at = base.Columns["created_at"];
-                this.columncreated_user_id = base.Columns["created_user_id"];
-                this.columnupdated_at = base.Columns["updated_at"];
-                this.columnupdated_user_id = base.Columns["updated_user_id"];
-                this.columnweight_sum_kg = base.Columns["weight_sum_kg"];
-                this.columntotal_charge_amount = base.Columns["total_charge_amount"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columncalc_ym = new global::System.Data.DataColumn("calc_ym", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncalc_ym);
-                this.columncontract_type = new global::System.Data.DataColumn("contract_type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncontract_type);
-                this.columnyuso_kbn = new global::System.Data.DataColumn("yuso_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyuso_kbn);
-                this.columnorig_warehouse_block_cd = new global::System.Data.DataColumn("orig_warehouse_block_cd", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorig_warehouse_block_cd);
-                this.columnorig_warehouse_cd = new global::System.Data.DataColumn("orig_warehouse_cd", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorig_warehouse_cd);
-                this.columnterminal_id = new global::System.Data.DataColumn("terminal_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnterminal_id);
-                this.columnvehicle_id = new global::System.Data.DataColumn("vehicle_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvehicle_id);
-                this.columndest_jis = new global::System.Data.DataColumn("dest_jis", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndest_jis);
-                this.columndest_warehouse_cd = new global::System.Data.DataColumn("dest_warehouse_cd", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndest_warehouse_cd);
-                this.columnyuso_mode_kbn = new global::System.Data.DataColumn("yuso_mode_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyuso_mode_kbn);
-                this.columncarrier_company_cd = new global::System.Data.DataColumn("carrier_company_cd", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncarrier_company_cd);
-                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorig_date);
-                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnarriving_date);
-                this.columndest_cd = new global::System.Data.DataColumn("dest_cd", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndest_cd);
-                this.columnbase_charge_amount = new global::System.Data.DataColumn("base_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbase_charge_amount);
-                this.columnspecial_charge_amount = new global::System.Data.DataColumn("special_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnspecial_charge_amount);
-                this.columnstopping_charge_amount = new global::System.Data.DataColumn("stopping_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstopping_charge_amount);
-                this.columncargo_charge_amount = new global::System.Data.DataColumn("cargo_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncargo_charge_amount);
-                this.columnother_charge_amount = new global::System.Data.DataColumn("other_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnother_charge_amount);
-                this.columnactual_distance_km = new global::System.Data.DataColumn("actual_distance_km", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnactual_distance_km);
-                this.columnactual_time_mins = new global::System.Data.DataColumn("actual_time_mins", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnactual_time_mins);
-                this.columnactual_time_surcharge_amount = new global::System.Data.DataColumn("actual_time_surcharge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnactual_time_surcharge_amount);
-                this.columncalc_status = new global::System.Data.DataColumn("calc_status", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncalc_status);
-                this.columnverify_status = new global::System.Data.DataColumn("verify_status", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnverify_status);
-                this.columncalc_no = new global::System.Data.DataColumn("calc_no", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncalc_no);
-                this.columnlast_calc_at = new global::System.Data.DataColumn("last_calc_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlast_calc_at);
-                this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncreated_at);
-                this.columncreated_user_id = new global::System.Data.DataColumn("created_user_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncreated_user_id);
-                this.columnupdated_at = new global::System.Data.DataColumn("updated_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnupdated_at);
-                this.columnupdated_user_id = new global::System.Data.DataColumn("updated_user_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnupdated_user_id);
-                this.columnweight_sum_kg = new global::System.Data.DataColumn("weight_sum_kg", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight_sum_kg);
-                this.columntotal_charge_amount = new global::System.Data.DataColumn("total_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal_charge_amount);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncalc_ym,
-                                this.columncontract_type,
-                                this.columnyuso_kbn,
-                                this.columnorig_warehouse_block_cd,
-                                this.columnorig_warehouse_cd,
-                                this.columnterminal_id,
-                                this.columnvehicle_id,
-                                this.columndest_jis,
-                                this.columndest_warehouse_cd,
-                                this.columnyuso_mode_kbn,
-                                this.columncarrier_company_cd,
-                                this.columnorig_date,
-                                this.columnarriving_date,
-                                this.columndest_cd}, true));
-                this.columncalc_ym.AllowDBNull = false;
-                this.columncalc_ym.MaxLength = 10;
-                this.columncontract_type.AllowDBNull = false;
-                this.columncontract_type.MaxLength = 10;
-                this.columnyuso_kbn.AllowDBNull = false;
-                this.columnyuso_kbn.MaxLength = 10;
-                this.columnorig_warehouse_block_cd.AllowDBNull = false;
-                this.columnorig_warehouse_block_cd.MaxLength = 10;
-                this.columnorig_warehouse_cd.AllowDBNull = false;
-                this.columnorig_warehouse_cd.MaxLength = 10;
-                this.columnterminal_id.AllowDBNull = false;
-                this.columnterminal_id.MaxLength = 10;
-                this.columnvehicle_id.AllowDBNull = false;
-                this.columnvehicle_id.MaxLength = 10;
-                this.columndest_jis.AllowDBNull = false;
-                this.columndest_jis.MaxLength = 10;
-                this.columndest_warehouse_cd.AllowDBNull = false;
-                this.columndest_warehouse_cd.MaxLength = 10;
-                this.columnyuso_mode_kbn.AllowDBNull = false;
-                this.columnyuso_mode_kbn.MaxLength = 10;
-                this.columncarrier_company_cd.AllowDBNull = false;
-                this.columncarrier_company_cd.MaxLength = 10;
-                this.columnorig_date.AllowDBNull = false;
-                this.columnarriving_date.AllowDBNull = false;
-                this.columndest_cd.AllowDBNull = false;
-                this.columndest_cd.MaxLength = 10;
-                this.columnbase_charge_amount.AllowDBNull = false;
-                this.columnspecial_charge_amount.AllowDBNull = false;
-                this.columnstopping_charge_amount.AllowDBNull = false;
-                this.columncargo_charge_amount.AllowDBNull = false;
-                this.columnother_charge_amount.AllowDBNull = false;
-                this.columnactual_time_surcharge_amount.AllowDBNull = false;
-                this.columncalc_status.AllowDBNull = false;
-                this.columnverify_status.AllowDBNull = false;
-                this.columncreated_user_id.MaxLength = 10;
-                this.columnupdated_user_id.MaxLength = 10;
-                this.columntotal_charge_amount.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoRow Newt_yusoRow() {
-                return ((t_yusoRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new t_yusoRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(t_yusoRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.t_yusoRowChanged != null)) {
-                    this.t_yusoRowChanged(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.t_yusoRowChanging != null)) {
-                    this.t_yusoRowChanging(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.t_yusoRowDeleted != null)) {
-                    this.t_yusoRowDeleted(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.t_yusoRowDeleting != null)) {
-                    this.t_yusoRowDeleting(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removet_yusoRow(t_yusoRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                StartCalc ds = new StartCalc();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "t_yusoDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void t_yusoRowChangeEventHandler(object sender, t_yusoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1101,6 +316,8 @@ namespace FareCalcLib.Datasets {
             
             private global::System.Data.DataColumn columncalc_no;
             
+            private global::System.Data.DataColumn columnyuso_id;
+            
             private global::System.Data.DataColumn columncalc_ym;
             
             private global::System.Data.DataColumn columncontract_type;
@@ -1152,6 +369,8 @@ namespace FareCalcLib.Datasets {
             private global::System.Data.DataColumn columncalc_status;
             
             private global::System.Data.DataColumn columnverify_status;
+            
+            private global::System.Data.DataColumn columnyuso_key;
             
             private global::System.Data.DataColumn columncreated_at;
             
@@ -1204,6 +423,14 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn yuso_idColumn {
+                get {
+                    return this.columnyuso_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn calc_ymColumn {
                 get {
                     return this.columncalc_ym;
@@ -1407,6 +634,14 @@ namespace FareCalcLib.Datasets {
             public global::System.Data.DataColumn verify_statusColumn {
                 get {
                     return this.columnverify_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn yuso_keyColumn {
+                get {
+                    return this.columnyuso_key;
                 }
             }
             
@@ -1481,6 +716,7 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public t_yuso_wkRow Addt_yuso_wkRow(
                         int calc_no, 
+                        int yuso_id, 
                         string calc_ym, 
                         string contract_type, 
                         string yuso_kbn, 
@@ -1507,6 +743,7 @@ namespace FareCalcLib.Datasets {
                         decimal total_charge_amount, 
                         short calc_status, 
                         short verify_status, 
+                        string yuso_key, 
                         System.DateTime created_at, 
                         string created_user_id, 
                         System.DateTime updated_at, 
@@ -1514,6 +751,7 @@ namespace FareCalcLib.Datasets {
                 t_yuso_wkRow rowt_yuso_wkRow = ((t_yuso_wkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         calc_no,
+                        yuso_id,
                         calc_ym,
                         contract_type,
                         yuso_kbn,
@@ -1540,6 +778,7 @@ namespace FareCalcLib.Datasets {
                         total_charge_amount,
                         calc_status,
                         verify_status,
+                        yuso_key,
                         created_at,
                         created_user_id,
                         updated_at,
@@ -1551,23 +790,10 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yuso_wkRow FindBycalc_nocalc_ymcontract_typeyuso_kbnorig_warehouse_block_cdorig_warehouse_cdterminal_idvehicle_iddest_jisdest_warehouse_cdyuso_mode_kbncarrier_company_cdorig_datearriving_datedest_cd(int calc_no, string calc_ym, string contract_type, string yuso_kbn, string orig_warehouse_block_cd, string orig_warehouse_cd, string terminal_id, string vehicle_id, string dest_jis, string dest_warehouse_cd, string yuso_mode_kbn, string carrier_company_cd, System.DateTime orig_date, System.DateTime arriving_date, string dest_cd) {
+            public t_yuso_wkRow FindBycalc_noyuso_id(int calc_no, int yuso_id) {
                 return ((t_yuso_wkRow)(this.Rows.Find(new object[] {
                             calc_no,
-                            calc_ym,
-                            contract_type,
-                            yuso_kbn,
-                            orig_warehouse_block_cd,
-                            orig_warehouse_cd,
-                            terminal_id,
-                            vehicle_id,
-                            dest_jis,
-                            dest_warehouse_cd,
-                            yuso_mode_kbn,
-                            carrier_company_cd,
-                            orig_date,
-                            arriving_date,
-                            dest_cd})));
+                            yuso_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1588,6 +814,7 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columncalc_no = base.Columns["calc_no"];
+                this.columnyuso_id = base.Columns["yuso_id"];
                 this.columncalc_ym = base.Columns["calc_ym"];
                 this.columncontract_type = base.Columns["contract_type"];
                 this.columnyuso_kbn = base.Columns["yuso_kbn"];
@@ -1614,6 +841,7 @@ namespace FareCalcLib.Datasets {
                 this.columntotal_charge_amount = base.Columns["total_charge_amount"];
                 this.columncalc_status = base.Columns["calc_status"];
                 this.columnverify_status = base.Columns["verify_status"];
+                this.columnyuso_key = base.Columns["yuso_key"];
                 this.columncreated_at = base.Columns["created_at"];
                 this.columncreated_user_id = base.Columns["created_user_id"];
                 this.columnupdated_at = base.Columns["updated_at"];
@@ -1625,6 +853,8 @@ namespace FareCalcLib.Datasets {
             private void InitClass() {
                 this.columncalc_no = new global::System.Data.DataColumn("calc_no", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncalc_no);
+                this.columnyuso_id = new global::System.Data.DataColumn("yuso_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_id);
                 this.columncalc_ym = new global::System.Data.DataColumn("calc_ym", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncalc_ym);
                 this.columncontract_type = new global::System.Data.DataColumn("contract_type", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1677,6 +907,8 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columncalc_status);
                 this.columnverify_status = new global::System.Data.DataColumn("verify_status", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnverify_status);
+                this.columnyuso_key = new global::System.Data.DataColumn("yuso_key", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_key);
                 this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreated_at);
                 this.columncreated_user_id = new global::System.Data.DataColumn("created_user_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1687,21 +919,9 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnupdated_user_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncalc_no,
-                                this.columncalc_ym,
-                                this.columncontract_type,
-                                this.columnyuso_kbn,
-                                this.columnorig_warehouse_block_cd,
-                                this.columnorig_warehouse_cd,
-                                this.columnterminal_id,
-                                this.columnvehicle_id,
-                                this.columndest_jis,
-                                this.columndest_warehouse_cd,
-                                this.columnyuso_mode_kbn,
-                                this.columncarrier_company_cd,
-                                this.columnorig_date,
-                                this.columnarriving_date,
-                                this.columndest_cd}, true));
+                                this.columnyuso_id}, true));
                 this.columncalc_no.AllowDBNull = false;
+                this.columnyuso_id.AllowDBNull = false;
                 this.columncalc_ym.AllowDBNull = false;
                 this.columncalc_ym.MaxLength = 10;
                 this.columncontract_type.AllowDBNull = false;
@@ -1737,6 +957,8 @@ namespace FareCalcLib.Datasets {
                 this.columntotal_charge_amount.AllowDBNull = false;
                 this.columncalc_status.AllowDBNull = false;
                 this.columnverify_status.AllowDBNull = false;
+                this.columnyuso_key.AllowDBNull = false;
+                this.columnyuso_key.MaxLength = 20;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
             }
@@ -1866,522 +1088,798 @@ namespace FareCalcLib.Datasets {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class t_yusoRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class t_yusoDataTable : global::System.Data.TypedTableBase<t_yusoRow> {
             
-            private t_yusoDataTable tablet_yuso;
+            private global::System.Data.DataColumn columnyuso_id;
+            
+            private global::System.Data.DataColumn columncalc_ym;
+            
+            private global::System.Data.DataColumn columncontract_type;
+            
+            private global::System.Data.DataColumn columnyuso_kbn;
+            
+            private global::System.Data.DataColumn columnorig_warehouse_block_cd;
+            
+            private global::System.Data.DataColumn columnorig_warehouse_cd;
+            
+            private global::System.Data.DataColumn columnterminal_id;
+            
+            private global::System.Data.DataColumn columnvehicle_id;
+            
+            private global::System.Data.DataColumn columndest_jis;
+            
+            private global::System.Data.DataColumn columndest_warehouse_cd;
+            
+            private global::System.Data.DataColumn columnyuso_mode_kbn;
+            
+            private global::System.Data.DataColumn columncarrier_company_cd;
+            
+            private global::System.Data.DataColumn columnorig_date;
+            
+            private global::System.Data.DataColumn columnarriving_date;
+            
+            private global::System.Data.DataColumn columndest_cd;
+            
+            private global::System.Data.DataColumn columnweight_sum_kg;
+            
+            private global::System.Data.DataColumn columnbase_charge_amount;
+            
+            private global::System.Data.DataColumn columnspecial_charge_amount;
+            
+            private global::System.Data.DataColumn columnstopping_charge_amount;
+            
+            private global::System.Data.DataColumn columncargo_charge_amount;
+            
+            private global::System.Data.DataColumn columnother_charge_amount;
+            
+            private global::System.Data.DataColumn columnactual_distance_km;
+            
+            private global::System.Data.DataColumn columnactual_time_mins;
+            
+            private global::System.Data.DataColumn columnactual_time_surcharge_amount;
+            
+            private global::System.Data.DataColumn columntotal_charge_amount;
+            
+            private global::System.Data.DataColumn columncalc_status;
+            
+            private global::System.Data.DataColumn columnverify_status;
+            
+            private global::System.Data.DataColumn columncalc_no;
+            
+            private global::System.Data.DataColumn columnlast_calc_at;
+            
+            private global::System.Data.DataColumn columnyuso_key;
+            
+            private global::System.Data.DataColumn columncreated_at;
+            
+            private global::System.Data.DataColumn columncreated_user_id;
+            
+            private global::System.Data.DataColumn columnupdated_at;
+            
+            private global::System.Data.DataColumn columnupdated_user_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal t_yusoRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablet_yuso = ((t_yusoDataTable)(this.Table));
+            public t_yusoDataTable() {
+                this.TableName = "t_yuso";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string calc_ym {
-                get {
-                    return ((string)(this[this.tablet_yuso.calc_ymColumn]));
+            internal t_yusoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
                 }
-                set {
-                    this[this.tablet_yuso.calc_ymColumn] = value;
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
                 }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string contract_type {
-                get {
-                    return ((string)(this[this.tablet_yuso.contract_typeColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.contract_typeColumn] = value;
-                }
+            protected t_yusoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string yuso_kbn {
+            public global::System.Data.DataColumn yuso_idColumn {
                 get {
-                    return ((string)(this[this.tablet_yuso.yuso_kbnColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.yuso_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string orig_warehouse_block_cd {
-                get {
-                    return ((string)(this[this.tablet_yuso.orig_warehouse_block_cdColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.orig_warehouse_block_cdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string orig_warehouse_cd {
-                get {
-                    return ((string)(this[this.tablet_yuso.orig_warehouse_cdColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.orig_warehouse_cdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string terminal_id {
-                get {
-                    return ((string)(this[this.tablet_yuso.terminal_idColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.terminal_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vehicle_id {
-                get {
-                    return ((string)(this[this.tablet_yuso.vehicle_idColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.vehicle_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string dest_jis {
-                get {
-                    return ((string)(this[this.tablet_yuso.dest_jisColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.dest_jisColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string dest_warehouse_cd {
-                get {
-                    return ((string)(this[this.tablet_yuso.dest_warehouse_cdColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.dest_warehouse_cdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string yuso_mode_kbn {
-                get {
-                    return ((string)(this[this.tablet_yuso.yuso_mode_kbnColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.yuso_mode_kbnColumn] = value;
+                    return this.columnyuso_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string carrier_company_cd {
+            public global::System.Data.DataColumn calc_ymColumn {
                 get {
-                    return ((string)(this[this.tablet_yuso.carrier_company_cdColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.carrier_company_cdColumn] = value;
+                    return this.columncalc_ym;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime orig_date {
+            public global::System.Data.DataColumn contract_typeColumn {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_yuso.orig_dateColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.orig_dateColumn] = value;
+                    return this.columncontract_type;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime arriving_date {
+            public global::System.Data.DataColumn yuso_kbnColumn {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_yuso.arriving_dateColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.arriving_dateColumn] = value;
+                    return this.columnyuso_kbn;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string dest_cd {
+            public global::System.Data.DataColumn orig_warehouse_block_cdColumn {
                 get {
-                    return ((string)(this[this.tablet_yuso.dest_cdColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.dest_cdColumn] = value;
+                    return this.columnorig_warehouse_block_cd;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal base_charge_amount {
+            public global::System.Data.DataColumn orig_warehouse_cdColumn {
                 get {
-                    return ((decimal)(this[this.tablet_yuso.base_charge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.base_charge_amountColumn] = value;
+                    return this.columnorig_warehouse_cd;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal special_charge_amount {
+            public global::System.Data.DataColumn terminal_idColumn {
                 get {
-                    return ((decimal)(this[this.tablet_yuso.special_charge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.special_charge_amountColumn] = value;
+                    return this.columnterminal_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal stopping_charge_amount {
+            public global::System.Data.DataColumn vehicle_idColumn {
                 get {
-                    return ((decimal)(this[this.tablet_yuso.stopping_charge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.stopping_charge_amountColumn] = value;
+                    return this.columnvehicle_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal cargo_charge_amount {
+            public global::System.Data.DataColumn dest_jisColumn {
                 get {
-                    return ((decimal)(this[this.tablet_yuso.cargo_charge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.cargo_charge_amountColumn] = value;
+                    return this.columndest_jis;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal other_charge_amount {
+            public global::System.Data.DataColumn dest_warehouse_cdColumn {
                 get {
-                    return ((decimal)(this[this.tablet_yuso.other_charge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.other_charge_amountColumn] = value;
+                    return this.columndest_warehouse_cd;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal actual_distance_km {
+            public global::System.Data.DataColumn yuso_mode_kbnColumn {
                 get {
+                    return this.columnyuso_mode_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn carrier_company_cdColumn {
+                get {
+                    return this.columncarrier_company_cd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn orig_dateColumn {
+                get {
+                    return this.columnorig_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn arriving_dateColumn {
+                get {
+                    return this.columnarriving_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dest_cdColumn {
+                get {
+                    return this.columndest_cd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn weight_sum_kgColumn {
+                get {
+                    return this.columnweight_sum_kg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn base_charge_amountColumn {
+                get {
+                    return this.columnbase_charge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn special_charge_amountColumn {
+                get {
+                    return this.columnspecial_charge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn stopping_charge_amountColumn {
+                get {
+                    return this.columnstopping_charge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cargo_charge_amountColumn {
+                get {
+                    return this.columncargo_charge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn other_charge_amountColumn {
+                get {
+                    return this.columnother_charge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn actual_distance_kmColumn {
+                get {
+                    return this.columnactual_distance_km;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn actual_time_minsColumn {
+                get {
+                    return this.columnactual_time_mins;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn actual_time_surcharge_amountColumn {
+                get {
+                    return this.columnactual_time_surcharge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn total_charge_amountColumn {
+                get {
+                    return this.columntotal_charge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn calc_statusColumn {
+                get {
+                    return this.columncalc_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn verify_statusColumn {
+                get {
+                    return this.columnverify_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn calc_noColumn {
+                get {
+                    return this.columncalc_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn last_calc_atColumn {
+                get {
+                    return this.columnlast_calc_at;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn yuso_keyColumn {
+                get {
+                    return this.columnyuso_key;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn created_atColumn {
+                get {
+                    return this.columncreated_at;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn created_user_idColumn {
+                get {
+                    return this.columncreated_user_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn updated_atColumn {
+                get {
+                    return this.columnupdated_at;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn updated_user_idColumn {
+                get {
+                    return this.columnupdated_user_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public t_yusoRow this[int index] {
+                get {
+                    return ((t_yusoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event t_yusoRowChangeEventHandler t_yusoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event t_yusoRowChangeEventHandler t_yusoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event t_yusoRowChangeEventHandler t_yusoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event t_yusoRowChangeEventHandler t_yusoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Addt_yusoRow(t_yusoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public t_yusoRow Addt_yusoRow(
+                        string calc_ym, 
+                        string contract_type, 
+                        string yuso_kbn, 
+                        string orig_warehouse_block_cd, 
+                        string orig_warehouse_cd, 
+                        string terminal_id, 
+                        string vehicle_id, 
+                        string dest_jis, 
+                        string dest_warehouse_cd, 
+                        string yuso_mode_kbn, 
+                        string carrier_company_cd, 
+                        System.DateTime orig_date, 
+                        System.DateTime arriving_date, 
+                        string dest_cd, 
+                        decimal weight_sum_kg, 
+                        decimal base_charge_amount, 
+                        decimal special_charge_amount, 
+                        decimal stopping_charge_amount, 
+                        decimal cargo_charge_amount, 
+                        decimal other_charge_amount, 
+                        decimal actual_distance_km, 
+                        decimal actual_time_mins, 
+                        decimal actual_time_surcharge_amount, 
+                        decimal total_charge_amount, 
+                        short calc_status, 
+                        short verify_status, 
+                        int calc_no, 
+                        System.DateTime last_calc_at, 
+                        string yuso_key, 
+                        System.DateTime created_at, 
+                        string created_user_id, 
+                        System.DateTime updated_at, 
+                        string updated_user_id) {
+                t_yusoRow rowt_yusoRow = ((t_yusoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        calc_ym,
+                        contract_type,
+                        yuso_kbn,
+                        orig_warehouse_block_cd,
+                        orig_warehouse_cd,
+                        terminal_id,
+                        vehicle_id,
+                        dest_jis,
+                        dest_warehouse_cd,
+                        yuso_mode_kbn,
+                        carrier_company_cd,
+                        orig_date,
+                        arriving_date,
+                        dest_cd,
+                        weight_sum_kg,
+                        base_charge_amount,
+                        special_charge_amount,
+                        stopping_charge_amount,
+                        cargo_charge_amount,
+                        other_charge_amount,
+                        actual_distance_km,
+                        actual_time_mins,
+                        actual_time_surcharge_amount,
+                        total_charge_amount,
+                        calc_status,
+                        verify_status,
+                        calc_no,
+                        last_calc_at,
+                        yuso_key,
+                        created_at,
+                        created_user_id,
+                        updated_at,
+                        updated_user_id};
+                rowt_yusoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowt_yusoRow);
+                return rowt_yusoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public t_yusoRow FindByyuso_id(int yuso_id) {
+                return ((t_yusoRow)(this.Rows.Find(new object[] {
+                            yuso_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                t_yusoDataTable cln = ((t_yusoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new t_yusoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnyuso_id = base.Columns["yuso_id"];
+                this.columncalc_ym = base.Columns["calc_ym"];
+                this.columncontract_type = base.Columns["contract_type"];
+                this.columnyuso_kbn = base.Columns["yuso_kbn"];
+                this.columnorig_warehouse_block_cd = base.Columns["orig_warehouse_block_cd"];
+                this.columnorig_warehouse_cd = base.Columns["orig_warehouse_cd"];
+                this.columnterminal_id = base.Columns["terminal_id"];
+                this.columnvehicle_id = base.Columns["vehicle_id"];
+                this.columndest_jis = base.Columns["dest_jis"];
+                this.columndest_warehouse_cd = base.Columns["dest_warehouse_cd"];
+                this.columnyuso_mode_kbn = base.Columns["yuso_mode_kbn"];
+                this.columncarrier_company_cd = base.Columns["carrier_company_cd"];
+                this.columnorig_date = base.Columns["orig_date"];
+                this.columnarriving_date = base.Columns["arriving_date"];
+                this.columndest_cd = base.Columns["dest_cd"];
+                this.columnweight_sum_kg = base.Columns["weight_sum_kg"];
+                this.columnbase_charge_amount = base.Columns["base_charge_amount"];
+                this.columnspecial_charge_amount = base.Columns["special_charge_amount"];
+                this.columnstopping_charge_amount = base.Columns["stopping_charge_amount"];
+                this.columncargo_charge_amount = base.Columns["cargo_charge_amount"];
+                this.columnother_charge_amount = base.Columns["other_charge_amount"];
+                this.columnactual_distance_km = base.Columns["actual_distance_km"];
+                this.columnactual_time_mins = base.Columns["actual_time_mins"];
+                this.columnactual_time_surcharge_amount = base.Columns["actual_time_surcharge_amount"];
+                this.columntotal_charge_amount = base.Columns["total_charge_amount"];
+                this.columncalc_status = base.Columns["calc_status"];
+                this.columnverify_status = base.Columns["verify_status"];
+                this.columncalc_no = base.Columns["calc_no"];
+                this.columnlast_calc_at = base.Columns["last_calc_at"];
+                this.columnyuso_key = base.Columns["yuso_key"];
+                this.columncreated_at = base.Columns["created_at"];
+                this.columncreated_user_id = base.Columns["created_user_id"];
+                this.columnupdated_at = base.Columns["updated_at"];
+                this.columnupdated_user_id = base.Columns["updated_user_id"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnyuso_id = new global::System.Data.DataColumn("yuso_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_id);
+                this.columncalc_ym = new global::System.Data.DataColumn("calc_ym", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncalc_ym);
+                this.columncontract_type = new global::System.Data.DataColumn("contract_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontract_type);
+                this.columnyuso_kbn = new global::System.Data.DataColumn("yuso_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_kbn);
+                this.columnorig_warehouse_block_cd = new global::System.Data.DataColumn("orig_warehouse_block_cd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorig_warehouse_block_cd);
+                this.columnorig_warehouse_cd = new global::System.Data.DataColumn("orig_warehouse_cd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorig_warehouse_cd);
+                this.columnterminal_id = new global::System.Data.DataColumn("terminal_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnterminal_id);
+                this.columnvehicle_id = new global::System.Data.DataColumn("vehicle_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvehicle_id);
+                this.columndest_jis = new global::System.Data.DataColumn("dest_jis", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndest_jis);
+                this.columndest_warehouse_cd = new global::System.Data.DataColumn("dest_warehouse_cd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndest_warehouse_cd);
+                this.columnyuso_mode_kbn = new global::System.Data.DataColumn("yuso_mode_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_mode_kbn);
+                this.columncarrier_company_cd = new global::System.Data.DataColumn("carrier_company_cd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncarrier_company_cd);
+                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorig_date);
+                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnarriving_date);
+                this.columndest_cd = new global::System.Data.DataColumn("dest_cd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndest_cd);
+                this.columnweight_sum_kg = new global::System.Data.DataColumn("weight_sum_kg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight_sum_kg);
+                this.columnbase_charge_amount = new global::System.Data.DataColumn("base_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbase_charge_amount);
+                this.columnspecial_charge_amount = new global::System.Data.DataColumn("special_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnspecial_charge_amount);
+                this.columnstopping_charge_amount = new global::System.Data.DataColumn("stopping_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstopping_charge_amount);
+                this.columncargo_charge_amount = new global::System.Data.DataColumn("cargo_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncargo_charge_amount);
+                this.columnother_charge_amount = new global::System.Data.DataColumn("other_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnother_charge_amount);
+                this.columnactual_distance_km = new global::System.Data.DataColumn("actual_distance_km", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnactual_distance_km);
+                this.columnactual_time_mins = new global::System.Data.DataColumn("actual_time_mins", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnactual_time_mins);
+                this.columnactual_time_surcharge_amount = new global::System.Data.DataColumn("actual_time_surcharge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnactual_time_surcharge_amount);
+                this.columntotal_charge_amount = new global::System.Data.DataColumn("total_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal_charge_amount);
+                this.columncalc_status = new global::System.Data.DataColumn("calc_status", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncalc_status);
+                this.columnverify_status = new global::System.Data.DataColumn("verify_status", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnverify_status);
+                this.columncalc_no = new global::System.Data.DataColumn("calc_no", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncalc_no);
+                this.columnlast_calc_at = new global::System.Data.DataColumn("last_calc_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlast_calc_at);
+                this.columnyuso_key = new global::System.Data.DataColumn("yuso_key", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_key);
+                this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncreated_at);
+                this.columncreated_user_id = new global::System.Data.DataColumn("created_user_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncreated_user_id);
+                this.columnupdated_at = new global::System.Data.DataColumn("updated_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnupdated_at);
+                this.columnupdated_user_id = new global::System.Data.DataColumn("updated_user_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnupdated_user_id);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnyuso_id}, true));
+                this.columnyuso_id.AutoIncrement = true;
+                this.columnyuso_id.AutoIncrementSeed = -1;
+                this.columnyuso_id.AutoIncrementStep = -1;
+                this.columnyuso_id.AllowDBNull = false;
+                this.columnyuso_id.ReadOnly = true;
+                this.columnyuso_id.Unique = true;
+                this.columncalc_ym.AllowDBNull = false;
+                this.columncalc_ym.MaxLength = 10;
+                this.columncontract_type.AllowDBNull = false;
+                this.columncontract_type.MaxLength = 10;
+                this.columnyuso_kbn.AllowDBNull = false;
+                this.columnyuso_kbn.MaxLength = 10;
+                this.columnorig_warehouse_block_cd.AllowDBNull = false;
+                this.columnorig_warehouse_block_cd.MaxLength = 10;
+                this.columnorig_warehouse_cd.AllowDBNull = false;
+                this.columnorig_warehouse_cd.MaxLength = 10;
+                this.columnterminal_id.AllowDBNull = false;
+                this.columnterminal_id.MaxLength = 10;
+                this.columnvehicle_id.AllowDBNull = false;
+                this.columnvehicle_id.MaxLength = 10;
+                this.columndest_jis.AllowDBNull = false;
+                this.columndest_jis.MaxLength = 10;
+                this.columndest_warehouse_cd.AllowDBNull = false;
+                this.columndest_warehouse_cd.MaxLength = 10;
+                this.columnyuso_mode_kbn.AllowDBNull = false;
+                this.columnyuso_mode_kbn.MaxLength = 10;
+                this.columncarrier_company_cd.AllowDBNull = false;
+                this.columncarrier_company_cd.MaxLength = 10;
+                this.columnorig_date.AllowDBNull = false;
+                this.columnarriving_date.AllowDBNull = false;
+                this.columndest_cd.AllowDBNull = false;
+                this.columndest_cd.MaxLength = 10;
+                this.columnbase_charge_amount.AllowDBNull = false;
+                this.columnspecial_charge_amount.AllowDBNull = false;
+                this.columnstopping_charge_amount.AllowDBNull = false;
+                this.columncargo_charge_amount.AllowDBNull = false;
+                this.columnother_charge_amount.AllowDBNull = false;
+                this.columnactual_time_surcharge_amount.AllowDBNull = false;
+                this.columntotal_charge_amount.AllowDBNull = false;
+                this.columncalc_status.AllowDBNull = false;
+                this.columnverify_status.AllowDBNull = false;
+                this.columnyuso_key.AllowDBNull = false;
+                this.columnyuso_key.MaxLength = 20;
+                this.columncreated_user_id.MaxLength = 10;
+                this.columnupdated_user_id.MaxLength = 10;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public t_yusoRow Newt_yusoRow() {
+                return ((t_yusoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new t_yusoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(t_yusoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.t_yusoRowChanged != null)) {
+                    this.t_yusoRowChanged(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.t_yusoRowChanging != null)) {
+                    this.t_yusoRowChanging(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.t_yusoRowDeleted != null)) {
+                    this.t_yusoRowDeleted(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.t_yusoRowDeleting != null)) {
+                    this.t_yusoRowDeleting(this, new t_yusoRowChangeEvent(((t_yusoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Removet_yusoRow(t_yusoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                StartCalc ds = new StartCalc();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "t_yusoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        return ((decimal)(this[this.tablet_yuso.actual_distance_kmColumn]));
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'actual_distance_km\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.actual_distance_kmColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal actual_time_mins {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablet_yuso.actual_time_minsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'actual_time_mins\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.actual_time_minsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal actual_time_surcharge_amount {
-                get {
-                    return ((decimal)(this[this.tablet_yuso.actual_time_surcharge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.actual_time_surcharge_amountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short calc_status {
-                get {
-                    return ((short)(this[this.tablet_yuso.calc_statusColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.calc_statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short verify_status {
-                get {
-                    return ((short)(this[this.tablet_yuso.verify_statusColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.verify_statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int calc_no {
-                get {
-                    try {
-                        return ((int)(this[this.tablet_yuso.calc_noColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'calc_no\' の値は DBNull です。", e);
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
                     }
                 }
-                set {
-                    this[this.tablet_yuso.calc_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime last_calc_at {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablet_yuso.last_calc_atColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'last_calc_at\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.last_calc_atColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime created_at {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablet_yuso.created_atColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'created_at\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.created_atColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string created_user_id {
-                get {
-                    try {
-                        return ((string)(this[this.tablet_yuso.created_user_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'created_user_id\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.created_user_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime updated_at {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablet_yuso.updated_atColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'updated_at\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.updated_atColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string updated_user_id {
-                get {
-                    try {
-                        return ((string)(this[this.tablet_yuso.updated_user_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'updated_user_id\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.updated_user_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal weight_sum_kg {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablet_yuso.weight_sum_kgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'weight_sum_kg\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablet_yuso.weight_sum_kgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal total_charge_amount {
-                get {
-                    return ((decimal)(this[this.tablet_yuso.total_charge_amountColumn]));
-                }
-                set {
-                    this[this.tablet_yuso.total_charge_amountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isactual_distance_kmNull() {
-                return this.IsNull(this.tablet_yuso.actual_distance_kmColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setactual_distance_kmNull() {
-                this[this.tablet_yuso.actual_distance_kmColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isactual_time_minsNull() {
-                return this.IsNull(this.tablet_yuso.actual_time_minsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setactual_time_minsNull() {
-                this[this.tablet_yuso.actual_time_minsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscalc_noNull() {
-                return this.IsNull(this.tablet_yuso.calc_noColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcalc_noNull() {
-                this[this.tablet_yuso.calc_noColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Islast_calc_atNull() {
-                return this.IsNull(this.tablet_yuso.last_calc_atColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setlast_calc_atNull() {
-                this[this.tablet_yuso.last_calc_atColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscreated_atNull() {
-                return this.IsNull(this.tablet_yuso.created_atColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcreated_atNull() {
-                this[this.tablet_yuso.created_atColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscreated_user_idNull() {
-                return this.IsNull(this.tablet_yuso.created_user_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcreated_user_idNull() {
-                this[this.tablet_yuso.created_user_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isupdated_atNull() {
-                return this.IsNull(this.tablet_yuso.updated_atColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setupdated_atNull() {
-                this[this.tablet_yuso.updated_atColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isupdated_user_idNull() {
-                return this.IsNull(this.tablet_yuso.updated_user_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setupdated_user_idNull() {
-                this[this.tablet_yuso.updated_user_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isweight_sum_kgNull() {
-                return this.IsNull(this.tablet_yuso.weight_sum_kgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setweight_sum_kgNull() {
-                this[this.tablet_yuso.weight_sum_kgColumn] = global::System.Convert.DBNull;
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -2407,6 +1905,17 @@ namespace FareCalcLib.Datasets {
                 }
                 set {
                     this[this.tablet_yuso_wk.calc_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int yuso_id {
+                get {
+                    return ((int)(this[this.tablet_yuso_wk.yuso_idColumn]));
+                }
+                set {
+                    this[this.tablet_yuso_wk.yuso_idColumn] = value;
                 }
             }
             
@@ -2713,6 +2222,17 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yuso_key {
+                get {
+                    return ((string)(this[this.tablet_yuso_wk.yuso_keyColumn]));
+                }
+                set {
+                    this[this.tablet_yuso_wk.yuso_keyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime created_at {
                 get {
                     try {
@@ -2861,36 +2381,544 @@ namespace FareCalcLib.Datasets {
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class t_yusoRowChangeEvent : global::System.EventArgs {
+        public partial class t_yusoRow : global::System.Data.DataRow {
             
-            private t_yusoRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private t_yusoDataTable tablet_yuso;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoRowChangeEvent(t_yusoRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal t_yusoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablet_yuso = ((t_yusoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_yusoRow Row {
+            public int yuso_id {
                 get {
-                    return this.eventRow;
+                    return ((int)(this[this.tablet_yuso.yuso_idColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.yuso_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public string calc_ym {
                 get {
-                    return this.eventAction;
+                    return ((string)(this[this.tablet_yuso.calc_ymColumn]));
                 }
+                set {
+                    this[this.tablet_yuso.calc_ymColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string contract_type {
+                get {
+                    return ((string)(this[this.tablet_yuso.contract_typeColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.contract_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yuso_kbn {
+                get {
+                    return ((string)(this[this.tablet_yuso.yuso_kbnColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.yuso_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string orig_warehouse_block_cd {
+                get {
+                    return ((string)(this[this.tablet_yuso.orig_warehouse_block_cdColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.orig_warehouse_block_cdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string orig_warehouse_cd {
+                get {
+                    return ((string)(this[this.tablet_yuso.orig_warehouse_cdColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.orig_warehouse_cdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string terminal_id {
+                get {
+                    return ((string)(this[this.tablet_yuso.terminal_idColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.terminal_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vehicle_id {
+                get {
+                    return ((string)(this[this.tablet_yuso.vehicle_idColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.vehicle_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dest_jis {
+                get {
+                    return ((string)(this[this.tablet_yuso.dest_jisColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.dest_jisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dest_warehouse_cd {
+                get {
+                    return ((string)(this[this.tablet_yuso.dest_warehouse_cdColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.dest_warehouse_cdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yuso_mode_kbn {
+                get {
+                    return ((string)(this[this.tablet_yuso.yuso_mode_kbnColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.yuso_mode_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string carrier_company_cd {
+                get {
+                    return ((string)(this[this.tablet_yuso.carrier_company_cdColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.carrier_company_cdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime orig_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablet_yuso.orig_dateColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.orig_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime arriving_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tablet_yuso.arriving_dateColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.arriving_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dest_cd {
+                get {
+                    return ((string)(this[this.tablet_yuso.dest_cdColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.dest_cdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal weight_sum_kg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablet_yuso.weight_sum_kgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'weight_sum_kg\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.weight_sum_kgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal base_charge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.base_charge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.base_charge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal special_charge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.special_charge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.special_charge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal stopping_charge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.stopping_charge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.stopping_charge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal cargo_charge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.cargo_charge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.cargo_charge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal other_charge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.other_charge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.other_charge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal actual_distance_km {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablet_yuso.actual_distance_kmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'actual_distance_km\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.actual_distance_kmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal actual_time_mins {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablet_yuso.actual_time_minsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'actual_time_mins\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.actual_time_minsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal actual_time_surcharge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.actual_time_surcharge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.actual_time_surcharge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal total_charge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_yuso.total_charge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.total_charge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short calc_status {
+                get {
+                    return ((short)(this[this.tablet_yuso.calc_statusColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.calc_statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short verify_status {
+                get {
+                    return ((short)(this[this.tablet_yuso.verify_statusColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.verify_statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int calc_no {
+                get {
+                    try {
+                        return ((int)(this[this.tablet_yuso.calc_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'calc_no\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.calc_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime last_calc_at {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablet_yuso.last_calc_atColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'last_calc_at\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.last_calc_atColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yuso_key {
+                get {
+                    return ((string)(this[this.tablet_yuso.yuso_keyColumn]));
+                }
+                set {
+                    this[this.tablet_yuso.yuso_keyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime created_at {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablet_yuso.created_atColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'created_at\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.created_atColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string created_user_id {
+                get {
+                    try {
+                        return ((string)(this[this.tablet_yuso.created_user_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'created_user_id\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.created_user_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime updated_at {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablet_yuso.updated_atColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'updated_at\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.updated_atColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string updated_user_id {
+                get {
+                    try {
+                        return ((string)(this[this.tablet_yuso.updated_user_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso\' にある列 \'updated_user_id\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso.updated_user_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isweight_sum_kgNull() {
+                return this.IsNull(this.tablet_yuso.weight_sum_kgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setweight_sum_kgNull() {
+                this[this.tablet_yuso.weight_sum_kgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isactual_distance_kmNull() {
+                return this.IsNull(this.tablet_yuso.actual_distance_kmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setactual_distance_kmNull() {
+                this[this.tablet_yuso.actual_distance_kmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isactual_time_minsNull() {
+                return this.IsNull(this.tablet_yuso.actual_time_minsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setactual_time_minsNull() {
+                this[this.tablet_yuso.actual_time_minsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscalc_noNull() {
+                return this.IsNull(this.tablet_yuso.calc_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcalc_noNull() {
+                this[this.tablet_yuso.calc_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islast_calc_atNull() {
+                return this.IsNull(this.tablet_yuso.last_calc_atColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlast_calc_atNull() {
+                this[this.tablet_yuso.last_calc_atColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscreated_atNull() {
+                return this.IsNull(this.tablet_yuso.created_atColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcreated_atNull() {
+                this[this.tablet_yuso.created_atColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscreated_user_idNull() {
+                return this.IsNull(this.tablet_yuso.created_user_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcreated_user_idNull() {
+                this[this.tablet_yuso.created_user_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isupdated_atNull() {
+                return this.IsNull(this.tablet_yuso.updated_atColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setupdated_atNull() {
+                this[this.tablet_yuso.updated_atColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isupdated_user_idNull() {
+                return this.IsNull(this.tablet_yuso.updated_user_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setupdated_user_idNull() {
+                this[this.tablet_yuso.updated_user_idColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2927,1394 +2955,44 @@ namespace FareCalcLib.Datasets {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class t_yusoRowChangeEvent : global::System.EventArgs {
+            
+            private t_yusoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public t_yusoRowChangeEvent(t_yusoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public t_yusoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace FareCalcLib.Datasets.StartCalcTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yusoTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public t_yusoTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "t_yuso";
-            tableMapping.ColumnMappings.Add("calc_ym", "calc_ym");
-            tableMapping.ColumnMappings.Add("contract_type", "contract_type");
-            tableMapping.ColumnMappings.Add("yuso_kbn", "yuso_kbn");
-            tableMapping.ColumnMappings.Add("orig_warehouse_block_cd", "orig_warehouse_block_cd");
-            tableMapping.ColumnMappings.Add("orig_warehouse_cd", "orig_warehouse_cd");
-            tableMapping.ColumnMappings.Add("terminal_id", "terminal_id");
-            tableMapping.ColumnMappings.Add("vehicle_id", "vehicle_id");
-            tableMapping.ColumnMappings.Add("dest_jis", "dest_jis");
-            tableMapping.ColumnMappings.Add("dest_warehouse_cd", "dest_warehouse_cd");
-            tableMapping.ColumnMappings.Add("yuso_mode_kbn", "yuso_mode_kbn");
-            tableMapping.ColumnMappings.Add("carrier_company_cd", "carrier_company_cd");
-            tableMapping.ColumnMappings.Add("orig_date", "orig_date");
-            tableMapping.ColumnMappings.Add("arriving_date", "arriving_date");
-            tableMapping.ColumnMappings.Add("dest_cd", "dest_cd");
-            tableMapping.ColumnMappings.Add("base_charge_amount", "base_charge_amount");
-            tableMapping.ColumnMappings.Add("special_charge_amount", "special_charge_amount");
-            tableMapping.ColumnMappings.Add("stopping_charge_amount", "stopping_charge_amount");
-            tableMapping.ColumnMappings.Add("cargo_charge_amount", "cargo_charge_amount");
-            tableMapping.ColumnMappings.Add("other_charge_amount", "other_charge_amount");
-            tableMapping.ColumnMappings.Add("actual_distance_km", "actual_distance_km");
-            tableMapping.ColumnMappings.Add("actual_time_mins", "actual_time_mins");
-            tableMapping.ColumnMappings.Add("actual_time_surcharge_amount", "actual_time_surcharge_amount");
-            tableMapping.ColumnMappings.Add("calc_status", "calc_status");
-            tableMapping.ColumnMappings.Add("verify_status", "verify_status");
-            tableMapping.ColumnMappings.Add("calc_no", "calc_no");
-            tableMapping.ColumnMappings.Add("last_calc_at", "last_calc_at");
-            tableMapping.ColumnMappings.Add("created_at", "created_at");
-            tableMapping.ColumnMappings.Add("created_user_id", "created_user_id");
-            tableMapping.ColumnMappings.Add("updated_at", "updated_at");
-            tableMapping.ColumnMappings.Add("updated_user_id", "updated_user_id");
-            tableMapping.ColumnMappings.Add("weight_sum_kg", "weight_sum_kg");
-            tableMapping.ColumnMappings.Add("total_charge_amount", "total_charge_amount");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [t_yuso] WHERE (([calc_ym] = @Original_calc_ym) AND ([contract_type] " +
-                "= @Original_contract_type) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig_ware" +
-                "house_block_cd] = @Original_orig_warehouse_block_cd) AND ([orig_warehouse_cd] = " +
-                "@Original_orig_warehouse_cd) AND ([terminal_id] = @Original_terminal_id) AND ([v" +
-                "ehicle_id] = @Original_vehicle_id) AND ([dest_jis] = @Original_dest_jis) AND ([d" +
-                "est_warehouse_cd] = @Original_dest_warehouse_cd) AND ([yuso_mode_kbn] = @Origina" +
-                "l_yuso_mode_kbn) AND ([carrier_company_cd] = @Original_carrier_company_cd) AND (" +
-                "[orig_date] = @Original_orig_date) AND ([arriving_date] = @Original_arriving_dat" +
-                "e) AND ([dest_cd] = @Original_dest_cd) AND ([base_charge_amount] = @Original_bas" +
-                "e_charge_amount) AND ([special_charge_amount] = @Original_special_charge_amount)" +
-                " AND ([stopping_charge_amount] = @Original_stopping_charge_amount) AND ([cargo_c" +
-                "harge_amount] = @Original_cargo_charge_amount) AND ([other_charge_amount] = @Ori" +
-                "ginal_other_charge_amount) AND ((@IsNull_actual_distance_km = 1 AND [actual_dist" +
-                "ance_km] IS NULL) OR ([actual_distance_km] = @Original_actual_distance_km)) AND " +
-                "((@IsNull_actual_time_mins = 1 AND [actual_time_mins] IS NULL) OR ([actual_time_" +
-                "mins] = @Original_actual_time_mins)) AND ([actual_time_surcharge_amount] = @Orig" +
-                "inal_actual_time_surcharge_amount) AND ([calc_status] = @Original_calc_status) A" +
-                "ND ([verify_status] = @Original_verify_status) AND ((@IsNull_calc_no = 1 AND [ca" +
-                "lc_no] IS NULL) OR ([calc_no] = @Original_calc_no)) AND ((@IsNull_last_calc_at =" +
-                " 1 AND [last_calc_at] IS NULL) OR ([last_calc_at] = @Original_last_calc_at)) AND" +
-                " ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR ([created_at] = @Original" +
-                "_created_at)) AND ((@IsNull_created_user_id = 1 AND [created_user_id] IS NULL) O" +
-                "R ([created_user_id] = @Original_created_user_id)) AND ((@IsNull_updated_at = 1 " +
-                "AND [updated_at] IS NULL) OR ([updated_at] = @Original_updated_at)) AND ((@IsNul" +
-                "l_updated_user_id = 1 AND [updated_user_id] IS NULL) OR ([updated_user_id] = @Or" +
-                "iginal_updated_user_id)) AND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS " +
-                "NULL) OR ([weight_sum_kg] = @Original_weight_sum_kg)) AND ([total_charge_amount]" +
-                " = @Original_total_charge_amount))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_distance_km", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_distance_km", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_time_mins", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_mins", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_last_calc_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_sum_kg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_sum_kg", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [t_yuso] ([calc_ym], [contract_type], [yuso_kbn], [orig_warehouse_blo" +
-                "ck_cd], [orig_warehouse_cd], [terminal_id], [vehicle_id], [dest_jis], [dest_ware" +
-                "house_cd], [yuso_mode_kbn], [carrier_company_cd], [orig_date], [arriving_date], " +
-                "[dest_cd], [base_charge_amount], [special_charge_amount], [stopping_charge_amoun" +
-                "t], [cargo_charge_amount], [other_charge_amount], [actual_distance_km], [actual_" +
-                "time_mins], [actual_time_surcharge_amount], [calc_status], [verify_status], [cal" +
-                "c_no], [last_calc_at], [created_at], [created_user_id], [updated_at], [updated_u" +
-                "ser_id], [weight_sum_kg], [total_charge_amount]) VALUES (@calc_ym, @contract_typ" +
-                "e, @yuso_kbn, @orig_warehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehic" +
-                "le_id, @dest_jis, @dest_warehouse_cd, @yuso_mode_kbn, @carrier_company_cd, @orig" +
-                "_date, @arriving_date, @dest_cd, @base_charge_amount, @special_charge_amount, @s" +
-                "topping_charge_amount, @cargo_charge_amount, @other_charge_amount, @actual_dista" +
-                "nce_km, @actual_time_mins, @actual_time_surcharge_amount, @calc_status, @verify_" +
-                "status, @calc_no, @last_calc_at, @created_at, @created_user_id, @updated_at, @up" +
-                "dated_user_id, @weight_sum_kg, @total_charge_amount);\r\nSELECT calc_ym, contract_" +
-                "type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle" +
-                "_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, " +
-                "arriving_date, dest_cd, base_charge_amount, special_charge_amount, stopping_char" +
-                "ge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_" +
-                "time_mins, actual_time_surcharge_amount, calc_status, verify_status, calc_no, la" +
-                "st_calc_at, created_at, created_user_id, updated_at, updated_user_id, weight_sum" +
-                "_kg, total_charge_amount FROM t_yuso WHERE (arriving_date = @arriving_date) AND " +
-                "(calc_ym = @calc_ym) AND (carrier_company_cd = @carrier_company_cd) AND (contrac" +
-                "t_type = @contract_type) AND (dest_cd = @dest_cd) AND (dest_jis = @dest_jis) AND" +
-                " (dest_warehouse_cd = @dest_warehouse_cd) AND (orig_date = @orig_date) AND (orig" +
-                "_warehouse_block_cd = @orig_warehouse_block_cd) AND (orig_warehouse_cd = @orig_w" +
-                "arehouse_cd) AND (terminal_id = @terminal_id) AND (vehicle_id = @vehicle_id) AND" +
-                " (yuso_kbn = @yuso_kbn) AND (yuso_mode_kbn = @yuso_mode_kbn)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [t_yuso] SET [calc_ym] = @calc_ym, [contract_type] = @contract_type, [yuso" +
-                "_kbn] = @yuso_kbn, [orig_warehouse_block_cd] = @orig_warehouse_block_cd, [orig_w" +
-                "arehouse_cd] = @orig_warehouse_cd, [terminal_id] = @terminal_id, [vehicle_id] = " +
-                "@vehicle_id, [dest_jis] = @dest_jis, [dest_warehouse_cd] = @dest_warehouse_cd, [" +
-                "yuso_mode_kbn] = @yuso_mode_kbn, [carrier_company_cd] = @carrier_company_cd, [or" +
-                "ig_date] = @orig_date, [arriving_date] = @arriving_date, [dest_cd] = @dest_cd, [" +
-                "base_charge_amount] = @base_charge_amount, [special_charge_amount] = @special_ch" +
-                "arge_amount, [stopping_charge_amount] = @stopping_charge_amount, [cargo_charge_a" +
-                "mount] = @cargo_charge_amount, [other_charge_amount] = @other_charge_amount, [ac" +
-                "tual_distance_km] = @actual_distance_km, [actual_time_mins] = @actual_time_mins," +
-                " [actual_time_surcharge_amount] = @actual_time_surcharge_amount, [calc_status] =" +
-                " @calc_status, [verify_status] = @verify_status, [calc_no] = @calc_no, [last_cal" +
-                "c_at] = @last_calc_at, [created_at] = @created_at, [created_user_id] = @created_" +
-                "user_id, [updated_at] = @updated_at, [updated_user_id] = @updated_user_id, [weig" +
-                "ht_sum_kg] = @weight_sum_kg, [total_charge_amount] = @total_charge_amount WHERE " +
-                "(([calc_ym] = @Original_calc_ym) AND ([contract_type] = @Original_contract_type)" +
-                " AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Origina" +
-                "l_orig_warehouse_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_c" +
-                "d) AND ([terminal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_veh" +
-                "icle_id) AND ([dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Origi" +
-                "nal_dest_warehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([car" +
-                "rier_company_cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_or" +
-                "ig_date) AND ([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Origi" +
-                "nal_dest_cd) AND ([base_charge_amount] = @Original_base_charge_amount) AND ([spe" +
-                "cial_charge_amount] = @Original_special_charge_amount) AND ([stopping_charge_amo" +
-                "unt] = @Original_stopping_charge_amount) AND ([cargo_charge_amount] = @Original_" +
-                "cargo_charge_amount) AND ([other_charge_amount] = @Original_other_charge_amount)" +
-                " AND ((@IsNull_actual_distance_km = 1 AND [actual_distance_km] IS NULL) OR ([act" +
-                "ual_distance_km] = @Original_actual_distance_km)) AND ((@IsNull_actual_time_mins" +
-                " = 1 AND [actual_time_mins] IS NULL) OR ([actual_time_mins] = @Original_actual_t" +
-                "ime_mins)) AND ([actual_time_surcharge_amount] = @Original_actual_time_surcharge" +
-                "_amount) AND ([calc_status] = @Original_calc_status) AND ([verify_status] = @Ori" +
-                "ginal_verify_status) AND ((@IsNull_calc_no = 1 AND [calc_no] IS NULL) OR ([calc_" +
-                "no] = @Original_calc_no)) AND ((@IsNull_last_calc_at = 1 AND [last_calc_at] IS N" +
-                "ULL) OR ([last_calc_at] = @Original_last_calc_at)) AND ((@IsNull_created_at = 1 " +
-                "AND [created_at] IS NULL) OR ([created_at] = @Original_created_at)) AND ((@IsNul" +
-                "l_created_user_id = 1 AND [created_user_id] IS NULL) OR ([created_user_id] = @Or" +
-                "iginal_created_user_id)) AND ((@IsNull_updated_at = 1 AND [updated_at] IS NULL) " +
-                "OR ([updated_at] = @Original_updated_at)) AND ((@IsNull_updated_user_id = 1 AND " +
-                "[updated_user_id] IS NULL) OR ([updated_user_id] = @Original_updated_user_id)) A" +
-                "ND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS NULL) OR ([weight_sum_kg] " +
-                "= @Original_weight_sum_kg)) AND ([total_charge_amount] = @Original_total_charge_" +
-                "amount));\r\nSELECT calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, ori" +
-                "g_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_" +
-                "kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, base_charge_amount, " +
-                "special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge" +
-                "_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, cal" +
-                "c_status, verify_status, calc_no, last_calc_at, created_at, created_user_id, upd" +
-                "ated_at, updated_user_id, weight_sum_kg, total_charge_amount FROM t_yuso WHERE (" +
-                "arriving_date = @arriving_date) AND (calc_ym = @calc_ym) AND (carrier_company_cd" +
-                " = @carrier_company_cd) AND (contract_type = @contract_type) AND (dest_cd = @des" +
-                "t_cd) AND (dest_jis = @dest_jis) AND (dest_warehouse_cd = @dest_warehouse_cd) AN" +
-                "D (orig_date = @orig_date) AND (orig_warehouse_block_cd = @orig_warehouse_block_" +
-                "cd) AND (orig_warehouse_cd = @orig_warehouse_cd) AND (terminal_id = @terminal_id" +
-                ") AND (vehicle_id = @vehicle_id) AND (yuso_kbn = @yuso_kbn) AND (yuso_mode_kbn =" +
-                " @yuso_mode_kbn)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_distance_km", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_distance_km", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_time_mins", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_mins", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_last_calc_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_sum_kg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_sum_kg", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT                 calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, 
-                               orig_date, arriving_date, dest_cd, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, 
-                               actual_time_mins, actual_time_surcharge_amount, calc_status, verify_status, calc_no, last_calc_at, created_at, created_user_id, updated_at, updated_user_id, weight_sum_kg, 
-                               total_charge_amount
-FROM                   t_yuso";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT actual_distance_km, actual_time_mins, actual_time_surcharge_amount, arriving_date, base_charge_amount, calc_no, calc_status, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, created_user_id, dest_cd, dest_jis, dest_warehouse_cd, last_calc_at, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, other_charge_amount, special_charge_amount, stopping_charge_amount, terminal_id, total_charge_amount, updated_at, updated_user_id, vehicle_id, verify_status, weight_sum_kg, yuso_kbn, yuso_mode_kbn FROM t_yuso WHERE (calc_no = @calcNo) AND (calc_status = @calc_status_doing)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calcNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE               t_yuso\r\nSET                        calc_status = @calc_statu" +
-                "s_doing, calc_no = @calc_no, updated_at = @updated_at, updated_user_id = @update" +
-                "d_user_id\r\nWHERE                  (calc_status = @current_calc_status);    \r\n";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@current_calc_status", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StartCalc.t_yusoDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StartCalc.t_yusoDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            StartCalc.t_yusoDataTable dataTable = new StartCalc.t_yusoDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCalcNo(StartCalc.t_yusoDataTable dataTable, global::System.Nullable<int> calcNo, short calc_status_doing) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((calcNo.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(calcNo.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((short)(calc_status_doing));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StartCalc.t_yusoDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StartCalc dataSet) {
-            return this.Adapter.Update(dataSet, "t_yuso");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    string Original_calc_ym, 
-                    string Original_contract_type, 
-                    string Original_yuso_kbn, 
-                    string Original_orig_warehouse_block_cd, 
-                    string Original_orig_warehouse_cd, 
-                    string Original_terminal_id, 
-                    string Original_vehicle_id, 
-                    string Original_dest_jis, 
-                    string Original_dest_warehouse_cd, 
-                    string Original_yuso_mode_kbn, 
-                    string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
-                    string Original_dest_cd, 
-                    decimal Original_base_charge_amount, 
-                    decimal Original_special_charge_amount, 
-                    decimal Original_stopping_charge_amount, 
-                    decimal Original_cargo_charge_amount, 
-                    decimal Original_other_charge_amount, 
-                    global::System.Nullable<decimal> Original_actual_distance_km, 
-                    global::System.Nullable<decimal> Original_actual_time_mins, 
-                    decimal Original_actual_time_surcharge_amount, 
-                    short Original_calc_status, 
-                    short Original_verify_status, 
-                    global::System.Nullable<int> Original_calc_no, 
-                    global::System.Nullable<global::System.DateTime> Original_last_calc_at, 
-                    global::System.Nullable<global::System.DateTime> Original_created_at, 
-                    string Original_created_user_id, 
-                    global::System.Nullable<global::System.DateTime> Original_updated_at, 
-                    string Original_updated_user_id, 
-                    global::System.Nullable<decimal> Original_weight_sum_kg, 
-                    decimal Original_total_charge_amount) {
-            if ((Original_calc_ym == null)) {
-                throw new global::System.ArgumentNullException("Original_calc_ym");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_calc_ym));
-            }
-            if ((Original_contract_type == null)) {
-                throw new global::System.ArgumentNullException("Original_contract_type");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_contract_type));
-            }
-            if ((Original_yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_yuso_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_yuso_kbn));
-            }
-            if ((Original_orig_warehouse_block_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_orig_warehouse_block_cd));
-            }
-            if ((Original_orig_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_orig_warehouse_cd));
-            }
-            if ((Original_terminal_id == null)) {
-                throw new global::System.ArgumentNullException("Original_terminal_id");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_terminal_id));
-            }
-            if ((Original_vehicle_id == null)) {
-                throw new global::System.ArgumentNullException("Original_vehicle_id");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_vehicle_id));
-            }
-            if ((Original_dest_jis == null)) {
-                throw new global::System.ArgumentNullException("Original_dest_jis");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_dest_jis));
-            }
-            if ((Original_dest_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_dest_warehouse_cd));
-            }
-            if ((Original_yuso_mode_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_yuso_mode_kbn));
-            }
-            if ((Original_carrier_company_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_carrier_company_cd");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_carrier_company_cd));
-            }
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_arriving_date));
-            if ((Original_dest_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_dest_cd");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_dest_cd));
-            }
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_base_charge_amount));
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((decimal)(Original_special_charge_amount));
-            this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_stopping_charge_amount));
-            this.Adapter.DeleteCommand.Parameters[17].Value = ((decimal)(Original_cargo_charge_amount));
-            this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_other_charge_amount));
-            if ((Original_actual_distance_km.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_actual_distance_km.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_actual_time_mins.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_actual_time_mins.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[23].Value = ((decimal)(Original_actual_time_surcharge_amount));
-            this.Adapter.DeleteCommand.Parameters[24].Value = ((short)(Original_calc_status));
-            this.Adapter.DeleteCommand.Parameters[25].Value = ((short)(Original_verify_status));
-            if ((Original_calc_no.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((int)(Original_calc_no.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Original_last_calc_at.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((System.DateTime)(Original_last_calc_at.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Original_created_at.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((System.DateTime)(Original_created_at.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((Original_created_user_id == null)) {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_created_user_id));
-            }
-            if ((Original_updated_at.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((System.DateTime)(Original_updated_at.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            if ((Original_updated_user_id == null)) {
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((string)(Original_updated_user_id));
-            }
-            if ((Original_weight_sum_kg.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((decimal)(Original_weight_sum_kg.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[40].Value = ((decimal)(Original_total_charge_amount));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string calc_ym, 
-                    string contract_type, 
-                    string yuso_kbn, 
-                    string orig_warehouse_block_cd, 
-                    string orig_warehouse_cd, 
-                    string terminal_id, 
-                    string vehicle_id, 
-                    string dest_jis, 
-                    string dest_warehouse_cd, 
-                    string yuso_mode_kbn, 
-                    string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
-                    string dest_cd, 
-                    decimal base_charge_amount, 
-                    decimal special_charge_amount, 
-                    decimal stopping_charge_amount, 
-                    decimal cargo_charge_amount, 
-                    decimal other_charge_amount, 
-                    global::System.Nullable<decimal> actual_distance_km, 
-                    global::System.Nullable<decimal> actual_time_mins, 
-                    decimal actual_time_surcharge_amount, 
-                    short calc_status, 
-                    short verify_status, 
-                    global::System.Nullable<int> calc_no, 
-                    global::System.Nullable<global::System.DateTime> last_calc_at, 
-                    global::System.Nullable<global::System.DateTime> created_at, 
-                    string created_user_id, 
-                    global::System.Nullable<global::System.DateTime> updated_at, 
-                    string updated_user_id, 
-                    global::System.Nullable<decimal> weight_sum_kg, 
-                    decimal total_charge_amount) {
-            if ((calc_ym == null)) {
-                throw new global::System.ArgumentNullException("calc_ym");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(calc_ym));
-            }
-            if ((contract_type == null)) {
-                throw new global::System.ArgumentNullException("contract_type");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(contract_type));
-            }
-            if ((yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("yuso_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(yuso_kbn));
-            }
-            if ((orig_warehouse_block_cd == null)) {
-                throw new global::System.ArgumentNullException("orig_warehouse_block_cd");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(orig_warehouse_block_cd));
-            }
-            if ((orig_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("orig_warehouse_cd");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(orig_warehouse_cd));
-            }
-            if ((terminal_id == null)) {
-                throw new global::System.ArgumentNullException("terminal_id");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(terminal_id));
-            }
-            if ((vehicle_id == null)) {
-                throw new global::System.ArgumentNullException("vehicle_id");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(vehicle_id));
-            }
-            if ((dest_jis == null)) {
-                throw new global::System.ArgumentNullException("dest_jis");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(dest_jis));
-            }
-            if ((dest_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("dest_warehouse_cd");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(dest_warehouse_cd));
-            }
-            if ((yuso_mode_kbn == null)) {
-                throw new global::System.ArgumentNullException("yuso_mode_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(yuso_mode_kbn));
-            }
-            if ((carrier_company_cd == null)) {
-                throw new global::System.ArgumentNullException("carrier_company_cd");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(carrier_company_cd));
-            }
-            this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(orig_date));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(arriving_date));
-            if ((dest_cd == null)) {
-                throw new global::System.ArgumentNullException("dest_cd");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(dest_cd));
-            }
-            this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(base_charge_amount));
-            this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(special_charge_amount));
-            this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(stopping_charge_amount));
-            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(cargo_charge_amount));
-            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(other_charge_amount));
-            if ((actual_distance_km.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(actual_distance_km.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((actual_time_mins.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(actual_time_mins.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(actual_time_surcharge_amount));
-            this.Adapter.InsertCommand.Parameters[22].Value = ((short)(calc_status));
-            this.Adapter.InsertCommand.Parameters[23].Value = ((short)(verify_status));
-            if ((calc_no.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((int)(calc_no.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((last_calc_at.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((System.DateTime)(last_calc_at.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((created_at.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((System.DateTime)(created_at.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((created_user_id == null)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(created_user_id));
-            }
-            if ((updated_at.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((System.DateTime)(updated_at.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((updated_user_id == null)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((string)(updated_user_id));
-            }
-            if ((weight_sum_kg.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((decimal)(weight_sum_kg.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(total_charge_amount));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string calc_ym, 
-                    string contract_type, 
-                    string yuso_kbn, 
-                    string orig_warehouse_block_cd, 
-                    string orig_warehouse_cd, 
-                    string terminal_id, 
-                    string vehicle_id, 
-                    string dest_jis, 
-                    string dest_warehouse_cd, 
-                    string yuso_mode_kbn, 
-                    string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
-                    string dest_cd, 
-                    decimal base_charge_amount, 
-                    decimal special_charge_amount, 
-                    decimal stopping_charge_amount, 
-                    decimal cargo_charge_amount, 
-                    decimal other_charge_amount, 
-                    global::System.Nullable<decimal> actual_distance_km, 
-                    global::System.Nullable<decimal> actual_time_mins, 
-                    decimal actual_time_surcharge_amount, 
-                    short calc_status, 
-                    short verify_status, 
-                    global::System.Nullable<int> calc_no, 
-                    global::System.Nullable<global::System.DateTime> last_calc_at, 
-                    global::System.Nullable<global::System.DateTime> created_at, 
-                    string created_user_id, 
-                    global::System.Nullable<global::System.DateTime> updated_at, 
-                    string updated_user_id, 
-                    global::System.Nullable<decimal> weight_sum_kg, 
-                    decimal total_charge_amount, 
-                    string Original_calc_ym, 
-                    string Original_contract_type, 
-                    string Original_yuso_kbn, 
-                    string Original_orig_warehouse_block_cd, 
-                    string Original_orig_warehouse_cd, 
-                    string Original_terminal_id, 
-                    string Original_vehicle_id, 
-                    string Original_dest_jis, 
-                    string Original_dest_warehouse_cd, 
-                    string Original_yuso_mode_kbn, 
-                    string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
-                    string Original_dest_cd, 
-                    decimal Original_base_charge_amount, 
-                    decimal Original_special_charge_amount, 
-                    decimal Original_stopping_charge_amount, 
-                    decimal Original_cargo_charge_amount, 
-                    decimal Original_other_charge_amount, 
-                    global::System.Nullable<decimal> Original_actual_distance_km, 
-                    global::System.Nullable<decimal> Original_actual_time_mins, 
-                    decimal Original_actual_time_surcharge_amount, 
-                    short Original_calc_status, 
-                    short Original_verify_status, 
-                    global::System.Nullable<int> Original_calc_no, 
-                    global::System.Nullable<global::System.DateTime> Original_last_calc_at, 
-                    global::System.Nullable<global::System.DateTime> Original_created_at, 
-                    string Original_created_user_id, 
-                    global::System.Nullable<global::System.DateTime> Original_updated_at, 
-                    string Original_updated_user_id, 
-                    global::System.Nullable<decimal> Original_weight_sum_kg, 
-                    decimal Original_total_charge_amount) {
-            if ((calc_ym == null)) {
-                throw new global::System.ArgumentNullException("calc_ym");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(calc_ym));
-            }
-            if ((contract_type == null)) {
-                throw new global::System.ArgumentNullException("contract_type");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(contract_type));
-            }
-            if ((yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("yuso_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(yuso_kbn));
-            }
-            if ((orig_warehouse_block_cd == null)) {
-                throw new global::System.ArgumentNullException("orig_warehouse_block_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(orig_warehouse_block_cd));
-            }
-            if ((orig_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("orig_warehouse_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(orig_warehouse_cd));
-            }
-            if ((terminal_id == null)) {
-                throw new global::System.ArgumentNullException("terminal_id");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(terminal_id));
-            }
-            if ((vehicle_id == null)) {
-                throw new global::System.ArgumentNullException("vehicle_id");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(vehicle_id));
-            }
-            if ((dest_jis == null)) {
-                throw new global::System.ArgumentNullException("dest_jis");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(dest_jis));
-            }
-            if ((dest_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("dest_warehouse_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(dest_warehouse_cd));
-            }
-            if ((yuso_mode_kbn == null)) {
-                throw new global::System.ArgumentNullException("yuso_mode_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(yuso_mode_kbn));
-            }
-            if ((carrier_company_cd == null)) {
-                throw new global::System.ArgumentNullException("carrier_company_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(carrier_company_cd));
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(orig_date));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(arriving_date));
-            if ((dest_cd == null)) {
-                throw new global::System.ArgumentNullException("dest_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(dest_cd));
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(base_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(special_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(stopping_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(cargo_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(other_charge_amount));
-            if ((actual_distance_km.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(actual_distance_km.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((actual_time_mins.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(actual_time_mins.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(actual_time_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((short)(calc_status));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((short)(verify_status));
-            if ((calc_no.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(calc_no.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((last_calc_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(last_calc_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((created_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(created_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((created_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(created_user_id));
-            }
-            if ((updated_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(updated_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((updated_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(updated_user_id));
-            }
-            if ((weight_sum_kg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(weight_sum_kg.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(total_charge_amount));
-            if ((Original_calc_ym == null)) {
-                throw new global::System.ArgumentNullException("Original_calc_ym");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_calc_ym));
-            }
-            if ((Original_contract_type == null)) {
-                throw new global::System.ArgumentNullException("Original_contract_type");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_contract_type));
-            }
-            if ((Original_yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_yuso_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_yuso_kbn));
-            }
-            if ((Original_orig_warehouse_block_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_orig_warehouse_block_cd));
-            }
-            if ((Original_orig_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_orig_warehouse_cd));
-            }
-            if ((Original_terminal_id == null)) {
-                throw new global::System.ArgumentNullException("Original_terminal_id");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_terminal_id));
-            }
-            if ((Original_vehicle_id == null)) {
-                throw new global::System.ArgumentNullException("Original_vehicle_id");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_vehicle_id));
-            }
-            if ((Original_dest_jis == null)) {
-                throw new global::System.ArgumentNullException("Original_dest_jis");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_dest_jis));
-            }
-            if ((Original_dest_warehouse_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_dest_warehouse_cd));
-            }
-            if ((Original_yuso_mode_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_yuso_mode_kbn));
-            }
-            if ((Original_carrier_company_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_carrier_company_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_carrier_company_cd));
-            }
-            this.Adapter.UpdateCommand.Parameters[43].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.UpdateCommand.Parameters[44].Value = ((System.DateTime)(Original_arriving_date));
-            if ((Original_dest_cd == null)) {
-                throw new global::System.ArgumentNullException("Original_dest_cd");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_dest_cd));
-            }
-            this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(Original_base_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((decimal)(Original_special_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(Original_stopping_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[49].Value = ((decimal)(Original_cargo_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_other_charge_amount));
-            if ((Original_actual_distance_km.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((decimal)(Original_actual_distance_km.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
-            }
-            if ((Original_actual_time_mins.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((decimal)(Original_actual_time_mins.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[55].Value = ((decimal)(Original_actual_time_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[56].Value = ((short)(Original_calc_status));
-            this.Adapter.UpdateCommand.Parameters[57].Value = ((short)(Original_verify_status));
-            if ((Original_calc_no.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_calc_no.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
-            }
-            if ((Original_last_calc_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((System.DateTime)(Original_last_calc_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
-            }
-            if ((Original_created_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((System.DateTime)(Original_created_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
-            }
-            if ((Original_created_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_created_user_id));
-            }
-            if ((Original_updated_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((System.DateTime)(Original_updated_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
-            }
-            if ((Original_updated_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_updated_user_id));
-            }
-            if ((Original_weight_sum_kg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_weight_sum_kg.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[72].Value = ((decimal)(Original_total_charge_amount));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    decimal base_charge_amount, 
-                    decimal special_charge_amount, 
-                    decimal stopping_charge_amount, 
-                    decimal cargo_charge_amount, 
-                    decimal other_charge_amount, 
-                    global::System.Nullable<decimal> actual_distance_km, 
-                    global::System.Nullable<decimal> actual_time_mins, 
-                    decimal actual_time_surcharge_amount, 
-                    short calc_status, 
-                    short verify_status, 
-                    global::System.Nullable<int> calc_no, 
-                    global::System.Nullable<global::System.DateTime> last_calc_at, 
-                    global::System.Nullable<global::System.DateTime> created_at, 
-                    string created_user_id, 
-                    global::System.Nullable<global::System.DateTime> updated_at, 
-                    string updated_user_id, 
-                    global::System.Nullable<decimal> weight_sum_kg, 
-                    decimal total_charge_amount, 
-                    string Original_calc_ym, 
-                    string Original_contract_type, 
-                    string Original_yuso_kbn, 
-                    string Original_orig_warehouse_block_cd, 
-                    string Original_orig_warehouse_cd, 
-                    string Original_terminal_id, 
-                    string Original_vehicle_id, 
-                    string Original_dest_jis, 
-                    string Original_dest_warehouse_cd, 
-                    string Original_yuso_mode_kbn, 
-                    string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
-                    string Original_dest_cd, 
-                    decimal Original_base_charge_amount, 
-                    decimal Original_special_charge_amount, 
-                    decimal Original_stopping_charge_amount, 
-                    decimal Original_cargo_charge_amount, 
-                    decimal Original_other_charge_amount, 
-                    global::System.Nullable<decimal> Original_actual_distance_km, 
-                    global::System.Nullable<decimal> Original_actual_time_mins, 
-                    decimal Original_actual_time_surcharge_amount, 
-                    short Original_calc_status, 
-                    short Original_verify_status, 
-                    global::System.Nullable<int> Original_calc_no, 
-                    global::System.Nullable<global::System.DateTime> Original_last_calc_at, 
-                    global::System.Nullable<global::System.DateTime> Original_created_at, 
-                    string Original_created_user_id, 
-                    global::System.Nullable<global::System.DateTime> Original_updated_at, 
-                    string Original_updated_user_id, 
-                    global::System.Nullable<decimal> Original_weight_sum_kg, 
-                    decimal Original_total_charge_amount) {
-            return this.Update(Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, calc_status, verify_status, calc_no, last_calc_at, created_at, created_user_id, updated_at, updated_user_id, weight_sum_kg, total_charge_amount, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_base_charge_amount, Original_special_charge_amount, Original_stopping_charge_amount, Original_cargo_charge_amount, Original_other_charge_amount, Original_actual_distance_km, Original_actual_time_mins, Original_actual_time_surcharge_amount, Original_calc_status, Original_verify_status, Original_calc_no, Original_last_calc_at, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id, Original_weight_sum_kg, Original_total_charge_amount);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateCalcStatus(short calc_status_doing, global::System.Nullable<int> calc_no, global::System.Nullable<global::System.DateTime> updated_at, string updated_user_id, short current_calc_status) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            command.Parameters[0].Value = ((short)(calc_status_doing));
-            if ((calc_no.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(calc_no.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((updated_at.HasValue == true)) {
-                command.Parameters[2].Value = ((System.DateTime)(updated_at.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((updated_user_id == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((string)(updated_user_id));
-            }
-            command.Parameters[4].Value = ((short)(current_calc_status));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -4410,6 +3088,7 @@ FROM                   t_yuso";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "t_yuso_wk";
             tableMapping.ColumnMappings.Add("calc_no", "calc_no");
+            tableMapping.ColumnMappings.Add("yuso_id", "yuso_id");
             tableMapping.ColumnMappings.Add("calc_ym", "calc_ym");
             tableMapping.ColumnMappings.Add("contract_type", "contract_type");
             tableMapping.ColumnMappings.Add("yuso_kbn", "yuso_kbn");
@@ -4436,6 +3115,7 @@ FROM                   t_yuso";
             tableMapping.ColumnMappings.Add("total_charge_amount", "total_charge_amount");
             tableMapping.ColumnMappings.Add("calc_status", "calc_status");
             tableMapping.ColumnMappings.Add("verify_status", "verify_status");
+            tableMapping.ColumnMappings.Add("yuso_key", "yuso_key");
             tableMapping.ColumnMappings.Add("created_at", "created_at");
             tableMapping.ColumnMappings.Add("created_user_id", "created_user_id");
             tableMapping.ColumnMappings.Add("updated_at", "updated_at");
@@ -4443,34 +3123,36 @@ FROM                   t_yuso";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[t_yuso_wk] WHERE (([calc_no] = @Original_calc_no) AND ([calc_y" +
-                "m] = @Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yu" +
-                "so_kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_wa" +
-                "rehouse_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([" +
-                "terminal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) " +
-                "AND ([dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_" +
-                "warehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_comp" +
-                "any_cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) " +
-                "AND ([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_" +
-                "cd) AND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS NULL) OR ([weight_sum" +
-                "_kg] = @Original_weight_sum_kg)) AND ([base_charge_amount] = @Original_base_char" +
-                "ge_amount) AND ([special_charge_amount] = @Original_special_charge_amount) AND (" +
-                "[stopping_charge_amount] = @Original_stopping_charge_amount) AND ([cargo_charge_" +
-                "amount] = @Original_cargo_charge_amount) AND ([other_charge_amount] = @Original_" +
-                "other_charge_amount) AND ((@IsNull_actual_distance_km = 1 AND [actual_distance_k" +
-                "m] IS NULL) OR ([actual_distance_km] = @Original_actual_distance_km)) AND ((@IsN" +
-                "ull_actual_time_mins = 1 AND [actual_time_mins] IS NULL) OR ([actual_time_mins] " +
-                "= @Original_actual_time_mins)) AND ([actual_time_surcharge_amount] = @Original_a" +
-                "ctual_time_surcharge_amount) AND ([total_charge_amount] = @Original_total_charge" +
-                "_amount) AND ([calc_status] = @Original_calc_status) AND ([verify_status] = @Ori" +
-                "ginal_verify_status) AND ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR (" +
-                "[created_at] = @Original_created_at)) AND ((@IsNull_created_user_id = 1 AND [cre" +
-                "ated_user_id] IS NULL) OR ([created_user_id] = @Original_created_user_id)) AND (" +
-                "(@IsNull_updated_at = 1 AND [updated_at] IS NULL) OR ([updated_at] = @Original_u" +
-                "pdated_at)) AND ((@IsNull_updated_user_id = 1 AND [updated_user_id] IS NULL) OR " +
-                "([updated_user_id] = @Original_updated_user_id)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[t_yuso_wk] WHERE (([calc_no] = @Original_calc_no) AND ([yuso_i" +
+                "d] = @Original_yuso_id) AND ([calc_ym] = @Original_calc_ym) AND ([contract_type]" +
+                " = @Original_contract_type) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig_war" +
+                "ehouse_block_cd] = @Original_orig_warehouse_block_cd) AND ([orig_warehouse_cd] =" +
+                " @Original_orig_warehouse_cd) AND ([terminal_id] = @Original_terminal_id) AND ([" +
+                "vehicle_id] = @Original_vehicle_id) AND ([dest_jis] = @Original_dest_jis) AND ([" +
+                "dest_warehouse_cd] = @Original_dest_warehouse_cd) AND ([yuso_mode_kbn] = @Origin" +
+                "al_yuso_mode_kbn) AND ([carrier_company_cd] = @Original_carrier_company_cd) AND " +
+                "([orig_date] = @Original_orig_date) AND ([arriving_date] = @Original_arriving_da" +
+                "te) AND ([dest_cd] = @Original_dest_cd) AND ((@IsNull_weight_sum_kg = 1 AND [wei" +
+                "ght_sum_kg] IS NULL) OR ([weight_sum_kg] = @Original_weight_sum_kg)) AND ([base_" +
+                "charge_amount] = @Original_base_charge_amount) AND ([special_charge_amount] = @O" +
+                "riginal_special_charge_amount) AND ([stopping_charge_amount] = @Original_stoppin" +
+                "g_charge_amount) AND ([cargo_charge_amount] = @Original_cargo_charge_amount) AND" +
+                " ([other_charge_amount] = @Original_other_charge_amount) AND ((@IsNull_actual_di" +
+                "stance_km = 1 AND [actual_distance_km] IS NULL) OR ([actual_distance_km] = @Orig" +
+                "inal_actual_distance_km)) AND ((@IsNull_actual_time_mins = 1 AND [actual_time_mi" +
+                "ns] IS NULL) OR ([actual_time_mins] = @Original_actual_time_mins)) AND ([actual_" +
+                "time_surcharge_amount] = @Original_actual_time_surcharge_amount) AND ([total_cha" +
+                "rge_amount] = @Original_total_charge_amount) AND ([calc_status] = @Original_calc" +
+                "_status) AND ([verify_status] = @Original_verify_status) AND ([yuso_key] = @Orig" +
+                "inal_yuso_key) AND ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR ([creat" +
+                "ed_at] = @Original_created_at)) AND ((@IsNull_created_user_id = 1 AND [created_u" +
+                "ser_id] IS NULL) OR ([created_user_id] = @Original_created_user_id)) AND ((@IsNu" +
+                "ll_updated_at = 1 AND [updated_at] IS NULL) OR ([updated_at] = @Original_updated" +
+                "_at)) AND ((@IsNull_updated_user_id = 1 AND [updated_user_id] IS NULL) OR ([upda" +
+                "ted_user_id] = @Original_updated_user_id)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4500,6 +3182,7 @@ FROM                   t_yuso";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4510,9 +3193,32 @@ FROM                   t_yuso";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[t_yuso_wk] ([calc_no], [calc_ym], [contract_type], [yuso_kbn], [orig_warehouse_block_cd], [orig_warehouse_cd], [terminal_id], [vehicle_id], [dest_jis], [dest_warehouse_cd], [yuso_mode_kbn], [carrier_company_cd], [orig_date], [arriving_date], [dest_cd], [weight_sum_kg], [base_charge_amount], [special_charge_amount], [stopping_charge_amount], [cargo_charge_amount], [other_charge_amount], [actual_distance_km], [actual_time_mins], [actual_time_surcharge_amount], [total_charge_amount], [calc_status], [verify_status], [created_at], [created_user_id], [updated_at], [updated_user_id]) VALUES (@calc_no, @calc_ym, @contract_type, @yuso_kbn, @orig_warehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_jis, @dest_warehouse_cd, @yuso_mode_kbn, @carrier_company_cd, @orig_date, @arriving_date, @dest_cd, @weight_sum_kg, @base_charge_amount, @special_charge_amount, @stopping_charge_amount, @cargo_charge_amount, @other_charge_amount, @actual_distance_km, @actual_time_mins, @actual_time_surcharge_amount, @total_charge_amount, @calc_status, @verify_status, @created_at, @created_user_id, @updated_at, @updated_user_id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_yuso_wk] ([calc_no], [yuso_id], [calc_ym], [contract_type], " +
+                "[yuso_kbn], [orig_warehouse_block_cd], [orig_warehouse_cd], [terminal_id], [vehi" +
+                "cle_id], [dest_jis], [dest_warehouse_cd], [yuso_mode_kbn], [carrier_company_cd]," +
+                " [orig_date], [arriving_date], [dest_cd], [weight_sum_kg], [base_charge_amount]," +
+                " [special_charge_amount], [stopping_charge_amount], [cargo_charge_amount], [othe" +
+                "r_charge_amount], [actual_distance_km], [actual_time_mins], [actual_time_surchar" +
+                "ge_amount], [total_charge_amount], [calc_status], [verify_status], [yuso_key], [" +
+                "created_at], [created_user_id], [updated_at], [updated_user_id]) VALUES (@calc_n" +
+                "o, @yuso_id, @calc_ym, @contract_type, @yuso_kbn, @orig_warehouse_block_cd, @ori" +
+                "g_warehouse_cd, @terminal_id, @vehicle_id, @dest_jis, @dest_warehouse_cd, @yuso_" +
+                "mode_kbn, @carrier_company_cd, @orig_date, @arriving_date, @dest_cd, @weight_sum" +
+                "_kg, @base_charge_amount, @special_charge_amount, @stopping_charge_amount, @carg" +
+                "o_charge_amount, @other_charge_amount, @actual_distance_km, @actual_time_mins, @" +
+                "actual_time_surcharge_amount, @total_charge_amount, @calc_status, @verify_status" +
+                ", @yuso_key, @created_at, @created_user_id, @updated_at, @updated_user_id);\r\nSEL" +
+                "ECT calc_no, yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd," +
+                " orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_m" +
+                "ode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, b" +
+                "ase_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_a" +
+                "mount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_su" +
+                "rcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key, creat" +
+                "ed_at, created_user_id, updated_at, updated_user_id FROM t_yuso_wk WHERE (calc_n" +
+                "o = @calc_no) AND (yuso_id = @yuso_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4539,54 +3245,65 @@ FROM                   t_yuso";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[t_yuso_wk] SET [calc_no] = @calc_no, [calc_ym] = @calc_ym, [contrac" +
-                "t_type] = @contract_type, [yuso_kbn] = @yuso_kbn, [orig_warehouse_block_cd] = @o" +
-                "rig_warehouse_block_cd, [orig_warehouse_cd] = @orig_warehouse_cd, [terminal_id] " +
-                "= @terminal_id, [vehicle_id] = @vehicle_id, [dest_jis] = @dest_jis, [dest_wareho" +
-                "use_cd] = @dest_warehouse_cd, [yuso_mode_kbn] = @yuso_mode_kbn, [carrier_company" +
-                "_cd] = @carrier_company_cd, [orig_date] = @orig_date, [arriving_date] = @arrivin" +
-                "g_date, [dest_cd] = @dest_cd, [weight_sum_kg] = @weight_sum_kg, [base_charge_amo" +
-                "unt] = @base_charge_amount, [special_charge_amount] = @special_charge_amount, [s" +
-                "topping_charge_amount] = @stopping_charge_amount, [cargo_charge_amount] = @cargo" +
-                "_charge_amount, [other_charge_amount] = @other_charge_amount, [actual_distance_k" +
-                "m] = @actual_distance_km, [actual_time_mins] = @actual_time_mins, [actual_time_s" +
-                "urcharge_amount] = @actual_time_surcharge_amount, [total_charge_amount] = @total" +
-                "_charge_amount, [calc_status] = @calc_status, [verify_status] = @verify_status, " +
-                "[created_at] = @created_at, [created_user_id] = @created_user_id, [updated_at] =" +
-                " @updated_at, [updated_user_id] = @updated_user_id WHERE (([calc_no] = @Original" +
-                "_calc_no) AND ([calc_ym] = @Original_calc_ym) AND ([contract_type] = @Original_c" +
-                "ontract_type) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_c" +
-                "d] = @Original_orig_warehouse_block_cd) AND ([orig_warehouse_cd] = @Original_ori" +
-                "g_warehouse_cd) AND ([terminal_id] = @Original_terminal_id) AND ([vehicle_id] = " +
-                "@Original_vehicle_id) AND ([dest_jis] = @Original_dest_jis) AND ([dest_warehouse" +
-                "_cd] = @Original_dest_warehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_k" +
-                "bn) AND ([carrier_company_cd] = @Original_carrier_company_cd) AND ([orig_date] =" +
-                " @Original_orig_date) AND ([arriving_date] = @Original_arriving_date) AND ([dest" +
-                "_cd] = @Original_dest_cd) AND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS" +
-                " NULL) OR ([weight_sum_kg] = @Original_weight_sum_kg)) AND ([base_charge_amount]" +
-                " = @Original_base_charge_amount) AND ([special_charge_amount] = @Original_specia" +
-                "l_charge_amount) AND ([stopping_charge_amount] = @Original_stopping_charge_amoun" +
-                "t) AND ([cargo_charge_amount] = @Original_cargo_charge_amount) AND ([other_charg" +
-                "e_amount] = @Original_other_charge_amount) AND ((@IsNull_actual_distance_km = 1 " +
-                "AND [actual_distance_km] IS NULL) OR ([actual_distance_km] = @Original_actual_di" +
-                "stance_km)) AND ((@IsNull_actual_time_mins = 1 AND [actual_time_mins] IS NULL) O" +
-                "R ([actual_time_mins] = @Original_actual_time_mins)) AND ([actual_time_surcharge" +
-                "_amount] = @Original_actual_time_surcharge_amount) AND ([total_charge_amount] = " +
-                "@Original_total_charge_amount) AND ([calc_status] = @Original_calc_status) AND (" +
-                "[verify_status] = @Original_verify_status) AND ((@IsNull_created_at = 1 AND [cre" +
-                "ated_at] IS NULL) OR ([created_at] = @Original_created_at)) AND ((@IsNull_create" +
-                "d_user_id = 1 AND [created_user_id] IS NULL) OR ([created_user_id] = @Original_c" +
-                "reated_user_id)) AND ((@IsNull_updated_at = 1 AND [updated_at] IS NULL) OR ([upd" +
-                "ated_at] = @Original_updated_at)) AND ((@IsNull_updated_user_id = 1 AND [updated" +
-                "_user_id] IS NULL) OR ([updated_user_id] = @Original_updated_user_id)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[t_yuso_wk] SET [calc_no] = @calc_no, [yuso_id] = @yuso_id, [calc_ym" +
+                "] = @calc_ym, [contract_type] = @contract_type, [yuso_kbn] = @yuso_kbn, [orig_wa" +
+                "rehouse_block_cd] = @orig_warehouse_block_cd, [orig_warehouse_cd] = @orig_wareho" +
+                "use_cd, [terminal_id] = @terminal_id, [vehicle_id] = @vehicle_id, [dest_jis] = @" +
+                "dest_jis, [dest_warehouse_cd] = @dest_warehouse_cd, [yuso_mode_kbn] = @yuso_mode" +
+                "_kbn, [carrier_company_cd] = @carrier_company_cd, [orig_date] = @orig_date, [arr" +
+                "iving_date] = @arriving_date, [dest_cd] = @dest_cd, [weight_sum_kg] = @weight_su" +
+                "m_kg, [base_charge_amount] = @base_charge_amount, [special_charge_amount] = @spe" +
+                "cial_charge_amount, [stopping_charge_amount] = @stopping_charge_amount, [cargo_c" +
+                "harge_amount] = @cargo_charge_amount, [other_charge_amount] = @other_charge_amou" +
+                "nt, [actual_distance_km] = @actual_distance_km, [actual_time_mins] = @actual_tim" +
+                "e_mins, [actual_time_surcharge_amount] = @actual_time_surcharge_amount, [total_c" +
+                "harge_amount] = @total_charge_amount, [calc_status] = @calc_status, [verify_stat" +
+                "us] = @verify_status, [yuso_key] = @yuso_key, [created_at] = @created_at, [creat" +
+                "ed_user_id] = @created_user_id, [updated_at] = @updated_at, [updated_user_id] = " +
+                "@updated_user_id WHERE (([calc_no] = @Original_calc_no) AND ([yuso_id] = @Origin" +
+                "al_yuso_id) AND ([calc_ym] = @Original_calc_ym) AND ([contract_type] = @Original" +
+                "_contract_type) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block" +
+                "_cd] = @Original_orig_warehouse_block_cd) AND ([orig_warehouse_cd] = @Original_o" +
+                "rig_warehouse_cd) AND ([terminal_id] = @Original_terminal_id) AND ([vehicle_id] " +
+                "= @Original_vehicle_id) AND ([dest_jis] = @Original_dest_jis) AND ([dest_warehou" +
+                "se_cd] = @Original_dest_warehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode" +
+                "_kbn) AND ([carrier_company_cd] = @Original_carrier_company_cd) AND ([orig_date]" +
+                " = @Original_orig_date) AND ([arriving_date] = @Original_arriving_date) AND ([de" +
+                "st_cd] = @Original_dest_cd) AND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] " +
+                "IS NULL) OR ([weight_sum_kg] = @Original_weight_sum_kg)) AND ([base_charge_amoun" +
+                "t] = @Original_base_charge_amount) AND ([special_charge_amount] = @Original_spec" +
+                "ial_charge_amount) AND ([stopping_charge_amount] = @Original_stopping_charge_amo" +
+                "unt) AND ([cargo_charge_amount] = @Original_cargo_charge_amount) AND ([other_cha" +
+                "rge_amount] = @Original_other_charge_amount) AND ((@IsNull_actual_distance_km = " +
+                "1 AND [actual_distance_km] IS NULL) OR ([actual_distance_km] = @Original_actual_" +
+                "distance_km)) AND ((@IsNull_actual_time_mins = 1 AND [actual_time_mins] IS NULL)" +
+                " OR ([actual_time_mins] = @Original_actual_time_mins)) AND ([actual_time_surchar" +
+                "ge_amount] = @Original_actual_time_surcharge_amount) AND ([total_charge_amount] " +
+                "= @Original_total_charge_amount) AND ([calc_status] = @Original_calc_status) AND" +
+                " ([verify_status] = @Original_verify_status) AND ([yuso_key] = @Original_yuso_ke" +
+                "y) AND ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR ([created_at] = @Or" +
+                "iginal_created_at)) AND ((@IsNull_created_user_id = 1 AND [created_user_id] IS N" +
+                "ULL) OR ([created_user_id] = @Original_created_user_id)) AND ((@IsNull_updated_a" +
+                "t = 1 AND [updated_at] IS NULL) OR ([updated_at] = @Original_updated_at)) AND ((" +
+                "@IsNull_updated_user_id = 1 AND [updated_user_id] IS NULL) OR ([updated_user_id]" +
+                " = @Original_updated_user_id)));\r\nSELECT calc_no, yuso_id, calc_ym, contract_typ" +
+                "e, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id" +
+                ", dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arr" +
+                "iving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, s" +
+                "topping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance" +
+                "_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_s" +
+                "tatus, verify_status, yuso_key, created_at, created_user_id, updated_at, updated" +
+                "_user_id FROM t_yuso_wk WHERE (calc_no = @calc_no) AND (yuso_id = @yuso_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4613,11 +3330,13 @@ FROM                   t_yuso";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4647,6 +3366,7 @@ FROM                   t_yuso";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4671,7 +3391,7 @@ FROM                   t_yuso";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT calc_no, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, created_at, created_user_id, updated_at, updated_user_id FROM dbo.t_yuso_wk";
+            this._commandCollection[0].CommandText = @"SELECT calc_no, yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key, created_at, created_user_id, updated_at, updated_user_id FROM dbo.t_yuso_wk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4734,6 +3454,7 @@ FROM                   t_yuso";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
                     int Original_calc_no, 
+                    int Original_yuso_id, 
                     string Original_calc_ym, 
                     string Original_contract_type, 
                     string Original_yuso_kbn, 
@@ -4760,11 +3481,1349 @@ FROM                   t_yuso";
                     decimal Original_total_charge_amount, 
                     short Original_calc_status, 
                     short Original_verify_status, 
+                    string Original_yuso_key, 
                     global::System.Nullable<global::System.DateTime> Original_created_at, 
                     string Original_created_user_id, 
                     global::System.Nullable<global::System.DateTime> Original_updated_at, 
                     string Original_updated_user_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_calc_no));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_yuso_id));
+            if ((Original_calc_ym == null)) {
+                throw new global::System.ArgumentNullException("Original_calc_ym");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_calc_ym));
+            }
+            if ((Original_contract_type == null)) {
+                throw new global::System.ArgumentNullException("Original_contract_type");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_contract_type));
+            }
+            if ((Original_yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_yuso_kbn));
+            }
+            if ((Original_orig_warehouse_block_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_orig_warehouse_block_cd));
+            }
+            if ((Original_orig_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_orig_warehouse_cd));
+            }
+            if ((Original_terminal_id == null)) {
+                throw new global::System.ArgumentNullException("Original_terminal_id");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_terminal_id));
+            }
+            if ((Original_vehicle_id == null)) {
+                throw new global::System.ArgumentNullException("Original_vehicle_id");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_vehicle_id));
+            }
+            if ((Original_dest_jis == null)) {
+                throw new global::System.ArgumentNullException("Original_dest_jis");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_dest_jis));
+            }
+            if ((Original_dest_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_dest_warehouse_cd));
+            }
+            if ((Original_yuso_mode_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_yuso_mode_kbn));
+            }
+            if ((Original_carrier_company_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_carrier_company_cd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_carrier_company_cd));
+            }
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_orig_date));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_arriving_date));
+            if ((Original_dest_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_dest_cd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_dest_cd));
+            }
+            if ((Original_weight_sum_kg.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((decimal)(Original_weight_sum_kg.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_base_charge_amount));
+            this.Adapter.DeleteCommand.Parameters[19].Value = ((decimal)(Original_special_charge_amount));
+            this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_stopping_charge_amount));
+            this.Adapter.DeleteCommand.Parameters[21].Value = ((decimal)(Original_cargo_charge_amount));
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_other_charge_amount));
+            if ((Original_actual_distance_km.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_actual_distance_km.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_actual_time_mins.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_actual_time_mins.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[27].Value = ((decimal)(Original_actual_time_surcharge_amount));
+            this.Adapter.DeleteCommand.Parameters[28].Value = ((decimal)(Original_total_charge_amount));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((short)(Original_calc_status));
+            this.Adapter.DeleteCommand.Parameters[30].Value = ((short)(Original_verify_status));
+            if ((Original_yuso_key == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_key");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_yuso_key));
+            }
+            if ((Original_created_at.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(Original_created_at.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_created_user_id == null)) {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_created_user_id));
+            }
+            if ((Original_updated_at.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((System.DateTime)(Original_updated_at.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_updated_user_id == null)) {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((string)(Original_updated_user_id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    int calc_no, 
+                    int yuso_id, 
+                    string calc_ym, 
+                    string contract_type, 
+                    string yuso_kbn, 
+                    string orig_warehouse_block_cd, 
+                    string orig_warehouse_cd, 
+                    string terminal_id, 
+                    string vehicle_id, 
+                    string dest_jis, 
+                    string dest_warehouse_cd, 
+                    string yuso_mode_kbn, 
+                    string carrier_company_cd, 
+                    System.DateTime orig_date, 
+                    System.DateTime arriving_date, 
+                    string dest_cd, 
+                    global::System.Nullable<decimal> weight_sum_kg, 
+                    decimal base_charge_amount, 
+                    decimal special_charge_amount, 
+                    decimal stopping_charge_amount, 
+                    decimal cargo_charge_amount, 
+                    decimal other_charge_amount, 
+                    global::System.Nullable<decimal> actual_distance_km, 
+                    global::System.Nullable<decimal> actual_time_mins, 
+                    decimal actual_time_surcharge_amount, 
+                    decimal total_charge_amount, 
+                    short calc_status, 
+                    short verify_status, 
+                    string yuso_key, 
+                    global::System.Nullable<global::System.DateTime> created_at, 
+                    string created_user_id, 
+                    global::System.Nullable<global::System.DateTime> updated_at, 
+                    string updated_user_id) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(calc_no));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(yuso_id));
+            if ((calc_ym == null)) {
+                throw new global::System.ArgumentNullException("calc_ym");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(calc_ym));
+            }
+            if ((contract_type == null)) {
+                throw new global::System.ArgumentNullException("contract_type");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(contract_type));
+            }
+            if ((yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("yuso_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(yuso_kbn));
+            }
+            if ((orig_warehouse_block_cd == null)) {
+                throw new global::System.ArgumentNullException("orig_warehouse_block_cd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(orig_warehouse_block_cd));
+            }
+            if ((orig_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("orig_warehouse_cd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(orig_warehouse_cd));
+            }
+            if ((terminal_id == null)) {
+                throw new global::System.ArgumentNullException("terminal_id");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(terminal_id));
+            }
+            if ((vehicle_id == null)) {
+                throw new global::System.ArgumentNullException("vehicle_id");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(vehicle_id));
+            }
+            if ((dest_jis == null)) {
+                throw new global::System.ArgumentNullException("dest_jis");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(dest_jis));
+            }
+            if ((dest_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("dest_warehouse_cd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(dest_warehouse_cd));
+            }
+            if ((yuso_mode_kbn == null)) {
+                throw new global::System.ArgumentNullException("yuso_mode_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(yuso_mode_kbn));
+            }
+            if ((carrier_company_cd == null)) {
+                throw new global::System.ArgumentNullException("carrier_company_cd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(carrier_company_cd));
+            }
+            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(orig_date));
+            this.Adapter.InsertCommand.Parameters[14].Value = ((System.DateTime)(arriving_date));
+            if ((dest_cd == null)) {
+                throw new global::System.ArgumentNullException("dest_cd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(dest_cd));
+            }
+            if ((weight_sum_kg.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(weight_sum_kg.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(base_charge_amount));
+            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(special_charge_amount));
+            this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(stopping_charge_amount));
+            this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(cargo_charge_amount));
+            this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(other_charge_amount));
+            if ((actual_distance_km.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(actual_distance_km.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((actual_time_mins.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(actual_time_mins.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(actual_time_surcharge_amount));
+            this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(total_charge_amount));
+            this.Adapter.InsertCommand.Parameters[26].Value = ((short)(calc_status));
+            this.Adapter.InsertCommand.Parameters[27].Value = ((short)(verify_status));
+            if ((yuso_key == null)) {
+                throw new global::System.ArgumentNullException("yuso_key");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(yuso_key));
+            }
+            if ((created_at.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((System.DateTime)(created_at.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((created_user_id == null)) {
+                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(created_user_id));
+            }
+            if ((updated_at.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((System.DateTime)(updated_at.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((updated_user_id == null)) {
+                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(updated_user_id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int calc_no, 
+                    int yuso_id, 
+                    string calc_ym, 
+                    string contract_type, 
+                    string yuso_kbn, 
+                    string orig_warehouse_block_cd, 
+                    string orig_warehouse_cd, 
+                    string terminal_id, 
+                    string vehicle_id, 
+                    string dest_jis, 
+                    string dest_warehouse_cd, 
+                    string yuso_mode_kbn, 
+                    string carrier_company_cd, 
+                    System.DateTime orig_date, 
+                    System.DateTime arriving_date, 
+                    string dest_cd, 
+                    global::System.Nullable<decimal> weight_sum_kg, 
+                    decimal base_charge_amount, 
+                    decimal special_charge_amount, 
+                    decimal stopping_charge_amount, 
+                    decimal cargo_charge_amount, 
+                    decimal other_charge_amount, 
+                    global::System.Nullable<decimal> actual_distance_km, 
+                    global::System.Nullable<decimal> actual_time_mins, 
+                    decimal actual_time_surcharge_amount, 
+                    decimal total_charge_amount, 
+                    short calc_status, 
+                    short verify_status, 
+                    string yuso_key, 
+                    global::System.Nullable<global::System.DateTime> created_at, 
+                    string created_user_id, 
+                    global::System.Nullable<global::System.DateTime> updated_at, 
+                    string updated_user_id, 
+                    int Original_calc_no, 
+                    int Original_yuso_id, 
+                    string Original_calc_ym, 
+                    string Original_contract_type, 
+                    string Original_yuso_kbn, 
+                    string Original_orig_warehouse_block_cd, 
+                    string Original_orig_warehouse_cd, 
+                    string Original_terminal_id, 
+                    string Original_vehicle_id, 
+                    string Original_dest_jis, 
+                    string Original_dest_warehouse_cd, 
+                    string Original_yuso_mode_kbn, 
+                    string Original_carrier_company_cd, 
+                    System.DateTime Original_orig_date, 
+                    System.DateTime Original_arriving_date, 
+                    string Original_dest_cd, 
+                    global::System.Nullable<decimal> Original_weight_sum_kg, 
+                    decimal Original_base_charge_amount, 
+                    decimal Original_special_charge_amount, 
+                    decimal Original_stopping_charge_amount, 
+                    decimal Original_cargo_charge_amount, 
+                    decimal Original_other_charge_amount, 
+                    global::System.Nullable<decimal> Original_actual_distance_km, 
+                    global::System.Nullable<decimal> Original_actual_time_mins, 
+                    decimal Original_actual_time_surcharge_amount, 
+                    decimal Original_total_charge_amount, 
+                    short Original_calc_status, 
+                    short Original_verify_status, 
+                    string Original_yuso_key, 
+                    global::System.Nullable<global::System.DateTime> Original_created_at, 
+                    string Original_created_user_id, 
+                    global::System.Nullable<global::System.DateTime> Original_updated_at, 
+                    string Original_updated_user_id) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(calc_no));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(yuso_id));
+            if ((calc_ym == null)) {
+                throw new global::System.ArgumentNullException("calc_ym");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(calc_ym));
+            }
+            if ((contract_type == null)) {
+                throw new global::System.ArgumentNullException("contract_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(contract_type));
+            }
+            if ((yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("yuso_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(yuso_kbn));
+            }
+            if ((orig_warehouse_block_cd == null)) {
+                throw new global::System.ArgumentNullException("orig_warehouse_block_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(orig_warehouse_block_cd));
+            }
+            if ((orig_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("orig_warehouse_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(orig_warehouse_cd));
+            }
+            if ((terminal_id == null)) {
+                throw new global::System.ArgumentNullException("terminal_id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(terminal_id));
+            }
+            if ((vehicle_id == null)) {
+                throw new global::System.ArgumentNullException("vehicle_id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(vehicle_id));
+            }
+            if ((dest_jis == null)) {
+                throw new global::System.ArgumentNullException("dest_jis");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(dest_jis));
+            }
+            if ((dest_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("dest_warehouse_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(dest_warehouse_cd));
+            }
+            if ((yuso_mode_kbn == null)) {
+                throw new global::System.ArgumentNullException("yuso_mode_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(yuso_mode_kbn));
+            }
+            if ((carrier_company_cd == null)) {
+                throw new global::System.ArgumentNullException("carrier_company_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(carrier_company_cd));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(orig_date));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(arriving_date));
+            if ((dest_cd == null)) {
+                throw new global::System.ArgumentNullException("dest_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(dest_cd));
+            }
+            if ((weight_sum_kg.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(weight_sum_kg.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(base_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(special_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(stopping_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(cargo_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(other_charge_amount));
+            if ((actual_distance_km.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(actual_distance_km.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((actual_time_mins.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(actual_time_mins.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(actual_time_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(total_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((short)(calc_status));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((short)(verify_status));
+            if ((yuso_key == null)) {
+                throw new global::System.ArgumentNullException("yuso_key");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(yuso_key));
+            }
+            if ((created_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(created_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((created_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(created_user_id));
+            }
+            if ((updated_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(updated_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((updated_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(updated_user_id));
+            }
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_calc_no));
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_yuso_id));
+            if ((Original_calc_ym == null)) {
+                throw new global::System.ArgumentNullException("Original_calc_ym");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_calc_ym));
+            }
+            if ((Original_contract_type == null)) {
+                throw new global::System.ArgumentNullException("Original_contract_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_contract_type));
+            }
+            if ((Original_yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_yuso_kbn));
+            }
+            if ((Original_orig_warehouse_block_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_orig_warehouse_block_cd));
+            }
+            if ((Original_orig_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_orig_warehouse_cd));
+            }
+            if ((Original_terminal_id == null)) {
+                throw new global::System.ArgumentNullException("Original_terminal_id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_terminal_id));
+            }
+            if ((Original_vehicle_id == null)) {
+                throw new global::System.ArgumentNullException("Original_vehicle_id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_vehicle_id));
+            }
+            if ((Original_dest_jis == null)) {
+                throw new global::System.ArgumentNullException("Original_dest_jis");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_dest_jis));
+            }
+            if ((Original_dest_warehouse_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_dest_warehouse_cd));
+            }
+            if ((Original_yuso_mode_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_yuso_mode_kbn));
+            }
+            if ((Original_carrier_company_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_carrier_company_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_carrier_company_cd));
+            }
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_orig_date));
+            this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(Original_arriving_date));
+            if ((Original_dest_cd == null)) {
+                throw new global::System.ArgumentNullException("Original_dest_cd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_dest_cd));
+            }
+            if ((Original_weight_sum_kg.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_weight_sum_kg.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((decimal)(Original_base_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((decimal)(Original_special_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[53].Value = ((decimal)(Original_stopping_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[54].Value = ((decimal)(Original_cargo_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[55].Value = ((decimal)(Original_other_charge_amount));
+            if ((Original_actual_distance_km.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_actual_distance_km.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            if ((Original_actual_time_mins.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_actual_time_mins.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_actual_time_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_total_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((short)(Original_calc_status));
+            this.Adapter.UpdateCommand.Parameters[63].Value = ((short)(Original_verify_status));
+            if ((Original_yuso_key == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_key");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_yuso_key));
+            }
+            if ((Original_created_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((System.DateTime)(Original_created_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            if ((Original_created_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_created_user_id));
+            }
+            if ((Original_updated_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((System.DateTime)(Original_updated_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
+            }
+            if ((Original_updated_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((string)(Original_updated_user_id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string calc_ym, 
+                    string contract_type, 
+                    string yuso_kbn, 
+                    string orig_warehouse_block_cd, 
+                    string orig_warehouse_cd, 
+                    string terminal_id, 
+                    string vehicle_id, 
+                    string dest_jis, 
+                    string dest_warehouse_cd, 
+                    string yuso_mode_kbn, 
+                    string carrier_company_cd, 
+                    System.DateTime orig_date, 
+                    System.DateTime arriving_date, 
+                    string dest_cd, 
+                    global::System.Nullable<decimal> weight_sum_kg, 
+                    decimal base_charge_amount, 
+                    decimal special_charge_amount, 
+                    decimal stopping_charge_amount, 
+                    decimal cargo_charge_amount, 
+                    decimal other_charge_amount, 
+                    global::System.Nullable<decimal> actual_distance_km, 
+                    global::System.Nullable<decimal> actual_time_mins, 
+                    decimal actual_time_surcharge_amount, 
+                    decimal total_charge_amount, 
+                    short calc_status, 
+                    short verify_status, 
+                    string yuso_key, 
+                    global::System.Nullable<global::System.DateTime> created_at, 
+                    string created_user_id, 
+                    global::System.Nullable<global::System.DateTime> updated_at, 
+                    string updated_user_id, 
+                    int Original_calc_no, 
+                    int Original_yuso_id, 
+                    string Original_calc_ym, 
+                    string Original_contract_type, 
+                    string Original_yuso_kbn, 
+                    string Original_orig_warehouse_block_cd, 
+                    string Original_orig_warehouse_cd, 
+                    string Original_terminal_id, 
+                    string Original_vehicle_id, 
+                    string Original_dest_jis, 
+                    string Original_dest_warehouse_cd, 
+                    string Original_yuso_mode_kbn, 
+                    string Original_carrier_company_cd, 
+                    System.DateTime Original_orig_date, 
+                    System.DateTime Original_arriving_date, 
+                    string Original_dest_cd, 
+                    global::System.Nullable<decimal> Original_weight_sum_kg, 
+                    decimal Original_base_charge_amount, 
+                    decimal Original_special_charge_amount, 
+                    decimal Original_stopping_charge_amount, 
+                    decimal Original_cargo_charge_amount, 
+                    decimal Original_other_charge_amount, 
+                    global::System.Nullable<decimal> Original_actual_distance_km, 
+                    global::System.Nullable<decimal> Original_actual_time_mins, 
+                    decimal Original_actual_time_surcharge_amount, 
+                    decimal Original_total_charge_amount, 
+                    short Original_calc_status, 
+                    short Original_verify_status, 
+                    string Original_yuso_key, 
+                    global::System.Nullable<global::System.DateTime> Original_created_at, 
+                    string Original_created_user_id, 
+                    global::System.Nullable<global::System.DateTime> Original_updated_at, 
+                    string Original_updated_user_id) {
+            return this.Update(Original_calc_no, Original_yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key, created_at, created_user_id, updated_at, updated_user_id, Original_calc_no, Original_yuso_id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_weight_sum_kg, Original_base_charge_amount, Original_special_charge_amount, Original_stopping_charge_amount, Original_cargo_charge_amount, Original_other_charge_amount, Original_actual_distance_km, Original_actual_time_mins, Original_actual_time_surcharge_amount, Original_total_charge_amount, Original_calc_status, Original_verify_status, Original_yuso_key, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class t_yusoTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public t_yusoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "t_yuso";
+            tableMapping.ColumnMappings.Add("yuso_id", "yuso_id");
+            tableMapping.ColumnMappings.Add("calc_ym", "calc_ym");
+            tableMapping.ColumnMappings.Add("contract_type", "contract_type");
+            tableMapping.ColumnMappings.Add("yuso_kbn", "yuso_kbn");
+            tableMapping.ColumnMappings.Add("orig_warehouse_block_cd", "orig_warehouse_block_cd");
+            tableMapping.ColumnMappings.Add("orig_warehouse_cd", "orig_warehouse_cd");
+            tableMapping.ColumnMappings.Add("terminal_id", "terminal_id");
+            tableMapping.ColumnMappings.Add("vehicle_id", "vehicle_id");
+            tableMapping.ColumnMappings.Add("dest_jis", "dest_jis");
+            tableMapping.ColumnMappings.Add("dest_warehouse_cd", "dest_warehouse_cd");
+            tableMapping.ColumnMappings.Add("yuso_mode_kbn", "yuso_mode_kbn");
+            tableMapping.ColumnMappings.Add("carrier_company_cd", "carrier_company_cd");
+            tableMapping.ColumnMappings.Add("orig_date", "orig_date");
+            tableMapping.ColumnMappings.Add("arriving_date", "arriving_date");
+            tableMapping.ColumnMappings.Add("dest_cd", "dest_cd");
+            tableMapping.ColumnMappings.Add("weight_sum_kg", "weight_sum_kg");
+            tableMapping.ColumnMappings.Add("base_charge_amount", "base_charge_amount");
+            tableMapping.ColumnMappings.Add("special_charge_amount", "special_charge_amount");
+            tableMapping.ColumnMappings.Add("stopping_charge_amount", "stopping_charge_amount");
+            tableMapping.ColumnMappings.Add("cargo_charge_amount", "cargo_charge_amount");
+            tableMapping.ColumnMappings.Add("other_charge_amount", "other_charge_amount");
+            tableMapping.ColumnMappings.Add("actual_distance_km", "actual_distance_km");
+            tableMapping.ColumnMappings.Add("actual_time_mins", "actual_time_mins");
+            tableMapping.ColumnMappings.Add("actual_time_surcharge_amount", "actual_time_surcharge_amount");
+            tableMapping.ColumnMappings.Add("total_charge_amount", "total_charge_amount");
+            tableMapping.ColumnMappings.Add("calc_status", "calc_status");
+            tableMapping.ColumnMappings.Add("verify_status", "verify_status");
+            tableMapping.ColumnMappings.Add("calc_no", "calc_no");
+            tableMapping.ColumnMappings.Add("last_calc_at", "last_calc_at");
+            tableMapping.ColumnMappings.Add("yuso_key", "yuso_key");
+            tableMapping.ColumnMappings.Add("created_at", "created_at");
+            tableMapping.ColumnMappings.Add("created_user_id", "created_user_id");
+            tableMapping.ColumnMappings.Add("updated_at", "updated_at");
+            tableMapping.ColumnMappings.Add("updated_user_id", "updated_user_id");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[t_yuso] WHERE (([yuso_id] = @Original_yuso_id) AND ([calc_ym] " +
+                "= @Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_" +
+                "kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_wareh" +
+                "ouse_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([ter" +
+                "minal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND" +
+                " ([dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_war" +
+                "ehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company" +
+                "_cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND" +
+                " ([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd)" +
+                " AND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS NULL) OR ([weight_sum_kg" +
+                "] = @Original_weight_sum_kg)) AND ([base_charge_amount] = @Original_base_charge_" +
+                "amount) AND ([special_charge_amount] = @Original_special_charge_amount) AND ([st" +
+                "opping_charge_amount] = @Original_stopping_charge_amount) AND ([cargo_charge_amo" +
+                "unt] = @Original_cargo_charge_amount) AND ([other_charge_amount] = @Original_oth" +
+                "er_charge_amount) AND ((@IsNull_actual_distance_km = 1 AND [actual_distance_km] " +
+                "IS NULL) OR ([actual_distance_km] = @Original_actual_distance_km)) AND ((@IsNull" +
+                "_actual_time_mins = 1 AND [actual_time_mins] IS NULL) OR ([actual_time_mins] = @" +
+                "Original_actual_time_mins)) AND ([actual_time_surcharge_amount] = @Original_actu" +
+                "al_time_surcharge_amount) AND ([total_charge_amount] = @Original_total_charge_am" +
+                "ount) AND ([calc_status] = @Original_calc_status) AND ([verify_status] = @Origin" +
+                "al_verify_status) AND ((@IsNull_calc_no = 1 AND [calc_no] IS NULL) OR ([calc_no]" +
+                " = @Original_calc_no)) AND ((@IsNull_last_calc_at = 1 AND [last_calc_at] IS NULL" +
+                ") OR ([last_calc_at] = @Original_last_calc_at)) AND ([yuso_key] = @Original_yuso" +
+                "_key) AND ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR ([created_at] = " +
+                "@Original_created_at)) AND ((@IsNull_created_user_id = 1 AND [created_user_id] I" +
+                "S NULL) OR ([created_user_id] = @Original_created_user_id)) AND ((@IsNull_update" +
+                "d_at = 1 AND [updated_at] IS NULL) OR ([updated_at] = @Original_updated_at)) AND" +
+                " ((@IsNull_updated_user_id = 1 AND [updated_user_id] IS NULL) OR ([updated_user_" +
+                "id] = @Original_updated_user_id)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_sum_kg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_sum_kg", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_distance_km", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_distance_km", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_time_mins", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_mins", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_last_calc_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_yuso] ([calc_ym], [contract_type], [yuso_kbn], [orig_warehou" +
+                "se_block_cd], [orig_warehouse_cd], [terminal_id], [vehicle_id], [dest_jis], [des" +
+                "t_warehouse_cd], [yuso_mode_kbn], [carrier_company_cd], [orig_date], [arriving_d" +
+                "ate], [dest_cd], [weight_sum_kg], [base_charge_amount], [special_charge_amount]," +
+                " [stopping_charge_amount], [cargo_charge_amount], [other_charge_amount], [actual" +
+                "_distance_km], [actual_time_mins], [actual_time_surcharge_amount], [total_charge" +
+                "_amount], [calc_status], [verify_status], [calc_no], [last_calc_at], [yuso_key]," +
+                " [created_at], [created_user_id], [updated_at], [updated_user_id]) VALUES (@calc" +
+                "_ym, @contract_type, @yuso_kbn, @orig_warehouse_block_cd, @orig_warehouse_cd, @t" +
+                "erminal_id, @vehicle_id, @dest_jis, @dest_warehouse_cd, @yuso_mode_kbn, @carrier" +
+                "_company_cd, @orig_date, @arriving_date, @dest_cd, @weight_sum_kg, @base_charge_" +
+                "amount, @special_charge_amount, @stopping_charge_amount, @cargo_charge_amount, @" +
+                "other_charge_amount, @actual_distance_km, @actual_time_mins, @actual_time_surcha" +
+                "rge_amount, @total_charge_amount, @calc_status, @verify_status, @calc_no, @last_" +
+                "calc_at, @yuso_key, @created_at, @created_user_id, @updated_at, @updated_user_id" +
+                ");\r\nSELECT yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, o" +
+                "rig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mod" +
+                "e_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, bas" +
+                "e_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amo" +
+                "unt, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surc" +
+                "harge_amount, total_charge_amount, calc_status, verify_status, calc_no, last_cal" +
+                "c_at, yuso_key, created_at, created_user_id, updated_at, updated_user_id FROM t_" +
+                "yuso WHERE (yuso_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[t_yuso] SET [calc_ym] = @calc_ym, [contract_type] = @contract_type," +
+                " [yuso_kbn] = @yuso_kbn, [orig_warehouse_block_cd] = @orig_warehouse_block_cd, [" +
+                "orig_warehouse_cd] = @orig_warehouse_cd, [terminal_id] = @terminal_id, [vehicle_" +
+                "id] = @vehicle_id, [dest_jis] = @dest_jis, [dest_warehouse_cd] = @dest_warehouse" +
+                "_cd, [yuso_mode_kbn] = @yuso_mode_kbn, [carrier_company_cd] = @carrier_company_c" +
+                "d, [orig_date] = @orig_date, [arriving_date] = @arriving_date, [dest_cd] = @dest" +
+                "_cd, [weight_sum_kg] = @weight_sum_kg, [base_charge_amount] = @base_charge_amoun" +
+                "t, [special_charge_amount] = @special_charge_amount, [stopping_charge_amount] = " +
+                "@stopping_charge_amount, [cargo_charge_amount] = @cargo_charge_amount, [other_ch" +
+                "arge_amount] = @other_charge_amount, [actual_distance_km] = @actual_distance_km," +
+                " [actual_time_mins] = @actual_time_mins, [actual_time_surcharge_amount] = @actua" +
+                "l_time_surcharge_amount, [total_charge_amount] = @total_charge_amount, [calc_sta" +
+                "tus] = @calc_status, [verify_status] = @verify_status, [calc_no] = @calc_no, [la" +
+                "st_calc_at] = @last_calc_at, [yuso_key] = @yuso_key, [created_at] = @created_at," +
+                " [created_user_id] = @created_user_id, [updated_at] = @updated_at, [updated_user" +
+                "_id] = @updated_user_id WHERE (([yuso_id] = @Original_yuso_id) AND ([calc_ym] = " +
+                "@Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_kb" +
+                "n] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_warehou" +
+                "se_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([termi" +
+                "nal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND (" +
+                "[dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_wareh" +
+                "ouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company_c" +
+                "d] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND (" +
+                "[arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd) A" +
+                "ND ((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS NULL) OR ([weight_sum_kg] " +
+                "= @Original_weight_sum_kg)) AND ([base_charge_amount] = @Original_base_charge_am" +
+                "ount) AND ([special_charge_amount] = @Original_special_charge_amount) AND ([stop" +
+                "ping_charge_amount] = @Original_stopping_charge_amount) AND ([cargo_charge_amoun" +
+                "t] = @Original_cargo_charge_amount) AND ([other_charge_amount] = @Original_other" +
+                "_charge_amount) AND ((@IsNull_actual_distance_km = 1 AND [actual_distance_km] IS" +
+                " NULL) OR ([actual_distance_km] = @Original_actual_distance_km)) AND ((@IsNull_a" +
+                "ctual_time_mins = 1 AND [actual_time_mins] IS NULL) OR ([actual_time_mins] = @Or" +
+                "iginal_actual_time_mins)) AND ([actual_time_surcharge_amount] = @Original_actual" +
+                "_time_surcharge_amount) AND ([total_charge_amount] = @Original_total_charge_amou" +
+                "nt) AND ([calc_status] = @Original_calc_status) AND ([verify_status] = @Original" +
+                "_verify_status) AND ((@IsNull_calc_no = 1 AND [calc_no] IS NULL) OR ([calc_no] =" +
+                " @Original_calc_no)) AND ((@IsNull_last_calc_at = 1 AND [last_calc_at] IS NULL) " +
+                "OR ([last_calc_at] = @Original_last_calc_at)) AND ([yuso_key] = @Original_yuso_k" +
+                "ey) AND ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR ([created_at] = @O" +
+                "riginal_created_at)) AND ((@IsNull_created_user_id = 1 AND [created_user_id] IS " +
+                "NULL) OR ([created_user_id] = @Original_created_user_id)) AND ((@IsNull_updated_" +
+                "at = 1 AND [updated_at] IS NULL) OR ([updated_at] = @Original_updated_at)) AND (" +
+                "(@IsNull_updated_user_id = 1 AND [updated_user_id] IS NULL) OR ([updated_user_id" +
+                "] = @Original_updated_user_id)));\r\nSELECT yuso_id, calc_ym, contract_type, yuso_" +
+                "kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_j" +
+                "is, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_da" +
+                "te, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_" +
+                "charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, act" +
+                "ual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, v" +
+                "erify_status, calc_no, last_calc_at, yuso_key, created_at, created_user_id, upda" +
+                "ted_at, updated_user_id FROM t_yuso WHERE (yuso_id = @yuso_id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_block_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_block_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_terminal_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vehicle_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vehicle_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_sum_kg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_sum_kg", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_special_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "special_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stopping_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stopping_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cargo_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cargo_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_other_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "other_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_distance_km", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_distance_km", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_distance_km", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_distance_km", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_actual_time_mins", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_mins", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_mins", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "actual_time_mins", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_time_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_time_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total_charge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_status", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_last_calc_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_key", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_created_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_updated_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_updated_user_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, calc_no, last_calc_at, yuso_key, created_at, created_user_id, updated_at, updated_user_id FROM dbo.t_yuso";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT                 actual_distance_km, actual_time_mins, actual_time_surcharge_amount, arriving_date, base_charge_amount, calc_no, calc_status, calc_ym, cargo_charge_amount, 
+                               carrier_company_cd, contract_type, created_at, created_user_id, dest_cd, dest_jis, dest_warehouse_cd, last_calc_at, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, 
+                               other_charge_amount, special_charge_amount, stopping_charge_amount, terminal_id, total_charge_amount, updated_at, updated_user_id, vehicle_id, verify_status, weight_sum_kg, 
+                               yuso_kbn, yuso_mode_kbn, yuso_key, yuso_id
+FROM                   t_yuso
+WHERE                  (calc_no = @calcNo) AND (calc_status = @calc_status_doing)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calcNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "UPDATE               t_yuso\r\nSET                        calc_status = @calc_statu" +
+                "s_doing, calc_no = @calc_no, updated_at = @updated_at, updated_user_id = @update" +
+                "d_user_id\r\nWHERE                  (calc_status = @current_calc_status);     \r\n";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_at", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@updated_user_id", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@current_calc_status", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(StartCalc.t_yusoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual StartCalc.t_yusoDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            StartCalc.t_yusoDataTable dataTable = new StartCalc.t_yusoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCalcNo(StartCalc.t_yusoDataTable dataTable, global::System.Nullable<int> calcNo, short calc_status_doing) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((calcNo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(calcNo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((short)(calc_status_doing));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StartCalc.t_yusoDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StartCalc dataSet) {
+            return this.Adapter.Update(dataSet, "t_yuso");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_yuso_id, 
+                    string Original_calc_ym, 
+                    string Original_contract_type, 
+                    string Original_yuso_kbn, 
+                    string Original_orig_warehouse_block_cd, 
+                    string Original_orig_warehouse_cd, 
+                    string Original_terminal_id, 
+                    string Original_vehicle_id, 
+                    string Original_dest_jis, 
+                    string Original_dest_warehouse_cd, 
+                    string Original_yuso_mode_kbn, 
+                    string Original_carrier_company_cd, 
+                    System.DateTime Original_orig_date, 
+                    System.DateTime Original_arriving_date, 
+                    string Original_dest_cd, 
+                    global::System.Nullable<decimal> Original_weight_sum_kg, 
+                    decimal Original_base_charge_amount, 
+                    decimal Original_special_charge_amount, 
+                    decimal Original_stopping_charge_amount, 
+                    decimal Original_cargo_charge_amount, 
+                    decimal Original_other_charge_amount, 
+                    global::System.Nullable<decimal> Original_actual_distance_km, 
+                    global::System.Nullable<decimal> Original_actual_time_mins, 
+                    decimal Original_actual_time_surcharge_amount, 
+                    decimal Original_total_charge_amount, 
+                    short Original_calc_status, 
+                    short Original_verify_status, 
+                    global::System.Nullable<int> Original_calc_no, 
+                    global::System.Nullable<global::System.DateTime> Original_last_calc_at, 
+                    string Original_yuso_key, 
+                    global::System.Nullable<global::System.DateTime> Original_created_at, 
+                    string Original_created_user_id, 
+                    global::System.Nullable<global::System.DateTime> Original_updated_at, 
+                    string Original_updated_user_id) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_yuso_id));
             if ((Original_calc_ym == null)) {
                 throw new global::System.ArgumentNullException("Original_calc_ym");
             }
@@ -4872,37 +4931,59 @@ FROM                   t_yuso";
             this.Adapter.DeleteCommand.Parameters[27].Value = ((decimal)(Original_total_charge_amount));
             this.Adapter.DeleteCommand.Parameters[28].Value = ((short)(Original_calc_status));
             this.Adapter.DeleteCommand.Parameters[29].Value = ((short)(Original_verify_status));
-            if ((Original_created_at.HasValue == true)) {
+            if ((Original_calc_no.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((System.DateTime)(Original_created_at.Value));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((int)(Original_calc_no.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((Original_created_user_id == null)) {
+            if ((Original_last_calc_at.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(Original_last_calc_at.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
+            if ((Original_yuso_key == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_key");
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_created_user_id));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_yuso_key));
+            }
+            if ((Original_created_at.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((System.DateTime)(Original_created_at.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((Original_created_user_id == null)) {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_created_user_id));
             }
             if ((Original_updated_at.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((System.DateTime)(Original_updated_at.Value));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((System.DateTime)(Original_updated_at.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             if ((Original_updated_user_id == null)) {
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((string)(Original_updated_user_id));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((string)(Original_updated_user_id));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4925,7 +5006,6 @@ FROM                   t_yuso";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int calc_no, 
                     string calc_ym, 
                     string contract_type, 
                     string yuso_kbn, 
@@ -4952,135 +5032,155 @@ FROM                   t_yuso";
                     decimal total_charge_amount, 
                     short calc_status, 
                     short verify_status, 
+                    global::System.Nullable<int> calc_no, 
+                    global::System.Nullable<global::System.DateTime> last_calc_at, 
+                    string yuso_key, 
                     global::System.Nullable<global::System.DateTime> created_at, 
                     string created_user_id, 
                     global::System.Nullable<global::System.DateTime> updated_at, 
                     string updated_user_id) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(calc_no));
             if ((calc_ym == null)) {
                 throw new global::System.ArgumentNullException("calc_ym");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(calc_ym));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(calc_ym));
             }
             if ((contract_type == null)) {
                 throw new global::System.ArgumentNullException("contract_type");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(contract_type));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(contract_type));
             }
             if ((yuso_kbn == null)) {
                 throw new global::System.ArgumentNullException("yuso_kbn");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(yuso_kbn));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(yuso_kbn));
             }
             if ((orig_warehouse_block_cd == null)) {
                 throw new global::System.ArgumentNullException("orig_warehouse_block_cd");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(orig_warehouse_block_cd));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(orig_warehouse_block_cd));
             }
             if ((orig_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("orig_warehouse_cd");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(orig_warehouse_cd));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(orig_warehouse_cd));
             }
             if ((terminal_id == null)) {
                 throw new global::System.ArgumentNullException("terminal_id");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(terminal_id));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(terminal_id));
             }
             if ((vehicle_id == null)) {
                 throw new global::System.ArgumentNullException("vehicle_id");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(vehicle_id));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(vehicle_id));
             }
             if ((dest_jis == null)) {
                 throw new global::System.ArgumentNullException("dest_jis");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(dest_jis));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(dest_jis));
             }
             if ((dest_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_warehouse_cd");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(dest_warehouse_cd));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(dest_warehouse_cd));
             }
             if ((yuso_mode_kbn == null)) {
                 throw new global::System.ArgumentNullException("yuso_mode_kbn");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(yuso_mode_kbn));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(yuso_mode_kbn));
             }
             if ((carrier_company_cd == null)) {
                 throw new global::System.ArgumentNullException("carrier_company_cd");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(carrier_company_cd));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(carrier_company_cd));
             }
-            this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(orig_date));
-            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(arriving_date));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(orig_date));
+            this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(arriving_date));
             if ((dest_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_cd");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(dest_cd));
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(dest_cd));
             }
             if ((weight_sum_kg.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(weight_sum_kg.Value));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(weight_sum_kg.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(base_charge_amount));
-            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(special_charge_amount));
-            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(stopping_charge_amount));
-            this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(cargo_charge_amount));
-            this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(other_charge_amount));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(base_charge_amount));
+            this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(special_charge_amount));
+            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(stopping_charge_amount));
+            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(cargo_charge_amount));
+            this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(other_charge_amount));
             if ((actual_distance_km.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(actual_distance_km.Value));
+                this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(actual_distance_km.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((actual_time_mins.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(actual_time_mins.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((actual_time_mins.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(actual_time_mins.Value));
+            this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(actual_time_surcharge_amount));
+            this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(total_charge_amount));
+            this.Adapter.InsertCommand.Parameters[24].Value = ((short)(calc_status));
+            this.Adapter.InsertCommand.Parameters[25].Value = ((short)(verify_status));
+            if ((calc_no.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((int)(calc_no.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(actual_time_surcharge_amount));
-            this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(total_charge_amount));
-            this.Adapter.InsertCommand.Parameters[25].Value = ((short)(calc_status));
-            this.Adapter.InsertCommand.Parameters[26].Value = ((short)(verify_status));
-            if ((created_at.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((System.DateTime)(created_at.Value));
+            if ((last_calc_at.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((System.DateTime)(last_calc_at.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((created_user_id == null)) {
-                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
+            if ((yuso_key == null)) {
+                throw new global::System.ArgumentNullException("yuso_key");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(created_user_id));
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(yuso_key));
             }
-            if ((updated_at.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((System.DateTime)(updated_at.Value));
+            if ((created_at.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((System.DateTime)(created_at.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((updated_user_id == null)) {
+            if ((created_user_id == null)) {
                 this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(updated_user_id));
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(created_user_id));
+            }
+            if ((updated_at.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((System.DateTime)(updated_at.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((updated_user_id == null)) {
+                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(updated_user_id));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5103,7 +5203,6 @@ FROM                   t_yuso";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int calc_no, 
                     string calc_ym, 
                     string contract_type, 
                     string yuso_kbn, 
@@ -5130,11 +5229,14 @@ FROM                   t_yuso";
                     decimal total_charge_amount, 
                     short calc_status, 
                     short verify_status, 
+                    global::System.Nullable<int> calc_no, 
+                    global::System.Nullable<global::System.DateTime> last_calc_at, 
+                    string yuso_key, 
                     global::System.Nullable<global::System.DateTime> created_at, 
                     string created_user_id, 
                     global::System.Nullable<global::System.DateTime> updated_at, 
                     string updated_user_id, 
-                    int Original_calc_no, 
+                    int Original_yuso_id, 
                     string Original_calc_ym, 
                     string Original_contract_type, 
                     string Original_yuso_kbn, 
@@ -5161,276 +5263,320 @@ FROM                   t_yuso";
                     decimal Original_total_charge_amount, 
                     short Original_calc_status, 
                     short Original_verify_status, 
+                    global::System.Nullable<int> Original_calc_no, 
+                    global::System.Nullable<global::System.DateTime> Original_last_calc_at, 
+                    string Original_yuso_key, 
                     global::System.Nullable<global::System.DateTime> Original_created_at, 
                     string Original_created_user_id, 
                     global::System.Nullable<global::System.DateTime> Original_updated_at, 
-                    string Original_updated_user_id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(calc_no));
+                    string Original_updated_user_id, 
+                    int yuso_id) {
             if ((calc_ym == null)) {
                 throw new global::System.ArgumentNullException("calc_ym");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(calc_ym));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(calc_ym));
             }
             if ((contract_type == null)) {
                 throw new global::System.ArgumentNullException("contract_type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(contract_type));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(contract_type));
             }
             if ((yuso_kbn == null)) {
                 throw new global::System.ArgumentNullException("yuso_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(yuso_kbn));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(yuso_kbn));
             }
             if ((orig_warehouse_block_cd == null)) {
                 throw new global::System.ArgumentNullException("orig_warehouse_block_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(orig_warehouse_block_cd));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(orig_warehouse_block_cd));
             }
             if ((orig_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("orig_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(orig_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(orig_warehouse_cd));
             }
             if ((terminal_id == null)) {
                 throw new global::System.ArgumentNullException("terminal_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(terminal_id));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(terminal_id));
             }
             if ((vehicle_id == null)) {
                 throw new global::System.ArgumentNullException("vehicle_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(vehicle_id));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(vehicle_id));
             }
             if ((dest_jis == null)) {
                 throw new global::System.ArgumentNullException("dest_jis");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(dest_jis));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(dest_jis));
             }
             if ((dest_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(dest_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(dest_warehouse_cd));
             }
             if ((yuso_mode_kbn == null)) {
                 throw new global::System.ArgumentNullException("yuso_mode_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(yuso_mode_kbn));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(yuso_mode_kbn));
             }
             if ((carrier_company_cd == null)) {
                 throw new global::System.ArgumentNullException("carrier_company_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(carrier_company_cd));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(carrier_company_cd));
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(orig_date));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(arriving_date));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(orig_date));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(arriving_date));
             if ((dest_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(dest_cd));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(dest_cd));
             }
             if ((weight_sum_kg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(weight_sum_kg.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(weight_sum_kg.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(base_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(special_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(stopping_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(cargo_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(other_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(base_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(special_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(stopping_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(cargo_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(other_charge_amount));
             if ((actual_distance_km.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(actual_distance_km.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(actual_distance_km.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((actual_time_mins.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(actual_time_mins.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((actual_time_mins.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(actual_time_mins.Value));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(actual_time_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(total_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((short)(calc_status));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((short)(verify_status));
+            if ((calc_no.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(calc_no.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(actual_time_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(total_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((short)(calc_status));
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((short)(verify_status));
-            if ((created_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(created_at.Value));
+            if ((last_calc_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(last_calc_at.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((created_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            if ((yuso_key == null)) {
+                throw new global::System.ArgumentNullException("yuso_key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(created_user_id));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(yuso_key));
             }
-            if ((updated_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(updated_at.Value));
+            if ((created_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(created_at.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((updated_user_id == null)) {
+            if ((created_user_id == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(updated_user_id));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(created_user_id));
             }
-            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_calc_no));
+            if ((updated_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(updated_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((updated_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(updated_user_id));
+            }
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_yuso_id));
             if ((Original_calc_ym == null)) {
                 throw new global::System.ArgumentNullException("Original_calc_ym");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_calc_ym));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_calc_ym));
             }
             if ((Original_contract_type == null)) {
                 throw new global::System.ArgumentNullException("Original_contract_type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_contract_type));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_contract_type));
             }
             if ((Original_yuso_kbn == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_yuso_kbn));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_yuso_kbn));
             }
             if ((Original_orig_warehouse_block_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_orig_warehouse_block_cd));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_orig_warehouse_block_cd));
             }
             if ((Original_orig_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_orig_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_orig_warehouse_cd));
             }
             if ((Original_terminal_id == null)) {
                 throw new global::System.ArgumentNullException("Original_terminal_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_terminal_id));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_terminal_id));
             }
             if ((Original_vehicle_id == null)) {
                 throw new global::System.ArgumentNullException("Original_vehicle_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_vehicle_id));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_vehicle_id));
             }
             if ((Original_dest_jis == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_jis");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_dest_jis));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_dest_jis));
             }
             if ((Original_dest_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_dest_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_dest_warehouse_cd));
             }
             if ((Original_yuso_mode_kbn == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_yuso_mode_kbn));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_yuso_mode_kbn));
             }
             if ((Original_carrier_company_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_carrier_company_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_carrier_company_cd));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_carrier_company_cd));
             }
-            this.Adapter.UpdateCommand.Parameters[43].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.UpdateCommand.Parameters[44].Value = ((System.DateTime)(Original_arriving_date));
+            this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_orig_date));
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_arriving_date));
             if ((Original_dest_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_dest_cd));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_dest_cd));
             }
             if ((Original_weight_sum_kg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((decimal)(Original_weight_sum_kg.Value));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((decimal)(Original_weight_sum_kg.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(Original_base_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[49].Value = ((decimal)(Original_special_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_stopping_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[51].Value = ((decimal)(Original_cargo_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[52].Value = ((decimal)(Original_other_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_base_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((decimal)(Original_special_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((decimal)(Original_stopping_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[53].Value = ((decimal)(Original_cargo_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[54].Value = ((decimal)(Original_other_charge_amount));
             if ((Original_actual_distance_km.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((decimal)(Original_actual_distance_km.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
-            }
-            if ((Original_actual_time_mins.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_actual_time_mins.Value));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_actual_distance_km.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_actual_time_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_total_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[59].Value = ((short)(Original_calc_status));
-            this.Adapter.UpdateCommand.Parameters[60].Value = ((short)(Original_verify_status));
-            if ((Original_created_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((System.DateTime)(Original_created_at.Value));
+            if ((Original_actual_time_mins.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_actual_time_mins.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
-            if ((Original_created_user_id == null)) {
+            this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_actual_time_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_total_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((short)(Original_calc_status));
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((short)(Original_verify_status));
+            if ((Original_calc_no.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_calc_no.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_created_user_id));
-            }
-            if ((Original_updated_at.HasValue == true)) {
+            if ((Original_last_calc_at.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((System.DateTime)(Original_updated_at.Value));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((System.DateTime)(Original_last_calc_at.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
-            if ((Original_updated_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            if ((Original_yuso_key == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_updated_user_id));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_yuso_key));
             }
+            if ((Original_created_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((System.DateTime)(Original_created_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
+            }
+            if ((Original_created_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_created_user_id));
+            }
+            if ((Original_updated_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((System.DateTime)(Original_updated_at.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
+            }
+            if ((Original_updated_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((string)(Original_updated_user_id));
+            }
+            this.Adapter.UpdateCommand.Parameters[76].Value = ((int)(yuso_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5452,6 +5598,20 @@ FROM                   t_yuso";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
+                    string calc_ym, 
+                    string contract_type, 
+                    string yuso_kbn, 
+                    string orig_warehouse_block_cd, 
+                    string orig_warehouse_cd, 
+                    string terminal_id, 
+                    string vehicle_id, 
+                    string dest_jis, 
+                    string dest_warehouse_cd, 
+                    string yuso_mode_kbn, 
+                    string carrier_company_cd, 
+                    System.DateTime orig_date, 
+                    System.DateTime arriving_date, 
+                    string dest_cd, 
                     global::System.Nullable<decimal> weight_sum_kg, 
                     decimal base_charge_amount, 
                     decimal special_charge_amount, 
@@ -5464,11 +5624,14 @@ FROM                   t_yuso";
                     decimal total_charge_amount, 
                     short calc_status, 
                     short verify_status, 
+                    global::System.Nullable<int> calc_no, 
+                    global::System.Nullable<global::System.DateTime> last_calc_at, 
+                    string yuso_key, 
                     global::System.Nullable<global::System.DateTime> created_at, 
                     string created_user_id, 
                     global::System.Nullable<global::System.DateTime> updated_at, 
                     string updated_user_id, 
-                    int Original_calc_no, 
+                    int Original_yuso_id, 
                     string Original_calc_ym, 
                     string Original_contract_type, 
                     string Original_yuso_kbn, 
@@ -5495,11 +5658,57 @@ FROM                   t_yuso";
                     decimal Original_total_charge_amount, 
                     short Original_calc_status, 
                     short Original_verify_status, 
+                    global::System.Nullable<int> Original_calc_no, 
+                    global::System.Nullable<global::System.DateTime> Original_last_calc_at, 
+                    string Original_yuso_key, 
                     global::System.Nullable<global::System.DateTime> Original_created_at, 
                     string Original_created_user_id, 
                     global::System.Nullable<global::System.DateTime> Original_updated_at, 
                     string Original_updated_user_id) {
-            return this.Update(Original_calc_no, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, created_at, created_user_id, updated_at, updated_user_id, Original_calc_no, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_weight_sum_kg, Original_base_charge_amount, Original_special_charge_amount, Original_stopping_charge_amount, Original_cargo_charge_amount, Original_other_charge_amount, Original_actual_distance_km, Original_actual_time_mins, Original_actual_time_surcharge_amount, Original_total_charge_amount, Original_calc_status, Original_verify_status, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id);
+            return this.Update(calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, calc_no, last_calc_at, yuso_key, created_at, created_user_id, updated_at, updated_user_id, Original_yuso_id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_weight_sum_kg, Original_base_charge_amount, Original_special_charge_amount, Original_stopping_charge_amount, Original_cargo_charge_amount, Original_other_charge_amount, Original_actual_distance_km, Original_actual_time_mins, Original_actual_time_surcharge_amount, Original_total_charge_amount, Original_calc_status, Original_verify_status, Original_calc_no, Original_last_calc_at, Original_yuso_key, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id, Original_yuso_id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateCalcStatus(short calc_status_doing, global::System.Nullable<int> calc_no, global::System.Nullable<global::System.DateTime> updated_at, string updated_user_id, short current_calc_status) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((short)(calc_status_doing));
+            if ((calc_no.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(calc_no.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((updated_at.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(updated_at.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((updated_user_id == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(updated_user_id));
+            }
+            command.Parameters[4].Value = ((short)(current_calc_status));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
 }
