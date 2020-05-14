@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FareCalcBatch", "FareCalcBatch\FareCalcBatch.csproj", "{6CD692F8-4DA9-4EDC-88E2-67F31D11BDBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FareCalcBatch", "FareCalcBatch\FareCalcBatch.csproj", "{6CD692F8-4DA9-4EDC-88E2-67F31D11BDBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FareCalcLib", "FareCalcLib\FareCalcLib.csproj", "{26A3FE27-4AF5-4540-BCA4-B15C4B34BAB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FareCalcLib", "FareCalcLib\FareCalcLib.csproj", "{26A3FE27-4AF5-4540-BCA4-B15C4B34BAB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeCalcDataBatch", "MakeCalcDataBatch\MakeCalcDataBatch.csproj", "{6FBC9A08-F49E-44C9-9F11-6D4D4198D63D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{26A3FE27-4AF5-4540-BCA4-B15C4B34BAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26A3FE27-4AF5-4540-BCA4-B15C4B34BAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A3FE27-4AF5-4540-BCA4-B15C4B34BAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FBC9A08-F49E-44C9-9F11-6D4D4198D63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FBC9A08-F49E-44C9-9F11-6D4D4198D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FBC9A08-F49E-44C9-9F11-6D4D4198D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FBC9A08-F49E-44C9-9F11-6D4D4198D63D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

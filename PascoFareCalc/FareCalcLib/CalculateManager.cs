@@ -34,6 +34,22 @@ namespace FareCalcLib
         // TODO: バッチサイズConfigへ移動
         private static int UpdateBatchSize = 100;
 
+        List<String> yusoWkColNames = new List<String>()
+                    {
+                        "base_charge_amount",
+                        "special_charge_amount",
+                        "stopping_charge_amount",
+                        "cargo_charge_amount",
+                        "other_charge_amount",
+                        "actual_km_surcharge_amount",
+                        "actual_time_surcharge_amount",
+                        "actual_assist_surcharge_amount",
+                        "actual_load_surcharge_amount",
+                        "actual_stand_surcharge_amount",
+                        "actual_wash_surcharge_amount",
+                        "total_charge_amount"
+                    };
+
         #endregion
 
         #region "properties"
@@ -71,6 +87,7 @@ namespace FareCalcLib
             // TODO: 基本運賃と付帯費用項目のトータル金額を算出して、セット
             CalcWkDs.t_keisan_wk.ToList().ForEach(keisanWkRow => 
             {
+                decimal totalExtraCost = 0;
                 // set extra_cost value to keisan_wk
                 CalcWkDs.t_extra_cost_wk.Where(exCostWkRow =>
                                 exCostWkRow.calc_no == this.CalcNo &&
@@ -78,6 +95,7 @@ namespace FareCalcLib
                             .ToList()
                             .ForEach(exCostWkRow =>
                             {
+                                // TODO: 加算先は設定値から取得する
                                 switch (exCostWkRow.extra_cost_kind_kbn)
                                 {
                                     case extraCostKbn.StoppingCharge:
@@ -89,31 +107,41 @@ namespace FareCalcLib
                                         keisanWkRow.cargo_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.DistanceCharge:
+                                        // 距離割増
+                                        keisanWkRow.actual_km_surcharge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.HelperCharge:
                                         // 助手料
-                                        // TODO: 助手料のカラム作成
-                                        keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
+                                        keisanWkRow.actual_assist_surcharge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.FuelCharge:
                                         // 燃油料
                                         keisanWkRow.fuel_cost_amount = exCostWkRow.extra_charge_amount;
                                         break;
-                                    case extraCostKbn.Other:
+                                    case extraCostKbn.WashCharge:
+                                        // 洗浄料
+                                        keisanWkRow.actual_wash_surcharge_amount = exCostWkRow.extra_charge_amount;
+                                        break;
+                                    case extraCostKbn.StandCharge:
+                                        // 台貫料
+                                        keisanWkRow.actual_stand_surcharge_amount = exCostWkRow.extra_charge_amount;
+                                        break;
+                                    case extraCostKbn.TollRoadCharge:
+                                        // 有料道路代
+                                        keisanWkRow.actual_load_surcharge_amount = exCostWkRow.extra_charge_amount;
+                                        break;
+                                    case extraCostKbn.OtherCharge:
                                         keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     default:
+                                        keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                 }
+                                totalExtraCost += exCostWkRow.extra_charge_amount;
                             });
 
-                // TODO: 付帯費用項目の足りないカラムを追加
                 keisanWkRow.total_charge_amount =
-                                keisanWkRow.base_charge_amount +
-                                keisanWkRow.stopping_charge_amount +
-                                keisanWkRow.cargo_charge_amount +
-                                ( keisanWkRow.Isfuel_cost_amountNull() ? 0 : keisanWkRow.fuel_cost_amount) +
-                                keisanWkRow.other_charge_amount;
+                                keisanWkRow.base_charge_amount + totalExtraCost;
             }
             );            
         }
@@ -126,7 +154,6 @@ namespace FareCalcLib
                 if (yusoWkRow.contract_type == ((int)CnContractType.ByItem).ToString()) 
                 {
                     // set keisan wk values to same key datarow of uso_wk when ByItem(ko-date)
-                    // TODO: 自動生成メソッド名長すぎるので
                     // get keisan_wk row at the same key
                     var keisanWkQuery =
                         this.CalcWkDs.t_keisan_wk
@@ -136,12 +163,7 @@ namespace FareCalcLib
                         // set value to yusoWkRow
                         var keisanWkRow = keisanWkQuery.First();
                         yusoWkRow.weight_sum_kg = keisanWkRow.weight_sum_kg;
-                        yusoWkRow.base_charge_amount = keisanWkRow.base_charge_amount;
-                        yusoWkRow.special_charge_amount = keisanWkRow.special_charge_amount;
-                        yusoWkRow.stopping_charge_amount = keisanWkRow.stopping_charge_amount;
-                        yusoWkRow.cargo_charge_amount = keisanWkRow.cargo_charge_amount;
-                        yusoWkRow.other_charge_amount = keisanWkRow.other_charge_amount;
-                       
+                        yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);                       
                     } else
                     {
                         // TODO: errセット
@@ -162,11 +184,7 @@ namespace FareCalcLib
                         var keisanWkRow = keisanWkRowQuery.First();
                         // set value to yusoWkRow
                         yusoWkRow.weight_sum_kg = keisanWkRow.weight_sum_kg;
-                        yusoWkRow.base_charge_amount = keisanWkRow.base_charge_amount;
-                        yusoWkRow.special_charge_amount = keisanWkRow.special_charge_amount;
-                        yusoWkRow.stopping_charge_amount = keisanWkRow.stopping_charge_amount;
-                        yusoWkRow.cargo_charge_amount = keisanWkRow.cargo_charge_amount;
-                        yusoWkRow.other_charge_amount = keisanWkRow.other_charge_amount;
+                        yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);
 
                         // set "on" to max_flg in keisanWkRow
                         keisanWkRow.max_flg = 1;
@@ -384,7 +402,7 @@ namespace FareCalcLib
             {
                 // if not applicable, break
                 // TODO: 適用期間チェック
-
+                var yusoWkquery = CalcWkDs.t_yuso_wk.Where(r => r.yuso_key == exCostRow.yuso_key);
                 switch (exCostRow.calculate_type_kbn)
                 {
                     case extraCostKbn.StoppingCharge:
@@ -398,18 +416,48 @@ namespace FareCalcLib
                         exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
                         break;
                     case extraCostKbn.DistanceCharge:
-                        // TODO: 実績距離を取得する
+                        // 距離割増　超過距離　タリフ金額
+                        if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_distance_kmNull()))
+                        {
+                            var actualDistanceKm = yusoWkquery.First().actual_distance_km;
+                            var calcVariables = new CalcVariables(exCostRow);
+                            calcVariables.DistanceKm = (actualDistanceKm - exCostRow.distance_km) > 0 ? (actualDistanceKm - exCostRow.distance_km) : 0;
+                            exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, calcVariables);
+                        }
                         break;
                     case extraCostKbn.HelperCharge:
-                        // 助手料　助手料＊人数
-                        // TODO: 実績距離を取得する
-                        exCostRow.extra_charge_amount = exCostRow.adding_price;
+                        // 助手料　助手料(=付帯費用パターン明細金額)＊人数
+                        if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_assistant_countNull()))
+                        {
+                            exCostRow.extra_charge_amount = exCostRow.adding_price * yusoWkquery.First().actual_assistant_count;
+                        }
                         break;
                     case extraCostKbn.FuelCharge:
-                        // 燃油料
+                        // 燃油料　実績値より取得
                         exCostRow.extra_charge_amount = exCostRow.Isfuel_cost_amountNull() ? 0 : exCostRow.fuel_cost_amount;
                         break;
-                    case extraCostKbn.Other:
+                    case extraCostKbn.WashCharge:
+                        // 洗浄料　実績値より取得
+                        if (yusoWkquery.Count() == 1)
+                        {
+                            exCostRow.extra_charge_amount = yusoWkquery.First().actual_wash_surcharge_amount;
+                        }
+                        break;
+                    case extraCostKbn.StandCharge:
+                        // 台貫料　実績値より取得
+                        if (yusoWkquery.Count() == 1)
+                        {
+                            exCostRow.extra_charge_amount = yusoWkquery.First().actual_stand_surcharge_amount;
+                        }
+                        break;
+                    case extraCostKbn.TollRoadCharge:
+                        // 有料道路代　実績値より取得
+                        if (yusoWkquery.Count() == 1)
+                        {
+                            exCostRow.extra_charge_amount = yusoWkquery.First().actual_load_surcharge_amount;
+                        }
+                        break;
+                    case extraCostKbn.OtherCharge:
                         // その他
                         switch (exCostRow.calculate_type_kbn)
                         {
@@ -520,35 +568,6 @@ namespace FareCalcLib
                 throw;
             }
         }
-        private int GetNewCalcNo()
-        {
-            return 0;
-        }
-        
-        private void CreateYusoWork()
-        {
-
-        }
-
-        public static void FillCalcInfo(int calcNo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void UpdateSumWeight(int calcNo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void UpdateWeightSummay(int calcNo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void UpdateBasicFare(int calcNo)
-        {
-            throw new NotImplementedException();
-        }
 
         private void RefrectToResultData()
         {
@@ -577,9 +596,19 @@ namespace FareCalcLib
 
         }
 
-        private void EndCalc(int calcNo)
+        public void EndCalc()
         {
-            throw new NotImplementedException();
+            // TODO: エラー件数をカウント
+
+            // update calc_no end status
+            var calcNoAdp = new calc_noTableAdapter();
+            calcNoAdp.Connection = Connection;
+            int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, (short)CnEndStatus.Good, CalcNo);
+
+            // update calc_status to "done"
+            var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
+            tYusoAdp.Connection = Connection;
+            var rtn = tYusoAdp.UpdateCalcStatusDone((short)CnCalcStatus.Done, DateTime.Now, "", (short)CnCalcStatus.Doing, CalcNo);
 
         }
 
@@ -606,16 +635,6 @@ namespace FareCalcLib
                         break;
                     }
                     var yusoWkRow = yusoWkRowQuery.First();
-
-                    var yusoWkColNames = new List<String>()
-                    {
-                        "base_charge_amount",
-                        "special_charge_amount",
-                        "stopping_charge_amount",
-                        "cargo_charge_amount",
-                        "other_charge_amount",
-                        "actual_time_surcharge_amount"
-                    };
                     var sumAmounts = new Dictionary<String, Decimal>();
                     var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
                     //initialize dictionary
@@ -673,11 +692,6 @@ namespace FareCalcLib
 
                 throw;
             }
-        }
-
-        private void UpdateExtraCharge(int calcNo)
-        {
-            throw new NotImplementedException();
         }
 
     }

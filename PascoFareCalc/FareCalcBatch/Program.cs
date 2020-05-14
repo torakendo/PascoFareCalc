@@ -45,7 +45,7 @@ namespace FareCalcBatch
                         calcManager.Calcurate();
 
                         //計算終了処理
-                        //calcManager.EndCalcBatch();
+                        calcManager.EndCalc();
                     }
                     scope2.Complete();
                 }

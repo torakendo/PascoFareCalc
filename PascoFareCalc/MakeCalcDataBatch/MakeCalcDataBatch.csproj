@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FareCalcLib\FareCalcLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Datasets\MakeCalcDs.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MakeCalcDs.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Datasets\MakeCalcDs.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MakeCalcDs.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
