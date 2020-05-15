@@ -45,8 +45,8 @@ namespace FareCalcLib
 
         public enum CnYusoKbn : short
         {
-            Delivery = 1,
-            Move = 2
+            Move = 1,
+            Delivery = 2
         }
 
         public enum CnVerifyStatus : short 

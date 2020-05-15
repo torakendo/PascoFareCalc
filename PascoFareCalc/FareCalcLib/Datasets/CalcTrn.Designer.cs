@@ -1099,7 +1099,7 @@ namespace FareCalcLib.Datasets {
                 this.columncalc_status.AllowDBNull = false;
                 this.columnverify_status.AllowDBNull = false;
                 this.columnyuso_key.AllowDBNull = false;
-                this.columnyuso_key.MaxLength = 20;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
                 this.columnactual_assist_surcharge_amount.AllowDBNull = false;
@@ -2007,9 +2007,9 @@ namespace FareCalcLib.Datasets {
                 this.columntotal_charge_amount.AllowDBNull = false;
                 this.columnyuso_means_kbn.MaxLength = 10;
                 this.columnkeisan_key.AllowDBNull = false;
-                this.columnkeisan_key.MaxLength = 20;
+                this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
-                this.columnyuso_key.MaxLength = 20;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
             }
@@ -2986,9 +2986,9 @@ namespace FareCalcLib.Datasets {
                 this.columndistributed_actual_time_surcharge_amount.AllowDBNull = false;
                 this.columndistributed_total_charge_amount.AllowDBNull = false;
                 this.columnkeisan_key.AllowDBNull = false;
-                this.columnkeisan_key.MaxLength = 20;
+                this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
-                this.columnyuso_key.MaxLength = 20;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
                 this.columndistributed_actual_assist_surcharge_amount.AllowDBNull = false;

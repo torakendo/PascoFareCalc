@@ -68,6 +68,9 @@ namespace FareCalcLib
             try
             {
                 this.PrepareCalculate();
+                // TODO: debug code for p1
+                Console.WriteLine("Calculating Now....");
+
                 this.CalculateBaseFare();
                 this.CalculateExtraCharge();
                 this.SetResultToKeisanWk();
@@ -114,10 +117,6 @@ namespace FareCalcLib
                                         // 助手料
                                         keisanWkRow.actual_assist_surcharge_amount += exCostWkRow.extra_charge_amount;
                                         break;
-                                    case extraCostKbn.FuelCharge:
-                                        // 燃油料
-                                        keisanWkRow.fuel_cost_amount = exCostWkRow.extra_charge_amount;
-                                        break;
                                     case extraCostKbn.WashCharge:
                                         // 洗浄料
                                         keisanWkRow.actual_wash_surcharge_amount = exCostWkRow.extra_charge_amount;
@@ -131,6 +130,8 @@ namespace FareCalcLib
                                         keisanWkRow.actual_load_surcharge_amount = exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.OtherCharge:
+                                    case extraCostKbn.FuelCharge:
+                                        // 燃油料、その他
                                         keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     default:
@@ -166,7 +167,7 @@ namespace FareCalcLib
                         yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);                       
                     } else
                     {
-                        // TODO: errセット
+                        // TODO: 想定外データ不整合err
                     }
 
                 } else if (yusoWkRow.contract_type == ((int)CnContractType.ByVehicle).ToString())
@@ -191,7 +192,7 @@ namespace FareCalcLib
 
                     } else
                     {
-                        // TODO: エラー処理
+                        // TODO: 想定外データ不整合err
                     }
                 }
             }
@@ -207,7 +208,9 @@ namespace FareCalcLib
                 
                 var yusoAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 yusoAdp.Connection = Connection;
-                yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)CnCalcStatus.Doing);
+                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)CnCalcStatus.Doing);
+                // TODO: debug code for p1
+                Console.WriteLine("retrieve from t_yuso COUNT = {0}", yusoRowCnt);
 
                 var keisanAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
                 keisanAdp.Connection = Connection;
@@ -229,7 +232,7 @@ namespace FareCalcLib
                 * -------------------------------------- */
                 //  copy keisan_trn datatable to keisan_wk
                 // TODO:クエリーにするか検討
-                var colnameOfKeisanWk = Enumerable.Range(0, CalcWkDs.t_keisan_wk.Columns.Count - 1)
+                var colnameOfKeisanWk = Enumerable.Range(0, CalcWkDs.t_keisan_wk.Columns.Count)
                             .Select(i => CalcWkDs.t_keisan_wk.Columns[i].ColumnName).ToList();
                 CalcTrnDs.t_keisan.ToList().ForEach(r =>
                 {
@@ -239,6 +242,7 @@ namespace FareCalcLib
                         if (CalcTrnDs.t_keisan.Columns.Contains(colname)) newRow[colname] = r[colname];
                     });
                     newRow["calc_no"] = CalcNo;
+                    newRow["max_flg"] = 0;
                     CalcWkDs.t_keisan_wk.Rows.Add(newRow);
                 });
 
@@ -250,7 +254,7 @@ namespace FareCalcLib
 
                 //   copy detail_trn datatable to detail_wk
                 // TODO:クエリーにするか検討
-                var colnameOfDetailWk = Enumerable.Range(0, CalcWkDs.t_detail_wk.Columns.Count - 1)
+                var colnameOfDetailWk = Enumerable.Range(0, CalcWkDs.t_detail_wk.Columns.Count)
                             .Select(i => CalcWkDs.t_detail_wk.Columns[i].ColumnName).ToList();
                 CalcTrnDs.t_detail.ToList().ForEach(r =>
                 {
@@ -275,9 +279,6 @@ namespace FareCalcLib
                 // set calcinfo to keisan_wk by server update query
                 keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
-                // set vehicle info to keisan_wk by server update query
-                keisanWkAdp.UpdateVehicleInfo(this.CalcNo, ((int)CnContractType.ByVehicle).ToString());
-
                 // fill keisan_wk after update
                 keisanWkAdp.FillByCalcNo(CalcWkDs.t_keisan_wk, this.CalcNo);
 
@@ -291,10 +292,10 @@ namespace FareCalcLib
                 * -------------------------------------- */
                 CreateExtraChargeData();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw new Exception("PrepareCalculate Error", ex);
             }
 
         }
@@ -313,53 +314,56 @@ namespace FareCalcLib
                         //m_extra_pattern_cost_detail fill by extra_cost_pattern_id
                         var exCostPtnDAdp = new m_extra_cost_pattern_detailTableAdapter();
                         exCostPtnDAdp.Connection = Connection;
-                        var exCostPtnDTbl = exCostPtnDAdp.GetDataByExtraCostPatternId(group.Key.extra_cost_pattern_id);
+                        var exCostPtnDetailTbl = exCostPtnDAdp.GetDataByExtraCostPatternId(group.Key.extra_cost_pattern_id);
 
                         group.ToList().ForEach(keisanWkRow =>
                         {
-                            var newExCostWkRow = CalcWkDs.t_extra_cost_wk.Newt_extra_cost_wkRow();
 
-                            //create t_extra_cost data
-                            exCostPtnDTbl.ToList().ForEach(r =>
+                            //create t_extra_cost data for each extra_cost_detail row
+                            exCostPtnDetailTbl.ToList().ForEach(r =>
                             {
+                                var newExCostWkRow = CalcWkDs.t_extra_cost_wk.Newt_extra_cost_wkRow();
+
                                 // set value from ex_cost_pattern row
-                                Enumerable.Range(0, exCostPtnDTbl.Columns.Count - 1)
-                                    .Select(i => exCostPtnDTbl.Columns[i].ColumnName)
+                                Enumerable.Range(0, exCostPtnDetailTbl.Columns.Count)
+                                    .Select(i => exCostPtnDetailTbl.Columns[i].ColumnName)
                                     .ToList().ForEach(colname =>
                                     {
                                         newExCostWkRow[colname] = r[colname];
                                     });
+
+                                // set value from keisan_wk
+                                newExCostWkRow["calc_no"] = keisanWkRow["calc_no"];
+                                newExCostWkRow["calc_ym"] = keisanWkRow["calc_ym"];
+                                newExCostWkRow["contract_type"] = keisanWkRow["contract_type"];
+                                newExCostWkRow["yuso_kbn"] = keisanWkRow["yuso_kbn"];
+                                newExCostWkRow["orig_warehouse_block_cd"] = keisanWkRow["orig_warehouse_block_cd"];
+                                newExCostWkRow["orig_warehouse_cd"] = keisanWkRow["orig_warehouse_cd"];
+                                newExCostWkRow["terminal_id"] = keisanWkRow["terminal_id"];
+                                newExCostWkRow["vehicle_id"] = keisanWkRow["vehicle_id"];
+                                newExCostWkRow["dest_jis"] = keisanWkRow["dest_jis"];
+                                newExCostWkRow["dest_warehouse_cd"] = keisanWkRow["dest_warehouse_cd"];
+                                newExCostWkRow["yuso_mode_kbn"] = keisanWkRow["yuso_mode_kbn"];
+                                newExCostWkRow["carrier_company_cd"] = keisanWkRow["carrier_company_cd"];
+                                newExCostWkRow["orig_date"] = keisanWkRow["orig_date"];
+                                newExCostWkRow["arriving_date"] = keisanWkRow["arriving_date"];
+                                newExCostWkRow["dest_cd"] = keisanWkRow["dest_cd"];
+                                newExCostWkRow["yuso_means_kbn"] = keisanWkRow["yuso_means_kbn"];
+                                newExCostWkRow.yuso_key = keisanWkRow.yuso_key;
+                                newExCostWkRow.keisan_key = keisanWkRow.keisan_key;
+
+                                newExCostWkRow["distance_km"] = keisanWkRow["distance_km"];
+                                newExCostWkRow["time_mins"] = keisanWkRow["time_mins"];
+                                newExCostWkRow["fuel_cost_amount"] = keisanWkRow["fuel_cost_amount"];
+                                newExCostWkRow["stopping_count"] = keisanWkRow["stopping_count"];
+                                newExCostWkRow["weight_sum_kg"] = keisanWkRow["weight_sum_kg"];
+                                newExCostWkRow["base_charge_amount"] = keisanWkRow["base_charge_amount"];
+                                newExCostWkRow["extra_charge_amount"] = 0;
+
+                                // add row to ex_cost_wk
+                                CalcWkDs.t_extra_cost_wk.Addt_extra_cost_wkRow(newExCostWkRow);
+
                             });
-
-                            // set value from keisan_wk
-                            newExCostWkRow["calc_no"] = keisanWkRow["calc_no"];
-                            newExCostWkRow["calc_ym"] = keisanWkRow["calc_ym"];
-                            newExCostWkRow["contract_type"] = keisanWkRow["contract_type"];
-                            newExCostWkRow["yuso_kbn"] = keisanWkRow["yuso_kbn"];
-                            newExCostWkRow["orig_warehouse_block_cd"] = keisanWkRow["orig_warehouse_block_cd"];
-                            newExCostWkRow["orig_warehouse_cd"] = keisanWkRow["orig_warehouse_cd"];
-                            newExCostWkRow["terminal_id"] = keisanWkRow["terminal_id"];
-                            newExCostWkRow["vehicle_id"] = keisanWkRow["vehicle_id"];
-                            newExCostWkRow["dest_jis"] = keisanWkRow["dest_jis"];
-                            newExCostWkRow["dest_warehouse_cd"] = keisanWkRow["dest_warehouse_cd"];
-                            newExCostWkRow["yuso_mode_kbn"] = keisanWkRow["yuso_mode_kbn"];
-                            newExCostWkRow["carrier_company_cd"] = keisanWkRow["carrier_company_cd"];
-                            newExCostWkRow["orig_date"] = keisanWkRow["orig_date"];
-                            newExCostWkRow["arriving_date"] = keisanWkRow["arriving_date"];
-                            newExCostWkRow["dest_cd"] = keisanWkRow["dest_cd"];
-                            newExCostWkRow["yuso_means_kbn"] = keisanWkRow["yuso_means_kbn"];
-                            newExCostWkRow.yuso_key = keisanWkRow.yuso_key;
-                            newExCostWkRow.keisan_key = keisanWkRow.keisan_key;
-
-                            newExCostWkRow["distance_km"] = keisanWkRow["distance_km"];
-                            newExCostWkRow["time_mins"] = keisanWkRow["time_mins"];
-                            newExCostWkRow["stopping_count"] = keisanWkRow["stopping_count"];
-                            newExCostWkRow["weight_sum_kg"] = keisanWkRow["weight_sum_kg"];
-                            newExCostWkRow["base_charge_amount"] = keisanWkRow["base_charge_amount"];
-                            newExCostWkRow["extra_charge_amount"] = 0;
-
-                            // add row to ex_cost_wk
-                            CalcWkDs.t_extra_cost_wk.Addt_extra_cost_wkRow(newExCostWkRow);
                         });
 
                     });
@@ -374,111 +378,125 @@ namespace FareCalcLib
 
         private void CalculateBaseFare()
         {
-            var query = this.CalcWkDs.t_keisan_wk.AsEnumerable()
-                .OrderBy(x => x.apply_tariff_id)
-                .GroupBy(g => g.apply_tariff_id);
-
-            var tariffCalculator = new TariffCalculator(Connection);
-
-            foreach (var group in query)
+            try
             {
-                var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
+                var query = this.CalcWkDs.t_keisan_wk.AsEnumerable()
+                    .OrderBy(x => x.apply_tariff_id)
+                    .GroupBy(g => g.apply_tariff_id);
 
-                foreach (var item in group)
+                var tariffCalculator = new TariffCalculator(Connection);
+
+                foreach (var group in query)
                 {
-                    // set price to keisan_wk row
-                    var calcVar = new CalcVariables(item);
-                    item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
-                    item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
-                    item.base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);                    
+                    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
+
+                    foreach (var item in group)
+                    {
+                        // set price to keisan_wk row
+                        var calcVar = new CalcVariables(item);
+                        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
+                        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                        item.base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("CalculateBaseFare Error", ex);
             }
         }
 
         private void CalculateExtraCharge()
         {
-            var tariffCalculator = new TariffCalculator(Connection);
-            foreach (var exCostRow in CalcWkDs.t_extra_cost_wk)
+            try
             {
-                // if not applicable, break
-                // TODO: 適用期間チェック
-                var yusoWkquery = CalcWkDs.t_yuso_wk.Where(r => r.yuso_key == exCostRow.yuso_key);
-                switch (exCostRow.calculate_type_kbn)
+                var tariffCalculator = new TariffCalculator(Connection);
+                foreach (var exCostRow in CalcWkDs.t_extra_cost_wk)
                 {
-                    case extraCostKbn.StoppingCharge:
-                        // 中継料　タリフ金額＊中継回数
-                        // TODO: 中継回数をNull check
-                        var tariffPrice = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
-                        exCostRow.extra_charge_amount = tariffPrice * exCostRow.stopping_count;
-                        break;
-                    case extraCostKbn.CargoCharge:
-                        // 航送料　タリフ金額
-                        exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
-                        break;
-                    case extraCostKbn.DistanceCharge:
-                        // 距離割増　超過距離　タリフ金額
-                        if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_distance_kmNull()))
-                        {
-                            var actualDistanceKm = yusoWkquery.First().actual_distance_km;
-                            var calcVariables = new CalcVariables(exCostRow);
-                            calcVariables.DistanceKm = (actualDistanceKm - exCostRow.distance_km) > 0 ? (actualDistanceKm - exCostRow.distance_km) : 0;
-                            exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, calcVariables);
-                        }
-                        break;
-                    case extraCostKbn.HelperCharge:
-                        // 助手料　助手料(=付帯費用パターン明細金額)＊人数
-                        if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_assistant_countNull()))
-                        {
-                            exCostRow.extra_charge_amount = exCostRow.adding_price * yusoWkquery.First().actual_assistant_count;
-                        }
-                        break;
-                    case extraCostKbn.FuelCharge:
-                        // 燃油料　実績値より取得
-                        exCostRow.extra_charge_amount = exCostRow.Isfuel_cost_amountNull() ? 0 : exCostRow.fuel_cost_amount;
-                        break;
-                    case extraCostKbn.WashCharge:
-                        // 洗浄料　実績値より取得
-                        if (yusoWkquery.Count() == 1)
-                        {
-                            exCostRow.extra_charge_amount = yusoWkquery.First().actual_wash_surcharge_amount;
-                        }
-                        break;
-                    case extraCostKbn.StandCharge:
-                        // 台貫料　実績値より取得
-                        if (yusoWkquery.Count() == 1)
-                        {
-                            exCostRow.extra_charge_amount = yusoWkquery.First().actual_stand_surcharge_amount;
-                        }
-                        break;
-                    case extraCostKbn.TollRoadCharge:
-                        // 有料道路代　実績値より取得
-                        if (yusoWkquery.Count() == 1)
-                        {
-                            exCostRow.extra_charge_amount = yusoWkquery.First().actual_load_surcharge_amount;
-                        }
-                        break;
-                    case extraCostKbn.OtherCharge:
-                        // その他
-                        switch (exCostRow.calculate_type_kbn)
-                        {
-                            case CalculateTypeKbn.Triff:
-                                exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
-                                break;
-                            case CalculateTypeKbn.Adding:
-                                exCostRow.extra_charge_amount = exCostRow.adding_price;
-                                break;
-                            case CalculateTypeKbn.AddingRatio:
-                                exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * exCostRow.adding_ratio / 100);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
+                    // if not applicable, break
+                    // TODO: 適用期間チェック
+                    var yusoWkquery = CalcWkDs.t_yuso_wk.Where(r => r.yuso_key == exCostRow.yuso_key);
+                    switch (exCostRow.calculate_type_kbn)
+                    {
+                        case extraCostKbn.StoppingCharge:
+                            // 中継料　タリフ金額＊中継回数
+                            // TODO: 中継回数をNull check
+                            var tariffPrice = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
+                            exCostRow.extra_charge_amount = tariffPrice * exCostRow.stopping_count;
+                            break;
+                        case extraCostKbn.CargoCharge:
+                            // 航送料　タリフ金額
+                            exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
+                            break;
+                        case extraCostKbn.DistanceCharge:
+                            // 距離割増　超過距離　タリフ金額
+                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_distance_kmNull()))
+                            {
+                                var actualDistanceKm = yusoWkquery.First().actual_distance_km;
+                                var calcVariables = new CalcVariables(exCostRow);
+                                calcVariables.DistanceKm = (actualDistanceKm - exCostRow.distance_km) > 0 ? (actualDistanceKm - exCostRow.distance_km) : 0;
+                                exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, calcVariables);
+                            }
+                            break;
+                        case extraCostKbn.HelperCharge:
+                            // 助手料　助手料(=付帯費用パターン明細金額)＊人数
+                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_assistant_countNull()))
+                            {
+                                exCostRow.extra_charge_amount = exCostRow.adding_price * yusoWkquery.First().actual_assistant_count;
+                            }
+                            break;
+                        case extraCostKbn.FuelCharge:
+                            // 燃油料　発着別運賃計算情報より取得
+                            exCostRow.extra_charge_amount = exCostRow.Isfuel_cost_amountNull() ? 0 : exCostRow.fuel_cost_amount;
+                            break;
+                        case extraCostKbn.WashCharge:
+                            // 洗浄料　実績値より取得
+                            if (yusoWkquery.Count() == 1)
+                            {
+                                exCostRow.extra_charge_amount = yusoWkquery.First().actual_wash_surcharge_amount;
+                            }
+                            break;
+                        case extraCostKbn.StandCharge:
+                            // 台貫料　実績値より取得
+                            if (yusoWkquery.Count() == 1)
+                            {
+                                exCostRow.extra_charge_amount = yusoWkquery.First().actual_stand_surcharge_amount;
+                            }
+                            break;
+                        case extraCostKbn.TollRoadCharge:
+                            // 有料道路代　実績値より取得
+                            if (yusoWkquery.Count() == 1)
+                            {
+                                exCostRow.extra_charge_amount = yusoWkquery.First().actual_load_surcharge_amount;
+                            }
+                            break;
+                        case extraCostKbn.OtherCharge:
+                            // その他
+                            switch (exCostRow.calculate_type_kbn)
+                            {
+                                case CalculateTypeKbn.Triff:
+                                    exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
+                                    break;
+                                case CalculateTypeKbn.Adding:
+                                    exCostRow.extra_charge_amount = exCostRow.adding_price;
+                                    break;
+                                case CalculateTypeKbn.AddingRatio:
+                                    exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * exCostRow.adding_ratio / 100);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
-
-        }
+            catch (Exception ex)
+            {
+                throw new Exception("CalculateExtraCharge Error", ex);
+            }
         }
 
         private string GetValueColName(Tariff tariffDs, CnTariffAxisKbn tariffAxisKbn)
@@ -538,7 +556,7 @@ namespace FareCalcLib
 
                 // TODO: クエリに変更するかどうか検討
                 // copy tran to wk
-                var colNamesOfYusoWk = Enumerable.Range(0, dsStartCalc.t_yuso_wk.Columns.Count - 1)
+                var colNamesOfYusoWk = Enumerable.Range(0, dsStartCalc.t_yuso_wk.Columns.Count)
                                             .Select(i => dsStartCalc.t_yuso_wk.Columns[i].ColumnName).ToList();
                 dsStartCalc.t_yuso.ToList().ForEach(r =>
                 {
@@ -571,45 +589,65 @@ namespace FareCalcLib
 
         private void RefrectToResultData()
         {
-            // TODO: 値をトランにセット
-            // TODD: TranをUpdate
-            // update wk tables
-            var yusoWkAdp = new CalcWkTableAdapters.t_yuso_wkTableAdapter();
-            yusoWkAdp.Connection = Connection;
-            yusoWkAdp.SetUpdateBatchSize(UpdateBatchSize);
-            yusoWkAdp.Update(this.CalcWkDs);
+            try
+            {
+                // TODO: 値をトランにセット
+                // TODD: TranをUpdate
+                // update wk tables
+                var yusoWkAdp = new CalcWkTableAdapters.t_yuso_wkTableAdapter();
+                yusoWkAdp.Connection = Connection;
+                yusoWkAdp.SetUpdateBatchSize(UpdateBatchSize);
+                var cntYusoWk = yusoWkAdp.Update(this.CalcWkDs);
+                // TODO: debug code for p1
+                Console.WriteLine("t_yuso_wk COUNT = {0}", cntYusoWk);
 
-            var keisanWkAdp = new CalcWkTableAdapters.t_keisan_wkTableAdapter();
-            keisanWkAdp.Connection = Connection;
-            keisanWkAdp.SetUpdateBatchSize(UpdateBatchSize);
-            keisanWkAdp.Update(this.CalcWkDs);
+                var keisanWkAdp = new CalcWkTableAdapters.t_keisan_wkTableAdapter();
+                keisanWkAdp.Connection = Connection;
+                keisanWkAdp.SetUpdateBatchSize(UpdateBatchSize);
+                var cntKeisanWk = keisanWkAdp.Update(this.CalcWkDs);
+                // TODO: debug code for p1
+                Console.WriteLine("t_keisan_wk COUNT = {0}", cntKeisanWk);
 
-            var detailWkAdp = new CalcWkTableAdapters.t_detail_wkTableAdapter();
-            detailWkAdp.Connection = Connection;
-            detailWkAdp.SetUpdateBatchSize(UpdateBatchSize);
-            detailWkAdp.Update(CalcWkDs);
+                var detailWkAdp = new CalcWkTableAdapters.t_detail_wkTableAdapter();
+                detailWkAdp.Connection = Connection;
+                detailWkAdp.SetUpdateBatchSize(UpdateBatchSize);
+                var cntDetailWk = detailWkAdp.Update(CalcWkDs);
+                // TODO: debug code for p1
+                Console.WriteLine("t_detail_wk COUNT = {0}", cntDetailWk);
 
-            var extraCostWkAdp = new CalcWkTableAdapters.t_extra_cost_wkTableAdapter();
-            extraCostWkAdp.Connection = Connection;
-            extraCostWkAdp.SetUpdateBatchSize(UpdateBatchSize);
-            extraCostWkAdp.Update(CalcWkDs);
-
+                var extraCostWkAdp = new CalcWkTableAdapters.t_extra_cost_wkTableAdapter();
+                extraCostWkAdp.Connection = Connection;
+                extraCostWkAdp.SetUpdateBatchSize(UpdateBatchSize);
+                var cntExCostWk = extraCostWkAdp.Update(CalcWkDs);
+                // TODO: debug code for p1
+                Console.WriteLine("t_extra_cost_wk COUNT = {0}", cntExCostWk);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("RefrectToResultData Error", ex);
+            }
         }
 
         public void EndCalc()
         {
-            // TODO: エラー件数をカウント
+            try
+            {
+                // TODO: エラー件数をカウント
 
-            // update calc_no end status
-            var calcNoAdp = new calc_noTableAdapter();
-            calcNoAdp.Connection = Connection;
-            int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, (short)CnEndStatus.Good, CalcNo);
+                // update calc_no end status
+                var calcNoAdp = new calc_noTableAdapter();
+                calcNoAdp.Connection = Connection;
+                int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, (short)CnEndStatus.Good, CalcNo);
 
-            // update calc_status to "done"
-            var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
-            tYusoAdp.Connection = Connection;
-            var rtn = tYusoAdp.UpdateCalcStatusDone((short)CnCalcStatus.Done, DateTime.Now, "", (short)CnCalcStatus.Doing, CalcNo);
-
+                // update calc_status to "done"
+                var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
+                tYusoAdp.Connection = Connection;
+                var rtn = tYusoAdp.UpdateCalcStatusDone((short)CnCalcStatus.Done, DateTime.Now, "", (short)CnCalcStatus.Doing, CalcNo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("EndCalc Error", ex);
+            }
         }
 
         private void DivideResultAmount()
@@ -638,12 +676,13 @@ namespace FareCalcLib
                     var sumAmounts = new Dictionary<String, Decimal>();
                     var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
                     //initialize dictionary
-                    yusoWkColNames.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
-                    yusoWkColNames.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
+                    var colNamesForDevide = yusoWkColNames.Where(name => name != "total_charge_amount").ToList(); // totalは除く
+                    colNamesForDevide.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
+                    colNamesForDevide.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
 
                     foreach (var detailRow in yusoKeyGroup)
                     {
-                        yusoWkColNames.ForEach(usoWkColname =>
+                        colNamesForDevide.ForEach(usoWkColname =>
                         {
                             if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
                             {
@@ -665,7 +704,7 @@ namespace FareCalcLib
                     }
 
                     // compare yuso amount to max detail sum amount. if it's defferent, add the difference to row that has max amount
-                    yusoWkColNames.ForEach(usoWkColname =>
+                    colNamesForDevide.ForEach(usoWkColname =>
                     {
                         if (!DBNull.Value.Equals(yusoWkRow[usoWkColname]))
                         {
@@ -683,14 +722,13 @@ namespace FareCalcLib
                     foreach (var detailRow in yusoKeyGroup)
                     {
                         detailRow.distributed_total_charge_amount = 0;  // TODO: Not Null制約入れる
-                        yusoWkColNames.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
+                        colNamesForDevide.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("DivideResultAmount", ex);
             }
         }
 

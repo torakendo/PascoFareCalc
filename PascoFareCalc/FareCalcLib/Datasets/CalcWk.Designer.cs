@@ -1118,7 +1118,7 @@ namespace FareCalcLib.Datasets {
                 this.columncalc_status.AllowDBNull = false;
                 this.columnverify_status.AllowDBNull = false;
                 this.columnyuso_key.AllowDBNull = false;
-                this.columnyuso_key.MaxLength = 20;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
                 this.columnactual_assist_surcharge_amount.AllowDBNull = false;
@@ -2198,24 +2198,36 @@ namespace FareCalcLib.Datasets {
                 this.columnspecial_tariff_end_md.MaxLength = 10;
                 this.columnvehicle_type_cd.MaxLength = 10;
                 this.columnbase_charge_amount.AllowDBNull = false;
+                this.columnbase_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnspecial_charge_amount.AllowDBNull = false;
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnstopping_charge_amount.AllowDBNull = false;
+                this.columnstopping_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columncargo_charge_amount.AllowDBNull = false;
+                this.columncargo_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnother_charge_amount.AllowDBNull = false;
+                this.columnother_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_time_surcharge_amount.AllowDBNull = false;
+                this.columnactual_time_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columntotal_charge_amount.AllowDBNull = false;
+                this.columntotal_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnyuso_means_kbn.MaxLength = 10;
                 this.columnkeisan_key.AllowDBNull = false;
-                this.columnkeisan_key.MaxLength = 20;
+                this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
-                this.columnyuso_key.MaxLength = 20;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
                 this.columnactual_assist_surcharge_amount.AllowDBNull = false;
+                this.columnactual_assist_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_load_surcharge_amount.AllowDBNull = false;
+                this.columnactual_load_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_stand_surcharge_amount.AllowDBNull = false;
+                this.columnactual_stand_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_wash_surcharge_amount.AllowDBNull = false;
+                this.columnactual_wash_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_km_surcharge_amount.AllowDBNull = false;
+                this.columnactual_km_surcharge_amount.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3204,9 +3216,9 @@ namespace FareCalcLib.Datasets {
                 this.columndistributed_actual_time_surcharge_amount.AllowDBNull = false;
                 this.columndistributed_total_charge_amount.AllowDBNull = false;
                 this.columnkeisan_key.AllowDBNull = false;
-                this.columnkeisan_key.MaxLength = 10;
+                this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
-                this.columnyuso_key.MaxLength = 10;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
                 this.columndistributed_actual_assist_surcharge_amount.AllowDBNull = false;
@@ -4099,8 +4111,8 @@ namespace FareCalcLib.Datasets {
                 this.columndistance_km.AllowDBNull = false;
                 this.columnbase_charge_amount.AllowDBNull = false;
                 this.columnextra_charge_amount.AllowDBNull = false;
-                this.columnkeisan_key.MaxLength = 20;
-                this.columnyuso_key.MaxLength = 20;
+                this.columnkeisan_key.MaxLength = 40;
+                this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
                 this.columnupdated_user_id.MaxLength = 10;
             }
@@ -9387,20 +9399,25 @@ FROM                   t_yuso_wk";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT                 calc_no, keisan_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, 
-                               carrier_company_cd, orig_date, arriving_date, dest_cd, fare_tariff_id, special_tariff_id, apply_tariff_id, apply_vertical_value, apply_horizonatl_value, extra_cost_pattern_id, distance_km, 
-                               time_mins, fuel_cost_amount, stopping_count, special_tariff_start_md, special_tariff_end_md, vehicle_type_cd, weight_sum_kg, base_charge_amount, special_charge_amount, 
-                               stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, 
-                               yuso_means_kbn, max_flg, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, 
-                               actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount
-FROM                   t_keisan_wk";
+            this._commandCollection[0].CommandText = @"SELECT               calc_no, keisan_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, 
+                           dest_cd, fare_tariff_id, special_tariff_id, apply_tariff_id, apply_vertical_value, apply_horizonatl_value, extra_cost_pattern_id, distance_km, time_mins, fuel_cost_amount, stopping_count, special_tariff_start_md, 
+                           special_tariff_end_md, vehicle_type_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, 
+                           actual_time_surcharge_amount, total_charge_amount, yuso_means_kbn, max_flg, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, 
+                           actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount
+FROM                 t_keisan_wk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT actual_assist_surcharge_amount, actual_assistant_count, actual_distance_km, actual_km_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, actual_wash_surcharge_amount, apply_horizonatl_value, apply_tariff_id, apply_vertical_value, arriving_date, base_charge_amount, calc_no, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, created_user_id, dest_cd, dest_jis, dest_warehouse_cd, distance_km, extra_cost_pattern_id, fare_tariff_id, fuel_cost_amount, keisan_id, keisan_key, max_flg, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, other_charge_amount, special_charge_amount, special_tariff_end_md, special_tariff_id, special_tariff_start_md, stopping_charge_amount, stopping_count, terminal_id, time_mins, total_charge_amount, updated_at, updated_user_id, vehicle_id, vehicle_type_cd, weight_sum_kg, yuso_kbn, yuso_key, yuso_means_kbn, yuso_mode_kbn FROM t_keisan_wk WHERE (calc_no = @Calc_no)";
+            this._commandCollection[1].CommandText = @"SELECT               actual_assist_surcharge_amount, actual_assistant_count, actual_distance_km, actual_km_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, 
+                           actual_wash_surcharge_amount, apply_horizonatl_value, apply_tariff_id, apply_vertical_value, arriving_date, base_charge_amount, calc_no, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, 
+                           created_user_id, dest_cd, dest_jis, dest_warehouse_cd, distance_km, extra_cost_pattern_id, fare_tariff_id, fuel_cost_amount, keisan_id, keisan_key, max_flg, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, 
+                           other_charge_amount, special_charge_amount, special_tariff_end_md, special_tariff_id, special_tariff_start_md, stopping_charge_amount, stopping_count, terminal_id, time_mins, total_charge_amount, updated_at, 
+                           updated_user_id, vehicle_id, vehicle_type_cd, weight_sum_kg, yuso_kbn, yuso_key, yuso_means_kbn, yuso_mode_kbn
+FROM                 t_keisan_wk
+WHERE                (calc_no = @Calc_no)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -9432,17 +9449,6 @@ FROM                   t_keisan_wk";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated_at", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated_user_id", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"UPDATE               t_keisan_wk
-SET                        yuso_means_kbn = m_vehicle.yuso_means_kbn
-FROM                   t_keisan_wk INNER JOIN
-                               m_vehicle ON t_keisan_wk.terminal_id = m_vehicle.terminal_id AND t_keisan_wk.vehicle_id = m_vehicle.vehicle_id AND t_keisan_wk.calc_no = @Calc_no
-WHERE                  (t_keisan_wk.calc_no = @Calc_no) AND (t_keisan_wk.contract_type = @Contract_type)
-";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contract_type", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10938,36 +10944,6 @@ WHERE                  (t_keisan_wk.calc_no = @Calc_no) AND (t_keisan_wk.contrac
                 command.Parameters[1].Value = ((string)(Updated_user_id));
             }
             command.Parameters[2].Value = ((int)(Calc_no));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateVehicleInfo(int Calc_no, string Contract_type) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
-            command.Parameters[0].Value = ((int)(Calc_no));
-            if ((Contract_type == null)) {
-                throw new global::System.ArgumentNullException("Contract_type");
-            }
-            else {
-                command.Parameters[1].Value = ((string)(Contract_type));
-            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

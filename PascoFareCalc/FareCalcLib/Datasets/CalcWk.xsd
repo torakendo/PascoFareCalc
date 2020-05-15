@@ -420,13 +420,12 @@ SELECT calc_no, keisan_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_bloc
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT                 calc_no, keisan_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, 
-                               carrier_company_cd, orig_date, arriving_date, dest_cd, fare_tariff_id, special_tariff_id, apply_tariff_id, apply_vertical_value, apply_horizonatl_value, extra_cost_pattern_id, distance_km, 
-                               time_mins, fuel_cost_amount, stopping_count, special_tariff_start_md, special_tariff_end_md, vehicle_type_cd, weight_sum_kg, base_charge_amount, special_charge_amount, 
-                               stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, 
-                               yuso_means_kbn, max_flg, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, 
-                               actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount
-FROM                   t_keisan_wk</CommandText>
+                    <CommandText>SELECT               calc_no, keisan_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, 
+                           dest_cd, fare_tariff_id, special_tariff_id, apply_tariff_id, apply_vertical_value, apply_horizonatl_value, extra_cost_pattern_id, distance_km, time_mins, fuel_cost_amount, stopping_count, special_tariff_start_md, 
+                           special_tariff_end_md, vehicle_type_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, 
+                           actual_time_surcharge_amount, total_charge_amount, yuso_means_kbn, max_flg, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, 
+                           actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount
+FROM                 t_keisan_wk</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -624,17 +623,23 @@ SELECT calc_no, keisan_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_bloc
               <Mapping SourceColumn="actual_km_surcharge_amount" DataSetColumn="actual_km_surcharge_amount" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="pcs_calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.t_keisan_wk" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCalcNo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCalcNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByCalcNo">
+              <DbSource ConnectionRef="pcs_calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.t_keisan_wk" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCalcNo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCalcNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCalcNo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT actual_assist_surcharge_amount, actual_assistant_count, actual_distance_km, actual_km_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, actual_wash_surcharge_amount, apply_horizonatl_value, apply_tariff_id, apply_vertical_value, arriving_date, base_charge_amount, calc_no, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, created_user_id, dest_cd, dest_jis, dest_warehouse_cd, distance_km, extra_cost_pattern_id, fare_tariff_id, fuel_cost_amount, keisan_id, keisan_key, max_flg, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, other_charge_amount, special_charge_amount, special_tariff_end_md, special_tariff_id, special_tariff_start_md, stopping_charge_amount, stopping_count, terminal_id, time_mins, total_charge_amount, updated_at, updated_user_id, vehicle_id, vehicle_type_cd, weight_sum_kg, yuso_kbn, yuso_key, yuso_means_kbn, yuso_mode_kbn FROM t_keisan_wk WHERE (calc_no = @Calc_no)</CommandText>
+                    <CommandText>SELECT               actual_assist_surcharge_amount, actual_assistant_count, actual_distance_km, actual_km_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, 
+                           actual_wash_surcharge_amount, apply_horizonatl_value, apply_tariff_id, apply_vertical_value, arriving_date, base_charge_amount, calc_no, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, 
+                           created_user_id, dest_cd, dest_jis, dest_warehouse_cd, distance_km, extra_cost_pattern_id, fare_tariff_id, fuel_cost_amount, keisan_id, keisan_key, max_flg, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, 
+                           other_charge_amount, special_charge_amount, special_tariff_end_md, special_tariff_id, special_tariff_start_md, stopping_charge_amount, stopping_count, terminal_id, time_mins, total_charge_amount, updated_at, 
+                           updated_user_id, vehicle_id, vehicle_type_cd, weight_sum_kg, yuso_kbn, yuso_key, yuso_means_kbn, yuso_mode_kbn
+FROM                 t_keisan_wk
+WHERE                (calc_no = @Calc_no)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="Calc_no" ColumnName="calc_no" DataSourceName="[pcs-calcdb].dbo.t_keisan_wk" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Calc_no" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="calc_no" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="pcs_calcdbConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCalcInfo" Modifier="Public" Name="UpdateCalcInfo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateCalcInfo">
+              <DbSource ConnectionRef="pcs_calcdbConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCalcInfo" Modifier="Public" Name="UpdateCalcInfo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateCalcInfo">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE               t_keisan_wk
@@ -654,22 +659,6 @@ WHERE                  (t_keisan_wk.calc_no = @Calc_no)</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="Updated_at" ColumnName="updated_at" DataSourceName="[pcs-calcdb].dbo.t_keisan_wk" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Updated_at" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="updated_at" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="Updated_user_id" ColumnName="updated_user_id" DataSourceName="[pcs-calcdb].dbo.t_keisan_wk" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Updated_user_id" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="updated_user_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Calc_no" ColumnName="calc_no" DataSourceName="[pcs-calcdb].dbo.t_keisan_wk" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Calc_no" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="calc_no" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-              <DbSource ConnectionRef="pcs_calcdbConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateVehicleInfo" Modifier="Public" Name="UpdateVehicleInfo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateVehicleInfo">
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>UPDATE               t_keisan_wk
-SET                        yuso_means_kbn = m_vehicle.yuso_means_kbn
-FROM                   t_keisan_wk INNER JOIN
-                               m_vehicle ON t_keisan_wk.terminal_id = m_vehicle.terminal_id AND t_keisan_wk.vehicle_id = m_vehicle.vehicle_id AND t_keisan_wk.calc_no = @Calc_no
-WHERE                  (t_keisan_wk.calc_no = @Calc_no) AND (t_keisan_wk.contract_type = @Contract_type)
-</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="Calc_no" ColumnName="calc_no" DataSourceName="[pcs-calcdb].dbo.t_keisan_wk" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Calc_no" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="calc_no" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Contract_type" ColumnName="contract_type" DataSourceName="[pcs-calcdb].dbo.t_keisan_wk" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Contract_type" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="contract_type" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -1351,7 +1340,7 @@ SELECT t_extra_cost_wk_id, calc_no, calc_ym, contract_type, yuso_kbn, orig_wareh
               <xs:element name="yuso_key" msprop:Generator_ColumnVarNameInTable="columnyuso_key" msprop:Generator_ColumnPropNameInRow="yuso_key" msprop:Generator_ColumnPropNameInTable="yuso_keyColumn" msprop:Generator_UserColumnName="yuso_key">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1503,15 +1492,15 @@ SELECT t_extra_cost_wk_id, calc_no, calc_ym, contract_type, yuso_kbn, orig_wareh
                 </xs:simpleType>
               </xs:element>
               <xs:element name="weight_sum_kg" msprop:Generator_ColumnVarNameInTable="columnweight_sum_kg" msprop:Generator_ColumnPropNameInRow="weight_sum_kg" msprop:Generator_ColumnPropNameInTable="weight_sum_kgColumn" msprop:Generator_UserColumnName="weight_sum_kg" type="xs:decimal" minOccurs="0" />
-              <xs:element name="base_charge_amount" msprop:Generator_ColumnVarNameInTable="columnbase_charge_amount" msprop:Generator_ColumnPropNameInRow="base_charge_amount" msprop:Generator_ColumnPropNameInTable="base_charge_amountColumn" msprop:Generator_UserColumnName="base_charge_amount" type="xs:decimal" />
-              <xs:element name="special_charge_amount" msprop:Generator_ColumnVarNameInTable="columnspecial_charge_amount" msprop:Generator_ColumnPropNameInRow="special_charge_amount" msprop:Generator_ColumnPropNameInTable="special_charge_amountColumn" msprop:Generator_UserColumnName="special_charge_amount" type="xs:decimal" />
-              <xs:element name="stopping_charge_amount" msprop:Generator_ColumnVarNameInTable="columnstopping_charge_amount" msprop:Generator_ColumnPropNameInRow="stopping_charge_amount" msprop:Generator_ColumnPropNameInTable="stopping_charge_amountColumn" msprop:Generator_UserColumnName="stopping_charge_amount" type="xs:decimal" />
-              <xs:element name="cargo_charge_amount" msprop:Generator_ColumnVarNameInTable="columncargo_charge_amount" msprop:Generator_ColumnPropNameInRow="cargo_charge_amount" msprop:Generator_ColumnPropNameInTable="cargo_charge_amountColumn" msprop:Generator_UserColumnName="cargo_charge_amount" type="xs:decimal" />
-              <xs:element name="other_charge_amount" msprop:Generator_ColumnVarNameInTable="columnother_charge_amount" msprop:Generator_ColumnPropNameInRow="other_charge_amount" msprop:Generator_ColumnPropNameInTable="other_charge_amountColumn" msprop:Generator_UserColumnName="other_charge_amount" type="xs:decimal" />
+              <xs:element name="base_charge_amount" msprop:Generator_ColumnVarNameInTable="columnbase_charge_amount" msprop:Generator_ColumnPropNameInRow="base_charge_amount" msprop:Generator_ColumnPropNameInTable="base_charge_amountColumn" msprop:Generator_UserColumnName="base_charge_amount" type="xs:decimal" default="0" />
+              <xs:element name="special_charge_amount" msprop:Generator_ColumnVarNameInTable="columnspecial_charge_amount" msprop:Generator_ColumnPropNameInRow="special_charge_amount" msprop:Generator_ColumnPropNameInTable="special_charge_amountColumn" msprop:Generator_UserColumnName="special_charge_amount" type="xs:decimal" default="0" />
+              <xs:element name="stopping_charge_amount" msprop:Generator_ColumnVarNameInTable="columnstopping_charge_amount" msprop:Generator_ColumnPropNameInRow="stopping_charge_amount" msprop:Generator_ColumnPropNameInTable="stopping_charge_amountColumn" msprop:Generator_UserColumnName="stopping_charge_amount" type="xs:decimal" default="0" />
+              <xs:element name="cargo_charge_amount" msprop:Generator_ColumnVarNameInTable="columncargo_charge_amount" msprop:Generator_ColumnPropNameInRow="cargo_charge_amount" msprop:Generator_ColumnPropNameInTable="cargo_charge_amountColumn" msprop:Generator_UserColumnName="cargo_charge_amount" type="xs:decimal" default="0" />
+              <xs:element name="other_charge_amount" msprop:Generator_ColumnVarNameInTable="columnother_charge_amount" msprop:Generator_ColumnPropNameInRow="other_charge_amount" msprop:Generator_ColumnPropNameInTable="other_charge_amountColumn" msprop:Generator_UserColumnName="other_charge_amount" type="xs:decimal" default="0" />
               <xs:element name="actual_distance_km" msprop:Generator_ColumnVarNameInTable="columnactual_distance_km" msprop:Generator_ColumnPropNameInRow="actual_distance_km" msprop:Generator_ColumnPropNameInTable="actual_distance_kmColumn" msprop:Generator_UserColumnName="actual_distance_km" type="xs:decimal" minOccurs="0" />
               <xs:element name="actual_time_mins" msprop:Generator_ColumnVarNameInTable="columnactual_time_mins" msprop:Generator_ColumnPropNameInRow="actual_time_mins" msprop:Generator_ColumnPropNameInTable="actual_time_minsColumn" msprop:Generator_UserColumnName="actual_time_mins" type="xs:decimal" minOccurs="0" />
-              <xs:element name="actual_time_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_time_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_time_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_time_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_time_surcharge_amount" type="xs:decimal" />
-              <xs:element name="total_charge_amount" msprop:Generator_ColumnVarNameInTable="columntotal_charge_amount" msprop:Generator_ColumnPropNameInRow="total_charge_amount" msprop:Generator_ColumnPropNameInTable="total_charge_amountColumn" msprop:Generator_UserColumnName="total_charge_amount" type="xs:decimal" />
+              <xs:element name="actual_time_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_time_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_time_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_time_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_time_surcharge_amount" type="xs:decimal" default="0" />
+              <xs:element name="total_charge_amount" msprop:Generator_ColumnVarNameInTable="columntotal_charge_amount" msprop:Generator_ColumnPropNameInRow="total_charge_amount" msprop:Generator_ColumnPropNameInTable="total_charge_amountColumn" msprop:Generator_UserColumnName="total_charge_amount" type="xs:decimal" default="0" />
               <xs:element name="yuso_means_kbn" msprop:Generator_ColumnVarNameInTable="columnyuso_means_kbn" msprop:Generator_ColumnPropNameInRow="yuso_means_kbn" msprop:Generator_ColumnPropNameInTable="yuso_means_kbnColumn" msprop:Generator_UserColumnName="yuso_means_kbn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1523,14 +1512,14 @@ SELECT t_extra_cost_wk_id, calc_no, calc_ym, contract_type, yuso_kbn, orig_wareh
               <xs:element name="keisan_key" msprop:Generator_ColumnVarNameInTable="columnkeisan_key" msprop:Generator_ColumnPropNameInRow="keisan_key" msprop:Generator_ColumnPropNameInTable="keisan_keyColumn" msprop:Generator_UserColumnName="keisan_key">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="yuso_key" msprop:Generator_ColumnVarNameInTable="columnyuso_key" msprop:Generator_ColumnPropNameInRow="yuso_key" msprop:Generator_ColumnPropNameInTable="yuso_keyColumn" msprop:Generator_UserColumnName="yuso_key">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1551,11 +1540,11 @@ SELECT t_extra_cost_wk_id, calc_no, calc_ym, contract_type, yuso_kbn, orig_wareh
                 </xs:simpleType>
               </xs:element>
               <xs:element name="actual_assistant_count" msprop:Generator_ColumnVarNameInTable="columnactual_assistant_count" msprop:Generator_ColumnPropNameInRow="actual_assistant_count" msprop:Generator_ColumnPropNameInTable="actual_assistant_countColumn" msprop:Generator_UserColumnName="actual_assistant_count" type="xs:int" minOccurs="0" />
-              <xs:element name="actual_assist_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_assist_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_assist_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_assist_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_assist_surcharge_amount" type="xs:decimal" />
-              <xs:element name="actual_load_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_load_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_load_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_load_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_load_surcharge_amount" type="xs:decimal" />
-              <xs:element name="actual_stand_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_stand_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_stand_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_stand_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_stand_surcharge_amount" type="xs:decimal" />
-              <xs:element name="actual_wash_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_wash_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_wash_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_wash_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_wash_surcharge_amount" type="xs:decimal" />
-              <xs:element name="actual_km_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_km_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_km_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_km_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_km_surcharge_amount" type="xs:decimal" />
+              <xs:element name="actual_assist_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_assist_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_assist_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_assist_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_assist_surcharge_amount" type="xs:decimal" default="0" />
+              <xs:element name="actual_load_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_load_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_load_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_load_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_load_surcharge_amount" type="xs:decimal" default="0" />
+              <xs:element name="actual_stand_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_stand_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_stand_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_stand_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_stand_surcharge_amount" type="xs:decimal" default="0" />
+              <xs:element name="actual_wash_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_wash_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_wash_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_wash_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_wash_surcharge_amount" type="xs:decimal" default="0" />
+              <xs:element name="actual_km_surcharge_amount" msprop:Generator_ColumnVarNameInTable="columnactual_km_surcharge_amount" msprop:Generator_ColumnPropNameInRow="actual_km_surcharge_amount" msprop:Generator_ColumnPropNameInTable="actual_km_surcharge_amountColumn" msprop:Generator_UserColumnName="actual_km_surcharge_amount" type="xs:decimal" default="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1727,14 +1716,14 @@ SELECT t_extra_cost_wk_id, calc_no, calc_ym, contract_type, yuso_kbn, orig_wareh
               <xs:element name="keisan_key" msprop:Generator_ColumnVarNameInTable="columnkeisan_key" msprop:Generator_ColumnPropNameInRow="keisan_key" msprop:Generator_ColumnPropNameInTable="keisan_keyColumn" msprop:Generator_UserColumnName="keisan_key">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="yuso_key" msprop:Generator_ColumnVarNameInTable="columnyuso_key" msprop:Generator_ColumnPropNameInRow="yuso_key" msprop:Generator_ColumnPropNameInTable="yuso_keyColumn" msprop:Generator_UserColumnName="yuso_key">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1903,14 +1892,14 @@ SELECT t_extra_cost_wk_id, calc_no, calc_ym, contract_type, yuso_kbn, orig_wareh
               <xs:element name="keisan_key" msprop:Generator_ColumnVarNameInTable="columnkeisan_key" msprop:Generator_ColumnPropNameInRow="keisan_key" msprop:Generator_ColumnPropNameInTable="keisan_keyColumn" msprop:Generator_UserColumnName="keisan_key" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="yuso_key" msprop:Generator_ColumnVarNameInTable="columnyuso_key" msprop:Generator_ColumnPropNameInRow="yuso_key" msprop:Generator_ColumnPropNameInTable="yuso_keyColumn" msprop:Generator_UserColumnName="yuso_key" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

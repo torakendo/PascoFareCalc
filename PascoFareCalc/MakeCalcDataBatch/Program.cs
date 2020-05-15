@@ -11,6 +11,7 @@ using System.Linq;
 using System.Transactions;
 using static FareCalcLib.Constants;
 using FareCalcLib.Datasets;
+using System.Text;
 
 namespace MakeCalcDataBatch
 {
@@ -47,6 +48,10 @@ namespace MakeCalcDataBatch
 
         static void Main(string[] args)
         {
+
+            // TODO: log write
+            Console.WriteLine("----- START MakeCalcDataBatch -----");
+
             try
             {
                 using (TransactionScope scope = new TransactionScope())
@@ -78,7 +83,9 @@ namespace MakeCalcDataBatch
                         shkJskAdp.Connection = conn;
 
                         // get shipment data (not processed) 
-                        shkJskAdp.FillByInclKbn(makeCalcDs.t_shk_jsk, InclKbn.UnDone);
+                        var shkJskCnt = shkJskAdp.FillByInclKbn(makeCalcDs.t_shk_jsk, InclKbn.UnDone);
+                        // TODO: debug code for p1
+                        Console.WriteLine("retrieve from t_shk_jsk COUNT = {0}", shkJskCnt);
 
                         var calcKeyGen = new CalcKeyGenerator();
 
@@ -185,9 +192,14 @@ namespace MakeCalcDataBatch
                         }
 
                         // update database
-                        yusoAdp.Update(makeCalcDs);
-                        keisanAdp.Update(makeCalcDs);
-                        detailAdp.Update(makeCalcDs);
+                        var yusoCnt = yusoAdp.Update(makeCalcDs);
+                        var keisanCnt = keisanAdp.Update(makeCalcDs);
+                        var detailCnt = detailAdp.Update(makeCalcDs);
+
+                        // TODO: debug code for p1
+                        Console.WriteLine("t_yuso COUNT = {0}", yusoCnt);
+                        Console.WriteLine("t_keisan COUNT = {0}", keisanCnt);
+                        Console.WriteLine("t_detail COUNT = {0}", detailCnt);
 
                         // update shkJsk
                         shkJskAdp.Update(makeCalcDs.t_shk_jsk);
@@ -195,13 +207,22 @@ namespace MakeCalcDataBatch
 
                     scope.Complete();
                 }
+                // TODO: debug code for p1
+                Console.WriteLine(" MakeCalcDataBatch End");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Console.WriteLine("Error occur ");
+                var stringBuilder = new StringBuilder();
+                var innerEx = ex;
+                while (innerEx != null)
+                {
+                    stringBuilder.AppendLine(innerEx.Message);
+                    stringBuilder.AppendLine(innerEx.StackTrace);
+                    innerEx = innerEx.InnerException;
+                }
+                Console.WriteLine(stringBuilder.ToString());
             }
-            Console.WriteLine("Hello World!");
         }
 
         private static MakeCalcDs.t_detailRow SetDetailDataFromShkJskData(MakeCalcDs.t_detailRow t_detailRow, MakeCalcDs.t_shk_jskRow shkJskRow)
