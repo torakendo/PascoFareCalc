@@ -127,10 +127,10 @@ namespace MakeCalcDataBatch
                                     // update
                                     yusoRow.calc_status = (short)CnCalcStatus.UnCalc;
                                     yusoRow.verify_status = (short)CnVerifyStatus.NotVerified;
-                                    // TODO: 計算結果項目をクリアするかどうか、検討
-                                    // TODO: システム日付取得ヘルパーから取得
-                                    // TODO: 登録更新情報設定の共通化
-                                    // TODO: バッチ更新情報用の項目を持たなくてよいか
+                                    // TODO: normal　endo 計算結果項目をクリアするかどうか、検討
+                                    // TODO: normal akema システム日付取得ヘルパーから取得 datetime.now commonHeler.getdate()
+                                    // TODO: low akema 登録更新情報設定の共通化 update_at, update_user, create_at
+                                    // TODO: high endo バッチ更新情報用の項目を持たなくてよいか
                                     yusoRow.updated_at = DateTime.Now;
                                 }
                                 else
@@ -182,8 +182,8 @@ namespace MakeCalcDataBatch
                             }
                             else
                             {
-                                // TODO: エラーメッセージ出力
-                                continue;
+                                // TODO: normal akema エラーメッセージ出力 log出力
+                                throw new Exception("出荷実績データ重複エラー ");
                             }
 
 
@@ -197,6 +197,7 @@ namespace MakeCalcDataBatch
                         var detailCnt = detailAdp.Update(makeCalcDs);
 
                         // TODO: debug code for p1
+                        // TODO: normal akema  log出力
                         Console.WriteLine("t_yuso COUNT = {0}", yusoCnt);
                         Console.WriteLine("t_keisan COUNT = {0}", keisanCnt);
                         Console.WriteLine("t_detail COUNT = {0}", detailCnt);
@@ -212,6 +213,7 @@ namespace MakeCalcDataBatch
             }
             catch (Exception ex)
             {
+                // TODO: normal akema エラーメッセージ出力 log出力
                 Console.WriteLine("Error occur ");
                 var stringBuilder = new StringBuilder();
                 var innerEx = ex;

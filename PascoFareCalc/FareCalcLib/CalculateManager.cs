@@ -27,6 +27,9 @@ namespace FareCalcLib
 {
     public class CalculateManager
     {
+        // TODO: urgent akema 最新のテーブル定義に合わせる
+        // TODO: urgent 
+
         #region "fields"
         private int CalcNo = 0;
         private CalcTrn CalcTrnDs;
@@ -87,7 +90,9 @@ namespace FareCalcLib
 
         private void SetResultToKeisanWk()
         {
-            // TODO: 基本運賃と付帯費用項目のトータル金額を算出して、セット
+            // TODO: normal akema 時間割増料、期間割増料、地区割増、
+            // TODO: spec endo 時間指定割増料、特別作業割増、特殊車両割増
+            // 基本運賃と付帯費用項目のトータル金額を算出して、セット
             CalcWkDs.t_keisan_wk.ToList().ForEach(keisanWkRow => 
             {
                 decimal totalExtraCost = 0;
@@ -150,6 +155,7 @@ namespace FareCalcLib
         private void SetResultToYusoWk()
         {
             // TODO: SQLに変更することを検討
+            // TODO: spec endo 実績項目を上書きするのはまずいか
             foreach (var yusoWkRow in this.CalcWkDs.t_yuso_wk)
             {
                 if (yusoWkRow.contract_type == ((int)CnContractType.ByItem).ToString()) 
@@ -276,8 +282,11 @@ namespace FareCalcLib
                 /* --------------------------------------
                 * set info to keisan_wk by server query
                 * -------------------------------------- */
+                // TODO: 業者コードブランクの発着別に対応する。場合によっては1行ずつ適用   
+                // TODO: urgent akema keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
+                // TODO: urgent akema 適用開始終了　出庫日で判定
                 // set calcinfo to keisan_wk by server update query
-                keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
+                var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
                 // fill keisan_wk after update
                 keisanWkAdp.FillByCalcNo(CalcWkDs.t_keisan_wk, this.CalcNo);
@@ -396,7 +405,10 @@ namespace FareCalcLib
                         var calcVar = new CalcVariables(item);
                         item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
                         item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
-                        item.base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+                        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+
+                        // TODO: high akema 業者別調整率
+                        item.base_charge_amount = item.original_base_charge_amount;
                     }
                 }
             }
@@ -416,6 +428,8 @@ namespace FareCalcLib
                 {
                     // if not applicable, break
                     // TODO: 適用期間チェック
+                    // TODO: normal akema 時間割増料、期間割増料、地区割増、
+                    // TODO: spec endo 時間指定割増料、特別作業割増、特殊車両割増
                     var yusoWkquery = CalcWkDs.t_yuso_wk.Where(r => r.yuso_key == exCostRow.yuso_key);
                     switch (exCostRow.calculate_type_kbn)
                     {
@@ -482,6 +496,7 @@ namespace FareCalcLib
                                     exCostRow.extra_charge_amount = exCostRow.adding_price;
                                     break;
                                 case CalculateTypeKbn.AddingRatio:
+                                    // TODO: normal spec 業者別調整率適用前の金額を適用するでよいか。
                                     exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * exCostRow.adding_ratio / 100);
                                     break;
                                 default:
@@ -703,6 +718,7 @@ namespace FareCalcLib
                         });
                     }
 
+                    // TODO: urgent spec endo 基本設計書　重量按分を確認
                     // compare yuso amount to max detail sum amount. if it's defferent, add the difference to row that has max amount
                     colNamesForDevide.ForEach(usoWkColname =>
                     {

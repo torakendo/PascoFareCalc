@@ -20,13 +20,13 @@ namespace FareCalcBatch
              *  
              */
 
-            // TODO: log write
+            // TODO: normal akema log write
             Console.WriteLine("----- START FareCalcBatch -----");
 
             int calcNo = 0;
             try
             {
-                // TODO: 計算中で残ってしまっているデータを未計算に戻す処理を追加
+                // TODO: normal-low akema 計算中で残ってしまっているデータを未計算に戻す処理を追加
 
                 using (TransactionScope scope1 = new TransactionScope())
                 {
@@ -62,6 +62,7 @@ namespace FareCalcBatch
             }
             catch (Exception ex)
             {
+                // TODO: normal akema log
                 Console.WriteLine("Error occur (calcNo={0})", calcNo);
                 var stringBuilder = new StringBuilder();
                 var innerEx = ex;

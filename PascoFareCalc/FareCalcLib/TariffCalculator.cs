@@ -90,14 +90,15 @@ namespace FareCalcLib
                 // set the tariff price before adding
                 var base_charge_before_adding = tariffDetailQuery.Select(tdr => tdr.tariff_price).ToArray()[0];
 
-                // TODO: 加算ありの範囲の時、両端加算ありの時、繰返し範囲の時、
+                // TODO: high endo 加算ありの範囲の時、両端加算ありの時、繰返し範囲の時、
                 var adding_charge = (decimal)0;
 
                 return base_charge_before_adding + adding_charge;
             }
             else
             {
-                // TODO: タリフが見つからないError処理
+                // TODO: normal akema タリフが見つからないError処理
+                // エラー終了しない。計算エラーを行にマークして、さらに、ログ出力「タリフデータが見つからない、または、複数あります。」
                 return 0;
             }
 
