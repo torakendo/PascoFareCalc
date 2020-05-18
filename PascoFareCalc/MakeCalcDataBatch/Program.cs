@@ -94,6 +94,7 @@ namespace MakeCalcDataBatch
                             /* --  generate keisanKey and yusoKey -- */
                             var paramTable = calcKeyGen.GetParamTable();
                             // TODO: 出荷実績のカラム名に変更する
+                            // TODO: normal akema 輸送区分：持ち戻り、返品、引き取りに対応する
                             paramTable.Keys.ToList().ForEach(paramName => paramTable[paramName] = shkJskRow[paramName]);
                             var calcKeys = calcKeyGen.getCalcKeys(paramTable);
 
