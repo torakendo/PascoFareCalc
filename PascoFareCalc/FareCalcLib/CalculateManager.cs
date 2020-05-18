@@ -65,7 +65,9 @@ namespace FareCalcLib
             CalcWkDs = new CalcWk();
             CalcTrnDs = new CalcTrn();
         }
-
+        /// <summary>
+        /// execute calculation 
+        /// </summary>
         public void Calcurate()
         {
             try
@@ -552,6 +554,52 @@ namespace FareCalcLib
             }
         }
 
+        /// <summary>
+        /// instruct calculation range by yuso_key and get calculate_no
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <param name="yusoKeyList">list of yuso_key</param>
+        /// <returns>calculate_no</returns>
+        public static int StartCalc(SqlConnection sqlConn, List<string> yusoKeyList)
+        {
+            // get new calc_no
+            var calcNoAdp = new calc_noTableAdapter();
+            calcNoAdp.Connection = sqlConn;
+            int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+
+            // TODO: high akema yusoKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
+
+            // TODO: high akema t_yuso_wkデータ作成
+
+            return newCalcNo;
+        }
+
+        /// <summary>
+        /// instruct calculation range by MonthlyVerifyKey and get calculate_no
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <param name="monthlyVerifyKeyList">list of MonthlyVerifyKey</param>
+        /// <returns>calculate_no</returns>
+        public static int StartCalc(SqlConnection sqlConn, List<MonthlyVerifyKey> monthlyVerifyKeyList)
+        {
+            // get new calc_no
+            var calcNoAdp = new calc_noTableAdapter();
+            calcNoAdp.Connection = sqlConn;
+            int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+
+            // TODO: high akema monthlyVerifyKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
+
+            // TODO: high akema t_yuso_wkデータ作成
+
+            return newCalcNo;
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <returns></returns>
         public static int StartCalcBatch(SqlConnection sqlConn)
         {
             try

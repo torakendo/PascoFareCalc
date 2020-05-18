@@ -53,6 +53,7 @@ namespace FareCalcBatch
                         calcManager.Calcurate();
 
                         //計算終了処理
+                        // TODO: high akema Calculate側に移す
                         calcManager.EndCalc();
                     }
                     scope2.Complete();
