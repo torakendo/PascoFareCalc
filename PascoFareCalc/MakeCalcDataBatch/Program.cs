@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Transactions;
 using static FareCalcLib.Constants;
+using static FareCalcLib.CommonHelper;
 using FareCalcLib.Datasets;
 using System.Text;
 
@@ -114,7 +115,7 @@ namespace MakeCalcDataBatch
                                 newYusoRow.calc_ym = calcYm;
                                 newYusoRow.calc_status = (short)CnCalcStatus.UnCalc;
                                 newYusoRow.verify_status = (short)CnVerifyStatus.NotVerified;
-                                newYusoRow.updated_at = DateTime.Now;
+                                newYusoRow.updated_at = GetDate();
 
                                 makeCalcDs.t_yuso.Addt_yusoRow(newYusoRow);
                             }
@@ -131,7 +132,7 @@ namespace MakeCalcDataBatch
                                     // TODO: normal akema システム日付取得ヘルパーから取得 datetime.now commonHeler.getdate()
                                     // TODO: low akema 登録更新情報設定の共通化 update_at, update_user, create_at
                                     // TODO: high endo バッチ更新情報用の項目を持たなくてよいか
-                                    yusoRow.updated_at = DateTime.Now;
+                                    yusoRow.updated_at = GetDate();
                                 }
                                 else
                                 {
@@ -151,7 +152,7 @@ namespace MakeCalcDataBatch
                                 newKeisanRow.keisan_key = calcKeys.KeisanKey;
                                 newKeisanRow.yuso_key = calcKeys.YusoKey;
                                 newKeisanRow.calc_ym = calcYm;
-                                newKeisanRow.updated_at = DateTime.Now;
+                                newKeisanRow.updated_at = GetDate();
                                 makeCalcDs.t_keisan.Addt_keisanRow(newKeisanRow);
                             }
                             else
@@ -160,7 +161,7 @@ namespace MakeCalcDataBatch
                                 keisanRow.yuso_means_kbn = shkJskRow.yuso_means_kbn;
                                 keisanRow.max_flg = 0;
                                 // TODO: 登録更新情報設定の共通化
-                                keisanRow.updated_at = DateTime.Now;
+                                keisanRow.updated_at = GetDate();
                             }
 
                             /* -- t_detail insert -- */
@@ -177,7 +178,7 @@ namespace MakeCalcDataBatch
                                 detailRow.keisan_key = calcKeys.KeisanKey;
                                 detailRow.yuso_key = calcKeys.YusoKey;
                                 detailRow.calc_ym = calcYm;
-                                detailRow.updated_at = DateTime.Now;
+                                detailRow.updated_at = GetDate();
                                 makeCalcDs.t_detail.Addt_detailRow(detailRow);
                             }
                             else
