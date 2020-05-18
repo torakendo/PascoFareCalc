@@ -14,6 +14,7 @@ namespace FareCalcLib
         //    {"Done", 1 },
         //};
 
+        // TODO: urgent akema 計算区分に変更
         public enum CnCalcStatus : short
         {
             UnCalc = 0,
@@ -22,6 +23,7 @@ namespace FareCalcLib
             Error = -2
         }
 
+        // TODO: urgent akema 計算終了ステータス区分に変更
         public enum CnEndStatus : short
         {
             Good = 0,
@@ -29,6 +31,7 @@ namespace FareCalcLib
             Error = -2
         }
 
+        // TODO: urgent akema 契約種別に変更
         public enum CnContractType : short
         {
             // TODO: 文字列コードに変更
@@ -36,6 +39,7 @@ namespace FareCalcLib
             ByItem = 2
         }
 
+        // TODO: urgent akema タリフ軸区分に変更
         public enum CnTariffAxisKbn : short
         {
             // TODO: 文字列コードに変更
@@ -43,12 +47,14 @@ namespace FareCalcLib
             Horizontal = 1
         }
 
+        // TODO: urgent akema 輸送区分に変更
         public enum CnYusoKbn : short
         {
             Move = 1,
             Delivery = 2
         }
 
+        // TODO: urgent akema 確認区分に変更
         public enum CnVerifyStatus : short 
         {
             NotVerified = 0,
