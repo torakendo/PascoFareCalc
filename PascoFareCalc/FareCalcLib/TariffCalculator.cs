@@ -72,6 +72,7 @@ namespace FareCalcLib
 
         public Decimal GetPrice(Tariff tariffDs, CalcVariables calcVariables)
         {
+            // TODO: normal-low akema タリフの契約種別とデータの契約種別が一致しない場合は計算エラー、エラーオブジェクト追加
             // get column value
             Decimal vertialValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Vertical);
             Decimal horizontalValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Horizontal);
