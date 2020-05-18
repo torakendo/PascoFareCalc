@@ -409,6 +409,8 @@ namespace FareCalcLib
 
                         // TODO: high akema 業者別調整率
                         item.base_charge_amount = item.original_base_charge_amount;
+
+                        // TODO: high akema 持ち戻り率適用
                     }
                 }
             }
