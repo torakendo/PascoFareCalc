@@ -1074,7 +1074,7 @@ SELECT extra_cost_pattern_id, extra_cost_detail_Id, extra_cost_kind_kbn, calcula
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
                 "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
