@@ -846,7 +846,7 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Persist Security Info=True" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Persist Security Info=True" +
                 ";User ID=batchuser;Password=batchuser";
         }
         
