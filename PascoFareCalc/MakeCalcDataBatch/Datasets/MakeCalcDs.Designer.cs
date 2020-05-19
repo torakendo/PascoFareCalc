@@ -5957,6 +5957,7 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnsenderordcode.AutoIncrementSeed = -1;
                 this.columnsenderordcode.AutoIncrementStep = -1;
                 this.columnsenderordcode.AllowDBNull = false;
+                this.columnsenderordcode.ReadOnly = true;
                 this.columnsenderorddtlcode.AllowDBNull = false;
                 this.columnsenderorddtlcode.MaxLength = 6;
                 this.columnsendercodesubno.AllowDBNull = false;
@@ -6986,6 +6987,7 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columndetail_Id.AutoIncrementSeed = -1;
                 this.columndetail_Id.AutoIncrementStep = -1;
                 this.columndetail_Id.AllowDBNull = false;
+                this.columndetail_Id.ReadOnly = true;
                 this.columndetail_Id.Unique = true;
                 this.columncalc_ym.AllowDBNull = false;
                 this.columncalc_ym.MaxLength = 6;
@@ -6994,26 +6996,37 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnyuso_kbn.AllowDBNull = false;
                 this.columnyuso_kbn.MaxLength = 2;
                 this.columnorig_warehouse_block_cd.AllowDBNull = false;
+                this.columnorig_warehouse_block_cd.DefaultValue = ((string)("0"));
                 this.columnorig_warehouse_block_cd.MaxLength = 6;
                 this.columnorig_warehouse_cd.AllowDBNull = false;
+                this.columnorig_warehouse_cd.DefaultValue = ((string)("0"));
                 this.columnorig_warehouse_cd.MaxLength = 3;
                 this.columnterminal_id.AllowDBNull = false;
+                this.columnterminal_id.DefaultValue = ((string)("0"));
                 this.columnterminal_id.MaxLength = 10;
                 this.columnvehicle_id.AllowDBNull = false;
+                this.columnvehicle_id.DefaultValue = ((string)("0"));
                 this.columnvehicle_id.MaxLength = 30;
                 this.columndest_jis.AllowDBNull = false;
+                this.columndest_jis.DefaultValue = ((string)("0"));
                 this.columndest_jis.MaxLength = 6;
                 this.columndest_warehouse_cd.AllowDBNull = false;
+                this.columndest_warehouse_cd.DefaultValue = ((string)("0"));
                 this.columndest_warehouse_cd.MaxLength = 3;
                 this.columnyuso_mode_kbn.AllowDBNull = false;
+                this.columnyuso_mode_kbn.DefaultValue = ((string)("0"));
                 this.columnyuso_mode_kbn.MaxLength = 2;
                 this.columncarrier_company_cd.AllowDBNull = false;
+                this.columncarrier_company_cd.DefaultValue = ((string)("0"));
                 this.columncarrier_company_cd.MaxLength = 8;
                 this.columnorig_date.AllowDBNull = false;
+                this.columnorig_date.DefaultValue = ((string)("0"));
                 this.columnorig_date.MaxLength = 8;
                 this.columnarriving_date.AllowDBNull = false;
+                this.columnarriving_date.DefaultValue = ((string)("0"));
                 this.columnarriving_date.MaxLength = 8;
                 this.columndest_cd.AllowDBNull = false;
+                this.columndest_cd.DefaultValue = ((string)("0"));
                 this.columndest_cd.MaxLength = 6;
                 this.columnslip_no.AllowDBNull = false;
                 this.columnslip_no.MaxLength = 10;
@@ -7801,6 +7814,7 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnkeisan_id.AutoIncrementSeed = -1;
                 this.columnkeisan_id.AutoIncrementStep = -1;
                 this.columnkeisan_id.AllowDBNull = false;
+                this.columnkeisan_id.ReadOnly = true;
                 this.columnkeisan_id.Unique = true;
                 this.columncalc_ym.AllowDBNull = false;
                 this.columncalc_ym.MaxLength = 6;
@@ -7809,16 +7823,22 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnyuso_kbn.AllowDBNull = false;
                 this.columnyuso_kbn.MaxLength = 2;
                 this.columnorig_warehouse_block_cd.AllowDBNull = false;
+                this.columnorig_warehouse_block_cd.DefaultValue = ((string)("0"));
                 this.columnorig_warehouse_block_cd.MaxLength = 6;
                 this.columnorig_warehouse_cd.AllowDBNull = false;
+                this.columnorig_warehouse_cd.DefaultValue = ((string)("0"));
                 this.columnorig_warehouse_cd.MaxLength = 3;
                 this.columnterminal_id.AllowDBNull = false;
+                this.columnterminal_id.DefaultValue = ((string)("0"));
                 this.columnterminal_id.MaxLength = 10;
                 this.columnvehicle_id.AllowDBNull = false;
+                this.columnvehicle_id.DefaultValue = ((string)("0"));
                 this.columnvehicle_id.MaxLength = 30;
                 this.columndest_jis.AllowDBNull = false;
+                this.columndest_jis.DefaultValue = ((string)("0"));
                 this.columndest_jis.MaxLength = 6;
                 this.columndest_warehouse_cd.AllowDBNull = false;
+                this.columndest_warehouse_cd.DefaultValue = ((string)("0"));
                 this.columndest_warehouse_cd.MaxLength = 3;
                 this.columnyuso_mode_kbn.AllowDBNull = false;
                 this.columnyuso_mode_kbn.MaxLength = 2;
@@ -7831,18 +7851,27 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columndest_cd.AllowDBNull = false;
                 this.columndest_cd.MaxLength = 6;
                 this.columnfare_tariff_id.AllowDBNull = false;
+                this.columnfare_tariff_id.DefaultValue = ((int)(0));
                 this.columndistance_km.AllowDBNull = false;
                 this.columndistance_km.DefaultValue = ((int)(0));
                 this.columntime_mins.AllowDBNull = false;
                 this.columntime_mins.DefaultValue = ((int)(0));
                 this.columnfuel_cost_amount.AllowDBNull = false;
+                this.columnfuel_cost_amount.DefaultValue = ((decimal)(0m));
                 this.columnstopping_count.AllowDBNull = false;
+                this.columnstopping_count.DefaultValue = ((short)(0));
+                this.columnspecial_tariff_start_md.DefaultValue = ((string)("0"));
                 this.columnspecial_tariff_start_md.MaxLength = 4;
+                this.columnspecial_tariff_end_md.DefaultValue = ((string)("0"));
                 this.columnspecial_tariff_end_md.MaxLength = 4;
                 this.columnbase_charge_amount.AllowDBNull = false;
+                this.columnbase_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnyuso_means_kbn.AllowDBNull = false;
+                this.columnyuso_means_kbn.DefaultValue = ((string)("0"));
                 this.columnyuso_means_kbn.MaxLength = 2;
                 this.columnmax_flg.AllowDBNull = false;
+                this.columnmax_flg.DefaultValue = ((short)(0));
                 this.columnkeisan_key.AllowDBNull = false;
                 this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
@@ -8065,6 +8094,8 @@ namespace MakeCalcDataBatch.Datasets {
             private global::System.Data.DataColumn columnCreateUserCode;
             
             private global::System.Data.DataColumn columnUpdateUserCode;
+            
+            private static System.DateTime columnlast_calc_at_defaultValue = global::System.DateTime.Parse("9999-12-31T00:00:00");
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -8473,11 +8504,11 @@ namespace MakeCalcDataBatch.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public t_yusoRow Addt_yusoRow(
-                        int yuso_id, 
                         string calc_ym, 
                         string contract_type, 
                         string yuso_kbn, 
                         string orig_warehouse_block_cd, 
+                        int orig_warehouse_cd, 
                         string terminal_id, 
                         string vehicle_id, 
                         string dest_jis, 
@@ -8516,12 +8547,12 @@ namespace MakeCalcDataBatch.Datasets {
                         string UpdateUserCode) {
                 t_yusoRow rowt_yusoRow = ((t_yusoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        yuso_id,
+                        null,
                         calc_ym,
                         contract_type,
                         yuso_kbn,
                         orig_warehouse_block_cd,
-                        null,
+                        orig_warehouse_cd,
                         terminal_id,
                         vehicle_id,
                         dest_jis,
@@ -8720,7 +8751,11 @@ namespace MakeCalcDataBatch.Datasets {
                 base.Columns.Add(this.columnUpdateUserCode);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnyuso_id}, true));
+                this.columnyuso_id.AutoIncrement = true;
+                this.columnyuso_id.AutoIncrementSeed = -1;
+                this.columnyuso_id.AutoIncrementStep = -1;
                 this.columnyuso_id.AllowDBNull = false;
+                this.columnyuso_id.ReadOnly = true;
                 this.columnyuso_id.Unique = true;
                 this.columncalc_ym.AllowDBNull = false;
                 this.columncalc_ym.MaxLength = 6;
@@ -8729,12 +8764,14 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnyuso_kbn.AllowDBNull = false;
                 this.columnyuso_kbn.MaxLength = 2;
                 this.columnorig_warehouse_block_cd.AllowDBNull = false;
+                this.columnorig_warehouse_block_cd.DefaultValue = ((string)("0"));
                 this.columnorig_warehouse_block_cd.MaxLength = 6;
-                this.columnorig_warehouse_cd.AutoIncrement = true;
                 this.columnorig_warehouse_cd.AutoIncrementSeed = -1;
                 this.columnorig_warehouse_cd.AutoIncrementStep = -1;
                 this.columnorig_warehouse_cd.AllowDBNull = false;
+                this.columnorig_warehouse_cd.DefaultValue = ((int)(0));
                 this.columnterminal_id.AllowDBNull = false;
+                this.columnterminal_id.DefaultValue = ((string)("0"));
                 this.columnterminal_id.MaxLength = 10;
                 this.columnvehicle_id.AllowDBNull = false;
                 this.columnvehicle_id.MaxLength = 30;
@@ -8763,12 +8800,15 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnother_charge_amount.AllowDBNull = false;
                 this.columnother_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_distance_km.AllowDBNull = false;
+                this.columnactual_distance_km.DefaultValue = ((decimal)(0m));
                 this.columnactual_distance_surcharge_amount.AllowDBNull = false;
                 this.columnactual_distance_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_time_mins.AllowDBNull = false;
+                this.columnactual_time_mins.DefaultValue = ((decimal)(0m));
                 this.columnactual_time_surcharge_amount.AllowDBNull = false;
                 this.columnactual_time_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_assistant_count.AllowDBNull = false;
+                this.columnactual_assistant_count.DefaultValue = ((int)(0));
                 this.columnactual_assist_surcharge_amount.AllowDBNull = false;
                 this.columnactual_assist_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_load_surcharge_amount.AllowDBNull = false;
@@ -8782,14 +8822,20 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnverify_status.AllowDBNull = false;
                 this.columnverify_status.MaxLength = 2;
                 this.columnverify_ymnd.AllowDBNull = false;
+                this.columnverify_ymnd.DefaultValue = ((string)("0"));
                 this.columnverify_ymnd.MaxLength = 8;
                 this.columnrelease_ymd.AllowDBNull = false;
+                this.columnrelease_ymd.DefaultValue = ((string)("0"));
                 this.columnrelease_ymd.MaxLength = 8;
                 this.columncalc_status.AllowDBNull = false;
+                this.columncalc_status.DefaultValue = ((string)("0"));
                 this.columncalc_status.MaxLength = 2;
                 this.columncalc_no.AllowDBNull = false;
+                this.columncalc_no.DefaultValue = ((int)(0));
                 this.columnlast_calc_at.AllowDBNull = false;
+                this.columnlast_calc_at.DefaultValue = ((System.DateTime)(t_yusoDataTable.columnlast_calc_at_defaultValue));
                 this.columnyuso_key.AllowDBNull = false;
+                this.columnyuso_key.DefaultValue = ((string)("0"));
                 this.columnyuso_key.MaxLength = 40;
                 this.columnCreateUserCode.MaxLength = 20;
                 this.columnUpdateUserCode.MaxLength = 20;
