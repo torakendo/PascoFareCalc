@@ -7,7 +7,7 @@
           <Connection ConnectionStringObject="Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" IsAppSettingsProperty="false" Modifier="Assembly" Name="pcs-calcdbConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_infoTableAdapter" GeneratorDataComponentClassName="m_tariff_infoTableAdapter" Name="m_tariff_info" UserDataComponentName="m_tariff_infoTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_info_oldTableAdapter" GeneratorDataComponentClassName="m_tariff_info_oldTableAdapter" Name="m_tariff_info_old" UserDataComponentName="m_tariff_info_oldTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_info" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -149,7 +149,7 @@ WHERE                  (tariff_info_id = @Tariff_info_id)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_axisTableAdapter" GeneratorDataComponentClassName="m_tariff_axisTableAdapter" Name="m_tariff_axis" UserDataComponentName="m_tariff_axisTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_axis_oldTableAdapter" GeneratorDataComponentClassName="m_tariff_axis_oldTableAdapter" Name="m_tariff_axis_old" UserDataComponentName="m_tariff_axis_oldTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_axis" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -254,7 +254,7 @@ SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_detailTableAdapter" GeneratorDataComponentClassName="m_tariff_detailTableAdapter" Name="m_tariff_detail" UserDataComponentName="m_tariff_detailTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_detail_oldTableAdapter" GeneratorDataComponentClassName="m_tariff_detail_oldTableAdapter" Name="m_tariff_detail_old" UserDataComponentName="m_tariff_detail_oldTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_detail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -405,6 +405,400 @@ WHERE
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_infoTableAdapter" GeneratorDataComponentClassName="m_tariff_infoTableAdapter" Name="m_tariff_info" UserDataComponentName="m_tariff_infoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_info" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[m_tariff_info] WHERE (([tariff_info_id] = @Original_tariff_info_id) AND ((@IsNull_tariff_name = 1 AND [tariff_name] IS NULL) OR ([tariff_name] = @Original_tariff_name)) AND ([yuso_kbn] = @Original_yuso_kbn) AND ((@IsNull_yuso_mode_kbn = 1 AND [yuso_mode_kbn] IS NULL) OR ([yuso_mode_kbn] = @Original_yuso_mode_kbn)) AND ([vertical_axis_kbn] = @Original_vertical_axis_kbn) AND ([vertical_axis_repeat_kbn] = @Original_vertical_axis_repeat_kbn) AND ([vertical_axis_terminal_value] = @Original_vertical_axis_terminal_value) AND ([horizontal_axis_kbn] = @Original_horizontal_axis_kbn) AND ([horizontal_axis_repeat_kbn] = @Original_horizontal_axis_repeat_kbn) AND ([horizontal_axis_terminal_value] = @Original_horizontal_axis_terminal_value) AND ((@IsNull_tariff_memo = 1 AND [tariff_memo] IS NULL) OR ([tariff_memo] = @Original_tariff_memo)) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_tariff_name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_tariff_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_yuso_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_yuso_mode_kbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="yuso_mode_kbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_yuso_mode_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_mode_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_vertical_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_vertical_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_horizontal_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_horizontal_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_tariff_memo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_memo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_tariff_memo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_memo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[m_tariff_info] ([tariff_info_id], [tariff_name], [yuso_kbn], [yuso_mode_kbn], [vertical_axis_kbn], [vertical_axis_repeat_kbn], [vertical_axis_terminal_value], [horizontal_axis_kbn], [horizontal_axis_repeat_kbn], [horizontal_axis_terminal_value], [tariff_memo], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@tariff_info_id, @tariff_name, @yuso_kbn, @yuso_mode_kbn, @vertical_axis_kbn, @vertical_axis_repeat_kbn, @vertical_axis_terminal_value, @horizontal_axis_kbn, @horizontal_axis_repeat_kbn, @horizontal_axis_terminal_value, @tariff_memo, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
+SELECT tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_info WHERE (tariff_info_id = @tariff_info_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@tariff_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@yuso_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@yuso_mode_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_mode_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@vertical_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@vertical_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@horizontal_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@horizontal_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@tariff_memo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_memo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_tariff_info</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[m_tariff_info] SET [tariff_info_id] = @tariff_info_id, [tariff_name] = @tariff_name, [yuso_kbn] = @yuso_kbn, [yuso_mode_kbn] = @yuso_mode_kbn, [vertical_axis_kbn] = @vertical_axis_kbn, [vertical_axis_repeat_kbn] = @vertical_axis_repeat_kbn, [vertical_axis_terminal_value] = @vertical_axis_terminal_value, [horizontal_axis_kbn] = @horizontal_axis_kbn, [horizontal_axis_repeat_kbn] = @horizontal_axis_repeat_kbn, [horizontal_axis_terminal_value] = @horizontal_axis_terminal_value, [tariff_memo] = @tariff_memo, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateDay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE (([tariff_info_id] = @Original_tariff_info_id) AND ((@IsNull_tariff_name = 1 AND [tariff_name] IS NULL) OR ([tariff_name] = @Original_tariff_name)) AND ([yuso_kbn] = @Original_yuso_kbn) AND ((@IsNull_yuso_mode_kbn = 1 AND [yuso_mode_kbn] IS NULL) OR ([yuso_mode_kbn] = @Original_yuso_mode_kbn)) AND ([vertical_axis_kbn] = @Original_vertical_axis_kbn) AND ([vertical_axis_repeat_kbn] = @Original_vertical_axis_repeat_kbn) AND ([vertical_axis_terminal_value] = @Original_vertical_axis_terminal_value) AND ([horizontal_axis_kbn] = @Original_horizontal_axis_kbn) AND ([horizontal_axis_repeat_kbn] = @Original_horizontal_axis_repeat_kbn) AND ([horizontal_axis_terminal_value] = @Original_horizontal_axis_terminal_value) AND ((@IsNull_tariff_memo = 1 AND [tariff_memo] IS NULL) OR ([tariff_memo] = @Original_tariff_memo)) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)));
+SELECT tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_info WHERE (tariff_info_id = @tariff_info_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@tariff_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@yuso_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@yuso_mode_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_mode_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@vertical_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@vertical_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@horizontal_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@horizontal_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@tariff_memo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_memo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_tariff_name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_tariff_name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_yuso_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_yuso_mode_kbn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="yuso_mode_kbn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_yuso_mode_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="yuso_mode_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_vertical_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_vertical_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="vertical_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_horizontal_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_horizontal_axis_repeat_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="horizontal_axis_repeat_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_axis_terminal_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_axis_terminal_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_tariff_memo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_memo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_tariff_memo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_memo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="tariff_info_id" DataSetColumn="tariff_info_id" />
+              <Mapping SourceColumn="tariff_name" DataSetColumn="tariff_name" />
+              <Mapping SourceColumn="yuso_kbn" DataSetColumn="yuso_kbn" />
+              <Mapping SourceColumn="yuso_mode_kbn" DataSetColumn="yuso_mode_kbn" />
+              <Mapping SourceColumn="vertical_axis_kbn" DataSetColumn="vertical_axis_kbn" />
+              <Mapping SourceColumn="vertical_axis_repeat_kbn" DataSetColumn="vertical_axis_repeat_kbn" />
+              <Mapping SourceColumn="vertical_axis_terminal_value" DataSetColumn="vertical_axis_terminal_value" />
+              <Mapping SourceColumn="horizontal_axis_kbn" DataSetColumn="horizontal_axis_kbn" />
+              <Mapping SourceColumn="horizontal_axis_repeat_kbn" DataSetColumn="horizontal_axis_repeat_kbn" />
+              <Mapping SourceColumn="horizontal_axis_terminal_value" DataSetColumn="horizontal_axis_terminal_value" />
+              <Mapping SourceColumn="tariff_memo" DataSetColumn="tariff_memo" />
+              <Mapping SourceColumn="CreateDay" DataSetColumn="CreateDay" />
+              <Mapping SourceColumn="UpdateDay" DataSetColumn="UpdateDay" />
+              <Mapping SourceColumn="CreateUserCode" DataSetColumn="CreateUserCode" />
+              <Mapping SourceColumn="UpdateUserCode" DataSetColumn="UpdateUserCode" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_info" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByTariffInfoId" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByTariffInfoId" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByTariffInfoId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                         tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, 
+                                            horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, 
+                                            UpdateUserCode
+FROM                            m_tariff_info
+WHERE                           (tariff_info_id = @Tariff_info_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Tariff_info_id" ColumnName="tariff_info_id" DataSourceName="[pcs-calcdb].dbo.m_tariff_info" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_axisTableAdapter" GeneratorDataComponentClassName="m_tariff_axisTableAdapter" Name="m_tariff_axis" UserDataComponentName="m_tariff_axisTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_axis" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[m_tariff_axis] WHERE (([tariff_axis_id] = @Original_tariff_axis_id) AND ([tariff_info_id] = @Original_tariff_info_id) AND ([tariff_axis_kbn] = @Original_tariff_axis_kbn) AND ([step_from] = @Original_step_from) AND ([step_to] = @Original_step_to) AND ([step_to_kbn] = @Original_step_to_kbn) AND ([value_kbn] = @Original_value_kbn) AND ([adding_step_value] = @Original_adding_step_value) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_axis_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_axis_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_tariff_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_from" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_to" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_step_to_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="step_to_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_value_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="value_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="adding_step_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[m_tariff_axis] ([tariff_axis_id], [tariff_info_id], [tariff_axis_kbn], [step_from], [step_to], [step_to_kbn], [value_kbn], [adding_step_value], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@tariff_axis_id, @tariff_info_id, @tariff_axis_kbn, @step_from, @step_to, @step_to_kbn, @value_kbn, @adding_step_value, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
+SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step_to_kbn, value_kbn, adding_step_value, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_axis WHERE (tariff_axis_id = @tariff_axis_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_axis_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_axis_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@tariff_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_from" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_to" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@step_to_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="step_to_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@value_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="value_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="adding_step_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step_to_kbn, value_kbn, adding_step_value, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_tariff_axis</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[m_tariff_axis] SET [tariff_axis_id] = @tariff_axis_id, [tariff_info_id] = @tariff_info_id, [tariff_axis_kbn] = @tariff_axis_kbn, [step_from] = @step_from, [step_to] = @step_to, [step_to_kbn] = @step_to_kbn, [value_kbn] = @value_kbn, [adding_step_value] = @adding_step_value, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateDay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE (([tariff_axis_id] = @Original_tariff_axis_id) AND ([tariff_info_id] = @Original_tariff_info_id) AND ([tariff_axis_kbn] = @Original_tariff_axis_kbn) AND ([step_from] = @Original_step_from) AND ([step_to] = @Original_step_to) AND ([step_to_kbn] = @Original_step_to_kbn) AND ([value_kbn] = @Original_value_kbn) AND ([adding_step_value] = @Original_adding_step_value) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)));
+SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step_to_kbn, value_kbn, adding_step_value, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_axis WHERE (tariff_axis_id = @tariff_axis_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_axis_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_axis_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@tariff_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_from" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_to" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@step_to_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="step_to_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@value_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="value_kbn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="adding_step_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_axis_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_axis_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_tariff_axis_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="tariff_axis_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_from" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="step_to" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_step_to_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="step_to_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_value_kbn" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="value_kbn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="adding_step_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="tariff_axis_id" DataSetColumn="tariff_axis_id" />
+              <Mapping SourceColumn="tariff_info_id" DataSetColumn="tariff_info_id" />
+              <Mapping SourceColumn="tariff_axis_kbn" DataSetColumn="tariff_axis_kbn" />
+              <Mapping SourceColumn="step_from" DataSetColumn="step_from" />
+              <Mapping SourceColumn="step_to" DataSetColumn="step_to" />
+              <Mapping SourceColumn="step_to_kbn" DataSetColumn="step_to_kbn" />
+              <Mapping SourceColumn="value_kbn" DataSetColumn="value_kbn" />
+              <Mapping SourceColumn="adding_step_value" DataSetColumn="adding_step_value" />
+              <Mapping SourceColumn="CreateDay" DataSetColumn="CreateDay" />
+              <Mapping SourceColumn="UpdateDay" DataSetColumn="UpdateDay" />
+              <Mapping SourceColumn="CreateUserCode" DataSetColumn="CreateUserCode" />
+              <Mapping SourceColumn="UpdateUserCode" DataSetColumn="UpdateUserCode" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_tariff_detailTableAdapter" GeneratorDataComponentClassName="m_tariff_detailTableAdapter" Name="m_tariff_detail" UserDataComponentName="m_tariff_detailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_detail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[m_tariff_detail] WHERE (([tariff_detail_id] = @Original_tariff_detail_id) AND ([tariff_info_id] = @Original_tariff_info_id) AND ([vertical_step_from] = @Original_vertical_step_from) AND ([vertical_step_to] = @Original_vertical_step_to) AND ([horizontal_step_from] = @Original_horizontal_step_from) AND ([horizontal_step_to] = @Original_horizontal_step_to) AND ([tariff_price] = @Original_tariff_price) AND ([vertical_adding_flg] = @Original_vertical_adding_flg) AND ([vertical_adding_step_value] = @Original_vertical_adding_step_value) AND ([vertical_adding_unit_price] = @Original_vertical_adding_unit_price) AND ([horizontal_adding_flg] = @Original_horizontal_adding_flg) AND ([horizontal_adding_step_value] = @Original_horizontal_adding_step_value) AND ([horizontal_adding_unit_price] = @Original_horizontal_adding_unit_price) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_detail_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_detail_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_from" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_to" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_step_from" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_step_to" Precision="9" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="horizontal_step_to" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_tariff_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="tariff_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_vertical_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="vertical_adding_flg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_vertical_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="vertical_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_horizontal_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="horizontal_adding_flg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_horizontal_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="horizontal_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[m_tariff_detail] ([tariff_detail_id], [tariff_info_id], [vertical_step_from], [vertical_step_to], [horizontal_step_from], [horizontal_step_to], [tariff_price], [vertical_adding_flg], [vertical_adding_step_value], [vertical_adding_unit_price], [horizontal_adding_flg], [horizontal_adding_step_value], [horizontal_adding_unit_price], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@tariff_detail_id, @tariff_info_id, @vertical_step_from, @vertical_step_to, @horizontal_step_from, @horizontal_step_to, @tariff_price, @vertical_adding_flg, @vertical_adding_step_value, @vertical_adding_unit_price, @horizontal_adding_flg, @horizontal_adding_step_value, @horizontal_adding_unit_price, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
+SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, horizontal_step_from, horizontal_step_to, tariff_price, vertical_adding_flg, vertical_adding_step_value, vertical_adding_unit_price, horizontal_adding_flg, horizontal_adding_step_value, horizontal_adding_unit_price, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_detail WHERE (tariff_detail_id = @tariff_detail_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_detail_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_detail_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_from" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_to" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_step_from" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_step_to" Precision="9" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="horizontal_step_to" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@tariff_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="tariff_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@vertical_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="vertical_adding_flg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@vertical_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="vertical_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@horizontal_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="horizontal_adding_flg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@horizontal_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="horizontal_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, horizontal_step_from, horizontal_step_to, tariff_price, vertical_adding_flg, vertical_adding_step_value, vertical_adding_unit_price, horizontal_adding_flg, horizontal_adding_step_value, horizontal_adding_unit_price, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_tariff_detail</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[m_tariff_detail] SET [tariff_detail_id] = @tariff_detail_id, [tariff_info_id] = @tariff_info_id, [vertical_step_from] = @vertical_step_from, [vertical_step_to] = @vertical_step_to, [horizontal_step_from] = @horizontal_step_from, [horizontal_step_to] = @horizontal_step_to, [tariff_price] = @tariff_price, [vertical_adding_flg] = @vertical_adding_flg, [vertical_adding_step_value] = @vertical_adding_step_value, [vertical_adding_unit_price] = @vertical_adding_unit_price, [horizontal_adding_flg] = @horizontal_adding_flg, [horizontal_adding_step_value] = @horizontal_adding_step_value, [horizontal_adding_unit_price] = @horizontal_adding_unit_price, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateDay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE (([tariff_detail_id] = @Original_tariff_detail_id) AND ([tariff_info_id] = @Original_tariff_info_id) AND ([vertical_step_from] = @Original_vertical_step_from) AND ([vertical_step_to] = @Original_vertical_step_to) AND ([horizontal_step_from] = @Original_horizontal_step_from) AND ([horizontal_step_to] = @Original_horizontal_step_to) AND ([tariff_price] = @Original_tariff_price) AND ([vertical_adding_flg] = @Original_vertical_adding_flg) AND ([vertical_adding_step_value] = @Original_vertical_adding_step_value) AND ([vertical_adding_unit_price] = @Original_vertical_adding_unit_price) AND ([horizontal_adding_flg] = @Original_horizontal_adding_flg) AND ([horizontal_adding_step_value] = @Original_horizontal_adding_step_value) AND ([horizontal_adding_unit_price] = @Original_horizontal_adding_unit_price) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)));
+SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, horizontal_step_from, horizontal_step_to, tariff_price, vertical_adding_flg, vertical_adding_step_value, vertical_adding_unit_price, horizontal_adding_flg, horizontal_adding_step_value, horizontal_adding_unit_price, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_detail WHERE (tariff_detail_id = @tariff_detail_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_detail_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_detail_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_from" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_to" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_step_from" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_step_to" Precision="9" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="horizontal_step_to" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@tariff_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="tariff_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@vertical_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="vertical_adding_flg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@vertical_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@vertical_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="vertical_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@horizontal_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="horizontal_adding_flg" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@horizontal_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@horizontal_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="horizontal_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_detail_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_detail_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_from" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_step_to" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_step_to" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_step_from" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_step_from" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_step_to" Precision="9" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="horizontal_step_to" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_tariff_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="tariff_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_vertical_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="vertical_adding_flg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_vertical_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="vertical_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_vertical_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="vertical_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_horizontal_adding_flg" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="horizontal_adding_flg" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_horizontal_adding_step_value" Precision="11" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="horizontal_adding_step_value" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_horizontal_adding_unit_price" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="horizontal_adding_unit_price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateDay" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_UpdateDay" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="UpdateDay" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CreateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CreateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_UpdateUserCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_UpdateUserCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="UpdateUserCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="tariff_detail_id" DataSetColumn="tariff_detail_id" />
+              <Mapping SourceColumn="tariff_info_id" DataSetColumn="tariff_info_id" />
+              <Mapping SourceColumn="vertical_step_from" DataSetColumn="vertical_step_from" />
+              <Mapping SourceColumn="vertical_step_to" DataSetColumn="vertical_step_to" />
+              <Mapping SourceColumn="horizontal_step_from" DataSetColumn="horizontal_step_from" />
+              <Mapping SourceColumn="horizontal_step_to" DataSetColumn="horizontal_step_to" />
+              <Mapping SourceColumn="tariff_price" DataSetColumn="tariff_price" />
+              <Mapping SourceColumn="vertical_adding_flg" DataSetColumn="vertical_adding_flg" />
+              <Mapping SourceColumn="vertical_adding_step_value" DataSetColumn="vertical_adding_step_value" />
+              <Mapping SourceColumn="vertical_adding_unit_price" DataSetColumn="vertical_adding_unit_price" />
+              <Mapping SourceColumn="horizontal_adding_flg" DataSetColumn="horizontal_adding_flg" />
+              <Mapping SourceColumn="horizontal_adding_step_value" DataSetColumn="horizontal_adding_step_value" />
+              <Mapping SourceColumn="horizontal_adding_unit_price" DataSetColumn="horizontal_adding_unit_price" />
+              <Mapping SourceColumn="CreateDay" DataSetColumn="CreateDay" />
+              <Mapping SourceColumn="UpdateDay" DataSetColumn="UpdateDay" />
+              <Mapping SourceColumn="CreateUserCode" DataSetColumn="CreateUserCode" />
+              <Mapping SourceColumn="UpdateUserCode" DataSetColumn="UpdateUserCode" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="pcs-calcdbConnectionString" DbObjectName="[pcs-calcdb].dbo.m_tariff_detail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByTriffInfoId" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByTriffInfoId" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByTriffInfoId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                         tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, horizontal_step_from, horizontal_step_to, tariff_price, vertical_adding_flg, 
+                                            vertical_adding_step_value, vertical_adding_unit_price, horizontal_adding_flg, horizontal_adding_step_value, horizontal_adding_unit_price, 
+                                            CreateDay, UpdateDay, CreateUserCode, UpdateUserCode
+FROM                            m_tariff_detail
+WHERE                           (tariff_info_id = @Tariff_info_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Tariff_info_id" ColumnName="tariff_info_id" DataSourceName="[pcs-calcdb].dbo.m_tariff_detail" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Tariff_info_id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="tariff_info_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -413,7 +807,7 @@ WHERE
   <xs:element name="Tariff" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Tariff" msprop:Generator_UserDSName="Tariff">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="m_tariff_info" msprop:Generator_TableClassName="m_tariff_infoDataTable" msprop:Generator_TableVarName="tablem_tariff_info" msprop:Generator_TablePropName="m_tariff_info" msprop:Generator_RowDeletingName="m_tariff_infoRowDeleting" msprop:Generator_RowChangingName="m_tariff_infoRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_infoRowDeleted" msprop:Generator_UserTableName="m_tariff_info" msprop:Generator_RowChangedName="m_tariff_infoRowChanged" msprop:Generator_RowEvArgName="m_tariff_infoRowChangeEvent" msprop:Generator_RowClassName="m_tariff_infoRow">
+        <xs:element name="m_tariff_info_old" msprop:Generator_TableClassName="m_tariff_info_oldDataTable" msprop:Generator_TableVarName="tablem_tariff_info_old" msprop:Generator_RowChangedName="m_tariff_info_oldRowChanged" msprop:Generator_TablePropName="m_tariff_info_old" msprop:Generator_RowDeletingName="m_tariff_info_oldRowDeleting" msprop:Generator_RowChangingName="m_tariff_info_oldRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_info_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_info_oldRowDeleted" msprop:Generator_RowClassName="m_tariff_info_oldRow" msprop:Generator_UserTableName="m_tariff_info_old" msprop:Generator_RowEvArgName="m_tariff_info_oldRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tariff_info_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntariff_info_id" msprop:Generator_ColumnPropNameInRow="tariff_info_id" msprop:Generator_ColumnPropNameInTable="tariff_info_idColumn" msprop:Generator_UserColumnName="tariff_info_id" type="xs:int" />
@@ -494,7 +888,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="m_tariff_axis" msprop:Generator_TableClassName="m_tariff_axisDataTable" msprop:Generator_TableVarName="tablem_tariff_axis" msprop:Generator_TablePropName="m_tariff_axis" msprop:Generator_RowDeletingName="m_tariff_axisRowDeleting" msprop:Generator_RowChangingName="m_tariff_axisRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_axisRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_axisRowDeleted" msprop:Generator_UserTableName="m_tariff_axis" msprop:Generator_RowChangedName="m_tariff_axisRowChanged" msprop:Generator_RowEvArgName="m_tariff_axisRowChangeEvent" msprop:Generator_RowClassName="m_tariff_axisRow">
+        <xs:element name="m_tariff_axis_old" msprop:Generator_TableClassName="m_tariff_axis_oldDataTable" msprop:Generator_TableVarName="tablem_tariff_axis_old" msprop:Generator_RowChangedName="m_tariff_axis_oldRowChanged" msprop:Generator_TablePropName="m_tariff_axis_old" msprop:Generator_RowDeletingName="m_tariff_axis_oldRowDeleting" msprop:Generator_RowChangingName="m_tariff_axis_oldRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_axis_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_axis_oldRowDeleted" msprop:Generator_RowClassName="m_tariff_axis_oldRow" msprop:Generator_UserTableName="m_tariff_axis_old" msprop:Generator_RowEvArgName="m_tariff_axis_oldRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tariff_axis_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntariff_axis_id" msprop:Generator_ColumnPropNameInRow="tariff_axis_id" msprop:Generator_ColumnPropNameInTable="tariff_axis_idColumn" msprop:Generator_UserColumnName="tariff_axis_id" type="xs:int" />
@@ -548,7 +942,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="m_tariff_detail" msprop:Generator_TableClassName="m_tariff_detailDataTable" msprop:Generator_TableVarName="tablem_tariff_detail" msprop:Generator_TablePropName="m_tariff_detail" msprop:Generator_RowDeletingName="m_tariff_detailRowDeleting" msprop:Generator_RowChangingName="m_tariff_detailRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_detailRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_detailRowDeleted" msprop:Generator_UserTableName="m_tariff_detail" msprop:Generator_RowChangedName="m_tariff_detailRowChanged" msprop:Generator_RowEvArgName="m_tariff_detailRowChangeEvent" msprop:Generator_RowClassName="m_tariff_detailRow">
+        <xs:element name="m_tariff_detail_old" msprop:Generator_TableClassName="m_tariff_detail_oldDataTable" msprop:Generator_TableVarName="tablem_tariff_detail_old" msprop:Generator_RowChangedName="m_tariff_detail_oldRowChanged" msprop:Generator_TablePropName="m_tariff_detail_old" msprop:Generator_RowDeletingName="m_tariff_detail_oldRowDeleting" msprop:Generator_RowChangingName="m_tariff_detail_oldRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_detail_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_detail_oldRowDeleted" msprop:Generator_RowClassName="m_tariff_detail_oldRow" msprop:Generator_UserTableName="m_tariff_detail_old" msprop:Generator_RowEvArgName="m_tariff_detail_oldRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tariff_detail_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntariff_detail_id" msprop:Generator_ColumnPropNameInRow="tariff_detail_id" msprop:Generator_ColumnPropNameInTable="tariff_detail_idColumn" msprop:Generator_UserColumnName="tariff_detail_id" type="xs:int" />
@@ -619,9 +1013,185 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="m_tariff_info" msprop:Generator_TableClassName="m_tariff_infoDataTable" msprop:Generator_TableVarName="tablem_tariff_info" msprop:Generator_TablePropName="m_tariff_info" msprop:Generator_RowDeletingName="m_tariff_infoRowDeleting" msprop:Generator_RowChangingName="m_tariff_infoRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_infoRowDeleted" msprop:Generator_UserTableName="m_tariff_info" msprop:Generator_RowChangedName="m_tariff_infoRowChanged" msprop:Generator_RowEvArgName="m_tariff_infoRowChangeEvent" msprop:Generator_RowClassName="m_tariff_infoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tariff_info_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntariff_info_id" msprop:Generator_ColumnPropNameInRow="tariff_info_id" msprop:Generator_ColumnPropNameInTable="tariff_info_idColumn" msprop:Generator_UserColumnName="tariff_info_id" type="xs:int" />
+              <xs:element name="tariff_name" msprop:Generator_ColumnVarNameInTable="columntariff_name" msprop:Generator_ColumnPropNameInRow="tariff_name" msprop:Generator_ColumnPropNameInTable="tariff_nameColumn" msprop:Generator_UserColumnName="tariff_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yuso_kbn" msprop:Generator_ColumnVarNameInTable="columnyuso_kbn" msprop:Generator_ColumnPropNameInRow="yuso_kbn" msprop:Generator_ColumnPropNameInTable="yuso_kbnColumn" msprop:Generator_UserColumnName="yuso_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yuso_mode_kbn" msprop:Generator_ColumnVarNameInTable="columnyuso_mode_kbn" msprop:Generator_ColumnPropNameInRow="yuso_mode_kbn" msprop:Generator_ColumnPropNameInTable="yuso_mode_kbnColumn" msprop:Generator_UserColumnName="yuso_mode_kbn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vertical_axis_kbn" msprop:Generator_ColumnVarNameInTable="columnvertical_axis_kbn" msprop:Generator_ColumnPropNameInRow="vertical_axis_kbn" msprop:Generator_ColumnPropNameInTable="vertical_axis_kbnColumn" msprop:Generator_UserColumnName="vertical_axis_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vertical_axis_repeat_kbn" msprop:Generator_ColumnVarNameInTable="columnvertical_axis_repeat_kbn" msprop:Generator_ColumnPropNameInRow="vertical_axis_repeat_kbn" msprop:Generator_ColumnPropNameInTable="vertical_axis_repeat_kbnColumn" msprop:Generator_UserColumnName="vertical_axis_repeat_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vertical_axis_terminal_value" msprop:Generator_ColumnVarNameInTable="columnvertical_axis_terminal_value" msprop:Generator_ColumnPropNameInRow="vertical_axis_terminal_value" msprop:Generator_ColumnPropNameInTable="vertical_axis_terminal_valueColumn" msprop:Generator_UserColumnName="vertical_axis_terminal_value" type="xs:decimal" />
+              <xs:element name="horizontal_axis_kbn" msprop:Generator_ColumnVarNameInTable="columnhorizontal_axis_kbn" msprop:Generator_ColumnPropNameInRow="horizontal_axis_kbn" msprop:Generator_ColumnPropNameInTable="horizontal_axis_kbnColumn" msprop:Generator_UserColumnName="horizontal_axis_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="horizontal_axis_repeat_kbn" msprop:Generator_ColumnVarNameInTable="columnhorizontal_axis_repeat_kbn" msprop:Generator_ColumnPropNameInRow="horizontal_axis_repeat_kbn" msprop:Generator_ColumnPropNameInTable="horizontal_axis_repeat_kbnColumn" msprop:Generator_UserColumnName="horizontal_axis_repeat_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="horizontal_axis_terminal_value" msprop:Generator_ColumnVarNameInTable="columnhorizontal_axis_terminal_value" msprop:Generator_ColumnPropNameInRow="horizontal_axis_terminal_value" msprop:Generator_ColumnPropNameInTable="horizontal_axis_terminal_valueColumn" msprop:Generator_UserColumnName="horizontal_axis_terminal_value" type="xs:decimal" />
+              <xs:element name="tariff_memo" msprop:Generator_ColumnVarNameInTable="columntariff_memo" msprop:Generator_ColumnPropNameInRow="tariff_memo" msprop:Generator_ColumnPropNameInTable="tariff_memoColumn" msprop:Generator_UserColumnName="tariff_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreateDay" msprop:Generator_ColumnVarNameInTable="columnCreateDay" msprop:Generator_ColumnPropNameInRow="CreateDay" msprop:Generator_ColumnPropNameInTable="CreateDayColumn" msprop:Generator_UserColumnName="CreateDay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateDay" msprop:Generator_ColumnVarNameInTable="columnUpdateDay" msprop:Generator_ColumnPropNameInRow="UpdateDay" msprop:Generator_ColumnPropNameInTable="UpdateDayColumn" msprop:Generator_UserColumnName="UpdateDay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CreateUserCode" msprop:Generator_ColumnVarNameInTable="columnCreateUserCode" msprop:Generator_ColumnPropNameInRow="CreateUserCode" msprop:Generator_ColumnPropNameInTable="CreateUserCodeColumn" msprop:Generator_UserColumnName="CreateUserCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateUserCode" msprop:Generator_ColumnVarNameInTable="columnUpdateUserCode" msprop:Generator_ColumnPropNameInRow="UpdateUserCode" msprop:Generator_ColumnPropNameInTable="UpdateUserCodeColumn" msprop:Generator_UserColumnName="UpdateUserCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="m_tariff_axis" msprop:Generator_TableClassName="m_tariff_axisDataTable" msprop:Generator_TableVarName="tablem_tariff_axis" msprop:Generator_TablePropName="m_tariff_axis" msprop:Generator_RowDeletingName="m_tariff_axisRowDeleting" msprop:Generator_RowChangingName="m_tariff_axisRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_axisRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_axisRowDeleted" msprop:Generator_UserTableName="m_tariff_axis" msprop:Generator_RowChangedName="m_tariff_axisRowChanged" msprop:Generator_RowEvArgName="m_tariff_axisRowChangeEvent" msprop:Generator_RowClassName="m_tariff_axisRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tariff_axis_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntariff_axis_id" msprop:Generator_ColumnPropNameInRow="tariff_axis_id" msprop:Generator_ColumnPropNameInTable="tariff_axis_idColumn" msprop:Generator_UserColumnName="tariff_axis_id" type="xs:int" />
+              <xs:element name="tariff_info_id" msprop:Generator_ColumnVarNameInTable="columntariff_info_id" msprop:Generator_ColumnPropNameInRow="tariff_info_id" msprop:Generator_ColumnPropNameInTable="tariff_info_idColumn" msprop:Generator_UserColumnName="tariff_info_id" type="xs:int" />
+              <xs:element name="tariff_axis_kbn" msprop:Generator_ColumnVarNameInTable="columntariff_axis_kbn" msprop:Generator_ColumnPropNameInRow="tariff_axis_kbn" msprop:Generator_ColumnPropNameInTable="tariff_axis_kbnColumn" msprop:Generator_UserColumnName="tariff_axis_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="step_from" msprop:Generator_ColumnVarNameInTable="columnstep_from" msprop:Generator_ColumnPropNameInRow="step_from" msprop:Generator_ColumnPropNameInTable="step_fromColumn" msprop:Generator_UserColumnName="step_from" type="xs:decimal" />
+              <xs:element name="step_to" msprop:Generator_ColumnVarNameInTable="columnstep_to" msprop:Generator_ColumnPropNameInRow="step_to" msprop:Generator_ColumnPropNameInTable="step_toColumn" msprop:Generator_UserColumnName="step_to" type="xs:decimal" />
+              <xs:element name="step_to_kbn" msprop:Generator_ColumnVarNameInTable="columnstep_to_kbn" msprop:Generator_ColumnPropNameInRow="step_to_kbn" msprop:Generator_ColumnPropNameInTable="step_to_kbnColumn" msprop:Generator_UserColumnName="step_to_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="value_kbn" msprop:Generator_ColumnVarNameInTable="columnvalue_kbn" msprop:Generator_ColumnPropNameInRow="value_kbn" msprop:Generator_ColumnPropNameInTable="value_kbnColumn" msprop:Generator_UserColumnName="value_kbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adding_step_value" msprop:Generator_ColumnVarNameInTable="columnadding_step_value" msprop:Generator_ColumnPropNameInRow="adding_step_value" msprop:Generator_ColumnPropNameInTable="adding_step_valueColumn" msprop:Generator_UserColumnName="adding_step_value" type="xs:decimal" />
+              <xs:element name="CreateDay" msprop:Generator_ColumnVarNameInTable="columnCreateDay" msprop:Generator_ColumnPropNameInRow="CreateDay" msprop:Generator_ColumnPropNameInTable="CreateDayColumn" msprop:Generator_UserColumnName="CreateDay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateDay" msprop:Generator_ColumnVarNameInTable="columnUpdateDay" msprop:Generator_ColumnPropNameInRow="UpdateDay" msprop:Generator_ColumnPropNameInTable="UpdateDayColumn" msprop:Generator_UserColumnName="UpdateDay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CreateUserCode" msprop:Generator_ColumnVarNameInTable="columnCreateUserCode" msprop:Generator_ColumnPropNameInRow="CreateUserCode" msprop:Generator_ColumnPropNameInTable="CreateUserCodeColumn" msprop:Generator_UserColumnName="CreateUserCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateUserCode" msprop:Generator_ColumnVarNameInTable="columnUpdateUserCode" msprop:Generator_ColumnPropNameInRow="UpdateUserCode" msprop:Generator_ColumnPropNameInTable="UpdateUserCodeColumn" msprop:Generator_UserColumnName="UpdateUserCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="m_tariff_detail" msprop:Generator_TableClassName="m_tariff_detailDataTable" msprop:Generator_TableVarName="tablem_tariff_detail" msprop:Generator_TablePropName="m_tariff_detail" msprop:Generator_RowDeletingName="m_tariff_detailRowDeleting" msprop:Generator_RowChangingName="m_tariff_detailRowChanging" msprop:Generator_RowEvHandlerName="m_tariff_detailRowChangeEventHandler" msprop:Generator_RowDeletedName="m_tariff_detailRowDeleted" msprop:Generator_UserTableName="m_tariff_detail" msprop:Generator_RowChangedName="m_tariff_detailRowChanged" msprop:Generator_RowEvArgName="m_tariff_detailRowChangeEvent" msprop:Generator_RowClassName="m_tariff_detailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tariff_detail_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntariff_detail_id" msprop:Generator_ColumnPropNameInRow="tariff_detail_id" msprop:Generator_ColumnPropNameInTable="tariff_detail_idColumn" msprop:Generator_UserColumnName="tariff_detail_id" type="xs:int" />
+              <xs:element name="tariff_info_id" msprop:Generator_ColumnVarNameInTable="columntariff_info_id" msprop:Generator_ColumnPropNameInRow="tariff_info_id" msprop:Generator_ColumnPropNameInTable="tariff_info_idColumn" msprop:Generator_UserColumnName="tariff_info_id" type="xs:int" />
+              <xs:element name="vertical_step_from" msprop:Generator_ColumnVarNameInTable="columnvertical_step_from" msprop:Generator_ColumnPropNameInRow="vertical_step_from" msprop:Generator_ColumnPropNameInTable="vertical_step_fromColumn" msprop:Generator_UserColumnName="vertical_step_from" type="xs:decimal" />
+              <xs:element name="vertical_step_to" msprop:Generator_ColumnVarNameInTable="columnvertical_step_to" msprop:Generator_ColumnPropNameInRow="vertical_step_to" msprop:Generator_ColumnPropNameInTable="vertical_step_toColumn" msprop:Generator_UserColumnName="vertical_step_to" type="xs:decimal" />
+              <xs:element name="horizontal_step_from" msprop:Generator_ColumnVarNameInTable="columnhorizontal_step_from" msprop:Generator_ColumnPropNameInRow="horizontal_step_from" msprop:Generator_ColumnPropNameInTable="horizontal_step_fromColumn" msprop:Generator_UserColumnName="horizontal_step_from" type="xs:decimal" />
+              <xs:element name="horizontal_step_to" msprop:Generator_ColumnVarNameInTable="columnhorizontal_step_to" msprop:Generator_ColumnPropNameInRow="horizontal_step_to" msprop:Generator_ColumnPropNameInTable="horizontal_step_toColumn" msprop:Generator_UserColumnName="horizontal_step_to" type="xs:decimal" />
+              <xs:element name="tariff_price" msprop:Generator_ColumnVarNameInTable="columntariff_price" msprop:Generator_ColumnPropNameInRow="tariff_price" msprop:Generator_ColumnPropNameInTable="tariff_priceColumn" msprop:Generator_UserColumnName="tariff_price" type="xs:decimal" />
+              <xs:element name="vertical_adding_flg" msprop:Generator_ColumnVarNameInTable="columnvertical_adding_flg" msprop:Generator_ColumnPropNameInRow="vertical_adding_flg" msprop:Generator_ColumnPropNameInTable="vertical_adding_flgColumn" msprop:Generator_UserColumnName="vertical_adding_flg" type="xs:short" />
+              <xs:element name="vertical_adding_step_value" msprop:Generator_ColumnVarNameInTable="columnvertical_adding_step_value" msprop:Generator_ColumnPropNameInRow="vertical_adding_step_value" msprop:Generator_ColumnPropNameInTable="vertical_adding_step_valueColumn" msprop:Generator_UserColumnName="vertical_adding_step_value" type="xs:decimal" />
+              <xs:element name="vertical_adding_unit_price" msprop:Generator_ColumnVarNameInTable="columnvertical_adding_unit_price" msprop:Generator_ColumnPropNameInRow="vertical_adding_unit_price" msprop:Generator_ColumnPropNameInTable="vertical_adding_unit_priceColumn" msprop:Generator_UserColumnName="vertical_adding_unit_price" type="xs:decimal" />
+              <xs:element name="horizontal_adding_flg" msprop:Generator_ColumnVarNameInTable="columnhorizontal_adding_flg" msprop:Generator_ColumnPropNameInRow="horizontal_adding_flg" msprop:Generator_ColumnPropNameInTable="horizontal_adding_flgColumn" msprop:Generator_UserColumnName="horizontal_adding_flg" type="xs:short" />
+              <xs:element name="horizontal_adding_step_value" msprop:Generator_ColumnVarNameInTable="columnhorizontal_adding_step_value" msprop:Generator_ColumnPropNameInRow="horizontal_adding_step_value" msprop:Generator_ColumnPropNameInTable="horizontal_adding_step_valueColumn" msprop:Generator_UserColumnName="horizontal_adding_step_value" type="xs:decimal" />
+              <xs:element name="horizontal_adding_unit_price" msprop:Generator_ColumnVarNameInTable="columnhorizontal_adding_unit_price" msprop:Generator_ColumnPropNameInRow="horizontal_adding_unit_price" msprop:Generator_ColumnPropNameInTable="horizontal_adding_unit_priceColumn" msprop:Generator_UserColumnName="horizontal_adding_unit_price" type="xs:decimal" />
+              <xs:element name="CreateDay" msprop:Generator_ColumnVarNameInTable="columnCreateDay" msprop:Generator_ColumnPropNameInRow="CreateDay" msprop:Generator_ColumnPropNameInTable="CreateDayColumn" msprop:Generator_UserColumnName="CreateDay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateDay" msprop:Generator_ColumnVarNameInTable="columnUpdateDay" msprop:Generator_ColumnPropNameInRow="UpdateDay" msprop:Generator_ColumnPropNameInTable="UpdateDayColumn" msprop:Generator_UserColumnName="UpdateDay" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CreateUserCode" msprop:Generator_ColumnVarNameInTable="columnCreateUserCode" msprop:Generator_ColumnPropNameInRow="CreateUserCode" msprop:Generator_ColumnPropNameInTable="CreateUserCodeColumn" msprop:Generator_UserColumnName="CreateUserCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UpdateUserCode" msprop:Generator_ColumnVarNameInTable="columnUpdateUserCode" msprop:Generator_ColumnPropNameInRow="UpdateUserCode" msprop:Generator_ColumnPropNameInTable="UpdateUserCodeColumn" msprop:Generator_UserColumnName="UpdateUserCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:m_tariff_info_old" />
+      <xs:field xpath="mstns:tariff_info_id" />
+    </xs:unique>
+    <xs:unique name="m_tariff_axis_old_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:m_tariff_axis_old" />
+      <xs:field xpath="mstns:tariff_axis_id" />
+    </xs:unique>
+    <xs:unique name="m_tariff_detail_old_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:m_tariff_detail_old" />
+      <xs:field xpath="mstns:tariff_detail_id" />
+    </xs:unique>
+    <xs:unique name="m_tariff_info_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:m_tariff_info" />
       <xs:field xpath="mstns:tariff_info_id" />
     </xs:unique>

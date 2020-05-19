@@ -15,52 +15,66 @@ namespace FareCalcLib
         //};
 
         // TODO: urgent akema 計算区分に変更
-        public enum CnCalcStatus : short
+        public struct CnCalcStatus
         {
-            UnCalc = 0,
-            Done = 1,
-            Doing = -1,
-            Error = -2
+            // <summary> 空白 </summary>
+            public const string Blank = "00";
+            // <summary> 計算済 </summary>
+            public const string Done = "01";
+            // <summary> 未計算 </summary>
+            public const string UnCalc = "02";
+            // <summary> 計算中 </summary>
+            public const string Doing = "03";
         }
 
         // TODO: urgent akema 計算終了ステータス区分に変更
-        public enum CnEndStatus : short
+        public struct CnEndStatus
         {
-            Good = 0,
-            Warning = -1,
-            Error = -2
+            public const string Good = "01";
+            public const string Warning = "02";
+            public const string Error = "03";
         }
 
         // TODO: urgent akema 契約種別に変更
-        public enum CnContractType : short
+        public struct CnContractType
         {
-            // TODO: 文字列コードに変更
-            ByVehicle = 1,
-            ByItem = 2
+            // <summary> 車建 </summary>
+            public const string ByVehicle = "01";
+            // <summary> 個建 </summary>
+            public const string ByItem = "02";
         }
 
+
         // TODO: urgent akema タリフ軸区分に変更
-        public enum CnTariffAxisKbn : short
+        public struct CnTariffAxisKbn
         {
-            // TODO: 文字列コードに変更
-            Vertical = 0,
-            Horizontal = 1
+            // <summary> 縦 </summary>
+            public const string Vertical = "01";
+            // <summary> 横 </summary>
+            public const string Horizontal = "02";
         }
 
         // TODO: urgent akema 輸送区分に変更
-        public enum CnYusoKbn : short
+        public struct CnYusoKbn
         {
-            Move = 1,
-            Delivery = 2
+            // <summary> 移送 </summary>
+            public const string Move = "01";
+            // <summary> 配送 </summary>
+            public const string Delivery = "02";
+            // <summary> 支給 </summary>
+            public const string Provision = "03";
         }
 
         // TODO: urgent akema 確認区分に変更
-        public enum CnVerifyStatus : short 
+        public struct CnVerifyStatus
         {
-            NotVerified = 0,
-            Verified = 1
+            // <summary> 空白 </summary>
+            public const string Blank = "00";
+            // <summary> 確認済 </summary>
+            public const string Verified = "01";
+            // <summary> 未確認 </summary>
+            public const string NotVerified  = "02";
         }
-
 
         public struct CalculateTypeKbn
         {
