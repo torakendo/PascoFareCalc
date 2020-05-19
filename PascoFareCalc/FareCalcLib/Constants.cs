@@ -28,12 +28,19 @@ namespace FareCalcLib
         }
 
         // TODO: urgent akema 計算終了ステータス区分に変更
-        public struct CnEndStatus
+        public enum CnEndStatus : short
         {
-            public const string Good = "01";
-            public const string Warning = "02";
-            public const string Error = "03";
+            Good = 1,
+            Warning = 2,
+            Error = 3
         }
+
+        //public struct CnEndStatus
+        //{
+        //    public const string Good = "01";
+        //    public const string Warning = "02";
+        //    public const string Error = "03";
+        //}
 
         // TODO: urgent akema 契約種別に変更
         public struct CnContractType

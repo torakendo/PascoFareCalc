@@ -563,7 +563,7 @@ namespace FareCalcLib
         public static int StartCalc(SqlConnection sqlConn, List<string> yusoKeyList)
         {
             // get new calc_no
-            var calcNoAdp = new t_calc_noTableAdapter();
+            var calcNoAdp = new calc_noTableAdapter();
             calcNoAdp.Connection = sqlConn;
             int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
@@ -583,7 +583,7 @@ namespace FareCalcLib
         public static int StartCalc(SqlConnection sqlConn, List<MonthlyVerifyKey> monthlyVerifyKeyList)
         {
             // get new calc_no
-            var calcNoAdp = new t_calc_noTableAdapter();
+            var calcNoAdp = new calc_noTableAdapter();
             calcNoAdp.Connection = sqlConn;
             int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
@@ -605,7 +605,7 @@ namespace FareCalcLib
             try
             {
                 // get new calc_no
-                var calcNoAdp = new t_calc_noTableAdapter();
+                var calcNoAdp = new calc_noTableAdapter();
                 calcNoAdp.Connection = sqlConn;
                 int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
@@ -700,9 +700,9 @@ namespace FareCalcLib
                 // TODO: エラー件数をカウント
 
                 // update calc_no end status
-                var calcNoAdp = new t_calc_noTableAdapter();
+                var calcNoAdp = new calc_noTableAdapter();
                 calcNoAdp.Connection = Connection;
-                int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, CnEndStatus.Good, CalcNo);
+                int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, (short)CnEndStatus.Good, CalcNo);
 
                 // update calc_status to "done"
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();

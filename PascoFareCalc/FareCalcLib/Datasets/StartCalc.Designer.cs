@@ -1970,6 +1970,7 @@ namespace FareCalcLib.Datasets {
                 this.columncargo_charge_amount.AllowDBNull = false;
                 this.columnother_charge_amount.AllowDBNull = false;
                 this.columnactual_km_surcharge_amount.AllowDBNull = false;
+                this.columnactual_km_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columnactual_time_surcharge_amount.AllowDBNull = false;
                 this.columnactual_assist_surcharge_amount.AllowDBNull = false;
                 this.columnactual_load_surcharge_amount.AllowDBNull = false;

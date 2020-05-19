@@ -24,7 +24,7 @@ namespace FareCalcLib.Datasets {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class CalcNo : global::System.Data.DataSet {
         
-        private calc_no_oldDataTable tablecalc_no_old;
+        private calc_noDataTable tablecalc_no;
         
         private t_calc_noDataTable tablet_calc_no;
         
@@ -56,8 +56,8 @@ namespace FareCalcLib.Datasets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["calc_no_old"] != null)) {
-                    base.Tables.Add(new calc_no_oldDataTable(ds.Tables["calc_no_old"]));
+                if ((ds.Tables["calc_no"] != null)) {
+                    base.Tables.Add(new calc_noDataTable(ds.Tables["calc_no"]));
                 }
                 if ((ds.Tables["t_calc_no"] != null)) {
                     base.Tables.Add(new t_calc_noDataTable(ds.Tables["t_calc_no"]));
@@ -84,9 +84,9 @@ namespace FareCalcLib.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public calc_no_oldDataTable calc_no_old {
+        public calc_noDataTable calc_no {
             get {
-                return this.tablecalc_no_old;
+                return this.tablecalc_no;
             }
         }
         
@@ -167,8 +167,8 @@ namespace FareCalcLib.Datasets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["calc_no_old"] != null)) {
-                    base.Tables.Add(new calc_no_oldDataTable(ds.Tables["calc_no_old"]));
+                if ((ds.Tables["calc_no"] != null)) {
+                    base.Tables.Add(new calc_noDataTable(ds.Tables["calc_no"]));
                 }
                 if ((ds.Tables["t_calc_no"] != null)) {
                     base.Tables.Add(new t_calc_noDataTable(ds.Tables["t_calc_no"]));
@@ -206,10 +206,10 @@ namespace FareCalcLib.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablecalc_no_old = ((calc_no_oldDataTable)(base.Tables["calc_no_old"]));
+            this.tablecalc_no = ((calc_noDataTable)(base.Tables["calc_no"]));
             if ((initTable == true)) {
-                if ((this.tablecalc_no_old != null)) {
-                    this.tablecalc_no_old.InitVars();
+                if ((this.tablecalc_no != null)) {
+                    this.tablecalc_no.InitVars();
                 }
             }
             this.tablet_calc_no = ((t_calc_noDataTable)(base.Tables["t_calc_no"]));
@@ -228,15 +228,15 @@ namespace FareCalcLib.Datasets {
             this.Namespace = "http://tempuri.org/CalcNo.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablecalc_no_old = new calc_no_oldDataTable();
-            base.Tables.Add(this.tablecalc_no_old);
+            this.tablecalc_no = new calc_noDataTable();
+            base.Tables.Add(this.tablecalc_no);
             this.tablet_calc_no = new t_calc_noDataTable();
             base.Tables.Add(this.tablet_calc_no);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializecalc_no_old() {
+        private bool ShouldSerializecalc_no() {
             return false;
         }
         
@@ -302,7 +302,7 @@ namespace FareCalcLib.Datasets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void calc_no_oldRowChangeEventHandler(object sender, calc_no_oldRowChangeEvent e);
+        public delegate void calc_noRowChangeEventHandler(object sender, calc_noRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void t_calc_noRowChangeEventHandler(object sender, t_calc_noRowChangeEvent e);
@@ -312,7 +312,7 @@ namespace FareCalcLib.Datasets {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class calc_no_oldDataTable : global::System.Data.TypedTableBase<calc_no_oldRow> {
+        public partial class calc_noDataTable : global::System.Data.TypedTableBase<calc_noRow> {
             
             private global::System.Data.DataColumn columncalc_no;
             
@@ -324,8 +324,8 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldDataTable() {
-                this.TableName = "calc_no_old";
+            public calc_noDataTable() {
+                this.TableName = "calc_no";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -333,7 +333,7 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal calc_no_oldDataTable(global::System.Data.DataTable table) {
+            internal calc_noDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -350,7 +350,7 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected calc_no_oldDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected calc_noDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -398,55 +398,55 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldRow this[int index] {
+            public calc_noRow this[int index] {
                 get {
-                    return ((calc_no_oldRow)(this.Rows[index]));
+                    return ((calc_noRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event calc_no_oldRowChangeEventHandler calc_no_oldRowChanging;
+            public event calc_noRowChangeEventHandler calc_noRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event calc_no_oldRowChangeEventHandler calc_no_oldRowChanged;
+            public event calc_noRowChangeEventHandler calc_noRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event calc_no_oldRowChangeEventHandler calc_no_oldRowDeleting;
+            public event calc_noRowChangeEventHandler calc_noRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event calc_no_oldRowChangeEventHandler calc_no_oldRowDeleted;
+            public event calc_noRowChangeEventHandler calc_noRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addcalc_no_oldRow(calc_no_oldRow row) {
+            public void Addcalc_noRow(calc_noRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldRow Addcalc_no_oldRow(System.DateTime started_at, System.DateTime ended_at, int end_status) {
-                calc_no_oldRow rowcalc_no_oldRow = ((calc_no_oldRow)(this.NewRow()));
+            public calc_noRow Addcalc_noRow(System.DateTime started_at, System.DateTime ended_at, int end_status) {
+                calc_noRow rowcalc_noRow = ((calc_noRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         started_at,
                         ended_at,
                         end_status};
-                rowcalc_no_oldRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcalc_no_oldRow);
-                return rowcalc_no_oldRow;
+                rowcalc_noRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcalc_noRow);
+                return rowcalc_noRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldRow FindBycalc_no(int calc_no) {
-                return ((calc_no_oldRow)(this.Rows.Find(new object[] {
+            public calc_noRow FindBycalc_no(int calc_no) {
+                return ((calc_noRow)(this.Rows.Find(new object[] {
                             calc_no})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                calc_no_oldDataTable cln = ((calc_no_oldDataTable)(base.Clone()));
+                calc_noDataTable cln = ((calc_noDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -454,7 +454,7 @@ namespace FareCalcLib.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new calc_no_oldDataTable();
+                return new calc_noDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -490,28 +490,28 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldRow Newcalc_no_oldRow() {
-                return ((calc_no_oldRow)(this.NewRow()));
+            public calc_noRow Newcalc_noRow() {
+                return ((calc_noRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new calc_no_oldRow(builder);
+                return new calc_noRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(calc_no_oldRow);
+                return typeof(calc_noRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.calc_no_oldRowChanged != null)) {
-                    this.calc_no_oldRowChanged(this, new calc_no_oldRowChangeEvent(((calc_no_oldRow)(e.Row)), e.Action));
+                if ((this.calc_noRowChanged != null)) {
+                    this.calc_noRowChanged(this, new calc_noRowChangeEvent(((calc_noRow)(e.Row)), e.Action));
                 }
             }
             
@@ -519,8 +519,8 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.calc_no_oldRowChanging != null)) {
-                    this.calc_no_oldRowChanging(this, new calc_no_oldRowChangeEvent(((calc_no_oldRow)(e.Row)), e.Action));
+                if ((this.calc_noRowChanging != null)) {
+                    this.calc_noRowChanging(this, new calc_noRowChangeEvent(((calc_noRow)(e.Row)), e.Action));
                 }
             }
             
@@ -528,8 +528,8 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.calc_no_oldRowDeleted != null)) {
-                    this.calc_no_oldRowDeleted(this, new calc_no_oldRowChangeEvent(((calc_no_oldRow)(e.Row)), e.Action));
+                if ((this.calc_noRowDeleted != null)) {
+                    this.calc_noRowDeleted(this, new calc_noRowChangeEvent(((calc_noRow)(e.Row)), e.Action));
                 }
             }
             
@@ -537,14 +537,14 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.calc_no_oldRowDeleting != null)) {
-                    this.calc_no_oldRowDeleting(this, new calc_no_oldRowChangeEvent(((calc_no_oldRow)(e.Row)), e.Action));
+                if ((this.calc_noRowDeleting != null)) {
+                    this.calc_noRowDeleting(this, new calc_noRowChangeEvent(((calc_noRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removecalc_no_oldRow(calc_no_oldRow row) {
+            public void Removecalc_noRow(calc_noRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -571,7 +571,7 @@ namespace FareCalcLib.Datasets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "calc_no_oldDataTable";
+                attribute2.FixedValue = "calc_noDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -977,25 +977,25 @@ namespace FareCalcLib.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class calc_no_oldRow : global::System.Data.DataRow {
+        public partial class calc_noRow : global::System.Data.DataRow {
             
-            private calc_no_oldDataTable tablecalc_no_old;
+            private calc_noDataTable tablecalc_no;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal calc_no_oldRow(global::System.Data.DataRowBuilder rb) : 
+            internal calc_noRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablecalc_no_old = ((calc_no_oldDataTable)(this.Table));
+                this.tablecalc_no = ((calc_noDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int calc_no {
                 get {
-                    return ((int)(this[this.tablecalc_no_old.calc_noColumn]));
+                    return ((int)(this[this.tablecalc_no.calc_noColumn]));
                 }
                 set {
-                    this[this.tablecalc_no_old.calc_noColumn] = value;
+                    this[this.tablecalc_no.calc_noColumn] = value;
                 }
             }
             
@@ -1003,10 +1003,10 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime started_at {
                 get {
-                    return ((global::System.DateTime)(this[this.tablecalc_no_old.started_atColumn]));
+                    return ((global::System.DateTime)(this[this.tablecalc_no.started_atColumn]));
                 }
                 set {
-                    this[this.tablecalc_no_old.started_atColumn] = value;
+                    this[this.tablecalc_no.started_atColumn] = value;
                 }
             }
             
@@ -1015,14 +1015,14 @@ namespace FareCalcLib.Datasets {
             public System.DateTime ended_at {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablecalc_no_old.ended_atColumn]));
+                        return ((global::System.DateTime)(this[this.tablecalc_no.ended_atColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'calc_no_old\' にある列 \'ended_at\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'calc_no\' にある列 \'ended_at\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tablecalc_no_old.ended_atColumn] = value;
+                    this[this.tablecalc_no.ended_atColumn] = value;
                 }
             }
             
@@ -1031,39 +1031,39 @@ namespace FareCalcLib.Datasets {
             public int end_status {
                 get {
                     try {
-                        return ((int)(this[this.tablecalc_no_old.end_statusColumn]));
+                        return ((int)(this[this.tablecalc_no.end_statusColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'calc_no_old\' にある列 \'end_status\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'calc_no\' にある列 \'end_status\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tablecalc_no_old.end_statusColumn] = value;
+                    this[this.tablecalc_no.end_statusColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isended_atNull() {
-                return this.IsNull(this.tablecalc_no_old.ended_atColumn);
+                return this.IsNull(this.tablecalc_no.ended_atColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setended_atNull() {
-                this[this.tablecalc_no_old.ended_atColumn] = global::System.Convert.DBNull;
+                this[this.tablecalc_no.ended_atColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isend_statusNull() {
-                return this.IsNull(this.tablecalc_no_old.end_statusColumn);
+                return this.IsNull(this.tablecalc_no.end_statusColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setend_statusNull() {
-                this[this.tablecalc_no_old.end_statusColumn] = global::System.Convert.DBNull;
+                this[this.tablecalc_no.end_statusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1242,22 +1242,22 @@ namespace FareCalcLib.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class calc_no_oldRowChangeEvent : global::System.EventArgs {
+        public class calc_noRowChangeEvent : global::System.EventArgs {
             
-            private calc_no_oldRow eventRow;
+            private calc_noRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldRowChangeEvent(calc_no_oldRow row, global::System.Data.DataRowAction action) {
+            public calc_noRowChangeEvent(calc_noRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public calc_no_oldRow Row {
+            public calc_noRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1319,7 +1319,7 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class calc_no_oldTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class calc_noTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1331,7 +1331,7 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public calc_no_oldTableAdapter() {
+        public calc_noTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1402,7 +1402,7 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "calc_no_old";
+            tableMapping.DataSetTable = "calc_no";
             tableMapping.ColumnMappings.Add("calc_no", "calc_no");
             tableMapping.ColumnMappings.Add("started_at", "started_at");
             tableMapping.ColumnMappings.Add("ended_at", "ended_at");
@@ -1410,7 +1410,7 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [t_dbo].[calc_no] WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[calc_no] WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_started_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1420,16 +1420,16 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_end_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_calc_no] ([started_at], [ended_at], [end_status]) VALUES (@s" +
-                "tarted_at, @ended_at, @end_status);\r\nSELECT calc_no, started_at, ended_at, end_s" +
-                "tatus FROM calc_no WHERE (calc_no = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[calc_no] ([started_at], [ended_at], [end_status]) VALUES (@sta" +
+                "rted_at, @ended_at, @end_status);\r\nSELECT calc_no, started_at, ended_at, end_sta" +
+                "tus FROM calc_no WHERE (calc_no = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ended_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ended_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@end_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[t_calc_no] SET [started_at] = @started_at, [ended_at] = @ended_at, [end_status] = @end_status WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[calc_no] SET [started_at] = @started_at, [ended_at] = @ended_at, [end_status] = @end_status WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)));
 SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @calc_no)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1448,8 +1448,8 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Persist Security Info=" +
-                "True;User ID=batchuser;Password=batchuser";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Persist Security Info=True" +
+                ";User ID=batchuser;Password=batchuser";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1462,25 +1462,25 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[t_calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_" +
-                "IDENTITY() as new_calc_no";
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_ID" +
+                "ENTITY() as new_calc_no";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "UPDATE               calc_no\r\nSET                        ended_at = @Ended_at, en" +
                 "d_status = @End_status\r\nWHERE                  (calc_no = @Calc_no); ";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ended_at", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "ended_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ended_at", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ended_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CalcNo.calc_no_oldDataTable dataTable) {
+        public virtual int Fill(CalcNo.calc_noDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1493,9 +1493,9 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CalcNo.calc_no_oldDataTable GetData() {
+        public virtual CalcNo.calc_noDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CalcNo.calc_no_oldDataTable dataTable = new CalcNo.calc_no_oldDataTable();
+            CalcNo.calc_noDataTable dataTable = new CalcNo.calc_noDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1503,7 +1503,7 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CalcNo.calc_no_oldDataTable dataTable) {
+        public virtual int Update(CalcNo.calc_noDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1511,7 +1511,7 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(CalcNo dataSet) {
-            return this.Adapter.Update(dataSet, "calc_no_old");
+            return this.Adapter.Update(dataSet, "calc_no");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1667,55 +1667,51 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertNewNo(object started_at) {
+        public virtual object InsertNewNo(System.DateTime started_at) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((started_at == null)) {
-                throw new global::System.ArgumentNullException("started_at");
-            }
-            else {
-                command.Parameters[0].Value = ((object)(started_at));
-            }
+            command.Parameters[0].Value = ((System.DateTime)(started_at));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateEndStatus(object Ended_at, object End_status, object Calc_no) {
+        public virtual int UpdateEndStatus(global::System.Nullable<global::System.DateTime> Ended_at, global::System.Nullable<int> End_status, int Calc_no) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((Ended_at == null)) {
-                throw new global::System.ArgumentNullException("Ended_at");
+            if ((Ended_at.HasValue == true)) {
+                command.Parameters[0].Value = ((System.DateTime)(Ended_at.Value));
             }
             else {
-                command.Parameters[0].Value = ((object)(Ended_at));
+                command.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((End_status == null)) {
-                throw new global::System.ArgumentNullException("End_status");
-            }
-            else {
-                command.Parameters[1].Value = ((object)(End_status));
-            }
-            if ((Calc_no == null)) {
-                throw new global::System.ArgumentNullException("Calc_no");
+            if ((End_status.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(End_status.Value));
             }
             else {
-                command.Parameters[2].Value = ((object)(Calc_no));
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
+            command.Parameters[2].Value = ((int)(Calc_no));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1743,7 +1739,7 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_calc_noTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_calc_noTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1896,33 +1892,18 @@ SELECT calc_no, started_at, ended_at, end_status, CreateDay, UpdateDay, CreateUs
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Persist Security Info=" +
-                "True;User ID=batchuser;Password=batchuser";
+            this._connection.ConnectionString = "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT calc_no, started_at, ended_at, end_status, CreateDay, UpdateDay, CreateUse" +
                 "rCode, UpdateUserCode FROM dbo.t_calc_no";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[t_calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_" +
-                "IDENTITY() as new_calc_no";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE               calc_no\r\nSET                        ended_at = @Ended_at, en" +
-                "d_status = @End_status\r\nWHERE                  (calc_no = @Calc_no); ";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ended_at", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "ended_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@End_status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2211,76 +2192,6 @@ SELECT calc_no, started_at, ended_at, end_status, CreateDay, UpdateDay, CreateUs
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(System.DateTime started_at, System.DateTime ended_at, string end_status, global::System.Nullable<global::System.DateTime> CreateDay, global::System.Nullable<global::System.DateTime> UpdateDay, string CreateUserCode, string UpdateUserCode, int Original_calc_no, System.DateTime Original_started_at, System.DateTime Original_ended_at, string Original_end_status, global::System.Nullable<global::System.DateTime> Original_CreateDay, global::System.Nullable<global::System.DateTime> Original_UpdateDay, string Original_CreateUserCode, string Original_UpdateUserCode) {
             return this.Update(Original_calc_no, started_at, ended_at, end_status, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_calc_no, Original_started_at, Original_ended_at, Original_end_status, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertNewNo(object started_at) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((started_at == null)) {
-                throw new global::System.ArgumentNullException("started_at");
-            }
-            else {
-                command.Parameters[0].Value = ((object)(started_at));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateEndStatus(object Ended_at, object End_status, object Calc_no) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((Ended_at == null)) {
-                throw new global::System.ArgumentNullException("Ended_at");
-            }
-            else {
-                command.Parameters[0].Value = ((object)(Ended_at));
-            }
-            if ((End_status == null)) {
-                throw new global::System.ArgumentNullException("End_status");
-            }
-            else {
-                command.Parameters[1].Value = ((object)(End_status));
-            }
-            if ((Calc_no == null)) {
-                throw new global::System.ArgumentNullException("Calc_no");
-            }
-            else {
-                command.Parameters[2].Value = ((object)(Calc_no));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
 }
