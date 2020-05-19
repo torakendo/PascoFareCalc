@@ -100,7 +100,7 @@ namespace MakeCalcDataBatch
 
                             // calcYm from origDate
                             // TODO: orig_date　日付→文字列対応
-                            var calcYm = shkJskRow.orig_date.ToString("yyyyMM");
+                            var calcYm = shkJskRow.rltloaddate;
 
                             /* -- t_yuso insert or update -- */
                             /* --    insert or update t_yuso. when update, check calc_status -- */
@@ -113,9 +113,9 @@ namespace MakeCalcDataBatch
                                 var newYusoRow = SetYusoDataFromShkJskData(makeCalcDs.t_yuso.Newt_yusoRow(), shkJskRow);
                                 newYusoRow.yuso_key = calcKeys.YusoKey;
                                 newYusoRow.calc_ym = calcYm;
-                                newYusoRow.calc_status = (short)CnCalcStatus.UnCalc;
-                                newYusoRow.verify_status = (short)CnVerifyStatus.NotVerified;
-                                newYusoRow.updated_at = DateTime.Now;
+                                newYusoRow.calc_status = CnCalcStatus.UnCalc;
+                                newYusoRow.verify_status = CnVerifyStatus.NotVerified;
+                                newYusoRow.UpdateDay = DateTime.Now;
 
                                 makeCalcDs.t_yuso.Addt_yusoRow(newYusoRow);
                             }
@@ -123,16 +123,16 @@ namespace MakeCalcDataBatch
                             {
                                 // TODO: yuso_key + calcYm またはyuso_Keyで一意指定のIndexになっていること確認
                                 var yusoRow = yusoQ.First();
-                                if (yusoRow.calc_status != (short)CnCalcStatus.Doing)
+                                if (yusoRow.calc_status != CnCalcStatus.Doing)
                                 {
                                     // update
-                                    yusoRow.calc_status = (short)CnCalcStatus.UnCalc;
-                                    yusoRow.verify_status = (short)CnVerifyStatus.NotVerified;
+                                    yusoRow.calc_status = CnCalcStatus.UnCalc;
+                                    yusoRow.verify_status = CnVerifyStatus.NotVerified;
                                     // TODO: normal　endo 計算結果項目をクリアするかどうか、検討
                                     // TODO: normal akema システム日付取得ヘルパーから取得 datetime.now commonHeler.getdate()
                                     // TODO: low akema 登録更新情報設定の共通化 update_at, update_user, create_at
                                     // TODO: high endo バッチ更新情報用の項目を持たなくてよいか
-                                    yusoRow.updated_at = DateTime.Now;
+                                    yusoRow.UpdateDay = DateTime.Now;
                                 }
                                 else
                                 {
@@ -152,33 +152,33 @@ namespace MakeCalcDataBatch
                                 newKeisanRow.keisan_key = calcKeys.KeisanKey;
                                 newKeisanRow.yuso_key = calcKeys.YusoKey;
                                 newKeisanRow.calc_ym = calcYm;
-                                newKeisanRow.updated_at = DateTime.Now;
+                                newKeisanRow.UpdateDay = DateTime.Now;
                                 makeCalcDs.t_keisan.Addt_keisanRow(newKeisanRow);
                             }
                             else
                             {
                                 var keisanRow = keisanQ.First();
-                                keisanRow.yuso_means_kbn = shkJskRow.yuso_means_kbn;
+                                keisanRow.yuso_means_kbn = shkJskRow.yusocode;
                                 keisanRow.max_flg = 0;
                                 // TODO: 登録更新情報設定の共通化
-                                keisanRow.updated_at = DateTime.Now;
+                                keisanRow.UpdateDay = DateTime.Now;
                             }
 
                             /* -- t_detail insert -- */
                             // make sure there's no same data before insert
                             var detailFillCnt = detailAdp.FillBySlipKey(makeCalcDs.t_detail,
-                                shkJskRow.slip_no, shkJskRow.slip_suffix_no, shkJskRow.slip_detail_no);
+                                shkJskRow.senderordcode.ToString(), shkJskRow.sendercodesubno, shkJskRow.senderorddtlcode);
                             var detailQ = makeCalcDs.t_detail.Where(
-                                r => r.slip_no == shkJskRow.slip_no &&
-                                    r.slip_suffix_no == shkJskRow.slip_suffix_no &&
-                                    r.slip_detail_no == shkJskRow.slip_detail_no);
+                                r => r.slip_no == shkJskRow.senderordcode.ToString() &&
+                                    r.slip_suffix_no == shkJskRow.sendercodesubno &&
+                                    r.slip_detail_no == shkJskRow.senderorddtlcode);
                             if (detailFillCnt == 0 && detailQ.Count() == 0)
                             {
                                 var detailRow = SetDetailDataFromShkJskData(makeCalcDs.t_detail.Newt_detailRow(), shkJskRow);
                                 detailRow.keisan_key = calcKeys.KeisanKey;
                                 detailRow.yuso_key = calcKeys.YusoKey;
                                 detailRow.calc_ym = calcYm;
-                                detailRow.updated_at = DateTime.Now;
+                                detailRow.UpdateDay = DateTime.Now;
                                 makeCalcDs.t_detail.Addt_detailRow(detailRow);
                             }
                             else

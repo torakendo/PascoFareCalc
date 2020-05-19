@@ -160,7 +160,7 @@ namespace FareCalcLib
             // TODO: spec endo 実績項目を上書きするのはまずいか
             foreach (var yusoWkRow in this.CalcWkDs.t_yuso_wk)
             {
-                if (yusoWkRow.contract_type == ((int)CnContractType.ByItem).ToString()) 
+                if (yusoWkRow.contract_type == CnContractType.ByItem) 
                 {
                     // set keisan wk values to same key datarow of uso_wk when ByItem(ko-date)
                     // get keisan_wk row at the same key
@@ -178,7 +178,7 @@ namespace FareCalcLib
                         // TODO: 想定外データ不整合err
                     }
 
-                } else if (yusoWkRow.contract_type == ((int)CnContractType.ByVehicle).ToString())
+                } else if (yusoWkRow.contract_type == CnContractType.ByVehicle)
                 {
                     // get max total_charge_amaunt row of keisan_wk by yuso key of ByVehicle(sha-date)
                     var keisanWkRowQuery = this.CalcWkDs.t_keisan_wk
@@ -216,17 +216,17 @@ namespace FareCalcLib
                 
                 var yusoAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 yusoAdp.Connection = Connection;
-                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)CnCalcStatus.Doing);
+                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, CnCalcStatus.Doing);
                 // TODO: debug code for p1
                 Console.WriteLine("retrieve from t_yuso COUNT = {0}", yusoRowCnt);
 
                 var keisanAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
                 keisanAdp.Connection = Connection;
-                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, (short)CnCalcStatus.Doing);
+                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, CnCalcStatus.Doing);
 
                 var detailAdp = new CalcTrnTableAdapters.t_detailTableAdapter();
                 detailAdp.Connection = Connection;
-                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, (short)CnCalcStatus.Doing);
+                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, CnCalcStatus.Doing);
 
                 /* --------------------------------------
                 * fill yuso_wk
@@ -518,7 +518,7 @@ namespace FareCalcLib
             }
         }
 
-        private string GetValueColName(Tariff tariffDs, CnTariffAxisKbn tariffAxisKbn)
+        private string GetValueColName(Tariff tariffDs, string tariffAxisKbn)
         {
             // TODO: get info from m_tariff_info
             return tariffAxisKbn == CnTariffAxisKbn.Vertical ? "yuso_means_kbn" : "distance_km"; 
@@ -563,7 +563,7 @@ namespace FareCalcLib
         public static int StartCalc(SqlConnection sqlConn, List<string> yusoKeyList)
         {
             // get new calc_no
-            var calcNoAdp = new calc_noTableAdapter();
+            var calcNoAdp = new t_calc_noTableAdapter();
             calcNoAdp.Connection = sqlConn;
             int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
@@ -583,7 +583,7 @@ namespace FareCalcLib
         public static int StartCalc(SqlConnection sqlConn, List<MonthlyVerifyKey> monthlyVerifyKeyList)
         {
             // get new calc_no
-            var calcNoAdp = new calc_noTableAdapter();
+            var calcNoAdp = new t_calc_noTableAdapter();
             calcNoAdp.Connection = sqlConn;
             int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
@@ -605,7 +605,7 @@ namespace FareCalcLib
             try
             {
                 // get new calc_no
-                var calcNoAdp = new calc_noTableAdapter();
+                var calcNoAdp = new t_calc_noTableAdapter();
                 calcNoAdp.Connection = sqlConn;
                 int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
@@ -613,11 +613,11 @@ namespace FareCalcLib
                 // TODO: create calcstatus index on t_yuso
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 tYusoAdp.Connection = sqlConn;
-                var rtn = tYusoAdp.UpdateCalcStatus((short)CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", (short)CnCalcStatus.UnCalc);
+                var rtn = tYusoAdp.UpdateCalcStatus(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", CnCalcStatus.UnCalc);
 
                 var dsStartCalc = new StartCalc();
                 tYusoAdp.Connection = sqlConn;
-                var cnt = tYusoAdp.FillByCalcNo(dsStartCalc.t_yuso, newCalcNo, (short)CnCalcStatus.Doing);
+                var cnt = tYusoAdp.FillByCalcNo(dsStartCalc.t_yuso, newCalcNo, CnCalcStatus.Doing);
 
                 // TODO: クエリに変更するかどうか検討
                 // copy tran to wk
@@ -700,14 +700,14 @@ namespace FareCalcLib
                 // TODO: エラー件数をカウント
 
                 // update calc_no end status
-                var calcNoAdp = new calc_noTableAdapter();
+                var calcNoAdp = new t_calc_noTableAdapter();
                 calcNoAdp.Connection = Connection;
-                int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, (short)CnEndStatus.Good, CalcNo);
+                int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, CnEndStatus.Good, CalcNo);
 
                 // update calc_status to "done"
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 tYusoAdp.Connection = Connection;
-                var rtn = tYusoAdp.UpdateCalcStatusDone((short)CnCalcStatus.Done, DateTime.Now, "", (short)CnCalcStatus.Doing, CalcNo);
+                var rtn = tYusoAdp.UpdateCalcStatusDone(CnCalcStatus.Done, DateTime.Now, "", CnCalcStatus.Doing, CalcNo);
             }
             catch (Exception ex)
             {

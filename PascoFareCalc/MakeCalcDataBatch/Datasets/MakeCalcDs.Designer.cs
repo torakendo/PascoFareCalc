@@ -29428,11 +29428,27 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kig, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.t_detail";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT                         detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, 
+                                            dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd,
+                                             item_kig, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, 
+                                            distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, 
+                                            distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, 
+                                            distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, 
+                                            distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, 
+                                            distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode
+FROM                            t_detail
+WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip_suffix_no) AND (slip_detail_no = @slip_detail_no)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_detail_no", global::System.Data.SqlDbType.NVarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "slip_detail_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29457,6 +29473,37 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             MakeCalcDs.t_detailDataTable dataTable = new MakeCalcDs.t_detailDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBySlipKey(MakeCalcDs.t_detailDataTable dataTable, string slip_no, string slip_suffix_no, string slip_detail_no) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((slip_no == null)) {
+                throw new global::System.ArgumentNullException("slip_no");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(slip_no));
+            }
+            if ((slip_suffix_no == null)) {
+                throw new global::System.ArgumentNullException("slip_suffix_no");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(slip_suffix_no));
+            }
+            if ((slip_detail_no == null)) {
+                throw new global::System.ArgumentNullException("slip_detail_no");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(slip_detail_no));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
