@@ -1410,7 +1410,7 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[calc_no] WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [t_dbo].[calc_no] WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_started_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1420,16 +1420,16 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_end_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[calc_no] ([started_at], [ended_at], [end_status]) VALUES (@sta" +
-                "rted_at, @ended_at, @end_status);\r\nSELECT calc_no, started_at, ended_at, end_sta" +
-                "tus FROM calc_no WHERE (calc_no = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_calc_no] ([started_at], [ended_at], [end_status]) VALUES (@s" +
+                "tarted_at, @ended_at, @end_status);\r\nSELECT calc_no, started_at, ended_at, end_s" +
+                "tatus FROM calc_no WHERE (calc_no = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ended_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ended_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@end_status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "end_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[calc_no] SET [started_at] = @started_at, [ended_at] = @ended_at, [end_status] = @end_status WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[t_calc_no] SET [started_at] = @started_at, [ended_at] = @ended_at, [end_status] = @end_status WHERE (([calc_no] = @Original_calc_no) AND ([started_at] = @Original_started_at) AND ((@IsNull_ended_at = 1 AND [ended_at] IS NULL) OR ([ended_at] = @Original_ended_at)) AND ((@IsNull_end_status = 1 AND [end_status] IS NULL) OR ([end_status] = @Original_end_status)));
 SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @calc_no)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1462,8 +1462,8 @@ SELECT calc_no, started_at, ended_at, end_status FROM calc_no WHERE (calc_no = @
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_ID" +
-                "ENTITY() as new_calc_no";
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[t_calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_" +
+                "IDENTITY() as new_calc_no";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -1911,8 +1911,8 @@ SELECT calc_no, started_at, ended_at, end_status, CreateDay, UpdateDay, CreateUs
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_ID" +
-                "ENTITY() as new_calc_no";
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[t_calc_no] ([started_at]) VALUES (@started_at);\r\nSELECT SCOPE_" +
+                "IDENTITY() as new_calc_no";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@started_at", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "started_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
