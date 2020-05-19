@@ -17297,7 +17297,7 @@ SELECT shk_jsk_id, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_wareho
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -17310,7 +17310,7 @@ SELECT shk_jsk_id, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_wareho
             this._commandCollection[0].CommandText = @"SELECT shk_jsk_id, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, incl_kbn, created_at, created_user_id, updated_at, updated_user_id FROM dbo.t_shk_jsk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection("Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection("Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                     "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False");
             this._commandCollection[1].CommandText = @"SELECT                 shk_jsk_id, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, 
                                orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, 
@@ -18816,7 +18816,7 @@ WHERE                  (incl_kbn = @Incl_kbn_undone)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -20540,7 +20540,7 @@ WHERE                  (slip_no = @slip_no) AND (slip_suffix_no = @slip_suffix_n
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -22242,7 +22242,7 @@ WHERE                  (keisan_key = @Keisan_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -24677,7 +24677,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -29421,7 +29421,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -31469,7 +31469,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -32996,7 +32996,7 @@ WHERE                           (keisan_key = @Keisan_key) AND (calc_ym = @Calc_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
