@@ -4,8 +4,8 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=AKEMA\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" IsAppSettingsProperty="false" Modifier="Assembly" Name="pcs_calcdbConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
-          <Connection ConnectionStringObject="Data Source=AKEMA\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" IsAppSettingsProperty="false" Modifier="Assembly" Name="pcs-calcdbConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" IsAppSettingsProperty="false" Modifier="Assembly" Name="pcs_calcdbConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" IsAppSettingsProperty="false" Modifier="Assembly" Name="pcs-calcdbConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="m_extra_cost_pattern_detail_oldTableAdapter" GeneratorDataComponentClassName="m_extra_cost_pattern_detail_oldTableAdapter" Name="m_extra_cost_pattern_detail_old" UserDataComponentName="m_extra_cost_pattern_detail_oldTableAdapter">

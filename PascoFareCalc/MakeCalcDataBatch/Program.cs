@@ -18,10 +18,11 @@ namespace MakeCalcDataBatch
     class Program
     {
         private static Dictionary<string,string> keyColumnNames = new Dictionary<string, string>(){
+            // TODO: urgent akema 出庫実績トラン対応カラム名確認
             {"contract_type","contracttype" },
             {"yuso_kbn","skbn" },
             {"orig_warehouse_block_cd","outblockcode"},
-            //{"orig_warehouse_cd","orig_warehouse_cd"},
+            //{"orig_warehouse_cd","outblockcode"},
             //{"terminal_id","terminal_id"},
             {"vehicle_id","vehicleid"},
             {"dest_warehouse_cd","inblockcode"},
@@ -34,14 +35,14 @@ namespace MakeCalcDataBatch
             {"slip_no","senderordcode"},
             {"slip_suffix_no","sendercodesubno"},
             {"slip_detail_no","senderorddtlcode"},
-            //{"item_cd","item_cd"},
-            //{"item_kigo","item_kigo"},
-            //{"item_name","item_name"},
-            //{"item_quantity","item_quantity"},
-            //{"itme_unit","itme_unit"},
-            //{"item_weight_kg","item_weight_kg"},
-            //{"yuso_means_kbn","yuso_means_kbn"},
-            //{"special_vehicle_kbn","special_vehicle_kbn"}
+            {"item_cd","fromproductcode"},
+            {"item_kigo","fromlotno"},
+            {"item_name","aggproductname"},
+            {"item_quantity","fromquantity"},
+            {"itme_unit","fromunit"},
+            {"item_weight_kg","rltloadweight"},
+            {"yuso_means_kbn","yusocode"},
+            {"special_vehicle_kbn","specialvehiclekbn"}
         };
 
         // TODO: バッチサイズConfigへ移動

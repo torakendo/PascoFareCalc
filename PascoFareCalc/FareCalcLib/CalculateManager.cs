@@ -216,17 +216,17 @@ namespace FareCalcLib
                 
                 var yusoAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 yusoAdp.Connection = Connection;
-                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, CnCalcStatus.Doing);
+                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
                 // TODO: debug code for p1
                 Console.WriteLine("retrieve from t_yuso COUNT = {0}", yusoRowCnt);
 
                 var keisanAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
                 keisanAdp.Connection = Connection;
-                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, CnCalcStatus.Doing);
+                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
 
                 var detailAdp = new CalcTrnTableAdapters.t_detailTableAdapter();
                 detailAdp.Connection = Connection;
-                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, CnCalcStatus.Doing);
+                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
 
                 /* --------------------------------------
                 * fill yuso_wk
@@ -288,7 +288,9 @@ namespace FareCalcLib
                 // TODO: urgent akema keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
                 // TODO: urgent akema 適用開始終了　出庫日で判定
                 // set calcinfo to keisan_wk by server update query
-                var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
+                
+                // TODO: urgent akema 以下が実行できなくなっているので確認する
+                //var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
                 // fill keisan_wk after update
                 keisanWkAdp.FillByCalcNo(CalcWkDs.t_keisan_wk, this.CalcNo);
