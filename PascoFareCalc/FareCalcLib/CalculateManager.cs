@@ -288,9 +288,9 @@ namespace FareCalcLib
                 // TODO: urgent akema keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
                 // TODO: urgent akema 適用開始終了　出庫日で判定
                 // set calcinfo to keisan_wk by server update query
-                
-                // TODO: urgent akema 以下が実行できなくなっているので確認する
-                //var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
+
+                // TODO: urgent akema 以下が実行できなくなっているので確認する→クエリをFORMAT(orig_date, 'MMdd')→orig_dateに修正し解消
+                var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
                 // fill keisan_wk after update
                 keisanWkAdp.FillByCalcNo(CalcWkDs.t_keisan_wk, this.CalcNo);
@@ -399,24 +399,25 @@ namespace FareCalcLib
 
                 var tariffCalculator = new TariffCalculator(Connection);
 
-                foreach (var group in query)
-                {
-                    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
+                // TODO: urgent akema GetTariffDataset()が取得できないので確認
+                //foreach (var group in query)
+                //{
+                //    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
 
-                    foreach (var item in group)
-                    {
-                        // set price to keisan_wk row
-                        var calcVar = new CalcVariables(item);
-                        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
-                        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
-                        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+                //    foreach (var item in group)
+                //    {
+                //        // set price to keisan_wk row
+                //        var calcVar = new CalcVariables(item);
+                //        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
+                //        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                //        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
 
-                        // TODO: high akema 業者別調整率
-                        item.base_charge_amount = item.original_base_charge_amount;
+                //        // TODO: high akema 業者別調整率
+                //        item.base_charge_amount = item.original_base_charge_amount;
 
-                        // TODO: high akema 持ち戻り率適用
-                    }
-                }
+                //        // TODO: high akema 持ち戻り率適用
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -751,22 +752,23 @@ namespace FareCalcLib
                     {
                         colNamesForDevide.ForEach(usoWkColname =>
                         {
-                            if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
-                            {
-                                var detailColName = "distributed_" + usoWkColname;
-                                var devidedlAmount = Decimal.Floor(
-                                                        (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
-                                detailRow[detailColName] = devidedlAmount;
+                            // TODO: urgent akema yusoWkRow.weight_sum_kg の値がNULLで処理できないデータ確認 エラーメッセ：DivideResultAmount（）でタイプ「System.DBNull」のオブジェクトをタイプ「System.Decimal」にキャストできません。
+                            //if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
+                            //{
+                            //    var detailColName = "distributed_" + usoWkColname;
+                            //    var devidedlAmount = Decimal.Floor(
+                            //                            (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
+                            //    detailRow[detailColName] = devidedlAmount;
 
-                                // add to summary
-                                sumAmounts[detailColName] += devidedlAmount;
+                            //    // add to summary
+                            //    sumAmounts[detailColName] += devidedlAmount;
 
-                                // set id and value if amount is greater than before
-                                if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
-                                {
-                                    maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
-                                }
-                            }
+                            //    // set id and value if amount is greater than before
+                            //    if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
+                            //    {
+                            //        maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
+                            //    }
+                            //}
                         });
                     }
 
