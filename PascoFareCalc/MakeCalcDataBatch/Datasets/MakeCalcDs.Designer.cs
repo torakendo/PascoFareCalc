@@ -6223,7 +6223,7 @@ namespace MakeCalcDataBatch.Datasets {
             
             private global::System.Data.DataColumn columnitem_cd;
             
-            private global::System.Data.DataColumn columnitem_kig;
+            private global::System.Data.DataColumn columnitem_kigo;
             
             private global::System.Data.DataColumn columnitem_name;
             
@@ -6464,9 +6464,9 @@ namespace MakeCalcDataBatch.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn item_kigColumn {
+            public global::System.Data.DataColumn item_kigoColumn {
                 get {
-                    return this.columnitem_kig;
+                    return this.columnitem_kigo;
                 }
             }
             
@@ -6734,7 +6734,7 @@ namespace MakeCalcDataBatch.Datasets {
                         string slip_suffix_no, 
                         string slip_detail_no, 
                         string item_cd, 
-                        string item_kig, 
+                        string item_kigo, 
                         string item_name, 
                         decimal item_quantity, 
                         string itme_unit, 
@@ -6782,7 +6782,7 @@ namespace MakeCalcDataBatch.Datasets {
                         slip_suffix_no,
                         slip_detail_no,
                         item_cd,
-                        item_kig,
+                        item_kigo,
                         item_name,
                         item_quantity,
                         itme_unit,
@@ -6857,7 +6857,7 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnslip_suffix_no = base.Columns["slip_suffix_no"];
                 this.columnslip_detail_no = base.Columns["slip_detail_no"];
                 this.columnitem_cd = base.Columns["item_cd"];
-                this.columnitem_kig = base.Columns["item_kig"];
+                this.columnitem_kigo = base.Columns["item_kigo"];
                 this.columnitem_name = base.Columns["item_name"];
                 this.columnitem_quantity = base.Columns["item_quantity"];
                 this.columnitme_unit = base.Columns["itme_unit"];
@@ -6927,8 +6927,8 @@ namespace MakeCalcDataBatch.Datasets {
                 base.Columns.Add(this.columnslip_detail_no);
                 this.columnitem_cd = new global::System.Data.DataColumn("item_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_cd);
-                this.columnitem_kig = new global::System.Data.DataColumn("item_kig", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnitem_kig);
+                this.columnitem_kigo = new global::System.Data.DataColumn("item_kigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_kigo);
                 this.columnitem_name = new global::System.Data.DataColumn("item_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_name);
                 this.columnitem_quantity = new global::System.Data.DataColumn("item_quantity", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -7035,7 +7035,7 @@ namespace MakeCalcDataBatch.Datasets {
                 this.columnslip_detail_no.AllowDBNull = false;
                 this.columnslip_detail_no.MaxLength = 6;
                 this.columnitem_cd.MaxLength = 40;
-                this.columnitem_kig.MaxLength = 20;
+                this.columnitem_kigo.MaxLength = 20;
                 this.columnitem_name.MaxLength = 40;
                 this.columnitme_unit.MaxLength = 3;
                 this.columnyuso_means_kbn.MaxLength = 2;
@@ -14891,17 +14891,17 @@ namespace MakeCalcDataBatch.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string item_kig {
+            public string item_kigo {
                 get {
                     try {
-                        return ((string)(this[this.tablet_detail.item_kigColumn]));
+                        return ((string)(this[this.tablet_detail.item_kigoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'t_detail\' にある列 \'item_kig\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_detail\' にある列 \'item_kigo\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tablet_detail.item_kigColumn] = value;
+                    this[this.tablet_detail.item_kigoColumn] = value;
                 }
             }
             
@@ -15325,14 +15325,14 @@ namespace MakeCalcDataBatch.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isitem_kigNull() {
-                return this.IsNull(this.tablet_detail.item_kigColumn);
+            public bool Isitem_kigoNull() {
+                return this.IsNull(this.tablet_detail.item_kigoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setitem_kigNull() {
-                this[this.tablet_detail.item_kigColumn] = global::System.Convert.DBNull;
+            public void Setitem_kigoNull() {
+                this[this.tablet_detail.item_kigoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17140,7 +17140,7 @@ namespace MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters {
                 "mpany_cd) AND ([orig_date] = @Original_orig_date) AND ([arriving_date] = @Origin" +
                 "al_arriving_date) AND ([dest_cd] = @Original_dest_cd) AND ([slip_no] = @Original" +
                 "_slip_no) AND ([slip_suffix_no] = @Original_slip_suffix_no) AND ([slip_detail_no" +
-                "] = @Original_slip_detail_no) AND ([item_cd] = @Original_item_cd) AND ([item_kig" +
+                "] = @Original_slip_detail_no) AND ([item_cd] = @Original_item_cd) AND ([item_kigo" +
                 "o] = @Original_item_kigo) AND ([item_name] = @Original_item_name) AND ([item_qua" +
                 "ntity] = @Original_item_quantity) AND ([itme_unit] = @Original_itme_unit) AND ((" +
                 "@IsNull_item_weight_kg = 1 AND [item_weight_kg] IS NULL) OR ([item_weight_kg] = " +
@@ -28986,7 +28986,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             tableMapping.ColumnMappings.Add("slip_suffix_no", "slip_suffix_no");
             tableMapping.ColumnMappings.Add("slip_detail_no", "slip_detail_no");
             tableMapping.ColumnMappings.Add("item_cd", "item_cd");
-            tableMapping.ColumnMappings.Add("item_kig", "item_kig");
+            tableMapping.ColumnMappings.Add("item_kigo", "item_kigo");
             tableMapping.ColumnMappings.Add("item_name", "item_name");
             tableMapping.ColumnMappings.Add("item_quantity", "item_quantity");
             tableMapping.ColumnMappings.Add("itme_unit", "itme_unit");
@@ -29028,7 +29028,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 "st_cd) AND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Original_sli" +
                 "p_suffix_no) AND ([slip_detail_no] = @Original_slip_detail_no) AND ((@IsNull_ite" +
                 "m_cd = 1 AND [item_cd] IS NULL) OR ([item_cd] = @Original_item_cd)) AND ((@IsNul" +
-                "l_item_kig = 1 AND [item_kig] IS NULL) OR ([item_kig] = @Original_item_kig)) AND" +
+                "l_item_kigo = 1 AND [item_kigo] IS NULL) OR ([item_kigo] = @Original_item_kigo)) AND" +
                 " ((@IsNull_item_name = 1 AND [item_name] IS NULL) OR ([item_name] = @Original_it" +
                 "em_name)) AND ((@IsNull_item_quantity = 1 AND [item_quantity] IS NULL) OR ([item" +
                 "_quantity] = @Original_item_quantity)) AND ((@IsNull_itme_unit = 1 AND [itme_uni" +
@@ -29099,8 +29099,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_detail_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_detail_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_cd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_cd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_kig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kig", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_kig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_kigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_kigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_quantity", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -29157,7 +29157,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 ", [orig_warehouse_block_cd], [orig_warehouse_cd], [terminal_id], [vehicle_id], [" +
                 "dest_jis], [dest_warehouse_cd], [yuso_mode_kbn], [carrier_company_cd], [orig_dat" +
                 "e], [arriving_date], [dest_cd], [slip_no], [slip_suffix_no], [slip_detail_no], [" +
-                "item_cd], [item_kig], [item_name], [item_quantity], [itme_unit], [item_weight_kg" +
+                "item_cd], [item_kigo], [item_name], [item_quantity], [itme_unit], [item_weight_kg" +
                 "], [yuso_means_kbn], [special_vehicle_kbn], [transport_lead_time_hours], [distri" +
                 "buted_base_charge_amount], [distributed_special_charge_amount], [distributed_sto" +
                 "pping_charge_amount], [distributed_cargo_charge_amount], [distributed_other_char" +
@@ -29170,7 +29170,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 "pe, @yuso_kbn, @orig_warehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehi" +
                 "cle_id, @dest_jis, @dest_warehouse_cd, @yuso_mode_kbn, @carrier_company_cd, @ori" +
                 "g_date, @arriving_date, @dest_cd, @slip_no, @slip_suffix_no, @slip_detail_no, @i" +
-                "tem_cd, @item_kig, @item_name, @item_quantity, @itme_unit, @item_weight_kg, @yus" +
+                "tem_cd, @item_kigo, @item_name, @item_quantity, @itme_unit, @item_weight_kg, @yus" +
                 "o_means_kbn, @special_vehicle_kbn, @transport_lead_time_hours, @distributed_base" +
                 "_charge_amount, @distributed_special_charge_amount, @distributed_stopping_charge" +
                 "_amount, @distributed_cargo_charge_amount, @distributed_other_charge_amount, @di" +
@@ -29182,7 +29182,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 "serCode);\r\nSELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_bl" +
                 "ock_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd," +
                 " yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, " +
-                "slip_suffix_no, slip_detail_no, item_cd, item_kig, item_name, item_quantity, itm" +
+                "slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itm" +
                 "e_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time" +
                 "_hours, distributed_base_charge_amount, distributed_special_charge_amount, distr" +
                 "ibuted_stopping_charge_amount, distributed_cargo_charge_amount, distributed_othe" +
@@ -29212,7 +29212,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_detail_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_detail_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_kig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_kigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_quantity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 3, "item_quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itme_unit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itme_unit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -29248,8 +29248,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 "ehouse_cd] = @dest_warehouse_cd, [yuso_mode_kbn] = @yuso_mode_kbn, [carrier_comp" +
                 "any_cd] = @carrier_company_cd, [orig_date] = @orig_date, [arriving_date] = @arri" +
                 "ving_date, [dest_cd] = @dest_cd, [slip_no] = @slip_no, [slip_suffix_no] = @slip_" +
-                "suffix_no, [slip_detail_no] = @slip_detail_no, [item_cd] = @item_cd, [item_kig] " +
-                "= @item_kig, [item_name] = @item_name, [item_quantity] = @item_quantity, [itme_u" +
+                "suffix_no, [slip_detail_no] = @slip_detail_no, [item_cd] = @item_cd, [item_kigo] " +
+                "= @item_kigo, [item_name] = @item_name, [item_quantity] = @item_quantity, [itme_u" +
                 "nit] = @itme_unit, [item_weight_kg] = @item_weight_kg, [yuso_means_kbn] = @yuso_" +
                 "means_kbn, [special_vehicle_kbn] = @special_vehicle_kbn, [transport_lead_time_ho" +
                 "urs] = @transport_lead_time_hours, [distributed_base_charge_amount] = @distribut" +
@@ -29279,8 +29279,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 "] = @Original_dest_cd) AND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no]" +
                 " = @Original_slip_suffix_no) AND ([slip_detail_no] = @Original_slip_detail_no) A" +
                 "ND ((@IsNull_item_cd = 1 AND [item_cd] IS NULL) OR ([item_cd] = @Original_item_c" +
-                "d)) AND ((@IsNull_item_kig = 1 AND [item_kig] IS NULL) OR ([item_kig] = @Origina" +
-                "l_item_kig)) AND ((@IsNull_item_name = 1 AND [item_name] IS NULL) OR ([item_name" +
+                "d)) AND ((@IsNull_item_kigo = 1 AND [item_kigo] IS NULL) OR ([item_kigo] = @Origina" +
+                "l_item_kigo)) AND ((@IsNull_item_name = 1 AND [item_name] IS NULL) OR ([item_name" +
                 "] = @Original_item_name)) AND ((@IsNull_item_quantity = 1 AND [item_quantity] IS" +
                 " NULL) OR ([item_quantity] = @Original_item_quantity)) AND ((@IsNull_itme_unit =" +
                 " 1 AND [itme_unit] IS NULL) OR ([itme_unit] = @Original_itme_unit)) AND ((@IsNul" +
@@ -29332,7 +29332,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
                 "SELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, ori" +
                 "g_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_" +
                 "kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix" +
-                "_no, slip_detail_no, item_cd, item_kig, item_name, item_quantity, itme_unit, ite" +
+                "_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, ite" +
                 "m_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, dis" +
                 "tributed_base_charge_amount, distributed_special_charge_amount, distributed_stop" +
                 "ping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_am" +
@@ -29362,7 +29362,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_detail_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_detail_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_kig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_kigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_quantity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 3, "item_quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itme_unit", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itme_unit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -29409,8 +29409,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_detail_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_detail_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_cd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_cd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_kig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kig", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_kig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_kigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_kigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_kigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_item_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_item_quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_quantity", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -29477,13 +29477,13 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kig, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.t_detail";
+            this._commandCollection[0].CommandText = @"SELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.t_detail";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT                         detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, 
                                             dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd,
-                                             item_kig, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, 
+                                             item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, 
                                             distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, 
                                             distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, 
                                             distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, 
@@ -29605,7 +29605,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     string Original_slip_suffix_no, 
                     string Original_slip_detail_no, 
                     string Original_item_cd, 
-                    string Original_item_kig, 
+                    string Original_item_kigo, 
                     string Original_item_name, 
                     global::System.Nullable<decimal> Original_item_quantity, 
                     string Original_itme_unit, 
@@ -29743,13 +29743,13 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_item_cd));
             }
-            if ((Original_item_kig == null)) {
+            if ((Original_item_kigo == null)) {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_item_kig));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_item_kigo));
             }
             if ((Original_item_name == null)) {
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
@@ -29995,7 +29995,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     string slip_suffix_no, 
                     string slip_detail_no, 
                     string item_cd, 
-                    string item_kig, 
+                    string item_kigo, 
                     string item_name, 
                     global::System.Nullable<decimal> item_quantity, 
                     string itme_unit, 
@@ -30131,11 +30131,11 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
             else {
                 this.Adapter.InsertCommand.Parameters[18].Value = ((string)(item_cd));
             }
-            if ((item_kig == null)) {
+            if ((item_kigo == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(item_kig));
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(item_kigo));
             }
             if ((item_name == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
@@ -30333,7 +30333,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     string slip_suffix_no, 
                     string slip_detail_no, 
                     string item_cd, 
-                    string item_kig, 
+                    string item_kigo, 
                     string item_name, 
                     global::System.Nullable<decimal> item_quantity, 
                     string itme_unit, 
@@ -30379,7 +30379,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     string Original_slip_suffix_no, 
                     string Original_slip_detail_no, 
                     string Original_item_cd, 
-                    string Original_item_kig, 
+                    string Original_item_kigo, 
                     string Original_item_name, 
                     global::System.Nullable<decimal> Original_item_quantity, 
                     string Original_itme_unit, 
@@ -30515,11 +30515,11 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(item_cd));
             }
-            if ((item_kig == null)) {
+            if ((item_kigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(item_kig));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(item_kigo));
             }
             if ((item_name == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
@@ -30788,13 +30788,13 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                 this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_item_cd));
             }
-            if ((Original_item_kig == null)) {
+            if ((Original_item_kigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_item_kig));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_item_kigo));
             }
             if ((Original_item_name == null)) {
                 this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
@@ -31039,7 +31039,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     string slip_suffix_no, 
                     string slip_detail_no, 
                     string item_cd, 
-                    string item_kig, 
+                    string item_kigo, 
                     string item_name, 
                     global::System.Nullable<decimal> item_quantity, 
                     string itme_unit, 
@@ -31085,7 +31085,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     string Original_slip_suffix_no, 
                     string Original_slip_detail_no, 
                     string Original_item_cd, 
-                    string Original_item_kig, 
+                    string Original_item_kigo, 
                     string Original_item_name, 
                     global::System.Nullable<decimal> Original_item_quantity, 
                     string Original_itme_unit, 
@@ -31112,7 +31112,7 @@ WHERE                           (slip_no = @slip_no) AND (slip_suffix_no = @slip
                     global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
                     string Original_CreateUserCode, 
                     string Original_UpdateUserCode) {
-            return this.Update(Original_detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kig, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_detail_Id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_slip_no, Original_slip_suffix_no, Original_slip_detail_no, Original_item_cd, Original_item_kig, Original_item_name, Original_item_quantity, Original_itme_unit, Original_item_weight_kg, Original_yuso_means_kbn, Original_special_vehicle_kbn, Original_transport_lead_time_hours, Original_distributed_base_charge_amount, Original_distributed_special_charge_amount, Original_distributed_stopping_charge_amount, Original_distributed_cargo_charge_amount, Original_distributed_other_charge_amount, Original_distributed_actual_km_surcharge_amount, Original_distributed_actual_time_surcharge_amount, Original_distributed_actual_assist_surcharge_amount, Original_distributed_actal_load_surcharge_amount, Original_distributed_actual_stand_surcharge_amount, Original_distributed_actual_wash_surcharge_amount, Original_distributed_actual_adjust_surcharge_amount, Original_distributed_total_amount, Original_keisan_key, Original_yuso_key, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
+            return this.Update(Original_detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actal_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_detail_Id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_slip_no, Original_slip_suffix_no, Original_slip_detail_no, Original_item_cd, Original_item_kigo, Original_item_name, Original_item_quantity, Original_itme_unit, Original_item_weight_kg, Original_yuso_means_kbn, Original_special_vehicle_kbn, Original_transport_lead_time_hours, Original_distributed_base_charge_amount, Original_distributed_special_charge_amount, Original_distributed_stopping_charge_amount, Original_distributed_cargo_charge_amount, Original_distributed_other_charge_amount, Original_distributed_actual_km_surcharge_amount, Original_distributed_actual_time_surcharge_amount, Original_distributed_actual_assist_surcharge_amount, Original_distributed_actal_load_surcharge_amount, Original_distributed_actual_stand_surcharge_amount, Original_distributed_actual_wash_surcharge_amount, Original_distributed_actual_adjust_surcharge_amount, Original_distributed_total_amount, Original_keisan_key, Original_yuso_key, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
         }
     }
     

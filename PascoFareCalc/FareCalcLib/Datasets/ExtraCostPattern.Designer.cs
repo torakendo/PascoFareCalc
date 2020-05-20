@@ -712,7 +712,7 @@ namespace FareCalcLib.Datasets {
             
             private global::System.Data.DataColumn columnapplicable_end_md;
             
-            private global::System.Data.DataColumn columnextra_cost__pdfcol_kbn;
+            private global::System.Data.DataColumn columnextra_cost_pdfcol_kbn;
             
             private global::System.Data.DataColumn columnCreateDay;
             
@@ -837,9 +837,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn extra_cost__pdfcol_kbnColumn {
+            public global::System.Data.DataColumn extra_cost_pdfcol_kbnColumn {
                 get {
-                    return this.columnextra_cost__pdfcol_kbn;
+                    return this.columnextra_cost_pdfcol_kbn;
                 }
             }
             
@@ -912,7 +912,7 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_extra_cost_pattern_detailRow Addm_extra_cost_pattern_detailRow(int extra_cost_detail_Id, int extra_cost_pattern_id, int extra_cost_detail_no, string extra_cost_kind_kbn, string calculate_type_kbn, decimal tariff_Id, decimal adding_price, decimal adding_ratio, string applicable_start_md, string applicable_end_md, string extra_cost__pdfcol_kbn, System.DateTime CreateDay, System.DateTime UpdateDay, string CreateUserCode, string UpdateUserCode) {
+            public m_extra_cost_pattern_detailRow Addm_extra_cost_pattern_detailRow(int extra_cost_detail_Id, int extra_cost_pattern_id, int extra_cost_detail_no, string extra_cost_kind_kbn, string calculate_type_kbn, decimal tariff_Id, decimal adding_price, decimal adding_ratio, string applicable_start_md, string applicable_end_md, string extra_cost_pdfcol_kbn, System.DateTime CreateDay, System.DateTime UpdateDay, string CreateUserCode, string UpdateUserCode) {
                 m_extra_cost_pattern_detailRow rowm_extra_cost_pattern_detailRow = ((m_extra_cost_pattern_detailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         extra_cost_detail_Id,
@@ -925,7 +925,7 @@ namespace FareCalcLib.Datasets {
                         adding_ratio,
                         applicable_start_md,
                         applicable_end_md,
-                        extra_cost__pdfcol_kbn,
+                        extra_cost_pdfcol_kbn,
                         CreateDay,
                         UpdateDay,
                         CreateUserCode,
@@ -970,7 +970,7 @@ namespace FareCalcLib.Datasets {
                 this.columnadding_ratio = base.Columns["adding_ratio"];
                 this.columnapplicable_start_md = base.Columns["applicable_start_md"];
                 this.columnapplicable_end_md = base.Columns["applicable_end_md"];
-                this.columnextra_cost__pdfcol_kbn = base.Columns["extra_cost__pdfcol_kbn"];
+                this.columnextra_cost_pdfcol_kbn = base.Columns["extra_cost_pdfcol_kbn"];
                 this.columnCreateDay = base.Columns["CreateDay"];
                 this.columnUpdateDay = base.Columns["UpdateDay"];
                 this.columnCreateUserCode = base.Columns["CreateUserCode"];
@@ -1000,8 +1000,8 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnapplicable_start_md);
                 this.columnapplicable_end_md = new global::System.Data.DataColumn("applicable_end_md", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnapplicable_end_md);
-                this.columnextra_cost__pdfcol_kbn = new global::System.Data.DataColumn("extra_cost__pdfcol_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnextra_cost__pdfcol_kbn);
+                this.columnextra_cost_pdfcol_kbn = new global::System.Data.DataColumn("extra_cost_pdfcol_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnextra_cost_pdfcol_kbn);
                 this.columnCreateDay = new global::System.Data.DataColumn("CreateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreateDay);
                 this.columnUpdateDay = new global::System.Data.DataColumn("UpdateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -1024,8 +1024,8 @@ namespace FareCalcLib.Datasets {
                 this.columnapplicable_start_md.MaxLength = 4;
                 this.columnapplicable_end_md.AllowDBNull = false;
                 this.columnapplicable_end_md.MaxLength = 4;
-                this.columnextra_cost__pdfcol_kbn.AllowDBNull = false;
-                this.columnextra_cost__pdfcol_kbn.MaxLength = 2;
+                this.columnextra_cost_pdfcol_kbn.AllowDBNull = false;
+                this.columnextra_cost_pdfcol_kbn.MaxLength = 2;
                 this.columnCreateUserCode.MaxLength = 20;
                 this.columnUpdateUserCode.MaxLength = 20;
             }
@@ -1494,12 +1494,12 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string extra_cost__pdfcol_kbn {
+            public string extra_cost_pdfcol_kbn {
                 get {
-                    return ((string)(this[this.tablem_extra_cost_pattern_detail.extra_cost__pdfcol_kbnColumn]));
+                    return ((string)(this[this.tablem_extra_cost_pattern_detail.extra_cost_pdfcol_kbnColumn]));
                 }
                 set {
-                    this[this.tablem_extra_cost_pattern_detail.extra_cost__pdfcol_kbnColumn] = value;
+                    this[this.tablem_extra_cost_pattern_detail.extra_cost_pdfcol_kbnColumn] = value;
                 }
             }
             
@@ -2416,7 +2416,7 @@ SELECT extra_cost_pattern_id, extra_cost_detail_Id, extra_cost_kind_kbn, calcula
             tableMapping.ColumnMappings.Add("adding_ratio", "adding_ratio");
             tableMapping.ColumnMappings.Add("applicable_start_md", "applicable_start_md");
             tableMapping.ColumnMappings.Add("applicable_end_md", "applicable_end_md");
-            tableMapping.ColumnMappings.Add("extra_cost__pdfcol_kbn", "extra_cost__pdfcol_kbn");
+            tableMapping.ColumnMappings.Add("extra_cost_pdfcol_kbn", "extra_cost_pdfcol_kbn");
             tableMapping.ColumnMappings.Add("CreateDay", "CreateDay");
             tableMapping.ColumnMappings.Add("UpdateDay", "UpdateDay");
             tableMapping.ColumnMappings.Add("CreateUserCode", "CreateUserCode");
@@ -2424,7 +2424,7 @@ SELECT extra_cost_pattern_id, extra_cost_detail_Id, extra_cost_kind_kbn, calcula
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[m_extra_cost_pattern_detail] WHERE (([extra_cost_detail_Id] = @Original_extra_cost_detail_Id) AND ([extra_cost_pattern_id] = @Original_extra_cost_pattern_id) AND ([extra_cost_detail_no] = @Original_extra_cost_detail_no) AND ([extra_cost_kind_kbn] = @Original_extra_cost_kind_kbn) AND ([calculate_type_kbn] = @Original_calculate_type_kbn) AND ((@IsNull_tariff_Id = 1 AND [tariff_Id] IS NULL) OR ([tariff_Id] = @Original_tariff_Id)) AND ((@IsNull_adding_price = 1 AND [adding_price] IS NULL) OR ([adding_price] = @Original_adding_price)) AND ((@IsNull_adding_ratio = 1 AND [adding_ratio] IS NULL) OR ([adding_ratio] = @Original_adding_ratio)) AND ([applicable_start_md] = @Original_applicable_start_md) AND ([applicable_end_md] = @Original_applicable_end_md) AND ([extra_cost__pdfcol_kbn] = @Original_extra_cost__pdfcol_kbn) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[m_extra_cost_pattern_detail] WHERE (([extra_cost_detail_Id] = @Original_extra_cost_detail_Id) AND ([extra_cost_pattern_id] = @Original_extra_cost_pattern_id) AND ([extra_cost_detail_no] = @Original_extra_cost_detail_no) AND ([extra_cost_kind_kbn] = @Original_extra_cost_kind_kbn) AND ([calculate_type_kbn] = @Original_calculate_type_kbn) AND ((@IsNull_tariff_Id = 1 AND [tariff_Id] IS NULL) OR ([tariff_Id] = @Original_tariff_Id)) AND ((@IsNull_adding_price = 1 AND [adding_price] IS NULL) OR ([adding_price] = @Original_adding_price)) AND ((@IsNull_adding_ratio = 1 AND [adding_ratio] IS NULL) OR ([adding_ratio] = @Original_adding_ratio)) AND ([applicable_start_md] = @Original_applicable_start_md) AND ([applicable_end_md] = @Original_applicable_end_md) AND ([extra_cost_pdfcol_kbn] = @Original_extra_cost_pdfcol_kbn) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extra_cost_detail_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_detail_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extra_cost_pattern_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pattern_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2439,7 +2439,7 @@ SELECT extra_cost_pattern_id, extra_cost_detail_Id, extra_cost_kind_kbn, calcula
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_adding_ratio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 13, 3, "adding_ratio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_applicable_start_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_start_md", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_applicable_end_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_end_md", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extra_cost__pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost__pdfcol_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extra_cost_pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pdfcol_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2450,8 +2450,8 @@ SELECT extra_cost_pattern_id, extra_cost_detail_Id, extra_cost_kind_kbn, calcula
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[m_extra_cost_pattern_detail] ([extra_cost_detail_Id], [extra_cost_pattern_id], [extra_cost_detail_no], [extra_cost_kind_kbn], [calculate_type_kbn], [tariff_Id], [adding_price], [adding_ratio], [applicable_start_md], [applicable_end_md], [extra_cost__pdfcol_kbn], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@extra_cost_detail_Id, @extra_cost_pattern_id, @extra_cost_detail_no, @extra_cost_kind_kbn, @calculate_type_kbn, @tariff_Id, @adding_price, @adding_ratio, @applicable_start_md, @applicable_end_md, @extra_cost__pdfcol_kbn, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
-SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applicable_start_md, applicable_end_md, extra_cost__pdfcol_kbn, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_extra_cost_pattern_detail WHERE (extra_cost_detail_Id = @extra_cost_detail_Id) AND (extra_cost_detail_no = @extra_cost_detail_no)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[m_extra_cost_pattern_detail] ([extra_cost_detail_Id], [extra_cost_pattern_id], [extra_cost_detail_no], [extra_cost_kind_kbn], [calculate_type_kbn], [tariff_Id], [adding_price], [adding_ratio], [applicable_start_md], [applicable_end_md], [extra_cost_pdfcol_kbn], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@extra_cost_detail_Id, @extra_cost_pattern_id, @extra_cost_detail_no, @extra_cost_kind_kbn, @calculate_type_kbn, @tariff_Id, @adding_price, @adding_ratio, @applicable_start_md, @applicable_end_md, @extra_cost_pdfcol_kbn, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
+SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applicable_start_md, applicable_end_md, extra_cost_pdfcol_kbn, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_extra_cost_pattern_detail WHERE (extra_cost_detail_Id = @extra_cost_detail_Id) AND (extra_cost_detail_no = @extra_cost_detail_no)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost_detail_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_detail_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost_pattern_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pattern_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2463,7 +2463,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adding_ratio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 13, 3, "adding_ratio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@applicable_start_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_start_md", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@applicable_end_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_end_md", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost__pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost__pdfcol_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost_pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pdfcol_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2476,7 +2476,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                 "alculate_type_kbn] = @calculate_type_kbn, [tariff_Id] = @tariff_Id, [adding_pric" +
                 "e] = @adding_price, [adding_ratio] = @adding_ratio, [applicable_start_md] = @app" +
                 "licable_start_md, [applicable_end_md] = @applicable_end_md, [extra_cost__pdfcol_" +
-                "kbn] = @extra_cost__pdfcol_kbn, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateD" +
+                "kbn] = @extra_cost_pdfcol_kbn, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateD" +
                 "ay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE" +
                 " (([extra_cost_detail_Id] = @Original_extra_cost_detail_Id) AND ([extra_cost_pat" +
                 "tern_id] = @Original_extra_cost_pattern_id) AND ([extra_cost_detail_no] = @Origi" +
@@ -2487,7 +2487,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                 "iginal_adding_price)) AND ((@IsNull_adding_ratio = 1 AND [adding_ratio] IS NULL)" +
                 " OR ([adding_ratio] = @Original_adding_ratio)) AND ([applicable_start_md] = @Ori" +
                 "ginal_applicable_start_md) AND ([applicable_end_md] = @Original_applicable_end_m" +
-                "d) AND ([extra_cost__pdfcol_kbn] = @Original_extra_cost__pdfcol_kbn) AND ((@IsNu" +
+                "d) AND ([extra_cost_pdfcol_kbn] = @Original_extra_cost_pdfcol_kbn) AND ((@IsNu" +
                 "ll_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)" +
                 ") AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Origin" +
                 "al_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR" +
@@ -2495,7 +2495,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                 " AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode))" +
                 ");\r\nSELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, ex" +
                 "tra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, ap" +
-                "plicable_start_md, applicable_end_md, extra_cost__pdfcol_kbn, CreateDay, UpdateD" +
+                "plicable_start_md, applicable_end_md, extra_cost_pdfcol_kbn, CreateDay, UpdateD" +
                 "ay, CreateUserCode, UpdateUserCode FROM m_extra_cost_pattern_detail WHERE (extra" +
                 "_cost_detail_Id = @extra_cost_detail_Id) AND (extra_cost_detail_no = @extra_cost" +
                 "_detail_no)";
@@ -2510,7 +2510,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adding_ratio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 13, 3, "adding_ratio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@applicable_start_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_start_md", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@applicable_end_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_end_md", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost__pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost__pdfcol_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost_pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pdfcol_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2528,7 +2528,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_adding_ratio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 13, 3, "adding_ratio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_applicable_start_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_start_md", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_applicable_end_md", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "applicable_end_md", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extra_cost__pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost__pdfcol_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extra_cost_pdfcol_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pdfcol_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2553,7 +2553,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applicable_start_md, applicable_end_md, extra_cost__pdfcol_kbn, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_extra_cost_pattern_detail";
+            this._commandCollection[0].CommandText = @"SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applicable_start_md, applicable_end_md, extra_cost_pdfcol_kbn, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_extra_cost_pattern_detail";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -2646,7 +2646,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_extra_cost_detail_Id, int Original_extra_cost_pattern_id, int Original_extra_cost_detail_no, string Original_extra_cost_kind_kbn, string Original_calculate_type_kbn, global::System.Nullable<decimal> Original_tariff_Id, global::System.Nullable<decimal> Original_adding_price, global::System.Nullable<decimal> Original_adding_ratio, string Original_applicable_start_md, string Original_applicable_end_md, string Original_extra_cost__pdfcol_kbn, global::System.Nullable<global::System.DateTime> Original_CreateDay, global::System.Nullable<global::System.DateTime> Original_UpdateDay, string Original_CreateUserCode, string Original_UpdateUserCode) {
+        public virtual int Delete(int Original_extra_cost_detail_Id, int Original_extra_cost_pattern_id, int Original_extra_cost_detail_no, string Original_extra_cost_kind_kbn, string Original_calculate_type_kbn, global::System.Nullable<decimal> Original_tariff_Id, global::System.Nullable<decimal> Original_adding_price, global::System.Nullable<decimal> Original_adding_ratio, string Original_applicable_start_md, string Original_applicable_end_md, string Original_extra_cost_pdfcol_kbn, global::System.Nullable<global::System.DateTime> Original_CreateDay, global::System.Nullable<global::System.DateTime> Original_UpdateDay, string Original_CreateUserCode, string Original_UpdateUserCode) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_extra_cost_detail_Id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_extra_cost_pattern_id));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_extra_cost_detail_no));
@@ -2698,11 +2698,11 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             else {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_applicable_end_md));
             }
-            if ((Original_extra_cost__pdfcol_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_extra_cost__pdfcol_kbn");
+            if ((Original_extra_cost_pdfcol_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_extra_cost_pdfcol_kbn");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_extra_cost__pdfcol_kbn));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_extra_cost_pdfcol_kbn));
             }
             if ((Original_CreateDay.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
@@ -2756,7 +2756,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int extra_cost_detail_Id, int extra_cost_pattern_id, int extra_cost_detail_no, string extra_cost_kind_kbn, string calculate_type_kbn, global::System.Nullable<decimal> tariff_Id, global::System.Nullable<decimal> adding_price, global::System.Nullable<decimal> adding_ratio, string applicable_start_md, string applicable_end_md, string extra_cost__pdfcol_kbn, global::System.Nullable<global::System.DateTime> CreateDay, global::System.Nullable<global::System.DateTime> UpdateDay, string CreateUserCode, string UpdateUserCode) {
+        public virtual int Insert(int extra_cost_detail_Id, int extra_cost_pattern_id, int extra_cost_detail_no, string extra_cost_kind_kbn, string calculate_type_kbn, global::System.Nullable<decimal> tariff_Id, global::System.Nullable<decimal> adding_price, global::System.Nullable<decimal> adding_ratio, string applicable_start_md, string applicable_end_md, string extra_cost_pdfcol_kbn, global::System.Nullable<global::System.DateTime> CreateDay, global::System.Nullable<global::System.DateTime> UpdateDay, string CreateUserCode, string UpdateUserCode) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(extra_cost_detail_Id));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(extra_cost_pattern_id));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(extra_cost_detail_no));
@@ -2802,11 +2802,11 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(applicable_end_md));
             }
-            if ((extra_cost__pdfcol_kbn == null)) {
-                throw new global::System.ArgumentNullException("extra_cost__pdfcol_kbn");
+            if ((extra_cost_pdfcol_kbn == null)) {
+                throw new global::System.ArgumentNullException("extra_cost_pdfcol_kbn");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(extra_cost__pdfcol_kbn));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(extra_cost_pdfcol_kbn));
             }
             if ((CreateDay.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(CreateDay.Value));
@@ -2863,7 +2863,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                     global::System.Nullable<decimal> adding_ratio, 
                     string applicable_start_md, 
                     string applicable_end_md, 
-                    string extra_cost__pdfcol_kbn, 
+                    string extra_cost_pdfcol_kbn, 
                     global::System.Nullable<global::System.DateTime> CreateDay, 
                     global::System.Nullable<global::System.DateTime> UpdateDay, 
                     string CreateUserCode, 
@@ -2878,7 +2878,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                     global::System.Nullable<decimal> Original_adding_ratio, 
                     string Original_applicable_start_md, 
                     string Original_applicable_end_md, 
-                    string Original_extra_cost__pdfcol_kbn, 
+                    string Original_extra_cost_pdfcol_kbn, 
                     global::System.Nullable<global::System.DateTime> Original_CreateDay, 
                     global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
                     string Original_CreateUserCode, 
@@ -2928,11 +2928,11 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(applicable_end_md));
             }
-            if ((extra_cost__pdfcol_kbn == null)) {
-                throw new global::System.ArgumentNullException("extra_cost__pdfcol_kbn");
+            if ((extra_cost_pdfcol_kbn == null)) {
+                throw new global::System.ArgumentNullException("extra_cost_pdfcol_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(extra_cost__pdfcol_kbn));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(extra_cost_pdfcol_kbn));
             }
             if ((CreateDay.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(CreateDay.Value));
@@ -3009,11 +3009,11 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_applicable_end_md));
             }
-            if ((Original_extra_cost__pdfcol_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_extra_cost__pdfcol_kbn");
+            if ((Original_extra_cost_pdfcol_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_extra_cost_pdfcol_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_extra_cost__pdfcol_kbn));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_extra_cost_pdfcol_kbn));
             }
             if ((Original_CreateDay.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
@@ -3076,7 +3076,7 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                     global::System.Nullable<decimal> adding_ratio, 
                     string applicable_start_md, 
                     string applicable_end_md, 
-                    string extra_cost__pdfcol_kbn, 
+                    string extra_cost_pdfcol_kbn, 
                     global::System.Nullable<global::System.DateTime> CreateDay, 
                     global::System.Nullable<global::System.DateTime> UpdateDay, 
                     string CreateUserCode, 
@@ -3091,12 +3091,12 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                     global::System.Nullable<decimal> Original_adding_ratio, 
                     string Original_applicable_start_md, 
                     string Original_applicable_end_md, 
-                    string Original_extra_cost__pdfcol_kbn, 
+                    string Original_extra_cost_pdfcol_kbn, 
                     global::System.Nullable<global::System.DateTime> Original_CreateDay, 
                     global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
                     string Original_CreateUserCode, 
                     string Original_UpdateUserCode) {
-            return this.Update(Original_extra_cost_detail_Id, extra_cost_pattern_id, Original_extra_cost_detail_no, extra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applicable_start_md, applicable_end_md, extra_cost__pdfcol_kbn, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_extra_cost_detail_Id, Original_extra_cost_pattern_id, Original_extra_cost_detail_no, Original_extra_cost_kind_kbn, Original_calculate_type_kbn, Original_tariff_Id, Original_adding_price, Original_adding_ratio, Original_applicable_start_md, Original_applicable_end_md, Original_extra_cost__pdfcol_kbn, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
+            return this.Update(Original_extra_cost_detail_Id, extra_cost_pattern_id, Original_extra_cost_detail_no, extra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applicable_start_md, applicable_end_md, extra_cost_pdfcol_kbn, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_extra_cost_detail_Id, Original_extra_cost_pattern_id, Original_extra_cost_detail_no, Original_extra_cost_kind_kbn, Original_calculate_type_kbn, Original_tariff_Id, Original_adding_price, Original_adding_ratio, Original_applicable_start_md, Original_applicable_end_md, Original_extra_cost_pdfcol_kbn, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
         }
     }
 }
