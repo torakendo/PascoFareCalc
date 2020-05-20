@@ -12,26 +12,28 @@ using System.Transactions;
 using static FareCalcLib.Constants;
 using FareCalcLib.Datasets;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace MakeCalcDataBatch
 {
     class Program
     {
-        private static Dictionary<string,string> keyColumnNames = new Dictionary<string, string>(){
+        private static Dictionary<string,string> ColumnNameMap = new Dictionary<string, string>(){
             // TODO: urgent akema 出庫実績トラン対応カラム名確認
+            {"calc_ym", "scheduleactualdate" },
             {"contract_type","contracttype" },
             {"yuso_kbn","skbn" },
             {"orig_warehouse_block_cd","outblockcode"},
-            //{"orig_warehouse_cd","outblockcode"},
-            //{"terminal_id","terminal_id"},
+            {"orig_warehouse_cd","fromloccode"},
+            {"terminal_id","terminal_id"},
             {"vehicle_id","vehicleid"},
-            {"dest_warehouse_cd","inblockcode"},
-            {"dest_jis","shipcustcode"},
+            {"dest_warehouse_cd","toloccode"},
+            {"dest_jis","municipalitycode"},
             {"yuso_mode_kbn","transmodekbn"},
             {"carrier_company_cd","transcompanycode"},
-            {"orig_date","rltloaddate"},
-            {"arriving_date","unloaddateorder"},
-            {"dest_cd","ordcustcode"},
+            {"orig_date","scheduleactualdate"},            
+            {"arriving_date","rltunloaddate"},
+            {"dest_cd","shipcustcode"},
             {"slip_no","senderordcode"},
             {"slip_suffix_no","sendercodesubno"},
             {"slip_detail_no","senderorddtlcode"},
@@ -44,6 +46,8 @@ namespace MakeCalcDataBatch
             {"yuso_means_kbn","yusocode"},
             {"special_vehicle_kbn","specialvehiclekbn"}
         };
+
+        private static string[] commonColNames = { "CreateDay", "UpdateDay", "CreateUserCode", "" };
 
         // TODO: バッチサイズConfigへ移動
         private static int UpdateBatchSize = 100;
@@ -90,34 +94,38 @@ namespace MakeCalcDataBatch
                         Console.WriteLine("retrieve from t_shk_jsk COUNT = {0}", shkJskCnt);
 
                         var calcKeyGen = new CalcKeyGenerator();
+                        // TODO: normal-low akema システム日付取得共通化
+                        var batchExecDate = DateTime.Now;
 
                         foreach (var shkJskRow in makeCalcDs.t_shk_jsk)
                         {
+                            // create new detailRow and set value from shkJskRow
+                            var detailRow = SetDetailDataFromShkJskData(makeCalcDs.t_detail.Newt_detailRow(), shkJskRow);
+
                             /* --  generate keisanKey and yusoKey -- */
                             var paramTable = calcKeyGen.GetParamTable();
                             // TODO: 出荷実績のカラム名に変更する
                             // TODO: normal akema 輸送区分：持ち戻り、返品、引き取りに対応する
-                            paramTable.Keys.ToList().ForEach(paramName => paramTable[paramName] = shkJskRow[paramName]);
+                            paramTable.Keys.ToList().ForEach(paramName => paramTable[paramName] = detailRow[paramName]);
+                            // TODO: endo high　calcKeyGen 輸送キーの変更、持ち戻り輸送キー対応（？）
                             var calcKeys = calcKeyGen.getCalcKeys(paramTable);
-
-                            // calcYm from origDate
-                            // TODO: orig_date　日付→文字列対応
-                            var calcYm = shkJskRow.rltloaddate;
 
                             /* -- t_yuso insert or update -- */
                             /* --    insert or update t_yuso. when update, check calc_status -- */
                             
-                            var yusoFillCnt = yusoAdp.FillByYusoKey(makeCalcDs.t_yuso, calcKeys.YusoKey, calcYm);
+                            var yusoFillCnt = yusoAdp.FillByYusoKey(makeCalcDs.t_yuso, calcKeys.YusoKey, detailRow.calc_ym);
                             var yusoQ = makeCalcDs.t_yuso.Where(r => r.yuso_key == calcKeys.YusoKey);
                             if (yusoFillCnt == 0 && yusoQ.Count() == 0)
                             {
                                 // set data to yusoRow and insert
                                 var newYusoRow = SetYusoDataFromShkJskData(makeCalcDs.t_yuso.Newt_yusoRow(), shkJskRow);
                                 newYusoRow.yuso_key = calcKeys.YusoKey;
-                                newYusoRow.calc_ym = calcYm;
                                 newYusoRow.calc_status = CnCalcStatus.UnCalc;
                                 newYusoRow.verify_status = CnVerifyStatus.NotVerified;
-                                newYusoRow.UpdateDay = DateTime.Now;
+                                // TODO: "last_calc_at", "BatchUpdateDay" notNullになっているので仮にセットしているが、Nullable変更したい
+                                newYusoRow.last_calc_at = batchExecDate;
+                                newYusoRow.BatchUpdateDay = batchExecDate;
+                                newYusoRow.UpdateDay = batchExecDate;
 
                                 makeCalcDs.t_yuso.Addt_yusoRow(newYusoRow);
                             }
@@ -134,7 +142,9 @@ namespace MakeCalcDataBatch
                                     // TODO: normal akema システム日付取得ヘルパーから取得 datetime.now commonHeler.getdate()
                                     // TODO: low akema 登録更新情報設定の共通化 update_at, update_user, create_at
                                     // TODO: high endo バッチ更新情報用の項目を持たなくてよいか
-                                    yusoRow.UpdateDay = DateTime.Now;
+                                    yusoRow.last_calc_at = batchExecDate;
+                                    yusoRow.BatchUpdateDay = batchExecDate;
+                                    yusoRow.UpdateDay = batchExecDate;
                                 }
                                 else
                                 {
@@ -145,7 +155,7 @@ namespace MakeCalcDataBatch
                             }
 
                             /* -- t_keisan insert or update -- */
-                            var keisanFillCnt = keisanAdp.FillByKeisanKey(makeCalcDs.t_keisan, calcKeys.KeisanKey, calcYm);
+                            var keisanFillCnt = keisanAdp.FillByKeisanKey(makeCalcDs.t_keisan, calcKeys.KeisanKey, detailRow.calc_ym);
                             var keisanQ = makeCalcDs.t_keisan.Where(r => r.keisan_key == calcKeys.KeisanKey);
                             if (keisanFillCnt == 0 && keisanQ.Count() == 0)
                             {
@@ -153,8 +163,7 @@ namespace MakeCalcDataBatch
                                 var newKeisanRow = SetKeisanDataFromShkJskData(makeCalcDs.t_keisan.Newt_keisanRow(), shkJskRow);
                                 newKeisanRow.keisan_key = calcKeys.KeisanKey;
                                 newKeisanRow.yuso_key = calcKeys.YusoKey;
-                                newKeisanRow.calc_ym = calcYm;
-                                newKeisanRow.UpdateDay = DateTime.Now;
+                                newKeisanRow.UpdateDay = batchExecDate;
                                 makeCalcDs.t_keisan.Addt_keisanRow(newKeisanRow);
                             }
                             else
@@ -163,7 +172,7 @@ namespace MakeCalcDataBatch
                                 keisanRow.yuso_means_kbn = shkJskRow.yusocode;
                                 keisanRow.max_flg = 0;
                                 // TODO: 登録更新情報設定の共通化
-                                keisanRow.UpdateDay = DateTime.Now;
+                                keisanRow.UpdateDay = batchExecDate;
                             }
 
                             /* -- t_detail insert -- */
@@ -176,11 +185,9 @@ namespace MakeCalcDataBatch
                                     r.slip_detail_no == shkJskRow.senderorddtlcode);
                             if (detailFillCnt == 0 && detailQ.Count() == 0)
                             {
-                                var detailRow = SetDetailDataFromShkJskData(makeCalcDs.t_detail.Newt_detailRow(), shkJskRow);
                                 detailRow.keisan_key = calcKeys.KeisanKey;
                                 detailRow.yuso_key = calcKeys.YusoKey;
-                                detailRow.calc_ym = calcYm;
-                                detailRow.UpdateDay = DateTime.Now;
+                                detailRow.UpdateDay = batchExecDate;
                                 makeCalcDs.t_detail.Addt_detailRow(detailRow);
                             }
                             else
@@ -232,32 +239,62 @@ namespace MakeCalcDataBatch
 
         private static MakeCalcDs.t_detailRow SetDetailDataFromShkJskData(MakeCalcDs.t_detailRow t_detailRow, MakeCalcDs.t_shk_jskRow shkJskRow)
         {
-            keyColumnNames.ToList().ForEach(colname => 
+            ColumnNameMap.ToList().ForEach(colname => 
                 {
                     if (t_detailRow.Table.Columns.Contains(colname.Key))
-                        t_detailRow[colname.Key] = shkJskRow[colname.Value];
+                        t_detailRow[colname.Key] = getEditedColValue(colname.Key, colname.Value, shkJskRow);
                 });
             return t_detailRow;            
         }
 
         private static MakeCalcDs.t_keisanRow SetKeisanDataFromShkJskData(MakeCalcDs.t_keisanRow t_keisanRow, MakeCalcDs.t_shk_jskRow shkJskRow)
         {
-            keyColumnNames.ToList().ForEach(colname =>
+            ColumnNameMap.ToList().ForEach(colname =>
             {
                 if (t_keisanRow.Table.Columns.Contains(colname.Key))
-                    t_keisanRow[colname.Key] = shkJskRow[colname.Value];
+                    t_keisanRow[colname.Key] = getEditedColValue(colname.Key, colname.Value, shkJskRow);
             });
             return t_keisanRow;
         }
 
         private static MakeCalcDs.t_yusoRow SetYusoDataFromShkJskData(MakeCalcDs.t_yusoRow t_yusoRow, MakeCalcDs.t_shk_jskRow shkJskRow)
         {
-            keyColumnNames.ToList().ForEach(colname =>
+            ColumnNameMap.ToList().ForEach(colname =>
             {
                 if (t_yusoRow.Table.Columns.Contains(colname.Key))
-                    t_yusoRow[colname.Key] = shkJskRow[colname.Value];
+                    t_yusoRow[colname.Key] = getEditedColValue(colname.Key, colname.Value, shkJskRow);
             });
             return t_yusoRow;
+        }
+
+        private static object getEditedColValue(string key, string value, MakeCalcDs.t_shk_jskRow shkJskRow)
+        {
+            // TODO: high endo 持ち戻り時の項目マッピング、その他のデータ種類など見直す
+            switch (key)
+            {
+                case "calc_ym":
+                    // TODO: orig_date 妥当性チェック必要？
+                    var test = shkJskRow[value];
+                    return shkJskRow[value].ToString().Length >= 6 ? shkJskRow[value].ToString().Substring(0,6) : shkJskRow[value].ToString();
+                case "yuso_kbn":
+                    // TODO: endo high 持ち戻り、支給などに対応。dataclass と他の項目で判定
+                    return shkJskRow.dataclass;
+                case "vehicle_id":
+                    // vehicle_id  vehicleid + tripno
+                    return String.Concat(shkJskRow[value], shkJskRow["tripno"].ToString());
+                case "terminal_id":
+                    // TODO: low DB項目を削除し、PGMからも削除
+                    return "";
+                case "orig_warehouse_block_cd":
+                case "orig_warehouse_cd":
+                case "dest_jis":
+                case "arriving_date":
+                case "dest_cd":
+                    // return empty if null
+                    return shkJskRow[value].ToString();
+                default:
+                    return shkJskRow[value];
+            }
         }
     }
 }

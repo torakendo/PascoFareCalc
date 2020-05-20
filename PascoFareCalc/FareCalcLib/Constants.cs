@@ -72,6 +72,14 @@ namespace FareCalcLib
             public const string Provision = "03";
         }
 
+        // TODO: normal endo 正しいデータ分類にする
+        public struct DataClass
+        {
+            public const string Move = "01";
+            public const string Delivery = "02";
+            public const string BringBack = "03";
+        }
+
         // TODO: urgent akema 確認区分に変更
         public struct CnVerifyStatus
         {

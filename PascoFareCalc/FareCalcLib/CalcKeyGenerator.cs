@@ -13,20 +13,19 @@ namespace FareCalcLib
 
         private const string delim = "|";
         private static List<string> paramNames = new List<string>(){
-            "contracttype",
-            "skbn",
-            "outblockcode",
-            //"orig_warehouse_cd",
-            //"terminal_id",
-            "vehicleid",
-            "inblockcode",
-            "shipcustcode",
-            "transmodekbn",
-            "transcompanycode",
-            "rltloaddate",
-            "unloaddateorder",
-            "ordcustcode"
-        };
+            "contract_type",
+            "yuso_kbn",
+            "orig_warehouse_block_cd",
+            "orig_warehouse_cd",
+            "terminal_id",
+            "vehicle_id",
+            "dest_warehouse_cd",
+            "dest_jis",
+            "yuso_mode_kbn",
+            "carrier_company_cd",
+            "orig_date",
+            "arriving_date",
+            "dest_cd"};
 
         private SHA1Managed shHash;
 
@@ -64,7 +63,7 @@ namespace FareCalcLib
 
             var keisanKeyStr = String.Join(delim, paramTable.Values);
             string yusoKeyStr = "";
-            if (paramTable["contracttype"].Equals(CnContractType.ByVehicle))
+            if (paramTable["contract_type"].Equals(CnContractType.ByVehicle))
             {
                 // if ByVehicle set yusoKey
                 yusoKeyStr =
