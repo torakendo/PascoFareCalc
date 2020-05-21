@@ -63,7 +63,7 @@ namespace FareCalcLib
 
             var keisanKeyStr = String.Join(delim, paramTable.Values);
             string yusoKeyStr = "";
-            if (paramTable["contract_type"].Equals(((int)CnContractType.ByVehicle).ToString()))
+            if (paramTable["contract_type"].Equals(CnContractType.ByVehicle))
             {
                 // if ByVehicle set yusoKey
                 yusoKeyStr =

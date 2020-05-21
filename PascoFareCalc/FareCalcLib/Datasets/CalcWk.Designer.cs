@@ -858,8 +858,8 @@ namespace FareCalcLib.Datasets {
                         string dest_warehouse_cd, 
                         string yuso_mode_kbn, 
                         string carrier_company_cd, 
-                        System.DateTime orig_date, 
-                        System.DateTime arriving_date, 
+                        string orig_date, 
+                        string arriving_date, 
                         string dest_cd, 
                         decimal weight_sum_kg, 
                         decimal base_charge_amount, 
@@ -1025,9 +1025,9 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnyuso_mode_kbn);
                 this.columncarrier_company_cd = new global::System.Data.DataColumn("carrier_company_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncarrier_company_cd);
-                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorig_date);
-                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnarriving_date);
                 this.columndest_cd = new global::System.Data.DataColumn("dest_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndest_cd);
@@ -1108,8 +1108,10 @@ namespace FareCalcLib.Datasets {
                 this.columnarriving_date.AllowDBNull = false;
                 this.columndest_cd.AllowDBNull = false;
                 this.columndest_cd.MaxLength = 10;
+                this.columnweight_sum_kg.DefaultValue = ((decimal)(0m));
                 this.columnbase_charge_amount.AllowDBNull = false;
                 this.columnspecial_charge_amount.AllowDBNull = false;
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnstopping_charge_amount.AllowDBNull = false;
                 this.columncargo_charge_amount.AllowDBNull = false;
                 this.columnother_charge_amount.AllowDBNull = false;
@@ -1883,8 +1885,8 @@ namespace FareCalcLib.Datasets {
                         string dest_warehouse_cd, 
                         string yuso_mode_kbn, 
                         string carrier_company_cd, 
-                        System.DateTime orig_date, 
-                        System.DateTime arriving_date, 
+                        string orig_date, 
+                        string arriving_date, 
                         string dest_cd, 
                         int fare_tariff_id, 
                         int special_tariff_id, 
@@ -2095,9 +2097,9 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnyuso_mode_kbn);
                 this.columncarrier_company_cd = new global::System.Data.DataColumn("carrier_company_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncarrier_company_cd);
-                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorig_date);
-                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnarriving_date);
                 this.columndest_cd = new global::System.Data.DataColumn("dest_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndest_cd);
@@ -2208,10 +2210,12 @@ namespace FareCalcLib.Datasets {
                 this.columnarriving_date.AllowDBNull = false;
                 this.columndest_cd.AllowDBNull = false;
                 this.columndest_cd.MaxLength = 10;
+                this.columnapply_tariff_id.DefaultValue = ((int)(0));
                 this.columndistance_km.AllowDBNull = false;
                 this.columnspecial_tariff_start_md.MaxLength = 10;
                 this.columnspecial_tariff_end_md.MaxLength = 10;
                 this.columnvehicle_type_cd.MaxLength = 10;
+                this.columnweight_sum_kg.DefaultValue = ((decimal)(0m));
                 this.columnbase_charge_amount.AllowDBNull = false;
                 this.columnbase_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnspecial_charge_amount.AllowDBNull = false;
@@ -2922,8 +2926,8 @@ namespace FareCalcLib.Datasets {
                         string dest_jis, 
                         string yuso_mode_kbn, 
                         string carrier_company_cd, 
-                        System.DateTime orig_date, 
-                        System.DateTime arriving_date, 
+                        string orig_date, 
+                        string arriving_date, 
                         string dest_cd, 
                         string slip_no, 
                         string slip_suffix_no, 
@@ -3110,9 +3114,9 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnyuso_mode_kbn);
                 this.columncarrier_company_cd = new global::System.Data.DataColumn("carrier_company_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncarrier_company_cd);
-                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorig_date);
-                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnarriving_date);
                 this.columndest_cd = new global::System.Data.DataColumn("dest_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndest_cd);
@@ -3225,13 +3229,21 @@ namespace FareCalcLib.Datasets {
                 this.columnyuso_means_kbn.MaxLength = 10;
                 this.columnspecial_vehicle_kbn.MaxLength = 10;
                 this.columndistributed_base_charge_amount.AllowDBNull = false;
+                this.columndistributed_base_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_special_charge_amount.AllowDBNull = false;
+                this.columndistributed_special_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_stopping_charge_amount.AllowDBNull = false;
+                this.columndistributed_stopping_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_cargo_charge_amount.AllowDBNull = false;
+                this.columndistributed_cargo_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_other_charge_amount.AllowDBNull = false;
+                this.columndistributed_other_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_actual_km_surcharge_amount.AllowDBNull = false;
+                this.columndistributed_actual_km_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_actual_time_surcharge_amount.AllowDBNull = false;
+                this.columndistributed_actual_time_surcharge_amount.DefaultValue = ((decimal)(0m));
                 this.columndistributed_total_charge_amount.AllowDBNull = false;
+                this.columndistributed_total_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnkeisan_key.AllowDBNull = false;
                 this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
@@ -4417,9 +4429,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime orig_date {
+            public string orig_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_yuso_wk.orig_dateColumn]));
+                    return ((string)(this[this.tablet_yuso_wk.orig_dateColumn]));
                 }
                 set {
                     this[this.tablet_yuso_wk.orig_dateColumn] = value;
@@ -4428,9 +4440,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime arriving_date {
+            public string arriving_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_yuso_wk.arriving_dateColumn]));
+                    return ((string)(this[this.tablet_yuso_wk.arriving_dateColumn]));
                 }
                 set {
                     this[this.tablet_yuso_wk.arriving_dateColumn] = value;
@@ -4997,9 +5009,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime orig_date {
+            public string orig_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_keisan_wk.orig_dateColumn]));
+                    return ((string)(this[this.tablet_keisan_wk.orig_dateColumn]));
                 }
                 set {
                     this[this.tablet_keisan_wk.orig_dateColumn] = value;
@@ -5008,9 +5020,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime arriving_date {
+            public string arriving_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_keisan_wk.arriving_dateColumn]));
+                    return ((string)(this[this.tablet_keisan_wk.arriving_dateColumn]));
                 }
                 set {
                     this[this.tablet_keisan_wk.arriving_dateColumn] = value;
@@ -5980,9 +5992,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime orig_date {
+            public string orig_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_detail_wk.orig_dateColumn]));
+                    return ((string)(this[this.tablet_detail_wk.orig_dateColumn]));
                 }
                 set {
                     this[this.tablet_detail_wk.orig_dateColumn] = value;
@@ -5991,9 +6003,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime arriving_date {
+            public string arriving_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_detail_wk.arriving_dateColumn]));
+                    return ((string)(this[this.tablet_detail_wk.arriving_dateColumn]));
                 }
                 set {
                     this[this.tablet_detail_wk.arriving_dateColumn] = value;
@@ -7809,8 +7821,8 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9428,8 +9440,8 @@ FROM                   t_yuso_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9452,28 +9464,30 @@ FROM                 t_keisan_wk";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE             t_keisan_wk\r\nSET                     fare_tariff_id = m_orig_d" +
-                "est_calcinfo.fare_tariff_id, special_tariff_id = m_orig_dest_calcinfo.special_ta" +
-                "riff_id, apply_tariff_id = CASE WHEN FORMAT(orig_date, \'MMdd\') BETWEEN \r\n       " +
-                "                    m_orig_dest_calcinfo.special_tariff_start_md AND m_orig_dest" +
-                "_calcinfo.special_tariff_end_md THEN m_orig_dest_calcinfo.special_tariff_id ELSE" +
-                " m_orig_dest_calcinfo.fare_tariff_id END, \r\n                           extra_cos" +
-                "t_pattern_id = m_orig_dest_calcinfo.extra_cost_pattern_id, distance_km = m_orig_" +
-                "dest_calcinfo.distance_km, time_mins = m_orig_dest_calcinfo.time_mins, fuel_cost" +
-                "_amount = m_orig_dest_calcinfo.fuel_cost_amount,\r\n                            st" +
-                "opping_count = m_orig_dest_calcinfo.stopping_count, special_tariff_start_md = m_" +
-                "orig_dest_calcinfo.special_tariff_start_md, special_tariff_end_md = m_orig_dest_" +
-                "calcinfo.special_tariff_end_md, updated_at = @Updated_at,\r\n                     " +
-                "       updated_user_id = @Updated_user_id\r\nFROM                 t_keisan_wk INNE" +
-                "R JOIN\r\n                           m_orig_dest_calcinfo ON t_keisan_wk.orig_ware" +
-                "house_block_cd = m_orig_dest_calcinfo.orig_warehouse_block_cd AND t_keisan_wk.or" +
-                "ig_warehouse_cd = m_orig_dest_calcinfo.orig_warehouse_cd AND \r\n                 " +
-                "          t_keisan_wk.dest_jis = m_orig_dest_calcinfo.dest_jis AND t_keisan_wk.d" +
-                "est_warehouse_cd = m_orig_dest_calcinfo.dest_warehouse_cd AND t_keisan_wk.contra" +
-                "ct_type = m_orig_dest_calcinfo.contract_type AND \r\n                           t_" +
-                "keisan_wk.yuso_kbn = m_orig_dest_calcinfo.yuso_kbn AND t_keisan_wk.carrier_compa" +
-                "ny_cd = m_orig_dest_calcinfo.carrier_company_cd\r\nWHERE                (t_keisan_" +
-                "wk.calc_no = @Calc_no)";
+            this._commandCollection[2].CommandText = "UPDATE                    t_keisan_wk\r\nSET                              fare_tari" +
+                "ff_id = m_orig_dest_calcinfo.fare_tariff_id, special_tariff_id = m_orig_dest_cal" +
+                "cinfo.special_tariff_id, apply_tariff_id = CASE WHEN orig_date BETWEEN \r\n       " +
+                "                               m_orig_dest_calcinfo.special_tariff_start_md AND " +
+                "\r\n                                      m_orig_dest_calcinfo.special_tariff_end_" +
+                "md THEN m_orig_dest_calcinfo.special_tariff_id ELSE m_orig_dest_calcinfo.fare_ta" +
+                "riff_id END, \r\n                                      extra_cost_pattern_id = m_o" +
+                "rig_dest_calcinfo.extra_cost_pattern_id, distance_km = m_orig_dest_calcinfo.dist" +
+                "ance_km, time_mins = m_orig_dest_calcinfo.time_mins, \r\n                         " +
+                "             fuel_cost_amount = m_orig_dest_calcinfo.fuel_cost_amount, stopping_" +
+                "count = m_orig_dest_calcinfo.stopping_count, \r\n                                 " +
+                "     special_tariff_start_md = m_orig_dest_calcinfo.special_tariff_start_md, spe" +
+                "cial_tariff_end_md = m_orig_dest_calcinfo.special_tariff_end_md, updated_at = @U" +
+                "pdated_at, \r\n                                      updated_user_id = @Updated_us" +
+                "er_id\r\nFROM                         t_keisan_wk INNER JOIN\r\n                    " +
+                "                  m_orig_dest_calcinfo ON t_keisan_wk.orig_warehouse_block_cd = " +
+                "m_orig_dest_calcinfo.orig_warehouse_block_cd AND \r\n                             " +
+                "         t_keisan_wk.orig_warehouse_cd = m_orig_dest_calcinfo.orig_warehouse_cd " +
+                "AND t_keisan_wk.dest_jis = m_orig_dest_calcinfo.dest_jis AND \r\n                 " +
+                "                     t_keisan_wk.dest_warehouse_cd = m_orig_dest_calcinfo.dest_w" +
+                "arehouse_cd AND t_keisan_wk.contract_type = m_orig_dest_calcinfo.contract_type A" +
+                "ND \r\n                                      t_keisan_wk.yuso_kbn = m_orig_dest_ca" +
+                "lcinfo.yuso_kbn AND t_keisan_wk.carrier_company_cd = m_orig_dest_calcinfo.carrie" +
+                "r_company_cd\r\nWHERE                       (t_keisan_wk.calc_no = @Calc_no)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated_at", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated_user_id", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "updated_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11515,8 +11529,8 @@ FROM                 t_keisan_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13200,8 +13214,8 @@ FROM                   t_detail_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

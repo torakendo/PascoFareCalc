@@ -160,7 +160,7 @@ namespace FareCalcLib
             // TODO: spec endo 実績項目を上書きするのはまずいか
             foreach (var yusoWkRow in this.CalcWkDs.t_yuso_wk)
             {
-                if (yusoWkRow.contract_type == ((int)CnContractType.ByItem).ToString()) 
+                if (yusoWkRow.contract_type == CnContractType.ByItem) 
                 {
                     // set keisan wk values to same key datarow of uso_wk when ByItem(ko-date)
                     // get keisan_wk row at the same key
@@ -178,7 +178,7 @@ namespace FareCalcLib
                         // TODO: 想定外データ不整合err
                     }
 
-                } else if (yusoWkRow.contract_type == ((int)CnContractType.ByVehicle).ToString())
+                } else if (yusoWkRow.contract_type == CnContractType.ByVehicle)
                 {
                     // get max total_charge_amaunt row of keisan_wk by yuso key of ByVehicle(sha-date)
                     var keisanWkRowQuery = this.CalcWkDs.t_keisan_wk
@@ -216,17 +216,17 @@ namespace FareCalcLib
                 
                 var yusoAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 yusoAdp.Connection = Connection;
-                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)CnCalcStatus.Doing);
+                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
                 // TODO: debug code for p1
                 Console.WriteLine("retrieve from t_yuso COUNT = {0}", yusoRowCnt);
 
                 var keisanAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
                 keisanAdp.Connection = Connection;
-                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, (short)CnCalcStatus.Doing);
+                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
 
                 var detailAdp = new CalcTrnTableAdapters.t_detailTableAdapter();
                 detailAdp.Connection = Connection;
-                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, (short)CnCalcStatus.Doing);
+                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
 
                 /* --------------------------------------
                 * fill yuso_wk
@@ -247,7 +247,19 @@ namespace FareCalcLib
                     var newRow = CalcWkDs.t_keisan_wk.NewRow();
                     colnameOfKeisanWk.ForEach(colname =>
                     {
-                        if (CalcTrnDs.t_keisan.Columns.Contains(colname)) newRow[colname] = r[colname];
+                        if (CalcTrnDs.t_keisan.Columns.Contains(colname)) 
+                        {
+                            if (colname == "special_charge_amount")
+                            {
+                                // TODO urgent akema 値が入るデータを用意
+                                newRow[colname] = 0;
+                            }
+                            else
+                            {
+                                newRow[colname] = r[colname];
+                            }
+                        }
+                        
                     });
                     newRow["calc_no"] = CalcNo;
                     newRow["max_flg"] = 0;
@@ -269,7 +281,32 @@ namespace FareCalcLib
                     var newRow = CalcWkDs.t_detail_wk.NewRow();
                     colnameOfDetailWk.ForEach(colname =>
                     {
-                        if (CalcTrnDs.t_detail.Columns.Contains(colname)) newRow[colname] = r[colname];
+                        if (CalcTrnDs.t_detail.Columns.Contains(colname))
+                        {
+                            // TODO urgent akema 値が入るデータを用意
+                            if (colname == "distributed_base_charge_amount"
+                            || colname == "distributed_special_charge_amount"
+                            || colname == "distributed_base_charge_amount"
+                            || colname == "distributed_special_charge_amount"
+                            || colname == "distributed_stopping_charge_amount"
+                            || colname == "distributed_cargo_charge_amount"
+                            || colname == "distributed_other_charge_amount"
+                            || colname == "distributed_actual_km_surcharge_amount"
+                            || colname == "distributed_actual_time_surcharge_amount"
+                            || colname == "distributed_actual_assist_surcharge_amount"
+                            || colname == "distributed_actual_load_surcharge_amount"
+                            || colname == "distributed_actual_stand_surcharge_amount"
+                            || colname == "distributed_actual_wash_surcharge_amount"
+                            || colname == "distributed_total_charge_amount"
+                            )
+                            {
+                                newRow[colname] = 0;
+                            }
+                            else
+                            {
+                                newRow[colname] = r[colname];
+                            }
+                        }
                     });
                     newRow["calc_no"] = CalcNo;
                     CalcWkDs.t_detail_wk.Rows.Add(newRow);
@@ -288,6 +325,8 @@ namespace FareCalcLib
                 // TODO: urgent akema keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
                 // TODO: urgent akema 適用開始終了　出庫日で判定
                 // set calcinfo to keisan_wk by server update query
+
+                // TODO: urgent akema 以下が実行できなくなっているので確認する→クエリをFORMAT(orig_date, 'MMdd')→orig_dateに修正し解消
                 var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
                 // fill keisan_wk after update
@@ -397,24 +436,25 @@ namespace FareCalcLib
 
                 var tariffCalculator = new TariffCalculator(Connection);
 
-                foreach (var group in query)
-                {
-                    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
+                // TODO: urgent akema GetTariffDataset()が取得できないので確認
+                //foreach (var group in query)
+                //{
+                //    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
 
-                    foreach (var item in group)
-                    {
-                        // set price to keisan_wk row
-                        var calcVar = new CalcVariables(item);
-                        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
-                        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
-                        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+                //    foreach (var item in group)
+                //    {
+                //        // set price to keisan_wk row
+                //        var calcVar = new CalcVariables(item);
+                //        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
+                //        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                //        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
 
-                        // TODO: high akema 業者別調整率
-                        item.base_charge_amount = item.original_base_charge_amount;
+                //        // TODO: high akema 業者別調整率
+                //        item.base_charge_amount = item.original_base_charge_amount;
 
-                        // TODO: high akema 持ち戻り率適用
-                    }
-                }
+                //        // TODO: high akema 持ち戻り率適用
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -518,7 +558,7 @@ namespace FareCalcLib
             }
         }
 
-        private string GetValueColName(Tariff tariffDs, CnTariffAxisKbn tariffAxisKbn)
+        private string GetValueColName(Tariff tariffDs, string tariffAxisKbn)
         {
             // TODO: get info from m_tariff_info
             return tariffAxisKbn == CnTariffAxisKbn.Vertical ? "yuso_means_kbn" : "distance_km"; 
@@ -613,11 +653,11 @@ namespace FareCalcLib
                 // TODO: create calcstatus index on t_yuso
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 tYusoAdp.Connection = sqlConn;
-                var rtn = tYusoAdp.UpdateCalcStatus((short)CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", (short)CnCalcStatus.UnCalc);
+                var rtn = tYusoAdp.UpdateCalcStatus(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", CnCalcStatus.UnCalc);
 
                 var dsStartCalc = new StartCalc();
                 tYusoAdp.Connection = sqlConn;
-                var cnt = tYusoAdp.FillByCalcNo(dsStartCalc.t_yuso, newCalcNo, (short)CnCalcStatus.Doing);
+                var cnt = tYusoAdp.FillByCalcNo(dsStartCalc.t_yuso, newCalcNo, CnCalcStatus.Doing);
 
                 // TODO: クエリに変更するかどうか検討
                 // copy tran to wk
@@ -707,7 +747,7 @@ namespace FareCalcLib
                 // update calc_status to "done"
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 tYusoAdp.Connection = Connection;
-                var rtn = tYusoAdp.UpdateCalcStatusDone((short)CnCalcStatus.Done, DateTime.Now, "", (short)CnCalcStatus.Doing, CalcNo);
+                var rtn = tYusoAdp.UpdateCalcStatusDone(CnCalcStatus.Done, DateTime.Now, "", CnCalcStatus.Doing, CalcNo);
             }
             catch (Exception ex)
             {

@@ -40,11 +40,11 @@ namespace FareCalcLib
             return tariffDs;
         }
 
-        internal Decimal GetKeisanValue(Tariff tariffDs, CalcVariables calcVariables, CnTariffAxisKbn tariffAxisKbn)
+        internal Decimal GetKeisanValue(Tariff tariffDs, CalcVariables calcVariables, string tariffAxisKbn)
         {
             // TODO: get info from m_tariff_info
             var tariffInfo = tariffDs.m_tariff_info.First();
-            var axisKbnColName = tariffAxisKbn.ToString().ToLower() + "_axis_kbn";
+            var axisKbnColName = tariffAxisKbn.ToLower() + "_axis_kbn";
             if (!tariffInfo.IsNull(axisKbnColName)) 
             {
                 string axisKvn = tariffInfo[axisKbnColName].ToString();
