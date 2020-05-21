@@ -4006,6 +4006,7 @@ namespace FareCalcLib.Datasets {
                 this.columndest_cd.MaxLength = 6;
                 this.columnbase_charge_amount.AllowDBNull = false;
                 this.columnspecial_charge_amount.AllowDBNull = false;
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnstopping_charge_amount.AllowDBNull = false;
                 this.columncargo_charge_amount.AllowDBNull = false;
                 this.columnother_charge_amount.AllowDBNull = false;
@@ -4836,6 +4837,7 @@ namespace FareCalcLib.Datasets {
                 this.columnspecial_tariff_start_md.MaxLength = 4;
                 this.columnspecial_tariff_end_md.MaxLength = 4;
                 this.columnbase_charge_amount.AllowDBNull = false;
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnyuso_means_kbn.AllowDBNull = false;
                 this.columnyuso_means_kbn.MaxLength = 2;
                 this.columnmax_flg.AllowDBNull = false;
@@ -10710,8 +10712,8 @@ namespace FareCalcLib.Datasets.CalcTrnTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12258,8 +12260,8 @@ FROM                   t_yuso";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14004,8 +14006,8 @@ WHERE                  (t_yuso_wk.calc_no = @calc_no) AND (t_yuso_wk.calc_status
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15845,8 +15847,8 @@ FROM                   t_detail";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17344,8 +17346,8 @@ FROM                   t_detail";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19001,8 +19003,8 @@ WHERE                           (t_yuso_wk.calc_no = @calc_no) AND (t_yuso_wk.ca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -30,11 +30,11 @@ namespace FareCalcLib.Datasets {
         
         private m_tariff_detail_oldDataTable tablem_tariff_detail_old;
         
-        private m_tariff_infoDataTable tablem_tariff_info;
-        
         private m_tariff_axisDataTable tablem_tariff_axis;
         
         private m_tariff_detailDataTable tablem_tariff_detail;
+        
+        private m_tariff_infoDataTable tablem_tariff_info;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -73,14 +73,14 @@ namespace FareCalcLib.Datasets {
                 if ((ds.Tables["m_tariff_detail_old"] != null)) {
                     base.Tables.Add(new m_tariff_detail_oldDataTable(ds.Tables["m_tariff_detail_old"]));
                 }
-                if ((ds.Tables["m_tariff_info"] != null)) {
-                    base.Tables.Add(new m_tariff_infoDataTable(ds.Tables["m_tariff_info"]));
-                }
                 if ((ds.Tables["m_tariff_axis"] != null)) {
                     base.Tables.Add(new m_tariff_axisDataTable(ds.Tables["m_tariff_axis"]));
                 }
                 if ((ds.Tables["m_tariff_detail"] != null)) {
                     base.Tables.Add(new m_tariff_detailDataTable(ds.Tables["m_tariff_detail"]));
+                }
+                if ((ds.Tables["m_tariff_info"] != null)) {
+                    base.Tables.Add(new m_tariff_infoDataTable(ds.Tables["m_tariff_info"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -134,16 +134,6 @@ namespace FareCalcLib.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public m_tariff_infoDataTable m_tariff_info {
-            get {
-                return this.tablem_tariff_info;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public m_tariff_axisDataTable m_tariff_axis {
             get {
                 return this.tablem_tariff_axis;
@@ -157,6 +147,16 @@ namespace FareCalcLib.Datasets {
         public m_tariff_detailDataTable m_tariff_detail {
             get {
                 return this.tablem_tariff_detail;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public m_tariff_infoDataTable m_tariff_info {
+            get {
+                return this.tablem_tariff_info;
             }
         }
         
@@ -236,14 +236,14 @@ namespace FareCalcLib.Datasets {
                 if ((ds.Tables["m_tariff_detail_old"] != null)) {
                     base.Tables.Add(new m_tariff_detail_oldDataTable(ds.Tables["m_tariff_detail_old"]));
                 }
-                if ((ds.Tables["m_tariff_info"] != null)) {
-                    base.Tables.Add(new m_tariff_infoDataTable(ds.Tables["m_tariff_info"]));
-                }
                 if ((ds.Tables["m_tariff_axis"] != null)) {
                     base.Tables.Add(new m_tariff_axisDataTable(ds.Tables["m_tariff_axis"]));
                 }
                 if ((ds.Tables["m_tariff_detail"] != null)) {
                     base.Tables.Add(new m_tariff_detailDataTable(ds.Tables["m_tariff_detail"]));
+                }
+                if ((ds.Tables["m_tariff_info"] != null)) {
+                    base.Tables.Add(new m_tariff_infoDataTable(ds.Tables["m_tariff_info"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -296,12 +296,6 @@ namespace FareCalcLib.Datasets {
                     this.tablem_tariff_detail_old.InitVars();
                 }
             }
-            this.tablem_tariff_info = ((m_tariff_infoDataTable)(base.Tables["m_tariff_info"]));
-            if ((initTable == true)) {
-                if ((this.tablem_tariff_info != null)) {
-                    this.tablem_tariff_info.InitVars();
-                }
-            }
             this.tablem_tariff_axis = ((m_tariff_axisDataTable)(base.Tables["m_tariff_axis"]));
             if ((initTable == true)) {
                 if ((this.tablem_tariff_axis != null)) {
@@ -312,6 +306,12 @@ namespace FareCalcLib.Datasets {
             if ((initTable == true)) {
                 if ((this.tablem_tariff_detail != null)) {
                     this.tablem_tariff_detail.InitVars();
+                }
+            }
+            this.tablem_tariff_info = ((m_tariff_infoDataTable)(base.Tables["m_tariff_info"]));
+            if ((initTable == true)) {
+                if ((this.tablem_tariff_info != null)) {
+                    this.tablem_tariff_info.InitVars();
                 }
             }
         }
@@ -330,12 +330,12 @@ namespace FareCalcLib.Datasets {
             base.Tables.Add(this.tablem_tariff_axis_old);
             this.tablem_tariff_detail_old = new m_tariff_detail_oldDataTable();
             base.Tables.Add(this.tablem_tariff_detail_old);
-            this.tablem_tariff_info = new m_tariff_infoDataTable();
-            base.Tables.Add(this.tablem_tariff_info);
             this.tablem_tariff_axis = new m_tariff_axisDataTable();
             base.Tables.Add(this.tablem_tariff_axis);
             this.tablem_tariff_detail = new m_tariff_detailDataTable();
             base.Tables.Add(this.tablem_tariff_detail);
+            this.tablem_tariff_info = new m_tariff_infoDataTable();
+            base.Tables.Add(this.tablem_tariff_info);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -358,12 +358,6 @@ namespace FareCalcLib.Datasets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializem_tariff_info() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializem_tariff_axis() {
             return false;
         }
@@ -371,6 +365,12 @@ namespace FareCalcLib.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializem_tariff_detail() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializem_tariff_info() {
             return false;
         }
         
@@ -439,13 +439,13 @@ namespace FareCalcLib.Datasets {
         public delegate void m_tariff_detail_oldRowChangeEventHandler(object sender, m_tariff_detail_oldRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void m_tariff_infoRowChangeEventHandler(object sender, m_tariff_infoRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void m_tariff_axisRowChangeEventHandler(object sender, m_tariff_axisRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void m_tariff_detailRowChangeEventHandler(object sender, m_tariff_detailRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void m_tariff_infoRowChangeEventHandler(object sender, m_tariff_infoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1873,480 +1873,6 @@ namespace FareCalcLib.Datasets {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class m_tariff_infoDataTable : global::System.Data.TypedTableBase<m_tariff_infoRow> {
-            
-            private global::System.Data.DataColumn columntariff_info_id;
-            
-            private global::System.Data.DataColumn columntariff_name;
-            
-            private global::System.Data.DataColumn columnyuso_kbn;
-            
-            private global::System.Data.DataColumn columnyuso_mode_kbn;
-            
-            private global::System.Data.DataColumn columnvertical_axis_kbn;
-            
-            private global::System.Data.DataColumn columnvertical_axis_repeat_kbn;
-            
-            private global::System.Data.DataColumn columnvertical_axis_terminal_value;
-            
-            private global::System.Data.DataColumn columnhorizontal_axis_kbn;
-            
-            private global::System.Data.DataColumn columnhorizontal_axis_repeat_kbn;
-            
-            private global::System.Data.DataColumn columnhorizontal_axis_terminal_value;
-            
-            private global::System.Data.DataColumn columntariff_memo;
-            
-            private global::System.Data.DataColumn columnCreateDay;
-            
-            private global::System.Data.DataColumn columnUpdateDay;
-            
-            private global::System.Data.DataColumn columnCreateUserCode;
-            
-            private global::System.Data.DataColumn columnUpdateUserCode;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoDataTable() {
-                this.TableName = "m_tariff_info";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal m_tariff_infoDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected m_tariff_infoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tariff_info_idColumn {
-                get {
-                    return this.columntariff_info_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tariff_nameColumn {
-                get {
-                    return this.columntariff_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn yuso_kbnColumn {
-                get {
-                    return this.columnyuso_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn yuso_mode_kbnColumn {
-                get {
-                    return this.columnyuso_mode_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vertical_axis_kbnColumn {
-                get {
-                    return this.columnvertical_axis_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vertical_axis_repeat_kbnColumn {
-                get {
-                    return this.columnvertical_axis_repeat_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vertical_axis_terminal_valueColumn {
-                get {
-                    return this.columnvertical_axis_terminal_value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn horizontal_axis_kbnColumn {
-                get {
-                    return this.columnhorizontal_axis_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn horizontal_axis_repeat_kbnColumn {
-                get {
-                    return this.columnhorizontal_axis_repeat_kbn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn horizontal_axis_terminal_valueColumn {
-                get {
-                    return this.columnhorizontal_axis_terminal_value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tariff_memoColumn {
-                get {
-                    return this.columntariff_memo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CreateDayColumn {
-                get {
-                    return this.columnCreateDay;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UpdateDayColumn {
-                get {
-                    return this.columnUpdateDay;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CreateUserCodeColumn {
-                get {
-                    return this.columnCreateUserCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UpdateUserCodeColumn {
-                get {
-                    return this.columnUpdateUserCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoRow this[int index] {
-                get {
-                    return ((m_tariff_infoRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addm_tariff_infoRow(m_tariff_infoRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoRow Addm_tariff_infoRow(string tariff_name, string yuso_kbn, string yuso_mode_kbn, string vertical_axis_kbn, string vertical_axis_repeat_kbn, decimal vertical_axis_terminal_value, string horizontal_axis_kbn, string horizontal_axis_repeat_kbn, decimal horizontal_axis_terminal_value, string tariff_memo, System.DateTime CreateDay, System.DateTime UpdateDay, string CreateUserCode, string UpdateUserCode) {
-                m_tariff_infoRow rowm_tariff_infoRow = ((m_tariff_infoRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        tariff_name,
-                        yuso_kbn,
-                        yuso_mode_kbn,
-                        vertical_axis_kbn,
-                        vertical_axis_repeat_kbn,
-                        vertical_axis_terminal_value,
-                        horizontal_axis_kbn,
-                        horizontal_axis_repeat_kbn,
-                        horizontal_axis_terminal_value,
-                        tariff_memo,
-                        CreateDay,
-                        UpdateDay,
-                        CreateUserCode,
-                        UpdateUserCode};
-                rowm_tariff_infoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowm_tariff_infoRow);
-                return rowm_tariff_infoRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoRow FindBytariff_info_id(int tariff_info_id) {
-                return ((m_tariff_infoRow)(this.Rows.Find(new object[] {
-                            tariff_info_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                m_tariff_infoDataTable cln = ((m_tariff_infoDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new m_tariff_infoDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columntariff_info_id = base.Columns["tariff_info_id"];
-                this.columntariff_name = base.Columns["tariff_name"];
-                this.columnyuso_kbn = base.Columns["yuso_kbn"];
-                this.columnyuso_mode_kbn = base.Columns["yuso_mode_kbn"];
-                this.columnvertical_axis_kbn = base.Columns["vertical_axis_kbn"];
-                this.columnvertical_axis_repeat_kbn = base.Columns["vertical_axis_repeat_kbn"];
-                this.columnvertical_axis_terminal_value = base.Columns["vertical_axis_terminal_value"];
-                this.columnhorizontal_axis_kbn = base.Columns["horizontal_axis_kbn"];
-                this.columnhorizontal_axis_repeat_kbn = base.Columns["horizontal_axis_repeat_kbn"];
-                this.columnhorizontal_axis_terminal_value = base.Columns["horizontal_axis_terminal_value"];
-                this.columntariff_memo = base.Columns["tariff_memo"];
-                this.columnCreateDay = base.Columns["CreateDay"];
-                this.columnUpdateDay = base.Columns["UpdateDay"];
-                this.columnCreateUserCode = base.Columns["CreateUserCode"];
-                this.columnUpdateUserCode = base.Columns["UpdateUserCode"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columntariff_info_id = new global::System.Data.DataColumn("tariff_info_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntariff_info_id);
-                this.columntariff_name = new global::System.Data.DataColumn("tariff_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntariff_name);
-                this.columnyuso_kbn = new global::System.Data.DataColumn("yuso_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyuso_kbn);
-                this.columnyuso_mode_kbn = new global::System.Data.DataColumn("yuso_mode_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyuso_mode_kbn);
-                this.columnvertical_axis_kbn = new global::System.Data.DataColumn("vertical_axis_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvertical_axis_kbn);
-                this.columnvertical_axis_repeat_kbn = new global::System.Data.DataColumn("vertical_axis_repeat_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvertical_axis_repeat_kbn);
-                this.columnvertical_axis_terminal_value = new global::System.Data.DataColumn("vertical_axis_terminal_value", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvertical_axis_terminal_value);
-                this.columnhorizontal_axis_kbn = new global::System.Data.DataColumn("horizontal_axis_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhorizontal_axis_kbn);
-                this.columnhorizontal_axis_repeat_kbn = new global::System.Data.DataColumn("horizontal_axis_repeat_kbn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhorizontal_axis_repeat_kbn);
-                this.columnhorizontal_axis_terminal_value = new global::System.Data.DataColumn("horizontal_axis_terminal_value", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhorizontal_axis_terminal_value);
-                this.columntariff_memo = new global::System.Data.DataColumn("tariff_memo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntariff_memo);
-                this.columnCreateDay = new global::System.Data.DataColumn("CreateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreateDay);
-                this.columnUpdateDay = new global::System.Data.DataColumn("UpdateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdateDay);
-                this.columnCreateUserCode = new global::System.Data.DataColumn("CreateUserCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreateUserCode);
-                this.columnUpdateUserCode = new global::System.Data.DataColumn("UpdateUserCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdateUserCode);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columntariff_info_id}, true));
-                this.columntariff_info_id.AutoIncrement = true;
-                this.columntariff_info_id.AutoIncrementSeed = -1;
-                this.columntariff_info_id.AutoIncrementStep = -1;
-                this.columntariff_info_id.AllowDBNull = false;
-                this.columntariff_info_id.Unique = true;
-                this.columntariff_name.MaxLength = 20;
-                this.columnyuso_kbn.AllowDBNull = false;
-                this.columnyuso_kbn.MaxLength = 2;
-                this.columnyuso_mode_kbn.MaxLength = 2;
-                this.columnvertical_axis_kbn.AllowDBNull = false;
-                this.columnvertical_axis_kbn.MaxLength = 2;
-                this.columnvertical_axis_repeat_kbn.AllowDBNull = false;
-                this.columnvertical_axis_repeat_kbn.MaxLength = 2;
-                this.columnvertical_axis_terminal_value.AllowDBNull = false;
-                this.columnhorizontal_axis_kbn.AllowDBNull = false;
-                this.columnhorizontal_axis_kbn.MaxLength = 2;
-                this.columnhorizontal_axis_repeat_kbn.AllowDBNull = false;
-                this.columnhorizontal_axis_repeat_kbn.MaxLength = 2;
-                this.columnhorizontal_axis_terminal_value.AllowDBNull = false;
-                this.columntariff_memo.MaxLength = 30;
-                this.columnCreateUserCode.MaxLength = 20;
-                this.columnUpdateUserCode.MaxLength = 20;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoRow Newm_tariff_infoRow() {
-                return ((m_tariff_infoRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new m_tariff_infoRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(m_tariff_infoRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.m_tariff_infoRowChanged != null)) {
-                    this.m_tariff_infoRowChanged(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.m_tariff_infoRowChanging != null)) {
-                    this.m_tariff_infoRowChanging(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.m_tariff_infoRowDeleted != null)) {
-                    this.m_tariff_infoRowDeleted(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.m_tariff_infoRowDeleting != null)) {
-                    this.m_tariff_infoRowDeleting(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removem_tariff_infoRow(m_tariff_infoRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Tariff ds = new Tariff();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "m_tariff_infoDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class m_tariff_axisDataTable : global::System.Data.TypedTableBase<m_tariff_axisRow> {
             
             private global::System.Data.DataColumn columntariff_axis_id;
@@ -3285,6 +2811,529 @@ namespace FareCalcLib.Datasets {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class m_tariff_infoDataTable : global::System.Data.TypedTableBase<m_tariff_infoRow> {
+            
+            private global::System.Data.DataColumn columntariff_info_id;
+            
+            private global::System.Data.DataColumn columntariff_info_user_id;
+            
+            private global::System.Data.DataColumn columntariff_name;
+            
+            private global::System.Data.DataColumn columnyuso_kbn;
+            
+            private global::System.Data.DataColumn columncontract_type;
+            
+            private global::System.Data.DataColumn columnyuso_mode_kbn;
+            
+            private global::System.Data.DataColumn columnvertical_axis_kbn;
+            
+            private global::System.Data.DataColumn columnvertical_axis_repeat_kbn;
+            
+            private global::System.Data.DataColumn columnvertical_axis_terminal_value;
+            
+            private global::System.Data.DataColumn columnhorizontal_axis_kbn;
+            
+            private global::System.Data.DataColumn columnhorizontal_axis_repeat_kbn;
+            
+            private global::System.Data.DataColumn columnhorizontal_axis_terminal_value;
+            
+            private global::System.Data.DataColumn columntariff_memo;
+            
+            private global::System.Data.DataColumn columnCreateDay;
+            
+            private global::System.Data.DataColumn columnUpdateDay;
+            
+            private global::System.Data.DataColumn columnCreateUserCode;
+            
+            private global::System.Data.DataColumn columnUpdateUserCode;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoDataTable() {
+                this.TableName = "m_tariff_info";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal m_tariff_infoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected m_tariff_infoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tariff_info_idColumn {
+                get {
+                    return this.columntariff_info_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tariff_info_user_idColumn {
+                get {
+                    return this.columntariff_info_user_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tariff_nameColumn {
+                get {
+                    return this.columntariff_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn yuso_kbnColumn {
+                get {
+                    return this.columnyuso_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn contract_typeColumn {
+                get {
+                    return this.columncontract_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn yuso_mode_kbnColumn {
+                get {
+                    return this.columnyuso_mode_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vertical_axis_kbnColumn {
+                get {
+                    return this.columnvertical_axis_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vertical_axis_repeat_kbnColumn {
+                get {
+                    return this.columnvertical_axis_repeat_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vertical_axis_terminal_valueColumn {
+                get {
+                    return this.columnvertical_axis_terminal_value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn horizontal_axis_kbnColumn {
+                get {
+                    return this.columnhorizontal_axis_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn horizontal_axis_repeat_kbnColumn {
+                get {
+                    return this.columnhorizontal_axis_repeat_kbn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn horizontal_axis_terminal_valueColumn {
+                get {
+                    return this.columnhorizontal_axis_terminal_value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tariff_memoColumn {
+                get {
+                    return this.columntariff_memo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CreateDayColumn {
+                get {
+                    return this.columnCreateDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UpdateDayColumn {
+                get {
+                    return this.columnUpdateDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CreateUserCodeColumn {
+                get {
+                    return this.columnCreateUserCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UpdateUserCodeColumn {
+                get {
+                    return this.columnUpdateUserCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoRow this[int index] {
+                get {
+                    return ((m_tariff_infoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event m_tariff_infoRowChangeEventHandler m_tariff_infoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Addm_tariff_infoRow(m_tariff_infoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoRow Addm_tariff_infoRow(
+                        string tariff_info_user_id, 
+                        string tariff_name, 
+                        string yuso_kbn, 
+                        string contract_type, 
+                        string yuso_mode_kbn, 
+                        string vertical_axis_kbn, 
+                        string vertical_axis_repeat_kbn, 
+                        decimal vertical_axis_terminal_value, 
+                        string horizontal_axis_kbn, 
+                        string horizontal_axis_repeat_kbn, 
+                        decimal horizontal_axis_terminal_value, 
+                        string tariff_memo, 
+                        System.DateTime CreateDay, 
+                        System.DateTime UpdateDay, 
+                        string CreateUserCode, 
+                        string UpdateUserCode) {
+                m_tariff_infoRow rowm_tariff_infoRow = ((m_tariff_infoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        tariff_info_user_id,
+                        tariff_name,
+                        yuso_kbn,
+                        contract_type,
+                        yuso_mode_kbn,
+                        vertical_axis_kbn,
+                        vertical_axis_repeat_kbn,
+                        vertical_axis_terminal_value,
+                        horizontal_axis_kbn,
+                        horizontal_axis_repeat_kbn,
+                        horizontal_axis_terminal_value,
+                        tariff_memo,
+                        CreateDay,
+                        UpdateDay,
+                        CreateUserCode,
+                        UpdateUserCode};
+                rowm_tariff_infoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowm_tariff_infoRow);
+                return rowm_tariff_infoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoRow FindBytariff_info_id(int tariff_info_id) {
+                return ((m_tariff_infoRow)(this.Rows.Find(new object[] {
+                            tariff_info_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                m_tariff_infoDataTable cln = ((m_tariff_infoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new m_tariff_infoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columntariff_info_id = base.Columns["tariff_info_id"];
+                this.columntariff_info_user_id = base.Columns["tariff_info_user_id"];
+                this.columntariff_name = base.Columns["tariff_name"];
+                this.columnyuso_kbn = base.Columns["yuso_kbn"];
+                this.columncontract_type = base.Columns["contract_type"];
+                this.columnyuso_mode_kbn = base.Columns["yuso_mode_kbn"];
+                this.columnvertical_axis_kbn = base.Columns["vertical_axis_kbn"];
+                this.columnvertical_axis_repeat_kbn = base.Columns["vertical_axis_repeat_kbn"];
+                this.columnvertical_axis_terminal_value = base.Columns["vertical_axis_terminal_value"];
+                this.columnhorizontal_axis_kbn = base.Columns["horizontal_axis_kbn"];
+                this.columnhorizontal_axis_repeat_kbn = base.Columns["horizontal_axis_repeat_kbn"];
+                this.columnhorizontal_axis_terminal_value = base.Columns["horizontal_axis_terminal_value"];
+                this.columntariff_memo = base.Columns["tariff_memo"];
+                this.columnCreateDay = base.Columns["CreateDay"];
+                this.columnUpdateDay = base.Columns["UpdateDay"];
+                this.columnCreateUserCode = base.Columns["CreateUserCode"];
+                this.columnUpdateUserCode = base.Columns["UpdateUserCode"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columntariff_info_id = new global::System.Data.DataColumn("tariff_info_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntariff_info_id);
+                this.columntariff_info_user_id = new global::System.Data.DataColumn("tariff_info_user_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntariff_info_user_id);
+                this.columntariff_name = new global::System.Data.DataColumn("tariff_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntariff_name);
+                this.columnyuso_kbn = new global::System.Data.DataColumn("yuso_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_kbn);
+                this.columncontract_type = new global::System.Data.DataColumn("contract_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontract_type);
+                this.columnyuso_mode_kbn = new global::System.Data.DataColumn("yuso_mode_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyuso_mode_kbn);
+                this.columnvertical_axis_kbn = new global::System.Data.DataColumn("vertical_axis_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvertical_axis_kbn);
+                this.columnvertical_axis_repeat_kbn = new global::System.Data.DataColumn("vertical_axis_repeat_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvertical_axis_repeat_kbn);
+                this.columnvertical_axis_terminal_value = new global::System.Data.DataColumn("vertical_axis_terminal_value", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvertical_axis_terminal_value);
+                this.columnhorizontal_axis_kbn = new global::System.Data.DataColumn("horizontal_axis_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorizontal_axis_kbn);
+                this.columnhorizontal_axis_repeat_kbn = new global::System.Data.DataColumn("horizontal_axis_repeat_kbn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorizontal_axis_repeat_kbn);
+                this.columnhorizontal_axis_terminal_value = new global::System.Data.DataColumn("horizontal_axis_terminal_value", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorizontal_axis_terminal_value);
+                this.columntariff_memo = new global::System.Data.DataColumn("tariff_memo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntariff_memo);
+                this.columnCreateDay = new global::System.Data.DataColumn("CreateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreateDay);
+                this.columnUpdateDay = new global::System.Data.DataColumn("UpdateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpdateDay);
+                this.columnCreateUserCode = new global::System.Data.DataColumn("CreateUserCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreateUserCode);
+                this.columnUpdateUserCode = new global::System.Data.DataColumn("UpdateUserCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpdateUserCode);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columntariff_info_id}, true));
+                this.columntariff_info_id.AutoIncrement = true;
+                this.columntariff_info_id.AutoIncrementSeed = -1;
+                this.columntariff_info_id.AutoIncrementStep = -1;
+                this.columntariff_info_id.AllowDBNull = false;
+                this.columntariff_info_id.ReadOnly = true;
+                this.columntariff_info_id.Unique = true;
+                this.columntariff_info_user_id.AllowDBNull = false;
+                this.columntariff_info_user_id.MaxLength = 10;
+                this.columntariff_name.MaxLength = 20;
+                this.columnyuso_kbn.AllowDBNull = false;
+                this.columnyuso_kbn.MaxLength = 2;
+                this.columncontract_type.AllowDBNull = false;
+                this.columncontract_type.MaxLength = 2;
+                this.columnyuso_mode_kbn.MaxLength = 2;
+                this.columnvertical_axis_kbn.AllowDBNull = false;
+                this.columnvertical_axis_kbn.MaxLength = 2;
+                this.columnvertical_axis_repeat_kbn.AllowDBNull = false;
+                this.columnvertical_axis_repeat_kbn.MaxLength = 2;
+                this.columnvertical_axis_terminal_value.AllowDBNull = false;
+                this.columnhorizontal_axis_kbn.AllowDBNull = false;
+                this.columnhorizontal_axis_kbn.MaxLength = 2;
+                this.columnhorizontal_axis_repeat_kbn.AllowDBNull = false;
+                this.columnhorizontal_axis_repeat_kbn.MaxLength = 2;
+                this.columnhorizontal_axis_terminal_value.AllowDBNull = false;
+                this.columntariff_memo.MaxLength = 30;
+                this.columnCreateUserCode.MaxLength = 20;
+                this.columnUpdateUserCode.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoRow Newm_tariff_infoRow() {
+                return ((m_tariff_infoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new m_tariff_infoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(m_tariff_infoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.m_tariff_infoRowChanged != null)) {
+                    this.m_tariff_infoRowChanged(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.m_tariff_infoRowChanging != null)) {
+                    this.m_tariff_infoRowChanging(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.m_tariff_infoRowDeleted != null)) {
+                    this.m_tariff_infoRowDeleted(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.m_tariff_infoRowDeleting != null)) {
+                    this.m_tariff_infoRowDeleting(this, new m_tariff_infoRowChangeEvent(((m_tariff_infoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Removem_tariff_infoRow(m_tariff_infoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Tariff ds = new Tariff();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "m_tariff_infoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class m_tariff_info_oldRow : global::System.Data.DataRow {
@@ -4156,305 +4205,6 @@ namespace FareCalcLib.Datasets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class m_tariff_infoRow : global::System.Data.DataRow {
-            
-            private m_tariff_infoDataTable tablem_tariff_info;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal m_tariff_infoRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablem_tariff_info = ((m_tariff_infoDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int tariff_info_id {
-                get {
-                    return ((int)(this[this.tablem_tariff_info.tariff_info_idColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.tariff_info_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string tariff_name {
-                get {
-                    try {
-                        return ((string)(this[this.tablem_tariff_info.tariff_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'tariff_name\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.tariff_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string yuso_kbn {
-                get {
-                    return ((string)(this[this.tablem_tariff_info.yuso_kbnColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.yuso_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string yuso_mode_kbn {
-                get {
-                    try {
-                        return ((string)(this[this.tablem_tariff_info.yuso_mode_kbnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'yuso_mode_kbn\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.yuso_mode_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vertical_axis_kbn {
-                get {
-                    return ((string)(this[this.tablem_tariff_info.vertical_axis_kbnColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.vertical_axis_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vertical_axis_repeat_kbn {
-                get {
-                    return ((string)(this[this.tablem_tariff_info.vertical_axis_repeat_kbnColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.vertical_axis_repeat_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal vertical_axis_terminal_value {
-                get {
-                    return ((decimal)(this[this.tablem_tariff_info.vertical_axis_terminal_valueColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.vertical_axis_terminal_valueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string horizontal_axis_kbn {
-                get {
-                    return ((string)(this[this.tablem_tariff_info.horizontal_axis_kbnColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.horizontal_axis_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string horizontal_axis_repeat_kbn {
-                get {
-                    return ((string)(this[this.tablem_tariff_info.horizontal_axis_repeat_kbnColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.horizontal_axis_repeat_kbnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal horizontal_axis_terminal_value {
-                get {
-                    return ((decimal)(this[this.tablem_tariff_info.horizontal_axis_terminal_valueColumn]));
-                }
-                set {
-                    this[this.tablem_tariff_info.horizontal_axis_terminal_valueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string tariff_memo {
-                get {
-                    try {
-                        return ((string)(this[this.tablem_tariff_info.tariff_memoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'tariff_memo\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.tariff_memoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime CreateDay {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablem_tariff_info.CreateDayColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'CreateDay\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.CreateDayColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime UpdateDay {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablem_tariff_info.UpdateDayColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'UpdateDay\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.UpdateDayColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CreateUserCode {
-                get {
-                    try {
-                        return ((string)(this[this.tablem_tariff_info.CreateUserCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'CreateUserCode\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.CreateUserCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UpdateUserCode {
-                get {
-                    try {
-                        return ((string)(this[this.tablem_tariff_info.UpdateUserCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'UpdateUserCode\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tablem_tariff_info.UpdateUserCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istariff_nameNull() {
-                return this.IsNull(this.tablem_tariff_info.tariff_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settariff_nameNull() {
-                this[this.tablem_tariff_info.tariff_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isyuso_mode_kbnNull() {
-                return this.IsNull(this.tablem_tariff_info.yuso_mode_kbnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setyuso_mode_kbnNull() {
-                this[this.tablem_tariff_info.yuso_mode_kbnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istariff_memoNull() {
-                return this.IsNull(this.tablem_tariff_info.tariff_memoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settariff_memoNull() {
-                this[this.tablem_tariff_info.tariff_memoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCreateDayNull() {
-                return this.IsNull(this.tablem_tariff_info.CreateDayColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCreateDayNull() {
-                this[this.tablem_tariff_info.CreateDayColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUpdateDayNull() {
-                return this.IsNull(this.tablem_tariff_info.UpdateDayColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUpdateDayNull() {
-                this[this.tablem_tariff_info.UpdateDayColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCreateUserCodeNull() {
-                return this.IsNull(this.tablem_tariff_info.CreateUserCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCreateUserCodeNull() {
-                this[this.tablem_tariff_info.CreateUserCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUpdateUserCodeNull() {
-                return this.IsNull(this.tablem_tariff_info.UpdateUserCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUpdateUserCodeNull() {
-                this[this.tablem_tariff_info.UpdateUserCodeColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class m_tariff_axisRow : global::System.Data.DataRow {
             
             private m_tariff_axisDataTable tablem_tariff_axis;
@@ -4938,6 +4688,327 @@ namespace FareCalcLib.Datasets {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class m_tariff_infoRow : global::System.Data.DataRow {
+            
+            private m_tariff_infoDataTable tablem_tariff_info;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal m_tariff_infoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablem_tariff_info = ((m_tariff_infoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int tariff_info_id {
+                get {
+                    return ((int)(this[this.tablem_tariff_info.tariff_info_idColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.tariff_info_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tariff_info_user_id {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.tariff_info_user_idColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.tariff_info_user_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tariff_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablem_tariff_info.tariff_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'tariff_name\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.tariff_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yuso_kbn {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.yuso_kbnColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.yuso_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string contract_type {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.contract_typeColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.contract_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yuso_mode_kbn {
+                get {
+                    try {
+                        return ((string)(this[this.tablem_tariff_info.yuso_mode_kbnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'yuso_mode_kbn\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.yuso_mode_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vertical_axis_kbn {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.vertical_axis_kbnColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.vertical_axis_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vertical_axis_repeat_kbn {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.vertical_axis_repeat_kbnColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.vertical_axis_repeat_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal vertical_axis_terminal_value {
+                get {
+                    return ((decimal)(this[this.tablem_tariff_info.vertical_axis_terminal_valueColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.vertical_axis_terminal_valueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string horizontal_axis_kbn {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.horizontal_axis_kbnColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.horizontal_axis_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string horizontal_axis_repeat_kbn {
+                get {
+                    return ((string)(this[this.tablem_tariff_info.horizontal_axis_repeat_kbnColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.horizontal_axis_repeat_kbnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal horizontal_axis_terminal_value {
+                get {
+                    return ((decimal)(this[this.tablem_tariff_info.horizontal_axis_terminal_valueColumn]));
+                }
+                set {
+                    this[this.tablem_tariff_info.horizontal_axis_terminal_valueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tariff_memo {
+                get {
+                    try {
+                        return ((string)(this[this.tablem_tariff_info.tariff_memoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'tariff_memo\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.tariff_memoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime CreateDay {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablem_tariff_info.CreateDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'CreateDay\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.CreateDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime UpdateDay {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablem_tariff_info.UpdateDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'UpdateDay\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.UpdateDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CreateUserCode {
+                get {
+                    try {
+                        return ((string)(this[this.tablem_tariff_info.CreateUserCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'CreateUserCode\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.CreateUserCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string UpdateUserCode {
+                get {
+                    try {
+                        return ((string)(this[this.tablem_tariff_info.UpdateUserCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'m_tariff_info\' にある列 \'UpdateUserCode\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablem_tariff_info.UpdateUserCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istariff_nameNull() {
+                return this.IsNull(this.tablem_tariff_info.tariff_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settariff_nameNull() {
+                this[this.tablem_tariff_info.tariff_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isyuso_mode_kbnNull() {
+                return this.IsNull(this.tablem_tariff_info.yuso_mode_kbnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setyuso_mode_kbnNull() {
+                this[this.tablem_tariff_info.yuso_mode_kbnColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istariff_memoNull() {
+                return this.IsNull(this.tablem_tariff_info.tariff_memoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settariff_memoNull() {
+                this[this.tablem_tariff_info.tariff_memoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCreateDayNull() {
+                return this.IsNull(this.tablem_tariff_info.CreateDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCreateDayNull() {
+                this[this.tablem_tariff_info.CreateDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUpdateDayNull() {
+                return this.IsNull(this.tablem_tariff_info.UpdateDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUpdateDayNull() {
+                this[this.tablem_tariff_info.UpdateDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCreateUserCodeNull() {
+                return this.IsNull(this.tablem_tariff_info.CreateUserCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCreateUserCodeNull() {
+                this[this.tablem_tariff_info.CreateUserCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUpdateUserCodeNull() {
+                return this.IsNull(this.tablem_tariff_info.UpdateUserCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUpdateUserCodeNull() {
+                this[this.tablem_tariff_info.UpdateUserCodeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5043,40 +5114,6 @@ namespace FareCalcLib.Datasets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class m_tariff_infoRowChangeEvent : global::System.EventArgs {
-            
-            private m_tariff_infoRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoRowChangeEvent(m_tariff_infoRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public m_tariff_infoRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public class m_tariff_axisRowChangeEvent : global::System.EventArgs {
             
             private m_tariff_axisRow eventRow;
@@ -5127,6 +5164,40 @@ namespace FareCalcLib.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public m_tariff_detailRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class m_tariff_infoRowChangeEvent : global::System.EventArgs {
+            
+            private m_tariff_infoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoRowChangeEvent(m_tariff_infoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public m_tariff_infoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5378,8 +5449,8 @@ SELECT tariff_info_id, tariff_name, yuso_mode_kbn, contract_type, vertical_axis_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6150,8 +6221,8 @@ SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6828,8 +6899,8 @@ SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, h
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7396,796 +7467,6 @@ WHERE
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class m_tariff_infoTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public m_tariff_infoTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "m_tariff_info";
-            tableMapping.ColumnMappings.Add("tariff_info_id", "tariff_info_id");
-            tableMapping.ColumnMappings.Add("tariff_name", "tariff_name");
-            tableMapping.ColumnMappings.Add("yuso_kbn", "yuso_kbn");
-            tableMapping.ColumnMappings.Add("yuso_mode_kbn", "yuso_mode_kbn");
-            tableMapping.ColumnMappings.Add("vertical_axis_kbn", "vertical_axis_kbn");
-            tableMapping.ColumnMappings.Add("vertical_axis_repeat_kbn", "vertical_axis_repeat_kbn");
-            tableMapping.ColumnMappings.Add("vertical_axis_terminal_value", "vertical_axis_terminal_value");
-            tableMapping.ColumnMappings.Add("horizontal_axis_kbn", "horizontal_axis_kbn");
-            tableMapping.ColumnMappings.Add("horizontal_axis_repeat_kbn", "horizontal_axis_repeat_kbn");
-            tableMapping.ColumnMappings.Add("horizontal_axis_terminal_value", "horizontal_axis_terminal_value");
-            tableMapping.ColumnMappings.Add("tariff_memo", "tariff_memo");
-            tableMapping.ColumnMappings.Add("CreateDay", "CreateDay");
-            tableMapping.ColumnMappings.Add("UpdateDay", "UpdateDay");
-            tableMapping.ColumnMappings.Add("CreateUserCode", "CreateUserCode");
-            tableMapping.ColumnMappings.Add("UpdateUserCode", "UpdateUserCode");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[m_tariff_info] WHERE (([tariff_info_id] = @Original_tariff_info_id) AND ((@IsNull_tariff_name = 1 AND [tariff_name] IS NULL) OR ([tariff_name] = @Original_tariff_name)) AND ([yuso_kbn] = @Original_yuso_kbn) AND ((@IsNull_yuso_mode_kbn = 1 AND [yuso_mode_kbn] IS NULL) OR ([yuso_mode_kbn] = @Original_yuso_mode_kbn)) AND ([vertical_axis_kbn] = @Original_vertical_axis_kbn) AND ([vertical_axis_repeat_kbn] = @Original_vertical_axis_repeat_kbn) AND ([vertical_axis_terminal_value] = @Original_vertical_axis_terminal_value) AND ([horizontal_axis_kbn] = @Original_horizontal_axis_kbn) AND ([horizontal_axis_repeat_kbn] = @Original_horizontal_axis_repeat_kbn) AND ([horizontal_axis_terminal_value] = @Original_horizontal_axis_terminal_value) AND ((@IsNull_tariff_memo = 1 AND [tariff_memo] IS NULL) OR ([tariff_memo] = @Original_tariff_memo)) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_info_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yuso_mode_kbn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_memo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[m_tariff_info] ([tariff_info_id], [tariff_name], [yuso_kbn], [yuso_mode_kbn], [vertical_axis_kbn], [vertical_axis_repeat_kbn], [vertical_axis_terminal_value], [horizontal_axis_kbn], [horizontal_axis_repeat_kbn], [horizontal_axis_terminal_value], [tariff_memo], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@tariff_info_id, @tariff_name, @yuso_kbn, @yuso_mode_kbn, @vertical_axis_kbn, @vertical_axis_repeat_kbn, @vertical_axis_terminal_value, @horizontal_axis_kbn, @horizontal_axis_repeat_kbn, @horizontal_axis_terminal_value, @tariff_memo, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
-SELECT tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_info WHERE (tariff_info_id = @tariff_info_id)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_info_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[m_tariff_info] SET [tariff_info_id] = @tariff_info_id, [tariff_name" +
-                "] = @tariff_name, [yuso_kbn] = @yuso_kbn, [yuso_mode_kbn] = @yuso_mode_kbn, [ver" +
-                "tical_axis_kbn] = @vertical_axis_kbn, [vertical_axis_repeat_kbn] = @vertical_axi" +
-                "s_repeat_kbn, [vertical_axis_terminal_value] = @vertical_axis_terminal_value, [h" +
-                "orizontal_axis_kbn] = @horizontal_axis_kbn, [horizontal_axis_repeat_kbn] = @hori" +
-                "zontal_axis_repeat_kbn, [horizontal_axis_terminal_value] = @horizontal_axis_term" +
-                "inal_value, [tariff_memo] = @tariff_memo, [CreateDay] = @CreateDay, [UpdateDay] " +
-                "= @UpdateDay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUser" +
-                "Code WHERE (([tariff_info_id] = @Original_tariff_info_id) AND ((@IsNull_tariff_n" +
-                "ame = 1 AND [tariff_name] IS NULL) OR ([tariff_name] = @Original_tariff_name)) A" +
-                "ND ([yuso_kbn] = @Original_yuso_kbn) AND ((@IsNull_yuso_mode_kbn = 1 AND [yuso_m" +
-                "ode_kbn] IS NULL) OR ([yuso_mode_kbn] = @Original_yuso_mode_kbn)) AND ([vertical" +
-                "_axis_kbn] = @Original_vertical_axis_kbn) AND ([vertical_axis_repeat_kbn] = @Ori" +
-                "ginal_vertical_axis_repeat_kbn) AND ([vertical_axis_terminal_value] = @Original_" +
-                "vertical_axis_terminal_value) AND ([horizontal_axis_kbn] = @Original_horizontal_" +
-                "axis_kbn) AND ([horizontal_axis_repeat_kbn] = @Original_horizontal_axis_repeat_k" +
-                "bn) AND ([horizontal_axis_terminal_value] = @Original_horizontal_axis_terminal_v" +
-                "alue) AND ((@IsNull_tariff_memo = 1 AND [tariff_memo] IS NULL) OR ([tariff_memo]" +
-                " = @Original_tariff_memo)) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) " +
-                "OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateD" +
-                "ay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCod" +
-                "e = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserC" +
-                "ode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([Update" +
-                "UserCode] = @Original_UpdateUserCode)));\r\nSELECT tariff_info_id, tariff_name, yu" +
-                "so_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axi" +
-                "s_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_ax" +
-                "is_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUser" +
-                "Code FROM m_tariff_info WHERE (tariff_info_id = @tariff_info_id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_info_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_info_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yuso_mode_kbn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_memo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_tariff_info";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT                         tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, 
-                                            horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, 
-                                            UpdateUserCode
-FROM                            m_tariff_info
-WHERE                           (tariff_info_id = @Tariff_info_id)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tariff_info_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Tariff.m_tariff_infoDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Tariff.m_tariff_infoDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            Tariff.m_tariff_infoDataTable dataTable = new Tariff.m_tariff_infoDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTariffInfoId(Tariff.m_tariff_infoDataTable dataTable, int Tariff_info_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Tariff_info_id));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Tariff.m_tariff_infoDataTable GetDataBy(int Tariff_info_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Tariff_info_id));
-            Tariff.m_tariff_infoDataTable dataTable = new Tariff.m_tariff_infoDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Tariff.m_tariff_infoDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Tariff dataSet) {
-            return this.Adapter.Update(dataSet, "m_tariff_info");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_tariff_info_id, string Original_tariff_name, string Original_yuso_kbn, string Original_yuso_mode_kbn, string Original_vertical_axis_kbn, string Original_vertical_axis_repeat_kbn, decimal Original_vertical_axis_terminal_value, string Original_horizontal_axis_kbn, string Original_horizontal_axis_repeat_kbn, decimal Original_horizontal_axis_terminal_value, string Original_tariff_memo, global::System.Nullable<global::System.DateTime> Original_CreateDay, global::System.Nullable<global::System.DateTime> Original_UpdateDay, string Original_CreateUserCode, string Original_UpdateUserCode) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_tariff_info_id));
-            if ((Original_tariff_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_tariff_name));
-            }
-            if ((Original_yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_yuso_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_yuso_kbn));
-            }
-            if ((Original_yuso_mode_kbn == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_yuso_mode_kbn));
-            }
-            if ((Original_vertical_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_vertical_axis_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_vertical_axis_kbn));
-            }
-            if ((Original_vertical_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_vertical_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_vertical_axis_repeat_kbn));
-            }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_vertical_axis_terminal_value));
-            if ((Original_horizontal_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_horizontal_axis_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_horizontal_axis_kbn));
-            }
-            if ((Original_horizontal_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_horizontal_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_horizontal_axis_repeat_kbn));
-            }
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_horizontal_axis_terminal_value));
-            if ((Original_tariff_memo == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_tariff_memo));
-            }
-            if ((Original_CreateDay.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.DateTime)(Original_CreateDay.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_UpdateDay.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((System.DateTime)(Original_UpdateDay.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CreateUserCode == null)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_CreateUserCode));
-            }
-            if ((Original_UpdateUserCode == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_UpdateUserCode));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int tariff_info_id, string tariff_name, string yuso_kbn, string yuso_mode_kbn, string vertical_axis_kbn, string vertical_axis_repeat_kbn, decimal vertical_axis_terminal_value, string horizontal_axis_kbn, string horizontal_axis_repeat_kbn, decimal horizontal_axis_terminal_value, string tariff_memo, global::System.Nullable<global::System.DateTime> CreateDay, global::System.Nullable<global::System.DateTime> UpdateDay, string CreateUserCode, string UpdateUserCode) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(tariff_info_id));
-            if ((tariff_name == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(tariff_name));
-            }
-            if ((yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("yuso_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(yuso_kbn));
-            }
-            if ((yuso_mode_kbn == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(yuso_mode_kbn));
-            }
-            if ((vertical_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("vertical_axis_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(vertical_axis_kbn));
-            }
-            if ((vertical_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("vertical_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(vertical_axis_repeat_kbn));
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(vertical_axis_terminal_value));
-            if ((horizontal_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("horizontal_axis_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(horizontal_axis_kbn));
-            }
-            if ((horizontal_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("horizontal_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(horizontal_axis_repeat_kbn));
-            }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(horizontal_axis_terminal_value));
-            if ((tariff_memo == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(tariff_memo));
-            }
-            if ((CreateDay.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(CreateDay.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((UpdateDay.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(UpdateDay.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((CreateUserCode == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(CreateUserCode));
-            }
-            if ((UpdateUserCode == null)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(UpdateUserCode));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int tariff_info_id, 
-                    string tariff_name, 
-                    string yuso_kbn, 
-                    string yuso_mode_kbn, 
-                    string vertical_axis_kbn, 
-                    string vertical_axis_repeat_kbn, 
-                    decimal vertical_axis_terminal_value, 
-                    string horizontal_axis_kbn, 
-                    string horizontal_axis_repeat_kbn, 
-                    decimal horizontal_axis_terminal_value, 
-                    string tariff_memo, 
-                    global::System.Nullable<global::System.DateTime> CreateDay, 
-                    global::System.Nullable<global::System.DateTime> UpdateDay, 
-                    string CreateUserCode, 
-                    string UpdateUserCode, 
-                    int Original_tariff_info_id, 
-                    string Original_tariff_name, 
-                    string Original_yuso_kbn, 
-                    string Original_yuso_mode_kbn, 
-                    string Original_vertical_axis_kbn, 
-                    string Original_vertical_axis_repeat_kbn, 
-                    decimal Original_vertical_axis_terminal_value, 
-                    string Original_horizontal_axis_kbn, 
-                    string Original_horizontal_axis_repeat_kbn, 
-                    decimal Original_horizontal_axis_terminal_value, 
-                    string Original_tariff_memo, 
-                    global::System.Nullable<global::System.DateTime> Original_CreateDay, 
-                    global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
-                    string Original_CreateUserCode, 
-                    string Original_UpdateUserCode) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(tariff_info_id));
-            if ((tariff_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(tariff_name));
-            }
-            if ((yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("yuso_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(yuso_kbn));
-            }
-            if ((yuso_mode_kbn == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(yuso_mode_kbn));
-            }
-            if ((vertical_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("vertical_axis_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(vertical_axis_kbn));
-            }
-            if ((vertical_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("vertical_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(vertical_axis_repeat_kbn));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(vertical_axis_terminal_value));
-            if ((horizontal_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("horizontal_axis_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(horizontal_axis_kbn));
-            }
-            if ((horizontal_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("horizontal_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(horizontal_axis_repeat_kbn));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(horizontal_axis_terminal_value));
-            if ((tariff_memo == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(tariff_memo));
-            }
-            if ((CreateDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(CreateDay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((UpdateDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(UpdateDay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((CreateUserCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(CreateUserCode));
-            }
-            if ((UpdateUserCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(UpdateUserCode));
-            }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_tariff_info_id));
-            if ((Original_tariff_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_tariff_name));
-            }
-            if ((Original_yuso_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_yuso_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_yuso_kbn));
-            }
-            if ((Original_yuso_mode_kbn == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_yuso_mode_kbn));
-            }
-            if ((Original_vertical_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_vertical_axis_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_vertical_axis_kbn));
-            }
-            if ((Original_vertical_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_vertical_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_vertical_axis_repeat_kbn));
-            }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Original_vertical_axis_terminal_value));
-            if ((Original_horizontal_axis_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_horizontal_axis_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_horizontal_axis_kbn));
-            }
-            if ((Original_horizontal_axis_repeat_kbn == null)) {
-                throw new global::System.ArgumentNullException("Original_horizontal_axis_repeat_kbn");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_horizontal_axis_repeat_kbn));
-            }
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(Original_horizontal_axis_terminal_value));
-            if ((Original_tariff_memo == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_tariff_memo));
-            }
-            if ((Original_CreateDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_CreateDay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            if ((Original_UpdateDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(Original_UpdateDay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CreateUserCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_CreateUserCode));
-            }
-            if ((Original_UpdateUserCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_UpdateUserCode));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string tariff_name, 
-                    string yuso_kbn, 
-                    string yuso_mode_kbn, 
-                    string vertical_axis_kbn, 
-                    string vertical_axis_repeat_kbn, 
-                    decimal vertical_axis_terminal_value, 
-                    string horizontal_axis_kbn, 
-                    string horizontal_axis_repeat_kbn, 
-                    decimal horizontal_axis_terminal_value, 
-                    string tariff_memo, 
-                    global::System.Nullable<global::System.DateTime> CreateDay, 
-                    global::System.Nullable<global::System.DateTime> UpdateDay, 
-                    string CreateUserCode, 
-                    string UpdateUserCode, 
-                    int Original_tariff_info_id, 
-                    string Original_tariff_name, 
-                    string Original_yuso_kbn, 
-                    string Original_yuso_mode_kbn, 
-                    string Original_vertical_axis_kbn, 
-                    string Original_vertical_axis_repeat_kbn, 
-                    decimal Original_vertical_axis_terminal_value, 
-                    string Original_horizontal_axis_kbn, 
-                    string Original_horizontal_axis_repeat_kbn, 
-                    decimal Original_horizontal_axis_terminal_value, 
-                    string Original_tariff_memo, 
-                    global::System.Nullable<global::System.DateTime> Original_CreateDay, 
-                    global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
-                    string Original_CreateUserCode, 
-                    string Original_UpdateUserCode) {
-            return this.Update(Original_tariff_info_id, tariff_name, yuso_kbn, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_tariff_info_id, Original_tariff_name, Original_yuso_kbn, Original_yuso_mode_kbn, Original_vertical_axis_kbn, Original_vertical_axis_repeat_kbn, Original_vertical_axis_terminal_value, Original_horizontal_axis_kbn, Original_horizontal_axis_repeat_kbn, Original_horizontal_axis_terminal_value, Original_tariff_memo, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class m_tariff_axisTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -8359,8 +7640,8 @@ SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8987,8 +8268,8 @@ SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, h
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9046,18 +8327,6 @@ WHERE                           (tariff_info_id = @Tariff_info_id)";
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Tariff.m_tariff_detailDataTable GetDataBy(int Tariff_info_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Tariff_info_id));
-            Tariff.m_tariff_detailDataTable dataTable = new Tariff.m_tariff_detailDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9423,6 +8692,883 @@ WHERE                           (tariff_info_id = @Tariff_info_id)";
                     string Original_CreateUserCode, 
                     string Original_UpdateUserCode) {
             return this.Update(Original_tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, horizontal_step_from, horizontal_step_to, tariff_price, vertical_adding_flg, vertical_adding_step_value, vertical_adding_unit_price, horizontal_adding_flg, horizontal_adding_step_value, horizontal_adding_unit_price, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_tariff_detail_id, Original_tariff_info_id, Original_vertical_step_from, Original_vertical_step_to, Original_horizontal_step_from, Original_horizontal_step_to, Original_tariff_price, Original_vertical_adding_flg, Original_vertical_adding_step_value, Original_vertical_adding_unit_price, Original_horizontal_adding_flg, Original_horizontal_adding_step_value, Original_horizontal_adding_unit_price, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class m_tariff_infoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public m_tariff_infoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "m_tariff_info";
+            tableMapping.ColumnMappings.Add("tariff_info_id", "tariff_info_id");
+            tableMapping.ColumnMappings.Add("tariff_info_user_id", "tariff_info_user_id");
+            tableMapping.ColumnMappings.Add("tariff_name", "tariff_name");
+            tableMapping.ColumnMappings.Add("yuso_kbn", "yuso_kbn");
+            tableMapping.ColumnMappings.Add("contract_type", "contract_type");
+            tableMapping.ColumnMappings.Add("yuso_mode_kbn", "yuso_mode_kbn");
+            tableMapping.ColumnMappings.Add("vertical_axis_kbn", "vertical_axis_kbn");
+            tableMapping.ColumnMappings.Add("vertical_axis_repeat_kbn", "vertical_axis_repeat_kbn");
+            tableMapping.ColumnMappings.Add("vertical_axis_terminal_value", "vertical_axis_terminal_value");
+            tableMapping.ColumnMappings.Add("horizontal_axis_kbn", "horizontal_axis_kbn");
+            tableMapping.ColumnMappings.Add("horizontal_axis_repeat_kbn", "horizontal_axis_repeat_kbn");
+            tableMapping.ColumnMappings.Add("horizontal_axis_terminal_value", "horizontal_axis_terminal_value");
+            tableMapping.ColumnMappings.Add("tariff_memo", "tariff_memo");
+            tableMapping.ColumnMappings.Add("CreateDay", "CreateDay");
+            tableMapping.ColumnMappings.Add("UpdateDay", "UpdateDay");
+            tableMapping.ColumnMappings.Add("CreateUserCode", "CreateUserCode");
+            tableMapping.ColumnMappings.Add("UpdateUserCode", "UpdateUserCode");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[m_tariff_info] WHERE (([tariff_info_id] = @Original_tariff_info_id) AND ([tariff_info_user_id] = @Original_tariff_info_user_id) AND ((@IsNull_tariff_name = 1 AND [tariff_name] IS NULL) OR ([tariff_name] = @Original_tariff_name)) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([contract_type] = @Original_contract_type) AND ((@IsNull_yuso_mode_kbn = 1 AND [yuso_mode_kbn] IS NULL) OR ([yuso_mode_kbn] = @Original_yuso_mode_kbn)) AND ([vertical_axis_kbn] = @Original_vertical_axis_kbn) AND ([vertical_axis_repeat_kbn] = @Original_vertical_axis_repeat_kbn) AND ([vertical_axis_terminal_value] = @Original_vertical_axis_terminal_value) AND ([horizontal_axis_kbn] = @Original_horizontal_axis_kbn) AND ([horizontal_axis_repeat_kbn] = @Original_horizontal_axis_repeat_kbn) AND ([horizontal_axis_terminal_value] = @Original_horizontal_axis_terminal_value) AND ((@IsNull_tariff_memo = 1 AND [tariff_memo] IS NULL) OR ([tariff_memo] = @Original_tariff_memo)) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_info_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_info_user_id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yuso_mode_kbn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_memo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[m_tariff_info] ([tariff_info_user_id], [tariff_name], [yuso_kbn], [contract_type], [yuso_mode_kbn], [vertical_axis_kbn], [vertical_axis_repeat_kbn], [vertical_axis_terminal_value], [horizontal_axis_kbn], [horizontal_axis_repeat_kbn], [horizontal_axis_terminal_value], [tariff_memo], [CreateDay], [UpdateDay], [CreateUserCode], [UpdateUserCode]) VALUES (@tariff_info_user_id, @tariff_name, @yuso_kbn, @contract_type, @yuso_mode_kbn, @vertical_axis_kbn, @vertical_axis_repeat_kbn, @vertical_axis_terminal_value, @horizontal_axis_kbn, @horizontal_axis_repeat_kbn, @horizontal_axis_terminal_value, @tariff_memo, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);
+SELECT tariff_info_id, tariff_info_user_id, tariff_name, yuso_kbn, contract_type, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM m_tariff_info WHERE (tariff_info_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_info_user_id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[m_tariff_info] SET [tariff_info_user_id] = @tariff_info_user_id, [t" +
+                "ariff_name] = @tariff_name, [yuso_kbn] = @yuso_kbn, [contract_type] = @contract_" +
+                "type, [yuso_mode_kbn] = @yuso_mode_kbn, [vertical_axis_kbn] = @vertical_axis_kbn" +
+                ", [vertical_axis_repeat_kbn] = @vertical_axis_repeat_kbn, [vertical_axis_termina" +
+                "l_value] = @vertical_axis_terminal_value, [horizontal_axis_kbn] = @horizontal_ax" +
+                "is_kbn, [horizontal_axis_repeat_kbn] = @horizontal_axis_repeat_kbn, [horizontal_" +
+                "axis_terminal_value] = @horizontal_axis_terminal_value, [tariff_memo] = @tariff_" +
+                "memo, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateDay, [CreateUserCode] = @Cr" +
+                "eateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE (([tariff_info_id] = @Ori" +
+                "ginal_tariff_info_id) AND ([tariff_info_user_id] = @Original_tariff_info_user_id" +
+                ") AND ((@IsNull_tariff_name = 1 AND [tariff_name] IS NULL) OR ([tariff_name] = @" +
+                "Original_tariff_name)) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([contract_type" +
+                "] = @Original_contract_type) AND ((@IsNull_yuso_mode_kbn = 1 AND [yuso_mode_kbn]" +
+                " IS NULL) OR ([yuso_mode_kbn] = @Original_yuso_mode_kbn)) AND ([vertical_axis_kb" +
+                "n] = @Original_vertical_axis_kbn) AND ([vertical_axis_repeat_kbn] = @Original_ve" +
+                "rtical_axis_repeat_kbn) AND ([vertical_axis_terminal_value] = @Original_vertical" +
+                "_axis_terminal_value) AND ([horizontal_axis_kbn] = @Original_horizontal_axis_kbn" +
+                ") AND ([horizontal_axis_repeat_kbn] = @Original_horizontal_axis_repeat_kbn) AND " +
+                "([horizontal_axis_terminal_value] = @Original_horizontal_axis_terminal_value) AN" +
+                "D ((@IsNull_tariff_memo = 1 AND [tariff_memo] IS NULL) OR ([tariff_memo] = @Orig" +
+                "inal_tariff_memo)) AND ((@IsNull_CreateDay = 1 AND [CreateDay] IS NULL) OR ([Cre" +
+                "ateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS N" +
+                "ULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AN" +
+                "D [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original_CreateUserCode)) AN" +
+                "D ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode" +
+                "] = @Original_UpdateUserCode)));\r\nSELECT tariff_info_id, tariff_info_user_id, ta" +
+                "riff_name, yuso_kbn, contract_type, yuso_mode_kbn, vertical_axis_kbn, vertical_a" +
+                "xis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_ax" +
+                "is_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay" +
+                ", CreateUserCode, UpdateUserCode FROM m_tariff_info WHERE (tariff_info_id = @tar" +
+                "iff_info_id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_info_user_id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_info_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_info_user_id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yuso_mode_kbn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vertical_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vertical_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "vertical_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_repeat_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horizontal_axis_repeat_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horizontal_axis_terminal_value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "horizontal_axis_terminal_value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tariff_memo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tariff_memo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_memo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CreateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdateUserCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tariff_info_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT tariff_info_id, tariff_info_user_id, tariff_name, yuso_kbn, contract_type, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.m_tariff_info";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT                      tariff_info_id, tariff_info_user_id, tariff_name, yuso_kbn, contract_type, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, 
+                                      horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode
+FROM                         m_tariff_info
+WHERE                       (tariff_info_id = @Tariff_info_id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tariff_info_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "tariff_info_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Tariff.m_tariff_infoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Tariff.m_tariff_infoDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Tariff.m_tariff_infoDataTable dataTable = new Tariff.m_tariff_infoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTariffInfoId(Tariff.m_tariff_infoDataTable dataTable, int Tariff_info_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Tariff_info_id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Tariff.m_tariff_infoDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Tariff dataSet) {
+            return this.Adapter.Update(dataSet, "m_tariff_info");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_tariff_info_id, 
+                    string Original_tariff_info_user_id, 
+                    string Original_tariff_name, 
+                    string Original_yuso_kbn, 
+                    string Original_contract_type, 
+                    string Original_yuso_mode_kbn, 
+                    string Original_vertical_axis_kbn, 
+                    string Original_vertical_axis_repeat_kbn, 
+                    decimal Original_vertical_axis_terminal_value, 
+                    string Original_horizontal_axis_kbn, 
+                    string Original_horizontal_axis_repeat_kbn, 
+                    decimal Original_horizontal_axis_terminal_value, 
+                    string Original_tariff_memo, 
+                    global::System.Nullable<global::System.DateTime> Original_CreateDay, 
+                    global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
+                    string Original_CreateUserCode, 
+                    string Original_UpdateUserCode) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_tariff_info_id));
+            if ((Original_tariff_info_user_id == null)) {
+                throw new global::System.ArgumentNullException("Original_tariff_info_user_id");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_tariff_info_user_id));
+            }
+            if ((Original_tariff_name == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_tariff_name));
+            }
+            if ((Original_yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_yuso_kbn));
+            }
+            if ((Original_contract_type == null)) {
+                throw new global::System.ArgumentNullException("Original_contract_type");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_contract_type));
+            }
+            if ((Original_yuso_mode_kbn == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_yuso_mode_kbn));
+            }
+            if ((Original_vertical_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_vertical_axis_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_vertical_axis_kbn));
+            }
+            if ((Original_vertical_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_vertical_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_vertical_axis_repeat_kbn));
+            }
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_vertical_axis_terminal_value));
+            if ((Original_horizontal_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_horizontal_axis_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_horizontal_axis_kbn));
+            }
+            if ((Original_horizontal_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_horizontal_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_horizontal_axis_repeat_kbn));
+            }
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((decimal)(Original_horizontal_axis_terminal_value));
+            if ((Original_tariff_memo == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_tariff_memo));
+            }
+            if ((Original_CreateDay.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((System.DateTime)(Original_CreateDay.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UpdateDay.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((System.DateTime)(Original_UpdateDay.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CreateUserCode == null)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_CreateUserCode));
+            }
+            if ((Original_UpdateUserCode == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_UpdateUserCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string tariff_info_user_id, 
+                    string tariff_name, 
+                    string yuso_kbn, 
+                    string contract_type, 
+                    string yuso_mode_kbn, 
+                    string vertical_axis_kbn, 
+                    string vertical_axis_repeat_kbn, 
+                    decimal vertical_axis_terminal_value, 
+                    string horizontal_axis_kbn, 
+                    string horizontal_axis_repeat_kbn, 
+                    decimal horizontal_axis_terminal_value, 
+                    string tariff_memo, 
+                    global::System.Nullable<global::System.DateTime> CreateDay, 
+                    global::System.Nullable<global::System.DateTime> UpdateDay, 
+                    string CreateUserCode, 
+                    string UpdateUserCode) {
+            if ((tariff_info_user_id == null)) {
+                throw new global::System.ArgumentNullException("tariff_info_user_id");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(tariff_info_user_id));
+            }
+            if ((tariff_name == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(tariff_name));
+            }
+            if ((yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("yuso_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(yuso_kbn));
+            }
+            if ((contract_type == null)) {
+                throw new global::System.ArgumentNullException("contract_type");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(contract_type));
+            }
+            if ((yuso_mode_kbn == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(yuso_mode_kbn));
+            }
+            if ((vertical_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("vertical_axis_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(vertical_axis_kbn));
+            }
+            if ((vertical_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("vertical_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(vertical_axis_repeat_kbn));
+            }
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(vertical_axis_terminal_value));
+            if ((horizontal_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("horizontal_axis_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(horizontal_axis_kbn));
+            }
+            if ((horizontal_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("horizontal_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(horizontal_axis_repeat_kbn));
+            }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(horizontal_axis_terminal_value));
+            if ((tariff_memo == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(tariff_memo));
+            }
+            if ((CreateDay.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(CreateDay.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((UpdateDay.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(UpdateDay.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((CreateUserCode == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(CreateUserCode));
+            }
+            if ((UpdateUserCode == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(UpdateUserCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string tariff_info_user_id, 
+                    string tariff_name, 
+                    string yuso_kbn, 
+                    string contract_type, 
+                    string yuso_mode_kbn, 
+                    string vertical_axis_kbn, 
+                    string vertical_axis_repeat_kbn, 
+                    decimal vertical_axis_terminal_value, 
+                    string horizontal_axis_kbn, 
+                    string horizontal_axis_repeat_kbn, 
+                    decimal horizontal_axis_terminal_value, 
+                    string tariff_memo, 
+                    global::System.Nullable<global::System.DateTime> CreateDay, 
+                    global::System.Nullable<global::System.DateTime> UpdateDay, 
+                    string CreateUserCode, 
+                    string UpdateUserCode, 
+                    int Original_tariff_info_id, 
+                    string Original_tariff_info_user_id, 
+                    string Original_tariff_name, 
+                    string Original_yuso_kbn, 
+                    string Original_contract_type, 
+                    string Original_yuso_mode_kbn, 
+                    string Original_vertical_axis_kbn, 
+                    string Original_vertical_axis_repeat_kbn, 
+                    decimal Original_vertical_axis_terminal_value, 
+                    string Original_horizontal_axis_kbn, 
+                    string Original_horizontal_axis_repeat_kbn, 
+                    decimal Original_horizontal_axis_terminal_value, 
+                    string Original_tariff_memo, 
+                    global::System.Nullable<global::System.DateTime> Original_CreateDay, 
+                    global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
+                    string Original_CreateUserCode, 
+                    string Original_UpdateUserCode, 
+                    int tariff_info_id) {
+            if ((tariff_info_user_id == null)) {
+                throw new global::System.ArgumentNullException("tariff_info_user_id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(tariff_info_user_id));
+            }
+            if ((tariff_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(tariff_name));
+            }
+            if ((yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("yuso_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(yuso_kbn));
+            }
+            if ((contract_type == null)) {
+                throw new global::System.ArgumentNullException("contract_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(contract_type));
+            }
+            if ((yuso_mode_kbn == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(yuso_mode_kbn));
+            }
+            if ((vertical_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("vertical_axis_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(vertical_axis_kbn));
+            }
+            if ((vertical_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("vertical_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(vertical_axis_repeat_kbn));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(vertical_axis_terminal_value));
+            if ((horizontal_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("horizontal_axis_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(horizontal_axis_kbn));
+            }
+            if ((horizontal_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("horizontal_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(horizontal_axis_repeat_kbn));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(horizontal_axis_terminal_value));
+            if ((tariff_memo == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(tariff_memo));
+            }
+            if ((CreateDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(CreateDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((UpdateDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(UpdateDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((CreateUserCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(CreateUserCode));
+            }
+            if ((UpdateUserCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(UpdateUserCode));
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_tariff_info_id));
+            if ((Original_tariff_info_user_id == null)) {
+                throw new global::System.ArgumentNullException("Original_tariff_info_user_id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_tariff_info_user_id));
+            }
+            if ((Original_tariff_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_tariff_name));
+            }
+            if ((Original_yuso_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_yuso_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_yuso_kbn));
+            }
+            if ((Original_contract_type == null)) {
+                throw new global::System.ArgumentNullException("Original_contract_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_contract_type));
+            }
+            if ((Original_yuso_mode_kbn == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_yuso_mode_kbn));
+            }
+            if ((Original_vertical_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_vertical_axis_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_vertical_axis_kbn));
+            }
+            if ((Original_vertical_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_vertical_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_vertical_axis_repeat_kbn));
+            }
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(Original_vertical_axis_terminal_value));
+            if ((Original_horizontal_axis_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_horizontal_axis_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_horizontal_axis_kbn));
+            }
+            if ((Original_horizontal_axis_repeat_kbn == null)) {
+                throw new global::System.ArgumentNullException("Original_horizontal_axis_repeat_kbn");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_horizontal_axis_repeat_kbn));
+            }
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(Original_horizontal_axis_terminal_value));
+            if ((Original_tariff_memo == null)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_tariff_memo));
+            }
+            if ((Original_CreateDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(Original_CreateDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UpdateDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((System.DateTime)(Original_UpdateDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CreateUserCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_CreateUserCode));
+            }
+            if ((Original_UpdateUserCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_UpdateUserCode));
+            }
+            this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(tariff_info_id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string tariff_info_user_id, 
+                    string tariff_name, 
+                    string yuso_kbn, 
+                    string contract_type, 
+                    string yuso_mode_kbn, 
+                    string vertical_axis_kbn, 
+                    string vertical_axis_repeat_kbn, 
+                    decimal vertical_axis_terminal_value, 
+                    string horizontal_axis_kbn, 
+                    string horizontal_axis_repeat_kbn, 
+                    decimal horizontal_axis_terminal_value, 
+                    string tariff_memo, 
+                    global::System.Nullable<global::System.DateTime> CreateDay, 
+                    global::System.Nullable<global::System.DateTime> UpdateDay, 
+                    string CreateUserCode, 
+                    string UpdateUserCode, 
+                    int Original_tariff_info_id, 
+                    string Original_tariff_info_user_id, 
+                    string Original_tariff_name, 
+                    string Original_yuso_kbn, 
+                    string Original_contract_type, 
+                    string Original_yuso_mode_kbn, 
+                    string Original_vertical_axis_kbn, 
+                    string Original_vertical_axis_repeat_kbn, 
+                    decimal Original_vertical_axis_terminal_value, 
+                    string Original_horizontal_axis_kbn, 
+                    string Original_horizontal_axis_repeat_kbn, 
+                    decimal Original_horizontal_axis_terminal_value, 
+                    string Original_tariff_memo, 
+                    global::System.Nullable<global::System.DateTime> Original_CreateDay, 
+                    global::System.Nullable<global::System.DateTime> Original_UpdateDay, 
+                    string Original_CreateUserCode, 
+                    string Original_UpdateUserCode) {
+            return this.Update(tariff_info_user_id, tariff_name, yuso_kbn, contract_type, yuso_mode_kbn, vertical_axis_kbn, vertical_axis_repeat_kbn, vertical_axis_terminal_value, horizontal_axis_kbn, horizontal_axis_repeat_kbn, horizontal_axis_terminal_value, tariff_memo, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode, Original_tariff_info_id, Original_tariff_info_user_id, Original_tariff_name, Original_yuso_kbn, Original_contract_type, Original_yuso_mode_kbn, Original_vertical_axis_kbn, Original_vertical_axis_repeat_kbn, Original_vertical_axis_terminal_value, Original_horizontal_axis_kbn, Original_horizontal_axis_repeat_kbn, Original_horizontal_axis_terminal_value, Original_tariff_memo, Original_CreateDay, Original_UpdateDay, Original_CreateUserCode, Original_UpdateUserCode, Original_tariff_info_id);
         }
     }
 }
