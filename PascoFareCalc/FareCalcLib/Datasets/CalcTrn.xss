@@ -8,10 +8,10 @@
   <Shapes>
     <Shape ID="DesignTable:t_yuso_old" ZOrder="6" X="120" Y="347" Height="262" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="175" />
     <Shape ID="DesignTable:t_keisan_old" ZOrder="5" X="550" Y="294" Height="457" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:t_detail_old" ZOrder="1" X="569" Y="149" Height="379" Width="338" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
+    <Shape ID="DesignTable:t_detail_old" ZOrder="2" X="569" Y="149" Height="379" Width="338" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
     <Shape ID="DesignTable:t_yuso" ZOrder="4" X="110" Y="116" Height="388" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
-    <Shape ID="DesignTable:t_keisan" ZOrder="3" X="479" Y="150" Height="388" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
-    <Shape ID="DesignTable:t_detail" ZOrder="2" X="926" Y="148" Height="388" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:t_keisan" ZOrder="1" X="479" Y="150" Height="388" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:t_detail" ZOrder="3" X="926" Y="148" Height="388" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

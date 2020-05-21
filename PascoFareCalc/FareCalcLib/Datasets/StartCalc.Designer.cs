@@ -2889,6 +2889,7 @@ namespace FareCalcLib.Datasets {
                 this.columndest_cd.MaxLength = 6;
                 this.columnbase_charge_amount.AllowDBNull = false;
                 this.columnspecial_charge_amount.AllowDBNull = false;
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnstopping_charge_amount.AllowDBNull = false;
                 this.columncargo_charge_amount.AllowDBNull = false;
                 this.columnother_charge_amount.AllowDBNull = false;

@@ -247,7 +247,19 @@ namespace FareCalcLib
                     var newRow = CalcWkDs.t_keisan_wk.NewRow();
                     colnameOfKeisanWk.ForEach(colname =>
                     {
-                        if (CalcTrnDs.t_keisan.Columns.Contains(colname)) newRow[colname] = r[colname];
+                        if (CalcTrnDs.t_keisan.Columns.Contains(colname)) 
+                        {
+                            if (colname == "special_charge_amount")
+                            {
+                                // TODO urgent akema 値が入るデータを用意
+                                newRow[colname] = 0;
+                            }
+                            else
+                            {
+                                newRow[colname] = r[colname];
+                            }
+                        }
+                        
                     });
                     newRow["calc_no"] = CalcNo;
                     newRow["max_flg"] = 0;
@@ -269,7 +281,32 @@ namespace FareCalcLib
                     var newRow = CalcWkDs.t_detail_wk.NewRow();
                     colnameOfDetailWk.ForEach(colname =>
                     {
-                        if (CalcTrnDs.t_detail.Columns.Contains(colname)) newRow[colname] = r[colname];
+                        if (CalcTrnDs.t_detail.Columns.Contains(colname))
+                        {
+                            // TODO urgent akema 値が入るデータを用意
+                            if (colname == "distributed_base_charge_amount"
+                            || colname == "distributed_special_charge_amount"
+                            || colname == "distributed_base_charge_amount"
+                            || colname == "distributed_special_charge_amount"
+                            || colname == "distributed_stopping_charge_amount"
+                            || colname == "distributed_cargo_charge_amount"
+                            || colname == "distributed_other_charge_amount"
+                            || colname == "distributed_actual_km_surcharge_amount"
+                            || colname == "distributed_actual_time_surcharge_amount"
+                            || colname == "distributed_actual_assist_surcharge_amount"
+                            || colname == "distributed_actual_load_surcharge_amount"
+                            || colname == "distributed_actual_stand_surcharge_amount"
+                            || colname == "distributed_actual_wash_surcharge_amount"
+                            || colname == "distributed_total_charge_amount"
+                            )
+                            {
+                                newRow[colname] = 0;
+                            }
+                            else
+                            {
+                                newRow[colname] = r[colname];
+                            }
+                        }
                     });
                     newRow["calc_no"] = CalcNo;
                     CalcWkDs.t_detail_wk.Rows.Add(newRow);
@@ -752,23 +789,22 @@ namespace FareCalcLib
                     {
                         colNamesForDevide.ForEach(usoWkColname =>
                         {
-                            // TODO: urgent akema yusoWkRow.weight_sum_kg の値がNULLで処理できないデータ確認 エラーメッセ：DivideResultAmount（）でタイプ「System.DBNull」のオブジェクトをタイプ「System.Decimal」にキャストできません。
-                            //if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
-                            //{
-                            //    var detailColName = "distributed_" + usoWkColname;
-                            //    var devidedlAmount = Decimal.Floor(
-                            //                            (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
-                            //    detailRow[detailColName] = devidedlAmount;
+                            if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
+                            {
+                                var detailColName = "distributed_" + usoWkColname;
+                                var devidedlAmount = Decimal.Floor(
+                                                        (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
+                                detailRow[detailColName] = devidedlAmount;
 
-                            //    // add to summary
-                            //    sumAmounts[detailColName] += devidedlAmount;
+                                // add to summary
+                                sumAmounts[detailColName] += devidedlAmount;
 
-                            //    // set id and value if amount is greater than before
-                            //    if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
-                            //    {
-                            //        maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
-                            //    }
-                            //}
+                                // set id and value if amount is greater than before
+                                if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
+                                {
+                                    maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
+                                }
+                            }
                         });
                     }
 
