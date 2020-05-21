@@ -1714,8 +1714,8 @@ namespace FareCalcLib.Datasets {
                         string dest_warehouse_cd, 
                         string yuso_mode_kbn, 
                         string carrier_company_cd, 
-                        System.DateTime orig_date, 
-                        System.DateTime arriving_date, 
+                        string orig_date, 
+                        string arriving_date, 
                         string dest_cd, 
                         decimal weight_sum_kg, 
                         decimal base_charge_amount, 
@@ -1881,9 +1881,9 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnyuso_mode_kbn);
                 this.columncarrier_company_cd = new global::System.Data.DataColumn("carrier_company_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncarrier_company_cd);
-                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnorig_date = new global::System.Data.DataColumn("orig_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorig_date);
-                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnarriving_date = new global::System.Data.DataColumn("arriving_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnarriving_date);
                 this.columndest_cd = new global::System.Data.DataColumn("dest_cd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndest_cd);
@@ -3826,9 +3826,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime orig_date {
+            public string orig_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_yuso_wk.orig_dateColumn]));
+                    return ((string)(this[this.tablet_yuso_wk.orig_dateColumn]));
                 }
                 set {
                     this[this.tablet_yuso_wk.orig_dateColumn] = value;
@@ -3837,9 +3837,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime arriving_date {
+            public string arriving_date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablet_yuso_wk.arriving_dateColumn]));
+                    return ((string)(this[this.tablet_yuso_wk.arriving_dateColumn]));
                 }
                 set {
                     this[this.tablet_yuso_wk.arriving_dateColumn] = value;
