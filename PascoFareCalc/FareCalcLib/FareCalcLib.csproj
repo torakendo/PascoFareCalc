@@ -4,4 +4,70 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Datasets\CalcNo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CalcNo.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Datasets\CalcTrn.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CalcTrn.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Datasets\CalcWk.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CalcWk.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Datasets\ExtraCostPattern.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExtraCostPattern.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Datasets\StartCalc.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StartCalc.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Datasets\Tariff.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Tariff.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Datasets\CalcNo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcNo.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Datasets\CalcTrn.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcTrn.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Datasets\CalcWk.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcWk.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Datasets\ExtraCostPattern.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExtraCostPattern.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Datasets\StartCalc.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StartCalc.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Datasets\Tariff.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Tariff.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>
