@@ -47,6 +47,10 @@ namespace MakeCalcDataBatch
             {"special_vehicle_kbn","specialvehiclekbn"}
         };
 
+        // TODO: high endo 持ち戻りのカラムマッピング
+        private static Dictionary<string, string> BringBackColumnNameMap = new Dictionary<string, string>()
+        { };
+
         private static string[] commonColNames = { "CreateDay", "UpdateDay", "CreateUserCode", "" };
 
         // TODO: バッチサイズConfigへ移動
@@ -104,7 +108,7 @@ namespace MakeCalcDataBatch
 
                             /* --  generate keisanKey and yusoKey -- */
                             var paramTable = calcKeyGen.GetParamTable();
-                            // TODO: 出荷実績のカラム名に変更する
+                            // TODO: done 出荷実績のカラム名に変更する
                             // TODO: normal akema 輸送区分：持ち戻り、返品、引き取りに対応する
                             paramTable.Keys.ToList().ForEach(paramName => paramTable[paramName] = detailRow[paramName]);
                             // TODO: endo high　calcKeyGen 輸送キーの変更、持ち戻り輸送キー対応（？）
@@ -141,7 +145,7 @@ namespace MakeCalcDataBatch
                                     // TODO: normal　endo 計算結果項目をクリアするかどうか、検討
                                     // TODO: normal akema システム日付取得ヘルパーから取得 datetime.now commonHeler.getdate()
                                     // TODO: low akema 登録更新情報設定の共通化 update_at, update_user, create_at
-                                    // TODO: high endo バッチ更新情報用の項目を持たなくてよいか
+                                    // TODO: done endo バッチ更新情報用の項目を持たなくてよいか
                                     yusoRow.last_calc_at = batchExecDate;
                                     yusoRow.BatchUpdateDay = batchExecDate;
                                     yusoRow.UpdateDay = batchExecDate;
@@ -175,6 +179,9 @@ namespace MakeCalcDataBatch
                                 keisanRow.UpdateDay = batchExecDate;
                             }
 
+                            /* -- t_denpyo insert or update -- */
+                            // TODO: high akema 伝票単位のデータを作成する
+
                             /* -- t_detail insert -- */
                             // make sure there's no same data before insert
                             var detailFillCnt = detailAdp.FillBySlipKey(makeCalcDs.t_detail,
@@ -199,6 +206,7 @@ namespace MakeCalcDataBatch
 
                             // set inclKbn "Done"
                             shkJskRow.incl_kbn = InclKbn.Done;
+                            // TODO: normal akema udpate_day更新
                         }
 
                         // update database

@@ -104,7 +104,8 @@ namespace FareCalcLib
                 // set the tariff price before adding
                 var base_charge_before_adding = tariffDetailQuery.Select(tdr => tdr.tariff_price).ToArray()[0];
 
-                // TODO: high endo 加算ありの範囲の時、両端加算ありの時、繰返し範囲の時、
+                // TODO: urgent1 akema 加算ありの範囲の時、両端加算ありの時、
+                // TODO: high akema 繰返し範囲の時
                 var adding_charge = (decimal)0;
 
                 return base_charge_before_adding + adding_charge;

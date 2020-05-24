@@ -52,7 +52,7 @@ namespace FareCalcLib
         }
 
 
-        // TODO: urgent akema タリフ軸区分に変更
+        // TODO: done akema タリフ軸区分に変更
         public struct CnTariffAxisKbn
         {
             // <summary> 縦 </summary>

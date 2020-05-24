@@ -27,8 +27,8 @@ namespace FareCalcLib
 {
     public class CalculateManager
     {
-        // TODO: urgent akema 最新のテーブル定義に合わせる
-        // TODO: urgent 
+        // TODO: done akema 最新のテーブル定義に合わせる
+        // TODO: urgent akema 最新5/22のテーブル定義の変更分に対応
 
         #region "fields"
         private int CalcNo = 0;
@@ -255,7 +255,7 @@ namespace FareCalcLib
                                 newRow[colname] = 0;
                             }
                             else if (colname == "fare_tariff_id") {
-                                // TODO: urgent akema apply_tariff_idにセットする値を確認
+                                // TODO: urgent1 endo apply_tariff_idにセットする値を確認
                                 //newRow["apply_tariff_id"] = r[colname];
                                 newRow["apply_tariff_id"] = 2;
                             }
@@ -328,12 +328,12 @@ namespace FareCalcLib
                 /* --------------------------------------
                 * set info to keisan_wk by server query
                 * -------------------------------------- */
-                // TODO: 業者コードブランクの発着別に対応する。場合によっては1行ずつ適用   
-                // TODO: urgent akema keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
+                // TODO: cancel 業者コードブランクの発着別に対応する。場合によっては1行ずつ適用   
+                // TODO: urgent1 endo keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
                 // TODO: urgent akema 適用開始終了　出庫日で判定
                 // set calcinfo to keisan_wk by server update query
 
-                // TODO: urgent akema 以下が実行できなくなっているので確認する→クエリをFORMAT(orig_date, 'MMdd')→orig_dateに修正し解消
+                // TODO: done akema 以下が実行できなくなっているので確認する→クエリをFORMAT(orig_date, 'MMdd')→orig_dateに修正し解消
                 var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
                 // fill keisan_wk after update
@@ -456,10 +456,10 @@ namespace FareCalcLib
                         item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
                         item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
 
-                        // TODO: high akema 業者別調整率
+                        // TODO: high akema 業者別調整率　適用した発着別の業者コードに指定がない時に適用　仕様4-2-2
                         item.base_charge_amount = item.original_base_charge_amount;
 
-                        // TODO: high akema 持ち戻り率適用
+                        // TODO: high akema 持ち戻り率適用　仕様4-2-3　base_charge_amount　にセット
                     }
                 }
             }
@@ -478,9 +478,10 @@ namespace FareCalcLib
                 foreach (var exCostRow in CalcWkDs.t_extra_cost_wk)
                 {
                     // if not applicable, break
-                    // TODO: 適用期間チェック
+                    // TODO: high akema 適用期間チェック
                     // TODO: normal akema 時間割増料、期間割増料、地区割増、
                     // TODO: spec endo 時間指定割増料、特別作業割増、特殊車両割増
+                    // TODO: high base_charge 参照部分を　original_base_charge_amountに変更
                     var yusoWkquery = CalcWkDs.t_yuso_wk.Where(r => r.yuso_key == exCostRow.yuso_key);
                     switch (exCostRow.calculate_type_kbn)
                     {
@@ -567,6 +568,7 @@ namespace FareCalcLib
 
         private string GetValueColName(Tariff tariffDs, string tariffAxisKbn)
         {
+            // TODO: low endo 参照されていないので削除
             // TODO: get info from m_tariff_info
             return tariffAxisKbn == CnTariffAxisKbn.Vertical ? "yuso_means_kbn" : "distance_km"; 
         }
@@ -686,15 +688,14 @@ namespace FareCalcLib
                 adpYusoWk.SetUpdateBatchSize(100);
                 var updYusoWkCnt = adpYusoWk.Update(dsStartCalc);
 
-                // TODO: バッチ仕様に反映　出荷実績の連携時には、輸送単位が"doing"になっているときは取込みをスキップする
-                // TODO: 画面仕様に反映　"doing"が含まれる時、再計算指示できない。"doing"の時、実績値は登録できない
+                // TODO: done バッチ仕様に反映　出荷実績の連携時には、輸送単位が"doing"になっているときは取込みをスキップする
+                // TODO: high endo 画面仕様に反映　"doing"が含まれる時、再計算指示できない。"doing"の時、実績値は登録できない
 
                 return newCalcNo;
 
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
