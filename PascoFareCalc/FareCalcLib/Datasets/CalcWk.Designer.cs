@@ -462,6 +462,16 @@ namespace FareCalcLib.Datasets {
             
             private global::System.Data.DataColumn columnactual_km_surcharge_amount;
             
+            private global::System.Data.DataColumn columnverify_ymnd;
+            
+            private global::System.Data.DataColumn columnrelease_ymd;
+            
+            private global::System.Data.DataColumn columnlast_calc_at;
+            
+            private global::System.Data.DataColumn columnBatchUpdateDay;
+            
+            private static System.DateTime columnlast_calc_at_defaultValue = global::System.DateTime.Parse("9999-12-31T00:00:00");
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public t_yuso_wkDataTable() {
@@ -809,6 +819,38 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn verify_ymndColumn {
+                get {
+                    return this.columnverify_ymnd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn release_ymdColumn {
+                get {
+                    return this.columnrelease_ymd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn last_calc_atColumn {
+                get {
+                    return this.columnlast_calc_at;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BatchUpdateDayColumn {
+                get {
+                    return this.columnBatchUpdateDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -871,8 +913,8 @@ namespace FareCalcLib.Datasets {
                         decimal actual_time_mins, 
                         decimal actual_time_surcharge_amount, 
                         decimal total_charge_amount, 
-                        short calc_status, 
-                        short verify_status, 
+                        string calc_status, 
+                        string verify_status, 
                         string yuso_key, 
                         System.DateTime created_at, 
                         string created_user_id, 
@@ -883,7 +925,11 @@ namespace FareCalcLib.Datasets {
                         decimal actual_load_surcharge_amount, 
                         decimal actual_stand_surcharge_amount, 
                         decimal actual_wash_surcharge_amount, 
-                        decimal actual_km_surcharge_amount) {
+                        decimal actual_km_surcharge_amount, 
+                        string verify_ymnd, 
+                        string release_ymd, 
+                        System.DateTime last_calc_at, 
+                        System.DateTime BatchUpdateDay) {
                 t_yuso_wkRow rowt_yuso_wkRow = ((t_yuso_wkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         calc_no,
@@ -924,7 +970,11 @@ namespace FareCalcLib.Datasets {
                         actual_load_surcharge_amount,
                         actual_stand_surcharge_amount,
                         actual_wash_surcharge_amount,
-                        actual_km_surcharge_amount};
+                        actual_km_surcharge_amount,
+                        verify_ymnd,
+                        release_ymd,
+                        last_calc_at,
+                        BatchUpdateDay};
                 rowt_yuso_wkRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowt_yuso_wkRow);
                 return rowt_yuso_wkRow;
@@ -994,6 +1044,10 @@ namespace FareCalcLib.Datasets {
                 this.columnactual_stand_surcharge_amount = base.Columns["actual_stand_surcharge_amount"];
                 this.columnactual_wash_surcharge_amount = base.Columns["actual_wash_surcharge_amount"];
                 this.columnactual_km_surcharge_amount = base.Columns["actual_km_surcharge_amount"];
+                this.columnverify_ymnd = base.Columns["verify_ymnd"];
+                this.columnrelease_ymd = base.Columns["release_ymd"];
+                this.columnlast_calc_at = base.Columns["last_calc_at"];
+                this.columnBatchUpdateDay = base.Columns["BatchUpdateDay"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1051,9 +1105,9 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnactual_time_surcharge_amount);
                 this.columntotal_charge_amount = new global::System.Data.DataColumn("total_charge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal_charge_amount);
-                this.columncalc_status = new global::System.Data.DataColumn("calc_status", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columncalc_status = new global::System.Data.DataColumn("calc_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncalc_status);
-                this.columnverify_status = new global::System.Data.DataColumn("verify_status", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnverify_status = new global::System.Data.DataColumn("verify_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnverify_status);
                 this.columnyuso_key = new global::System.Data.DataColumn("yuso_key", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnyuso_key);
@@ -1077,6 +1131,14 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columnactual_wash_surcharge_amount);
                 this.columnactual_km_surcharge_amount = new global::System.Data.DataColumn("actual_km_surcharge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnactual_km_surcharge_amount);
+                this.columnverify_ymnd = new global::System.Data.DataColumn("verify_ymnd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnverify_ymnd);
+                this.columnrelease_ymd = new global::System.Data.DataColumn("release_ymd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrelease_ymd);
+                this.columnlast_calc_at = new global::System.Data.DataColumn("last_calc_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlast_calc_at);
+                this.columnBatchUpdateDay = new global::System.Data.DataColumn("BatchUpdateDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBatchUpdateDay);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncalc_no,
                                 this.columnyuso_id}, true));
@@ -1122,12 +1184,21 @@ namespace FareCalcLib.Datasets {
                 this.columnyuso_key.AllowDBNull = false;
                 this.columnyuso_key.MaxLength = 40;
                 this.columncreated_user_id.MaxLength = 10;
+                this.columnupdated_user_id.DefaultValue = ((string)("0"));
                 this.columnupdated_user_id.MaxLength = 10;
                 this.columnactual_assist_surcharge_amount.AllowDBNull = false;
                 this.columnactual_load_surcharge_amount.AllowDBNull = false;
                 this.columnactual_stand_surcharge_amount.AllowDBNull = false;
                 this.columnactual_wash_surcharge_amount.AllowDBNull = false;
                 this.columnactual_km_surcharge_amount.AllowDBNull = false;
+                this.columnverify_ymnd.AllowDBNull = false;
+                this.columnverify_ymnd.DefaultValue = ((string)("\"\""));
+                this.columnverify_ymnd.MaxLength = 8;
+                this.columnrelease_ymd.AllowDBNull = false;
+                this.columnrelease_ymd.DefaultValue = ((string)("\"\""));
+                this.columnrelease_ymd.MaxLength = 8;
+                this.columnlast_calc_at.AllowDBNull = false;
+                this.columnlast_calc_at.DefaultValue = ((System.DateTime)(t_yuso_wkDataTable.columnlast_calc_at_defaultValue));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2210,7 +2281,10 @@ namespace FareCalcLib.Datasets {
                 this.columnarriving_date.AllowDBNull = false;
                 this.columndest_cd.AllowDBNull = false;
                 this.columndest_cd.MaxLength = 10;
+                this.columnfare_tariff_id.DefaultValue = ((int)(0));
+                this.columnspecial_tariff_id.DefaultValue = ((int)(0));
                 this.columnapply_tariff_id.DefaultValue = ((int)(0));
+                this.columnextra_cost_pattern_id.DefaultValue = ((int)(0));
                 this.columndistance_km.AllowDBNull = false;
                 this.columnspecial_tariff_start_md.MaxLength = 10;
                 this.columnspecial_tariff_end_md.MaxLength = 10;
@@ -2473,6 +2547,10 @@ namespace FareCalcLib.Datasets {
             private global::System.Data.DataColumn columndistributed_actual_stand_surcharge_amount;
             
             private global::System.Data.DataColumn columndistributed_actual_wash_surcharge_amount;
+            
+            private global::System.Data.DataColumn columndistributed_total_amount;
+            
+            private global::System.Data.DataColumn columndistributed_actual_adjust_surcharge_amount;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2877,6 +2955,22 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn distributed_total_amountColumn {
+                get {
+                    return this.columndistributed_total_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn distributed_actual_adjust_surcharge_amountColumn {
+                get {
+                    return this.columndistributed_actual_adjust_surcharge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2958,7 +3052,9 @@ namespace FareCalcLib.Datasets {
                         decimal distributed_actual_assist_surcharge_amount, 
                         decimal distributed_actual_load_surcharge_amount, 
                         decimal distributed_actual_stand_surcharge_amount, 
-                        decimal distributed_actual_wash_surcharge_amount) {
+                        decimal distributed_actual_wash_surcharge_amount, 
+                        decimal distributed_total_amount, 
+                        decimal distributed_actual_adjust_surcharge_amount) {
                 t_detail_wkRow rowt_detail_wkRow = ((t_detail_wkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         calc_no,
@@ -3006,7 +3102,9 @@ namespace FareCalcLib.Datasets {
                         distributed_actual_assist_surcharge_amount,
                         distributed_actual_load_surcharge_amount,
                         distributed_actual_stand_surcharge_amount,
-                        distributed_actual_wash_surcharge_amount};
+                        distributed_actual_wash_surcharge_amount,
+                        distributed_total_amount,
+                        distributed_actual_adjust_surcharge_amount};
                 rowt_detail_wkRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowt_detail_wkRow);
                 return rowt_detail_wkRow;
@@ -3083,6 +3181,8 @@ namespace FareCalcLib.Datasets {
                 this.columndistributed_actual_load_surcharge_amount = base.Columns["distributed_actual_load_surcharge_amount"];
                 this.columndistributed_actual_stand_surcharge_amount = base.Columns["distributed_actual_stand_surcharge_amount"];
                 this.columndistributed_actual_wash_surcharge_amount = base.Columns["distributed_actual_wash_surcharge_amount"];
+                this.columndistributed_total_amount = base.Columns["distributed_total_amount"];
+                this.columndistributed_actual_adjust_surcharge_amount = base.Columns["distributed_actual_adjust_surcharge_amount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3180,6 +3280,10 @@ namespace FareCalcLib.Datasets {
                 base.Columns.Add(this.columndistributed_actual_stand_surcharge_amount);
                 this.columndistributed_actual_wash_surcharge_amount = new global::System.Data.DataColumn("distributed_actual_wash_surcharge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndistributed_actual_wash_surcharge_amount);
+                this.columndistributed_total_amount = new global::System.Data.DataColumn("distributed_total_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndistributed_total_amount);
+                this.columndistributed_actual_adjust_surcharge_amount = new global::System.Data.DataColumn("distributed_actual_adjust_surcharge_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndistributed_actual_adjust_surcharge_amount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncalc_no,
                                 this.columndetail_id}, true));
@@ -3254,6 +3358,10 @@ namespace FareCalcLib.Datasets {
                 this.columndistributed_actual_load_surcharge_amount.AllowDBNull = false;
                 this.columndistributed_actual_stand_surcharge_amount.AllowDBNull = false;
                 this.columndistributed_actual_wash_surcharge_amount.AllowDBNull = false;
+                this.columndistributed_total_amount.AllowDBNull = false;
+                this.columndistributed_total_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_adjust_surcharge_amount.AllowDBNull = false;
+                this.columndistributed_actual_adjust_surcharge_amount.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4587,9 +4695,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short calc_status {
+            public string calc_status {
                 get {
-                    return ((short)(this[this.tablet_yuso_wk.calc_statusColumn]));
+                    return ((string)(this[this.tablet_yuso_wk.calc_statusColumn]));
                 }
                 set {
                     this[this.tablet_yuso_wk.calc_statusColumn] = value;
@@ -4598,9 +4706,9 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short verify_status {
+            public string verify_status {
                 get {
-                    return ((short)(this[this.tablet_yuso_wk.verify_statusColumn]));
+                    return ((string)(this[this.tablet_yuso_wk.verify_statusColumn]));
                 }
                 set {
                     this[this.tablet_yuso_wk.verify_statusColumn] = value;
@@ -4755,6 +4863,55 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string verify_ymnd {
+                get {
+                    return ((string)(this[this.tablet_yuso_wk.verify_ymndColumn]));
+                }
+                set {
+                    this[this.tablet_yuso_wk.verify_ymndColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string release_ymd {
+                get {
+                    return ((string)(this[this.tablet_yuso_wk.release_ymdColumn]));
+                }
+                set {
+                    this[this.tablet_yuso_wk.release_ymdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime last_calc_at {
+                get {
+                    return ((global::System.DateTime)(this[this.tablet_yuso_wk.last_calc_atColumn]));
+                }
+                set {
+                    this[this.tablet_yuso_wk.last_calc_atColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime BatchUpdateDay {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablet_yuso_wk.BatchUpdateDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_yuso_wk\' にある列 \'BatchUpdateDay\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_yuso_wk.BatchUpdateDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isweight_sum_kgNull() {
                 return this.IsNull(this.tablet_yuso_wk.weight_sum_kgColumn);
             }
@@ -4847,6 +5004,18 @@ namespace FareCalcLib.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setactual_assistant_countNull() {
                 this[this.tablet_yuso_wk.actual_assistant_countColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBatchUpdateDayNull() {
+                return this.IsNull(this.tablet_yuso_wk.BatchUpdateDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBatchUpdateDayNull() {
+                this[this.tablet_yuso_wk.BatchUpdateDayColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6395,6 +6564,28 @@ namespace FareCalcLib.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal distributed_total_amount {
+                get {
+                    return ((decimal)(this[this.tablet_detail_wk.distributed_total_amountColumn]));
+                }
+                set {
+                    this[this.tablet_detail_wk.distributed_total_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal distributed_actual_adjust_surcharge_amount {
+                get {
+                    return ((decimal)(this[this.tablet_detail_wk.distributed_actual_adjust_surcharge_amountColumn]));
+                }
+                set {
+                    this[this.tablet_detail_wk.distributed_actual_adjust_surcharge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isitem_weight_kgNull() {
                 return this.IsNull(this.tablet_detail_wk.item_weight_kgColumn);
             }
@@ -7506,6 +7697,10 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             tableMapping.ColumnMappings.Add("actual_stand_surcharge_amount", "actual_stand_surcharge_amount");
             tableMapping.ColumnMappings.Add("actual_wash_surcharge_amount", "actual_wash_surcharge_amount");
             tableMapping.ColumnMappings.Add("actual_km_surcharge_amount", "actual_km_surcharge_amount");
+            tableMapping.ColumnMappings.Add("verify_ymnd", "verify_ymnd");
+            tableMapping.ColumnMappings.Add("release_ymd", "release_ymd");
+            tableMapping.ColumnMappings.Add("last_calc_at", "last_calc_at");
+            tableMapping.ColumnMappings.Add("BatchUpdateDay", "BatchUpdateDay");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7542,7 +7737,10 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
                 "oad_surcharge_amount) AND ([actual_stand_surcharge_amount] = @Original_actual_st" +
                 "and_surcharge_amount) AND ([actual_wash_surcharge_amount] = @Original_actual_was" +
                 "h_surcharge_amount) AND ([actual_km_surcharge_amount] = @Original_actual_km_surc" +
-                "harge_amount))";
+                "harge_amount) AND ([verify_ymnd] = @Original_verify_ymnd) AND ([release_ymd] = @" +
+                "Original_release_ymd) AND ([last_calc_at] = @Original_last_calc_at) AND ((@IsNul" +
+                "l_BatchUpdateDay = 1 AND [BatchUpdateDay] IS NULL) OR ([BatchUpdateDay] = @Origi" +
+                "nal_BatchUpdateDay)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7557,8 +7755,8 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_sum_kg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_sum_kg", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7591,6 +7789,11 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_km_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_km_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_ymnd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_ymnd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_release_ymd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "release_ymd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BatchUpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BatchUpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BatchUpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BatchUpdateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [t_yuso_wk] ([calc_no], [yuso_id], [calc_ym], [contract_type], [yuso_" +
@@ -7603,26 +7806,28 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
                 "d_at], [created_user_id], [updated_at], [updated_user_id], [actual_assistant_cou" +
                 "nt], [actual_assist_surcharge_amount], [actual_load_surcharge_amount], [actual_s" +
                 "tand_surcharge_amount], [actual_wash_surcharge_amount], [actual_km_surcharge_amo" +
-                "unt]) VALUES (@calc_no, @yuso_id, @calc_ym, @contract_type, @yuso_kbn, @orig_war" +
-                "ehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_jis, @dest" +
-                "_warehouse_cd, @yuso_mode_kbn, @carrier_company_cd, @orig_date, @arriving_date, " +
-                "@dest_cd, @weight_sum_kg, @base_charge_amount, @special_charge_amount, @stopping" +
-                "_charge_amount, @cargo_charge_amount, @other_charge_amount, @actual_distance_km," +
-                " @actual_time_mins, @actual_time_surcharge_amount, @total_charge_amount, @calc_s" +
-                "tatus, @verify_status, @yuso_key, @created_at, @created_user_id, @updated_at, @u" +
-                "pdated_user_id, @actual_assistant_count, @actual_assist_surcharge_amount, @actua" +
-                "l_load_surcharge_amount, @actual_stand_surcharge_amount, @actual_wash_surcharge_" +
-                "amount, @actual_km_surcharge_amount);\r\nSELECT calc_no, yuso_id, calc_ym, contrac" +
-                "t_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehic" +
-                "le_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date" +
-                ", arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amou" +
-                "nt, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_dis" +
-                "tance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, c" +
-                "alc_status, verify_status, yuso_key, created_at, created_user_id, updated_at, up" +
-                "dated_user_id, actual_assistant_count, actual_assist_surcharge_amount, actual_lo" +
-                "ad_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount" +
-                ", actual_km_surcharge_amount FROM t_yuso_wk WHERE (calc_no = @calc_no) AND (yuso" +
-                "_id = @yuso_id)";
+                "unt], [verify_ymnd], [release_ymd], [last_calc_at], [BatchUpdateDay]) VALUES (@c" +
+                "alc_no, @yuso_id, @calc_ym, @contract_type, @yuso_kbn, @orig_warehouse_block_cd," +
+                " @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_jis, @dest_warehouse_cd, @" +
+                "yuso_mode_kbn, @carrier_company_cd, @orig_date, @arriving_date, @dest_cd, @weigh" +
+                "t_sum_kg, @base_charge_amount, @special_charge_amount, @stopping_charge_amount, " +
+                "@cargo_charge_amount, @other_charge_amount, @actual_distance_km, @actual_time_mi" +
+                "ns, @actual_time_surcharge_amount, @total_charge_amount, @calc_status, @verify_s" +
+                "tatus, @yuso_key, @created_at, @created_user_id, @updated_at, @updated_user_id, " +
+                "@actual_assistant_count, @actual_assist_surcharge_amount, @actual_load_surcharge" +
+                "_amount, @actual_stand_surcharge_amount, @actual_wash_surcharge_amount, @actual_" +
+                "km_surcharge_amount, @verify_ymnd, @release_ymd, @last_calc_at, @BatchUpdateDay)" +
+                ";\r\nSELECT calc_no, yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_blo" +
+                "ck_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, " +
+                "yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum" +
+                "_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_ch" +
+                "arge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_t" +
+                "ime_surcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key," +
+                " created_at, created_user_id, updated_at, updated_user_id, actual_assistant_coun" +
+                "t, actual_assist_surcharge_amount, actual_load_surcharge_amount, actual_stand_su" +
+                "rcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount, verify" +
+                "_ymnd, release_ymd, last_calc_at, BatchUpdateDay FROM t_yuso_wk WHERE (calc_no =" +
+                " @calc_no) AND (yuso_id = @yuso_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7637,8 +7842,8 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7663,6 +7868,10 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_km_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_km_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_ymnd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_ymnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@release_ymd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "release_ymd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BatchUpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BatchUpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [t_yuso_wk] SET [calc_no] = @calc_no, [yuso_id] = @yuso_id, [calc_ym] = @c" +
@@ -7684,50 +7893,55 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
                 "urcharge_amount] = @actual_assist_surcharge_amount, [actual_load_surcharge_amoun" +
                 "t] = @actual_load_surcharge_amount, [actual_stand_surcharge_amount] = @actual_st" +
                 "and_surcharge_amount, [actual_wash_surcharge_amount] = @actual_wash_surcharge_am" +
-                "ount, [actual_km_surcharge_amount] = @actual_km_surcharge_amount WHERE (([calc_n" +
-                "o] = @Original_calc_no) AND ([yuso_id] = @Original_yuso_id) AND ([calc_ym] = @Or" +
-                "iginal_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_kbn] " +
-                "= @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_warehouse_" +
-                "block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([terminal" +
-                "_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND ([de" +
-                "st_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_warehous" +
-                "e_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company_cd] " +
-                "= @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND ([ar" +
-                "riving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd) AND " +
-                "((@IsNull_weight_sum_kg = 1 AND [weight_sum_kg] IS NULL) OR ([weight_sum_kg] = @" +
-                "Original_weight_sum_kg)) AND ([base_charge_amount] = @Original_base_charge_amoun" +
-                "t) AND ([special_charge_amount] = @Original_special_charge_amount) AND ([stoppin" +
-                "g_charge_amount] = @Original_stopping_charge_amount) AND ([cargo_charge_amount] " +
-                "= @Original_cargo_charge_amount) AND ([other_charge_amount] = @Original_other_ch" +
-                "arge_amount) AND ((@IsNull_actual_distance_km = 1 AND [actual_distance_km] IS NU" +
-                "LL) OR ([actual_distance_km] = @Original_actual_distance_km)) AND ((@IsNull_actu" +
-                "al_time_mins = 1 AND [actual_time_mins] IS NULL) OR ([actual_time_mins] = @Origi" +
-                "nal_actual_time_mins)) AND ([actual_time_surcharge_amount] = @Original_actual_ti" +
-                "me_surcharge_amount) AND ([total_charge_amount] = @Original_total_charge_amount)" +
-                " AND ([calc_status] = @Original_calc_status) AND ([verify_status] = @Original_ve" +
-                "rify_status) AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_created_at = 1 " +
-                "AND [created_at] IS NULL) OR ([created_at] = @Original_created_at)) AND ((@IsNul" +
-                "l_created_user_id = 1 AND [created_user_id] IS NULL) OR ([created_user_id] = @Or" +
-                "iginal_created_user_id)) AND ((@IsNull_updated_at = 1 AND [updated_at] IS NULL) " +
-                "OR ([updated_at] = @Original_updated_at)) AND ((@IsNull_updated_user_id = 1 AND " +
-                "[updated_user_id] IS NULL) OR ([updated_user_id] = @Original_updated_user_id)) A" +
-                "ND ((@IsNull_actual_assistant_count = 1 AND [actual_assistant_count] IS NULL) OR" +
-                " ([actual_assistant_count] = @Original_actual_assistant_count)) AND ([actual_ass" +
-                "ist_surcharge_amount] = @Original_actual_assist_surcharge_amount) AND ([actual_l" +
-                "oad_surcharge_amount] = @Original_actual_load_surcharge_amount) AND ([actual_sta" +
-                "nd_surcharge_amount] = @Original_actual_stand_surcharge_amount) AND ([actual_was" +
-                "h_surcharge_amount] = @Original_actual_wash_surcharge_amount) AND ([actual_km_su" +
-                "rcharge_amount] = @Original_actual_km_surcharge_amount));\r\nSELECT calc_no, yuso_" +
-                "id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd" +
-                ", terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_c" +
-                "ompany_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount," +
-                " special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charg" +
-                "e_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, to" +
-                "tal_charge_amount, calc_status, verify_status, yuso_key, created_at, created_use" +
-                "r_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surchar" +
-                "ge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_w" +
-                "ash_surcharge_amount, actual_km_surcharge_amount FROM t_yuso_wk WHERE (calc_no =" +
-                " @calc_no) AND (yuso_id = @yuso_id)";
+                "ount, [actual_km_surcharge_amount] = @actual_km_surcharge_amount, [verify_ymnd] " +
+                "= @verify_ymnd, [release_ymd] = @release_ymd, [last_calc_at] = @last_calc_at, [B" +
+                "atchUpdateDay] = @BatchUpdateDay WHERE (([calc_no] = @Original_calc_no) AND ([yu" +
+                "so_id] = @Original_yuso_id) AND ([calc_ym] = @Original_calc_ym) AND ([contract_t" +
+                "ype] = @Original_contract_type) AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig" +
+                "_warehouse_block_cd] = @Original_orig_warehouse_block_cd) AND ([orig_warehouse_c" +
+                "d] = @Original_orig_warehouse_cd) AND ([terminal_id] = @Original_terminal_id) AN" +
+                "D ([vehicle_id] = @Original_vehicle_id) AND ([dest_jis] = @Original_dest_jis) AN" +
+                "D ([dest_warehouse_cd] = @Original_dest_warehouse_cd) AND ([yuso_mode_kbn] = @Or" +
+                "iginal_yuso_mode_kbn) AND ([carrier_company_cd] = @Original_carrier_company_cd) " +
+                "AND ([orig_date] = @Original_orig_date) AND ([arriving_date] = @Original_arrivin" +
+                "g_date) AND ([dest_cd] = @Original_dest_cd) AND ((@IsNull_weight_sum_kg = 1 AND " +
+                "[weight_sum_kg] IS NULL) OR ([weight_sum_kg] = @Original_weight_sum_kg)) AND ([b" +
+                "ase_charge_amount] = @Original_base_charge_amount) AND ([special_charge_amount] " +
+                "= @Original_special_charge_amount) AND ([stopping_charge_amount] = @Original_sto" +
+                "pping_charge_amount) AND ([cargo_charge_amount] = @Original_cargo_charge_amount)" +
+                " AND ([other_charge_amount] = @Original_other_charge_amount) AND ((@IsNull_actua" +
+                "l_distance_km = 1 AND [actual_distance_km] IS NULL) OR ([actual_distance_km] = @" +
+                "Original_actual_distance_km)) AND ((@IsNull_actual_time_mins = 1 AND [actual_tim" +
+                "e_mins] IS NULL) OR ([actual_time_mins] = @Original_actual_time_mins)) AND ([act" +
+                "ual_time_surcharge_amount] = @Original_actual_time_surcharge_amount) AND ([total" +
+                "_charge_amount] = @Original_total_charge_amount) AND ([calc_status] = @Original_" +
+                "calc_status) AND ([verify_status] = @Original_verify_status) AND ([yuso_key] = @" +
+                "Original_yuso_key) AND ((@IsNull_created_at = 1 AND [created_at] IS NULL) OR ([c" +
+                "reated_at] = @Original_created_at)) AND ((@IsNull_created_user_id = 1 AND [creat" +
+                "ed_user_id] IS NULL) OR ([created_user_id] = @Original_created_user_id)) AND ((@" +
+                "IsNull_updated_at = 1 AND [updated_at] IS NULL) OR ([updated_at] = @Original_upd" +
+                "ated_at)) AND ((@IsNull_updated_user_id = 1 AND [updated_user_id] IS NULL) OR ([" +
+                "updated_user_id] = @Original_updated_user_id)) AND ((@IsNull_actual_assistant_co" +
+                "unt = 1 AND [actual_assistant_count] IS NULL) OR ([actual_assistant_count] = @Or" +
+                "iginal_actual_assistant_count)) AND ([actual_assist_surcharge_amount] = @Origina" +
+                "l_actual_assist_surcharge_amount) AND ([actual_load_surcharge_amount] = @Origina" +
+                "l_actual_load_surcharge_amount) AND ([actual_stand_surcharge_amount] = @Original" +
+                "_actual_stand_surcharge_amount) AND ([actual_wash_surcharge_amount] = @Original_" +
+                "actual_wash_surcharge_amount) AND ([actual_km_surcharge_amount] = @Original_actu" +
+                "al_km_surcharge_amount) AND ([verify_ymnd] = @Original_verify_ymnd) AND ([releas" +
+                "e_ymd] = @Original_release_ymd) AND ([last_calc_at] = @Original_last_calc_at) AN" +
+                "D ((@IsNull_BatchUpdateDay = 1 AND [BatchUpdateDay] IS NULL) OR ([BatchUpdateDay" +
+                "] = @Original_BatchUpdateDay)));\r\nSELECT calc_no, yuso_id, calc_ym, contract_typ" +
+                "e, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id" +
+                ", dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arr" +
+                "iving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, s" +
+                "topping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance" +
+                "_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_s" +
+                "tatus, verify_status, yuso_key, created_at, created_user_id, updated_at, updated" +
+                "_user_id, actual_assistant_count, actual_assist_surcharge_amount, actual_load_su" +
+                "rcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, act" +
+                "ual_km_surcharge_amount, verify_ymnd, release_ymd, last_calc_at, BatchUpdateDay " +
+                "FROM t_yuso_wk WHERE (calc_no = @calc_no) AND (yuso_id = @yuso_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7742,8 +7956,8 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@base_charge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "base_charge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7768,6 +7982,10 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actual_km_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_km_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verify_ymnd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_ymnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@release_ymd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "release_ymd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BatchUpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BatchUpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7781,8 +7999,8 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_warehouse_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_warehouse_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_sum_kg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_sum_kg", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_sum_kg", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 11, 2, "weight_sum_kg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7815,14 +8033,19 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_actual_km_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "actual_km_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_verify_ymnd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "verify_ymnd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_release_ymd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "release_ymd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_calc_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_calc_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BatchUpdateDay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BatchUpdateDay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BatchUpdateDay", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BatchUpdateDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
-                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7835,12 +8058,12 @@ namespace FareCalcLib.Datasets.CalcWkTableAdapters {
                                carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, 
                                other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key, created_at, created_user_id,
                                 updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, 
-                               actual_wash_surcharge_amount, actual_km_surcharge_amount
+                               actual_wash_surcharge_amount, actual_km_surcharge_amount, verify_ymnd, release_ymd, last_calc_at, BatchUpdateDay
 FROM                   t_yuso_wk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT actual_assist_surcharge_amount, actual_assistant_count, actual_distance_km, actual_km_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, actual_wash_surcharge_amount, arriving_date, base_charge_amount, calc_no, calc_status, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, created_user_id, dest_cd, dest_jis, dest_warehouse_cd, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, other_charge_amount, special_charge_amount, stopping_charge_amount, terminal_id, total_charge_amount, updated_at, updated_user_id, vehicle_id, verify_status, weight_sum_kg, yuso_id, yuso_kbn, yuso_key, yuso_mode_kbn FROM t_yuso_wk WHERE (calc_no = @Calc_no)";
+            this._commandCollection[1].CommandText = @"SELECT BatchUpdateDay, actual_assist_surcharge_amount, actual_assistant_count, actual_distance_km, actual_km_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, actual_wash_surcharge_amount, arriving_date, base_charge_amount, calc_no, calc_status, calc_ym, cargo_charge_amount, carrier_company_cd, contract_type, created_at, created_user_id, dest_cd, dest_jis, dest_warehouse_cd, last_calc_at, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, other_charge_amount, release_ymd, special_charge_amount, stopping_charge_amount, terminal_id, total_charge_amount, updated_at, updated_user_id, vehicle_id, verify_status, verify_ymnd, weight_sum_kg, yuso_id, yuso_kbn, yuso_key, yuso_mode_kbn FROM t_yuso_wk WHERE (calc_no = @Calc_no)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -7930,8 +8153,8 @@ FROM                   t_yuso_wk";
                     string Original_dest_warehouse_cd, 
                     string Original_yuso_mode_kbn, 
                     string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
+                    string Original_orig_date, 
+                    string Original_arriving_date, 
                     string Original_dest_cd, 
                     global::System.Nullable<decimal> Original_weight_sum_kg, 
                     decimal Original_base_charge_amount, 
@@ -7955,7 +8178,11 @@ FROM                   t_yuso_wk";
                     decimal Original_actual_load_surcharge_amount, 
                     decimal Original_actual_stand_surcharge_amount, 
                     decimal Original_actual_wash_surcharge_amount, 
-                    decimal Original_actual_km_surcharge_amount) {
+                    decimal Original_actual_km_surcharge_amount, 
+                    string Original_verify_ymnd, 
+                    string Original_release_ymd, 
+                    System.DateTime Original_last_calc_at, 
+                    global::System.Nullable<global::System.DateTime> Original_BatchUpdateDay) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_calc_no));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_yuso_id));
             if ((Original_calc_ym == null)) {
@@ -8024,8 +8251,18 @@ FROM                   t_yuso_wk";
             else {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_carrier_company_cd));
             }
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_arriving_date));
+            if ((Original_orig_date == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_date");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_orig_date));
+            }
+            if ((Original_arriving_date == null)) {
+                throw new global::System.ArgumentNullException("Original_arriving_date");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_arriving_date));
+            }
             if ((Original_dest_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_cd");
             }
@@ -8116,6 +8353,27 @@ FROM                   t_yuso_wk";
             this.Adapter.DeleteCommand.Parameters[44].Value = ((decimal)(Original_actual_stand_surcharge_amount));
             this.Adapter.DeleteCommand.Parameters[45].Value = ((decimal)(Original_actual_wash_surcharge_amount));
             this.Adapter.DeleteCommand.Parameters[46].Value = ((decimal)(Original_actual_km_surcharge_amount));
+            if ((Original_verify_ymnd == null)) {
+                throw new global::System.ArgumentNullException("Original_verify_ymnd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((string)(Original_verify_ymnd));
+            }
+            if ((Original_release_ymd == null)) {
+                throw new global::System.ArgumentNullException("Original_release_ymd");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((string)(Original_release_ymd));
+            }
+            this.Adapter.DeleteCommand.Parameters[49].Value = ((System.DateTime)(Original_last_calc_at));
+            if ((Original_BatchUpdateDay.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[51].Value = ((System.DateTime)(Original_BatchUpdateDay.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8150,8 +8408,8 @@ FROM                   t_yuso_wk";
                     string dest_warehouse_cd, 
                     string yuso_mode_kbn, 
                     string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
+                    string orig_date, 
+                    string arriving_date, 
                     string dest_cd, 
                     global::System.Nullable<decimal> weight_sum_kg, 
                     decimal base_charge_amount, 
@@ -8175,7 +8433,11 @@ FROM                   t_yuso_wk";
                     decimal actual_load_surcharge_amount, 
                     decimal actual_stand_surcharge_amount, 
                     decimal actual_wash_surcharge_amount, 
-                    decimal actual_km_surcharge_amount) {
+                    decimal actual_km_surcharge_amount, 
+                    string verify_ymnd, 
+                    string release_ymd, 
+                    System.DateTime last_calc_at, 
+                    global::System.Nullable<global::System.DateTime> BatchUpdateDay) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(calc_no));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(yuso_id));
             if ((calc_ym == null)) {
@@ -8244,8 +8506,18 @@ FROM                   t_yuso_wk";
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(carrier_company_cd));
             }
-            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(orig_date));
-            this.Adapter.InsertCommand.Parameters[14].Value = ((System.DateTime)(arriving_date));
+            if ((orig_date == null)) {
+                throw new global::System.ArgumentNullException("orig_date");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(orig_date));
+            }
+            if ((arriving_date == null)) {
+                throw new global::System.ArgumentNullException("arriving_date");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(arriving_date));
+            }
             if ((dest_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_cd");
             }
@@ -8320,6 +8592,25 @@ FROM                   t_yuso_wk";
             this.Adapter.InsertCommand.Parameters[36].Value = ((decimal)(actual_stand_surcharge_amount));
             this.Adapter.InsertCommand.Parameters[37].Value = ((decimal)(actual_wash_surcharge_amount));
             this.Adapter.InsertCommand.Parameters[38].Value = ((decimal)(actual_km_surcharge_amount));
+            if ((verify_ymnd == null)) {
+                throw new global::System.ArgumentNullException("verify_ymnd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[39].Value = ((string)(verify_ymnd));
+            }
+            if ((release_ymd == null)) {
+                throw new global::System.ArgumentNullException("release_ymd");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[40].Value = ((string)(release_ymd));
+            }
+            this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(last_calc_at));
+            if ((BatchUpdateDay.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(BatchUpdateDay.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8354,8 +8645,8 @@ FROM                   t_yuso_wk";
                     string dest_warehouse_cd, 
                     string yuso_mode_kbn, 
                     string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
+                    string orig_date, 
+                    string arriving_date, 
                     string dest_cd, 
                     global::System.Nullable<decimal> weight_sum_kg, 
                     decimal base_charge_amount, 
@@ -8380,6 +8671,10 @@ FROM                   t_yuso_wk";
                     decimal actual_stand_surcharge_amount, 
                     decimal actual_wash_surcharge_amount, 
                     decimal actual_km_surcharge_amount, 
+                    string verify_ymnd, 
+                    string release_ymd, 
+                    System.DateTime last_calc_at, 
+                    global::System.Nullable<global::System.DateTime> BatchUpdateDay, 
                     int Original_calc_no, 
                     int Original_yuso_id, 
                     string Original_calc_ym, 
@@ -8393,8 +8688,8 @@ FROM                   t_yuso_wk";
                     string Original_dest_warehouse_cd, 
                     string Original_yuso_mode_kbn, 
                     string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
+                    string Original_orig_date, 
+                    string Original_arriving_date, 
                     string Original_dest_cd, 
                     global::System.Nullable<decimal> Original_weight_sum_kg, 
                     decimal Original_base_charge_amount, 
@@ -8418,7 +8713,11 @@ FROM                   t_yuso_wk";
                     decimal Original_actual_load_surcharge_amount, 
                     decimal Original_actual_stand_surcharge_amount, 
                     decimal Original_actual_wash_surcharge_amount, 
-                    decimal Original_actual_km_surcharge_amount) {
+                    decimal Original_actual_km_surcharge_amount, 
+                    string Original_verify_ymnd, 
+                    string Original_release_ymd, 
+                    System.DateTime Original_last_calc_at, 
+                    global::System.Nullable<global::System.DateTime> Original_BatchUpdateDay) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(calc_no));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(yuso_id));
             if ((calc_ym == null)) {
@@ -8487,8 +8786,18 @@ FROM                   t_yuso_wk";
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(carrier_company_cd));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(orig_date));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(arriving_date));
+            if ((orig_date == null)) {
+                throw new global::System.ArgumentNullException("orig_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(orig_date));
+            }
+            if ((arriving_date == null)) {
+                throw new global::System.ArgumentNullException("arriving_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(arriving_date));
+            }
             if ((dest_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_cd");
             }
@@ -8563,166 +8872,216 @@ FROM                   t_yuso_wk";
             this.Adapter.UpdateCommand.Parameters[36].Value = ((decimal)(actual_stand_surcharge_amount));
             this.Adapter.UpdateCommand.Parameters[37].Value = ((decimal)(actual_wash_surcharge_amount));
             this.Adapter.UpdateCommand.Parameters[38].Value = ((decimal)(actual_km_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_calc_no));
-            this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_yuso_id));
+            if ((verify_ymnd == null)) {
+                throw new global::System.ArgumentNullException("verify_ymnd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(verify_ymnd));
+            }
+            if ((release_ymd == null)) {
+                throw new global::System.ArgumentNullException("release_ymd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(release_ymd));
+            }
+            this.Adapter.UpdateCommand.Parameters[41].Value = ((System.DateTime)(last_calc_at));
+            if ((BatchUpdateDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((System.DateTime)(BatchUpdateDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_calc_no));
+            this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_yuso_id));
             if ((Original_calc_ym == null)) {
                 throw new global::System.ArgumentNullException("Original_calc_ym");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_calc_ym));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_calc_ym));
             }
             if ((Original_contract_type == null)) {
                 throw new global::System.ArgumentNullException("Original_contract_type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_contract_type));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_contract_type));
             }
             if ((Original_yuso_kbn == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_yuso_kbn));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_yuso_kbn));
             }
             if ((Original_orig_warehouse_block_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_orig_warehouse_block_cd));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_orig_warehouse_block_cd));
             }
             if ((Original_orig_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_orig_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_orig_warehouse_cd));
             }
             if ((Original_terminal_id == null)) {
                 throw new global::System.ArgumentNullException("Original_terminal_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_terminal_id));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_terminal_id));
             }
             if ((Original_vehicle_id == null)) {
                 throw new global::System.ArgumentNullException("Original_vehicle_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_vehicle_id));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_vehicle_id));
             }
             if ((Original_dest_jis == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_jis");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_dest_jis));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_dest_jis));
             }
             if ((Original_dest_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_dest_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_dest_warehouse_cd));
             }
             if ((Original_yuso_mode_kbn == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_yuso_mode_kbn));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_yuso_mode_kbn));
             }
             if ((Original_carrier_company_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_carrier_company_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_carrier_company_cd));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_carrier_company_cd));
             }
-            this.Adapter.UpdateCommand.Parameters[52].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.UpdateCommand.Parameters[53].Value = ((System.DateTime)(Original_arriving_date));
+            if ((Original_orig_date == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_orig_date));
+            }
+            if ((Original_arriving_date == null)) {
+                throw new global::System.ArgumentNullException("Original_arriving_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_arriving_date));
+            }
             if ((Original_dest_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_dest_cd));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_dest_cd));
             }
             if ((Original_weight_sum_kg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_weight_sum_kg.Value));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_weight_sum_kg.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_base_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_special_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_stopping_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_cargo_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_other_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_base_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((decimal)(Original_special_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_stopping_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[64].Value = ((decimal)(Original_cargo_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_other_charge_amount));
             if ((Original_actual_distance_km.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_actual_distance_km.Value));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((decimal)(Original_actual_distance_km.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
             }
             if ((Original_actual_time_mins.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_actual_time_mins.Value));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((decimal)(Original_actual_time_mins.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[66].Value = ((decimal)(Original_actual_time_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[67].Value = ((decimal)(Original_total_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[68].Value = ((short)(Original_calc_status));
-            this.Adapter.UpdateCommand.Parameters[69].Value = ((short)(Original_verify_status));
+            this.Adapter.UpdateCommand.Parameters[70].Value = ((decimal)(Original_actual_time_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_total_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[72].Value = ((short)(Original_calc_status));
+            this.Adapter.UpdateCommand.Parameters[73].Value = ((short)(Original_verify_status));
             if ((Original_yuso_key == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((string)(Original_yuso_key));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((string)(Original_yuso_key));
             }
             if ((Original_created_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((System.DateTime)(Original_created_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
-            }
-            if ((Original_created_user_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[74].Value = ((string)(Original_created_user_id));
-            }
-            if ((Original_updated_at.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[76].Value = ((System.DateTime)(Original_updated_at.Value));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((System.DateTime)(Original_created_at.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
             }
-            if ((Original_updated_user_id == null)) {
+            if ((Original_created_user_id == null)) {
                 this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[78].Value = ((string)(Original_updated_user_id));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((string)(Original_created_user_id));
             }
-            if ((Original_actual_assistant_count.HasValue == true)) {
+            if ((Original_updated_at.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[80].Value = ((int)(Original_actual_assistant_count.Value));
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((System.DateTime)(Original_updated_at.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[81].Value = ((decimal)(Original_actual_assist_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[82].Value = ((decimal)(Original_actual_load_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_actual_stand_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[84].Value = ((decimal)(Original_actual_wash_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_actual_km_surcharge_amount));
+            if ((Original_updated_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[82].Value = ((string)(Original_updated_user_id));
+            }
+            if ((Original_actual_assistant_count.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[84].Value = ((int)(Original_actual_assistant_count.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_actual_assist_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[86].Value = ((decimal)(Original_actual_load_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[87].Value = ((decimal)(Original_actual_stand_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[88].Value = ((decimal)(Original_actual_wash_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[89].Value = ((decimal)(Original_actual_km_surcharge_amount));
+            if ((Original_verify_ymnd == null)) {
+                throw new global::System.ArgumentNullException("Original_verify_ymnd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((string)(Original_verify_ymnd));
+            }
+            if ((Original_release_ymd == null)) {
+                throw new global::System.ArgumentNullException("Original_release_ymd");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((string)(Original_release_ymd));
+            }
+            this.Adapter.UpdateCommand.Parameters[92].Value = ((System.DateTime)(Original_last_calc_at));
+            if ((Original_BatchUpdateDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((System.DateTime)(Original_BatchUpdateDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[94].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8755,8 +9114,8 @@ FROM                   t_yuso_wk";
                     string dest_warehouse_cd, 
                     string yuso_mode_kbn, 
                     string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
+                    string orig_date, 
+                    string arriving_date, 
                     string dest_cd, 
                     global::System.Nullable<decimal> weight_sum_kg, 
                     decimal base_charge_amount, 
@@ -8781,6 +9140,10 @@ FROM                   t_yuso_wk";
                     decimal actual_stand_surcharge_amount, 
                     decimal actual_wash_surcharge_amount, 
                     decimal actual_km_surcharge_amount, 
+                    string verify_ymnd, 
+                    string release_ymd, 
+                    System.DateTime last_calc_at, 
+                    global::System.Nullable<global::System.DateTime> BatchUpdateDay, 
                     int Original_calc_no, 
                     int Original_yuso_id, 
                     string Original_calc_ym, 
@@ -8794,8 +9157,8 @@ FROM                   t_yuso_wk";
                     string Original_dest_warehouse_cd, 
                     string Original_yuso_mode_kbn, 
                     string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
+                    string Original_orig_date, 
+                    string Original_arriving_date, 
                     string Original_dest_cd, 
                     global::System.Nullable<decimal> Original_weight_sum_kg, 
                     decimal Original_base_charge_amount, 
@@ -8819,8 +9182,12 @@ FROM                   t_yuso_wk";
                     decimal Original_actual_load_surcharge_amount, 
                     decimal Original_actual_stand_surcharge_amount, 
                     decimal Original_actual_wash_surcharge_amount, 
-                    decimal Original_actual_km_surcharge_amount) {
-            return this.Update(Original_calc_no, Original_yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key, created_at, created_user_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount, Original_calc_no, Original_yuso_id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_weight_sum_kg, Original_base_charge_amount, Original_special_charge_amount, Original_stopping_charge_amount, Original_cargo_charge_amount, Original_other_charge_amount, Original_actual_distance_km, Original_actual_time_mins, Original_actual_time_surcharge_amount, Original_total_charge_amount, Original_calc_status, Original_verify_status, Original_yuso_key, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id, Original_actual_assistant_count, Original_actual_assist_surcharge_amount, Original_actual_load_surcharge_amount, Original_actual_stand_surcharge_amount, Original_actual_wash_surcharge_amount, Original_actual_km_surcharge_amount);
+                    decimal Original_actual_km_surcharge_amount, 
+                    string Original_verify_ymnd, 
+                    string Original_release_ymd, 
+                    System.DateTime Original_last_calc_at, 
+                    global::System.Nullable<global::System.DateTime> Original_BatchUpdateDay) {
+            return this.Update(Original_calc_no, Original_yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, weight_sum_kg, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_time_mins, actual_time_surcharge_amount, total_charge_amount, calc_status, verify_status, yuso_key, created_at, created_user_id, updated_at, updated_user_id, actual_assistant_count, actual_assist_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, actual_km_surcharge_amount, verify_ymnd, release_ymd, last_calc_at, BatchUpdateDay, Original_calc_no, Original_yuso_id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_jis, Original_dest_warehouse_cd, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_weight_sum_kg, Original_base_charge_amount, Original_special_charge_amount, Original_stopping_charge_amount, Original_cargo_charge_amount, Original_other_charge_amount, Original_actual_distance_km, Original_actual_time_mins, Original_actual_time_surcharge_amount, Original_total_charge_amount, Original_calc_status, Original_verify_status, Original_yuso_key, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id, Original_actual_assistant_count, Original_actual_assist_surcharge_amount, Original_actual_load_surcharge_amount, Original_actual_stand_surcharge_amount, Original_actual_wash_surcharge_amount, Original_actual_km_surcharge_amount, Original_verify_ymnd, Original_release_ymd, Original_last_calc_at, Original_BatchUpdateDay);
         }
     }
     
@@ -9440,8 +9807,8 @@ FROM                   t_yuso_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
-                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11154,6 +11521,8 @@ FROM                 t_keisan_wk";
             tableMapping.ColumnMappings.Add("distributed_actual_load_surcharge_amount", "distributed_actual_load_surcharge_amount");
             tableMapping.ColumnMappings.Add("distributed_actual_stand_surcharge_amount", "distributed_actual_stand_surcharge_amount");
             tableMapping.ColumnMappings.Add("distributed_actual_wash_surcharge_amount", "distributed_actual_wash_surcharge_amount");
+            tableMapping.ColumnMappings.Add("distributed_total_amount", "distributed_total_amount");
+            tableMapping.ColumnMappings.Add("distributed_actual_adjust_surcharge_amount", "distributed_actual_adjust_surcharge_amount");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -11197,7 +11566,9 @@ FROM                 t_keisan_wk";
                 "actual_load_surcharge_amount] = @Original_distributed_actual_load_surcharge_amou" +
                 "nt) AND ([distributed_actual_stand_surcharge_amount] = @Original_distributed_act" +
                 "ual_stand_surcharge_amount) AND ([distributed_actual_wash_surcharge_amount] = @O" +
-                "riginal_distributed_actual_wash_surcharge_amount))";
+                "riginal_distributed_actual_wash_surcharge_amount) AND ([distributed_total_amount" +
+                "] = @Original_distributed_total_amount) AND ([distributed_actual_adjust_surcharg" +
+                "e_amount] = @Original_distributed_actual_adjust_surcharge_amount))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_detail_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "detail_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11212,8 +11583,8 @@ FROM                 t_keisan_wk";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11253,6 +11624,8 @@ FROM                 t_keisan_wk";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_load_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_load_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_total_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_total_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_adjust_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_adjust_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [t_detail_wk] ([calc_no], [detail_id], [calc_ym], [contract_type], [y" +
@@ -11268,32 +11641,34 @@ FROM                 t_keisan_wk";
                 "o_key], [created_at], [created_user_id], [updated_at], [updated_user_id], [distr" +
                 "ibuted_actual_assist_surcharge_amount], [distributed_actual_load_surcharge_amoun" +
                 "t], [distributed_actual_stand_surcharge_amount], [distributed_actual_wash_surcha" +
-                "rge_amount]) VALUES (@calc_no, @detail_id, @calc_ym, @contract_type, @yuso_kbn, " +
-                "@orig_warehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_w" +
-                "arehouse_cd, @dest_jis, @yuso_mode_kbn, @carrier_company_cd, @orig_date, @arrivi" +
-                "ng_date, @dest_cd, @slip_no, @slip_suffix_no, @slip_detail_no, @item_cd, @item_k" +
-                "igo, @item_name, @item_quantity, @itme_unit, @item_weight_kg, @yuso_means_kbn, @" +
-                "special_vehicle_kbn, @transport_lead_time_hours, @distributed_base_charge_amount" +
-                ", @distributed_special_charge_amount, @distributed_stopping_charge_amount, @dist" +
-                "ributed_cargo_charge_amount, @distributed_other_charge_amount, @distributed_actu" +
-                "al_km_surcharge_amount, @distributed_actual_time_surcharge_amount, @distributed_" +
-                "total_charge_amount, @keisan_key, @yuso_key, @created_at, @created_user_id, @upd" +
-                "ated_at, @updated_user_id, @distributed_actual_assist_surcharge_amount, @distrib" +
-                "uted_actual_load_surcharge_amount, @distributed_actual_stand_surcharge_amount, @" +
-                "distributed_actual_wash_surcharge_amount);\r\nSELECT calc_no, detail_id, calc_ym, " +
-                "contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id" +
-                ", vehicle_id, dest_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, or" +
-                "ig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_c" +
-                "d, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kb" +
-                "n, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amoun" +
-                "t, distributed_special_charge_amount, distributed_stopping_charge_amount, distri" +
-                "buted_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_k" +
-                "m_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_total_" +
-                "charge_amount, keisan_key, yuso_key, created_at, created_user_id, updated_at, up" +
-                "dated_user_id, distributed_actual_assist_surcharge_amount, distributed_actual_lo" +
-                "ad_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actu" +
-                "al_wash_surcharge_amount FROM t_detail_wk WHERE (calc_no = @calc_no) AND (detail" +
-                "_id = @detail_id)";
+                "rge_amount], [distributed_total_amount], [distributed_actual_adjust_surcharge_am" +
+                "ount]) VALUES (@calc_no, @detail_id, @calc_ym, @contract_type, @yuso_kbn, @orig_" +
+                "warehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_warehou" +
+                "se_cd, @dest_jis, @yuso_mode_kbn, @carrier_company_cd, @orig_date, @arriving_dat" +
+                "e, @dest_cd, @slip_no, @slip_suffix_no, @slip_detail_no, @item_cd, @item_kigo, @" +
+                "item_name, @item_quantity, @itme_unit, @item_weight_kg, @yuso_means_kbn, @specia" +
+                "l_vehicle_kbn, @transport_lead_time_hours, @distributed_base_charge_amount, @dis" +
+                "tributed_special_charge_amount, @distributed_stopping_charge_amount, @distribute" +
+                "d_cargo_charge_amount, @distributed_other_charge_amount, @distributed_actual_km_" +
+                "surcharge_amount, @distributed_actual_time_surcharge_amount, @distributed_total_" +
+                "charge_amount, @keisan_key, @yuso_key, @created_at, @created_user_id, @updated_a" +
+                "t, @updated_user_id, @distributed_actual_assist_surcharge_amount, @distributed_a" +
+                "ctual_load_surcharge_amount, @distributed_actual_stand_surcharge_amount, @distri" +
+                "buted_actual_wash_surcharge_amount, @distributed_total_amount, @distributed_actu" +
+                "al_adjust_surcharge_amount);\r\nSELECT calc_no, detail_id, calc_ym, contract_type," +
+                " yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, " +
+                "dest_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, orig_date, arriv" +
+                "ing_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, " +
+                "item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_veh" +
+                "icle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed" +
+                "_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_ch" +
+                "arge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_am" +
+                "ount, distributed_actual_time_surcharge_amount, distributed_total_charge_amount," +
+                " keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id," +
+                " distributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_a" +
+                "mount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcha" +
+                "rge_amount, distributed_total_amount, distributed_actual_adjust_surcharge_amount" +
+                " FROM t_detail_wk WHERE (calc_no = @calc_no) AND (detail_id = @detail_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@detail_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "detail_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11308,8 +11683,8 @@ FROM                 t_keisan_wk";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11341,6 +11716,8 @@ FROM                 t_keisan_wk";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_load_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_load_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_total_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_total_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_adjust_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_adjust_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [t_detail_wk] SET [calc_no] = @calc_no, [detail_id] = @detail_id, [calc_ym" +
@@ -11368,60 +11745,65 @@ FROM                 t_keisan_wk";
                 "unt] = @distributed_actual_assist_surcharge_amount, [distributed_actual_load_sur" +
                 "charge_amount] = @distributed_actual_load_surcharge_amount, [distributed_actual_" +
                 "stand_surcharge_amount] = @distributed_actual_stand_surcharge_amount, [distribut" +
-                "ed_actual_wash_surcharge_amount] = @distributed_actual_wash_surcharge_amount WHE" +
-                "RE (([calc_no] = @Original_calc_no) AND ([detail_id] = @Original_detail_id) AND " +
-                "([calc_ym] = @Original_calc_ym) AND ([contract_type] = @Original_contract_type) " +
-                "AND ([yuso_kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original" +
-                "_orig_warehouse_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd" +
-                ") AND ([terminal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehi" +
-                "cle_id) AND ([dest_warehouse_cd] = @Original_dest_warehouse_cd) AND ([dest_jis] " +
-                "= @Original_dest_jis) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carr" +
-                "ier_company_cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_ori" +
-                "g_date) AND ([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Origin" +
-                "al_dest_cd) AND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Origina" +
-                "l_slip_suffix_no) AND ([slip_detail_no] = @Original_slip_detail_no) AND ([item_c" +
-                "d] = @Original_item_cd) AND ([item_kigo] = @Original_item_kigo) AND ([item_name]" +
-                " = @Original_item_name) AND ([item_quantity] = @Original_item_quantity) AND ([it" +
-                "me_unit] = @Original_itme_unit) AND ((@IsNull_item_weight_kg = 1 AND [item_weigh" +
-                "t_kg] IS NULL) OR ([item_weight_kg] = @Original_item_weight_kg)) AND ((@IsNull_y" +
-                "uso_means_kbn = 1 AND [yuso_means_kbn] IS NULL) OR ([yuso_means_kbn] = @Original" +
-                "_yuso_means_kbn)) AND ((@IsNull_special_vehicle_kbn = 1 AND [special_vehicle_kbn" +
-                "] IS NULL) OR ([special_vehicle_kbn] = @Original_special_vehicle_kbn)) AND ((@Is" +
-                "Null_transport_lead_time_hours = 1 AND [transport_lead_time_hours] IS NULL) OR (" +
-                "[transport_lead_time_hours] = @Original_transport_lead_time_hours)) AND ([distri" +
-                "buted_base_charge_amount] = @Original_distributed_base_charge_amount) AND ([dist" +
-                "ributed_special_charge_amount] = @Original_distributed_special_charge_amount) AN" +
-                "D ([distributed_stopping_charge_amount] = @Original_distributed_stopping_charge_" +
-                "amount) AND ([distributed_cargo_charge_amount] = @Original_distributed_cargo_cha" +
-                "rge_amount) AND ([distributed_other_charge_amount] = @Original_distributed_other" +
-                "_charge_amount) AND ([distributed_actual_km_surcharge_amount] = @Original_distri" +
-                "buted_actual_km_surcharge_amount) AND ([distributed_actual_time_surcharge_amount" +
-                "] = @Original_distributed_actual_time_surcharge_amount) AND ([distributed_total_" +
-                "charge_amount] = @Original_distributed_total_charge_amount) AND ([keisan_key] = " +
-                "@Original_keisan_key) AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_create" +
-                "d_at = 1 AND [created_at] IS NULL) OR ([created_at] = @Original_created_at)) AND" +
-                " ((@IsNull_created_user_id = 1 AND [created_user_id] IS NULL) OR ([created_user_" +
-                "id] = @Original_created_user_id)) AND ((@IsNull_updated_at = 1 AND [updated_at] " +
-                "IS NULL) OR ([updated_at] = @Original_updated_at)) AND ((@IsNull_updated_user_id" +
-                " = 1 AND [updated_user_id] IS NULL) OR ([updated_user_id] = @Original_updated_us" +
-                "er_id)) AND ([distributed_actual_assist_surcharge_amount] = @Original_distribute" +
-                "d_actual_assist_surcharge_amount) AND ([distributed_actual_load_surcharge_amount" +
-                "] = @Original_distributed_actual_load_surcharge_amount) AND ([distributed_actual" +
-                "_stand_surcharge_amount] = @Original_distributed_actual_stand_surcharge_amount) " +
-                "AND ([distributed_actual_wash_surcharge_amount] = @Original_distributed_actual_w" +
-                "ash_surcharge_amount));\r\nSELECT calc_no, detail_id, calc_ym, contract_type, yuso" +
-                "_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_" +
-                "warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_d" +
-                "ate, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_" +
-                "name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_" +
-                "kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_spec" +
-                "ial_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_" +
-                "amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount," +
-                " distributed_actual_time_surcharge_amount, distributed_total_charge_amount, keis" +
-                "an_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, dist" +
-                "ributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount" +
-                ", distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_a" +
-                "mount FROM t_detail_wk WHERE (calc_no = @calc_no) AND (detail_id = @detail_id)";
+                "ed_actual_wash_surcharge_amount] = @distributed_actual_wash_surcharge_amount, [d" +
+                "istributed_total_amount] = @distributed_total_amount, [distributed_actual_adjust" +
+                "_surcharge_amount] = @distributed_actual_adjust_surcharge_amount WHERE (([calc_n" +
+                "o] = @Original_calc_no) AND ([detail_id] = @Original_detail_id) AND ([calc_ym] =" +
+                " @Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_k" +
+                "bn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_wareho" +
+                "use_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([term" +
+                "inal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND " +
+                "([dest_warehouse_cd] = @Original_dest_warehouse_cd) AND ([dest_jis] = @Original_" +
+                "dest_jis) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company_" +
+                "cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND " +
+                "([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd) " +
+                "AND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Original_slip_suffi" +
+                "x_no) AND ([slip_detail_no] = @Original_slip_detail_no) AND ([item_cd] = @Origin" +
+                "al_item_cd) AND ([item_kigo] = @Original_item_kigo) AND ([item_name] = @Original" +
+                "_item_name) AND ([item_quantity] = @Original_item_quantity) AND ([itme_unit] = @" +
+                "Original_itme_unit) AND ((@IsNull_item_weight_kg = 1 AND [item_weight_kg] IS NUL" +
+                "L) OR ([item_weight_kg] = @Original_item_weight_kg)) AND ((@IsNull_yuso_means_kb" +
+                "n = 1 AND [yuso_means_kbn] IS NULL) OR ([yuso_means_kbn] = @Original_yuso_means_" +
+                "kbn)) AND ((@IsNull_special_vehicle_kbn = 1 AND [special_vehicle_kbn] IS NULL) O" +
+                "R ([special_vehicle_kbn] = @Original_special_vehicle_kbn)) AND ((@IsNull_transpo" +
+                "rt_lead_time_hours = 1 AND [transport_lead_time_hours] IS NULL) OR ([transport_l" +
+                "ead_time_hours] = @Original_transport_lead_time_hours)) AND ([distributed_base_c" +
+                "harge_amount] = @Original_distributed_base_charge_amount) AND ([distributed_spec" +
+                "ial_charge_amount] = @Original_distributed_special_charge_amount) AND ([distribu" +
+                "ted_stopping_charge_amount] = @Original_distributed_stopping_charge_amount) AND " +
+                "([distributed_cargo_charge_amount] = @Original_distributed_cargo_charge_amount) " +
+                "AND ([distributed_other_charge_amount] = @Original_distributed_other_charge_amou" +
+                "nt) AND ([distributed_actual_km_surcharge_amount] = @Original_distributed_actual" +
+                "_km_surcharge_amount) AND ([distributed_actual_time_surcharge_amount] = @Origina" +
+                "l_distributed_actual_time_surcharge_amount) AND ([distributed_total_charge_amoun" +
+                "t] = @Original_distributed_total_charge_amount) AND ([keisan_key] = @Original_ke" +
+                "isan_key) AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_created_at = 1 AND" +
+                " [created_at] IS NULL) OR ([created_at] = @Original_created_at)) AND ((@IsNull_c" +
+                "reated_user_id = 1 AND [created_user_id] IS NULL) OR ([created_user_id] = @Origi" +
+                "nal_created_user_id)) AND ((@IsNull_updated_at = 1 AND [updated_at] IS NULL) OR " +
+                "([updated_at] = @Original_updated_at)) AND ((@IsNull_updated_user_id = 1 AND [up" +
+                "dated_user_id] IS NULL) OR ([updated_user_id] = @Original_updated_user_id)) AND " +
+                "([distributed_actual_assist_surcharge_amount] = @Original_distributed_actual_ass" +
+                "ist_surcharge_amount) AND ([distributed_actual_load_surcharge_amount] = @Origina" +
+                "l_distributed_actual_load_surcharge_amount) AND ([distributed_actual_stand_surch" +
+                "arge_amount] = @Original_distributed_actual_stand_surcharge_amount) AND ([distri" +
+                "buted_actual_wash_surcharge_amount] = @Original_distributed_actual_wash_surcharg" +
+                "e_amount) AND ([distributed_total_amount] = @Original_distributed_total_amount) " +
+                "AND ([distributed_actual_adjust_surcharge_amount] = @Original_distributed_actual" +
+                "_adjust_surcharge_amount));\r\nSELECT calc_no, detail_id, calc_ym, contract_type, " +
+                "yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, d" +
+                "est_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, orig_date, arrivi" +
+                "ng_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, i" +
+                "tem_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehi" +
+                "cle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_" +
+                "special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_cha" +
+                "rge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amo" +
+                "unt, distributed_actual_time_surcharge_amount, distributed_total_charge_amount, " +
+                "keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, " +
+                "distributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_am" +
+                "ount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surchar" +
+                "ge_amount, distributed_total_amount, distributed_actual_adjust_surcharge_amount " +
+                "FROM t_detail_wk WHERE (calc_no = @calc_no) AND (detail_id = @detail_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@detail_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "detail_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11436,8 +11818,8 @@ FROM                 t_keisan_wk";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11469,6 +11851,8 @@ FROM                 t_keisan_wk";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_load_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_load_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_total_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_total_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@distributed_actual_adjust_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_adjust_surcharge_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_detail_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "detail_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11482,8 +11866,8 @@ FROM                 t_keisan_wk";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_jis", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_jis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yuso_mode_kbn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_mode_kbn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_carrier_company_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "carrier_company_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_orig_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orig_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_arriving_date", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "arriving_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dest_cd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dest_cd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11523,14 +11907,16 @@ FROM                 t_keisan_wk";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_load_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_load_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_stand_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_stand_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_wash_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_wash_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_total_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_total_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_distributed_actual_adjust_surcharge_amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "distributed_actual_adjust_surcharge_amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
-                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11544,7 +11930,8 @@ FROM                 t_keisan_wk";
                                 special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, 
                                distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, 
                                distributed_total_charge_amount, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, distributed_actual_assist_surcharge_amount, 
-                               distributed_actual_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount
+                               distributed_actual_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_total_amount, 
+                               distributed_actual_adjust_surcharge_amount
 FROM                   t_detail_wk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -11620,8 +12007,8 @@ FROM                   t_detail_wk";
                     string Original_dest_jis, 
                     string Original_yuso_mode_kbn, 
                     string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
+                    string Original_orig_date, 
+                    string Original_arriving_date, 
                     string Original_dest_cd, 
                     string Original_slip_no, 
                     string Original_slip_suffix_no, 
@@ -11652,7 +12039,9 @@ FROM                   t_detail_wk";
                     decimal Original_distributed_actual_assist_surcharge_amount, 
                     decimal Original_distributed_actual_load_surcharge_amount, 
                     decimal Original_distributed_actual_stand_surcharge_amount, 
-                    decimal Original_distributed_actual_wash_surcharge_amount) {
+                    decimal Original_distributed_actual_wash_surcharge_amount, 
+                    decimal Original_distributed_total_amount, 
+                    decimal Original_distributed_actual_adjust_surcharge_amount) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_calc_no));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_detail_id));
             if ((Original_calc_ym == null)) {
@@ -11721,8 +12110,18 @@ FROM                   t_detail_wk";
             else {
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_carrier_company_cd));
             }
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_arriving_date));
+            if ((Original_orig_date == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_date");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_orig_date));
+            }
+            if ((Original_arriving_date == null)) {
+                throw new global::System.ArgumentNullException("Original_arriving_date");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_arriving_date));
+            }
             if ((Original_dest_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_cd");
             }
@@ -11860,6 +12259,8 @@ FROM                   t_detail_wk";
             this.Adapter.DeleteCommand.Parameters[51].Value = ((decimal)(Original_distributed_actual_load_surcharge_amount));
             this.Adapter.DeleteCommand.Parameters[52].Value = ((decimal)(Original_distributed_actual_stand_surcharge_amount));
             this.Adapter.DeleteCommand.Parameters[53].Value = ((decimal)(Original_distributed_actual_wash_surcharge_amount));
+            this.Adapter.DeleteCommand.Parameters[54].Value = ((decimal)(Original_distributed_total_amount));
+            this.Adapter.DeleteCommand.Parameters[55].Value = ((decimal)(Original_distributed_actual_adjust_surcharge_amount));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11894,8 +12295,8 @@ FROM                   t_detail_wk";
                     string dest_jis, 
                     string yuso_mode_kbn, 
                     string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
+                    string orig_date, 
+                    string arriving_date, 
                     string dest_cd, 
                     string slip_no, 
                     string slip_suffix_no, 
@@ -11926,7 +12327,9 @@ FROM                   t_detail_wk";
                     decimal distributed_actual_assist_surcharge_amount, 
                     decimal distributed_actual_load_surcharge_amount, 
                     decimal distributed_actual_stand_surcharge_amount, 
-                    decimal distributed_actual_wash_surcharge_amount) {
+                    decimal distributed_actual_wash_surcharge_amount, 
+                    decimal distributed_total_amount, 
+                    decimal distributed_actual_adjust_surcharge_amount) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(calc_no));
             this.Adapter.InsertCommand.Parameters[1].Value = ((long)(detail_id));
             if ((calc_ym == null)) {
@@ -11995,8 +12398,18 @@ FROM                   t_detail_wk";
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(carrier_company_cd));
             }
-            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(orig_date));
-            this.Adapter.InsertCommand.Parameters[14].Value = ((System.DateTime)(arriving_date));
+            if ((orig_date == null)) {
+                throw new global::System.ArgumentNullException("orig_date");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(orig_date));
+            }
+            if ((arriving_date == null)) {
+                throw new global::System.ArgumentNullException("arriving_date");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(arriving_date));
+            }
             if ((dest_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_cd");
             }
@@ -12118,6 +12531,8 @@ FROM                   t_detail_wk";
             this.Adapter.InsertCommand.Parameters[43].Value = ((decimal)(distributed_actual_load_surcharge_amount));
             this.Adapter.InsertCommand.Parameters[44].Value = ((decimal)(distributed_actual_stand_surcharge_amount));
             this.Adapter.InsertCommand.Parameters[45].Value = ((decimal)(distributed_actual_wash_surcharge_amount));
+            this.Adapter.InsertCommand.Parameters[46].Value = ((decimal)(distributed_total_amount));
+            this.Adapter.InsertCommand.Parameters[47].Value = ((decimal)(distributed_actual_adjust_surcharge_amount));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12152,8 +12567,8 @@ FROM                   t_detail_wk";
                     string dest_jis, 
                     string yuso_mode_kbn, 
                     string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
+                    string orig_date, 
+                    string arriving_date, 
                     string dest_cd, 
                     string slip_no, 
                     string slip_suffix_no, 
@@ -12185,6 +12600,8 @@ FROM                   t_detail_wk";
                     decimal distributed_actual_load_surcharge_amount, 
                     decimal distributed_actual_stand_surcharge_amount, 
                     decimal distributed_actual_wash_surcharge_amount, 
+                    decimal distributed_total_amount, 
+                    decimal distributed_actual_adjust_surcharge_amount, 
                     int Original_calc_no, 
                     long Original_detail_id, 
                     string Original_calc_ym, 
@@ -12198,8 +12615,8 @@ FROM                   t_detail_wk";
                     string Original_dest_jis, 
                     string Original_yuso_mode_kbn, 
                     string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
+                    string Original_orig_date, 
+                    string Original_arriving_date, 
                     string Original_dest_cd, 
                     string Original_slip_no, 
                     string Original_slip_suffix_no, 
@@ -12230,7 +12647,9 @@ FROM                   t_detail_wk";
                     decimal Original_distributed_actual_assist_surcharge_amount, 
                     decimal Original_distributed_actual_load_surcharge_amount, 
                     decimal Original_distributed_actual_stand_surcharge_amount, 
-                    decimal Original_distributed_actual_wash_surcharge_amount) {
+                    decimal Original_distributed_actual_wash_surcharge_amount, 
+                    decimal Original_distributed_total_amount, 
+                    decimal Original_distributed_actual_adjust_surcharge_amount) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(calc_no));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(detail_id));
             if ((calc_ym == null)) {
@@ -12299,8 +12718,18 @@ FROM                   t_detail_wk";
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(carrier_company_cd));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(orig_date));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(arriving_date));
+            if ((orig_date == null)) {
+                throw new global::System.ArgumentNullException("orig_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(orig_date));
+            }
+            if ((arriving_date == null)) {
+                throw new global::System.ArgumentNullException("arriving_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(arriving_date));
+            }
             if ((dest_cd == null)) {
                 throw new global::System.ArgumentNullException("dest_cd");
             }
@@ -12422,213 +12851,227 @@ FROM                   t_detail_wk";
             this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(distributed_actual_load_surcharge_amount));
             this.Adapter.UpdateCommand.Parameters[44].Value = ((decimal)(distributed_actual_stand_surcharge_amount));
             this.Adapter.UpdateCommand.Parameters[45].Value = ((decimal)(distributed_actual_wash_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(Original_calc_no));
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((long)(Original_detail_id));
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(distributed_total_amount));
+            this.Adapter.UpdateCommand.Parameters[47].Value = ((decimal)(distributed_actual_adjust_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(Original_calc_no));
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((long)(Original_detail_id));
             if ((Original_calc_ym == null)) {
                 throw new global::System.ArgumentNullException("Original_calc_ym");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_calc_ym));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_calc_ym));
             }
             if ((Original_contract_type == null)) {
                 throw new global::System.ArgumentNullException("Original_contract_type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_contract_type));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_contract_type));
             }
             if ((Original_yuso_kbn == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_yuso_kbn));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_yuso_kbn));
             }
             if ((Original_orig_warehouse_block_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_orig_warehouse_block_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_orig_warehouse_block_cd));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_orig_warehouse_block_cd));
             }
             if ((Original_orig_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_orig_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_orig_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_orig_warehouse_cd));
             }
             if ((Original_terminal_id == null)) {
                 throw new global::System.ArgumentNullException("Original_terminal_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_terminal_id));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_terminal_id));
             }
             if ((Original_vehicle_id == null)) {
                 throw new global::System.ArgumentNullException("Original_vehicle_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_vehicle_id));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_vehicle_id));
             }
             if ((Original_dest_warehouse_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_warehouse_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_dest_warehouse_cd));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_dest_warehouse_cd));
             }
             if ((Original_dest_jis == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_jis");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_dest_jis));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_dest_jis));
             }
             if ((Original_yuso_mode_kbn == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_mode_kbn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_yuso_mode_kbn));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_yuso_mode_kbn));
             }
             if ((Original_carrier_company_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_carrier_company_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_carrier_company_cd));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_carrier_company_cd));
             }
-            this.Adapter.UpdateCommand.Parameters[59].Value = ((System.DateTime)(Original_orig_date));
-            this.Adapter.UpdateCommand.Parameters[60].Value = ((System.DateTime)(Original_arriving_date));
+            if ((Original_orig_date == null)) {
+                throw new global::System.ArgumentNullException("Original_orig_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_orig_date));
+            }
+            if ((Original_arriving_date == null)) {
+                throw new global::System.ArgumentNullException("Original_arriving_date");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_arriving_date));
+            }
             if ((Original_dest_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_dest_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_dest_cd));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_dest_cd));
             }
             if ((Original_slip_no == null)) {
                 throw new global::System.ArgumentNullException("Original_slip_no");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_slip_no));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_slip_no));
             }
             if ((Original_slip_suffix_no == null)) {
                 throw new global::System.ArgumentNullException("Original_slip_suffix_no");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_slip_suffix_no));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_slip_suffix_no));
             }
             if ((Original_slip_detail_no == null)) {
                 throw new global::System.ArgumentNullException("Original_slip_detail_no");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_slip_detail_no));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_slip_detail_no));
             }
             if ((Original_item_cd == null)) {
                 throw new global::System.ArgumentNullException("Original_item_cd");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_item_cd));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_item_cd));
             }
             if ((Original_item_kigo == null)) {
                 throw new global::System.ArgumentNullException("Original_item_kigo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_item_kigo));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_item_kigo));
             }
             if ((Original_item_name == null)) {
                 throw new global::System.ArgumentNullException("Original_item_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_item_name));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_item_name));
             }
-            this.Adapter.UpdateCommand.Parameters[68].Value = ((int)(Original_item_quantity));
+            this.Adapter.UpdateCommand.Parameters[70].Value = ((int)(Original_item_quantity));
             if ((Original_itme_unit == null)) {
                 throw new global::System.ArgumentNullException("Original_itme_unit");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_itme_unit));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_itme_unit));
             }
             if ((Original_item_weight_kg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_item_weight_kg.Value));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((decimal)(Original_item_weight_kg.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
-            }
-            if ((Original_yuso_means_kbn == null)) {
                 this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((string)(Original_yuso_means_kbn));
-            }
-            if ((Original_special_vehicle_kbn == null)) {
+            if ((Original_yuso_means_kbn == null)) {
                 this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[75].Value = ((string)(Original_special_vehicle_kbn));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((string)(Original_yuso_means_kbn));
             }
-            if ((Original_transport_lead_time_hours.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((int)(Original_transport_lead_time_hours.Value));
-            }
-            else {
+            if ((Original_special_vehicle_kbn == null)) {
                 this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[77].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[78].Value = ((decimal)(Original_distributed_base_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[79].Value = ((decimal)(Original_distributed_special_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[80].Value = ((decimal)(Original_distributed_stopping_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[81].Value = ((decimal)(Original_distributed_cargo_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[82].Value = ((decimal)(Original_distributed_other_charge_amount));
-            this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_distributed_actual_km_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[84].Value = ((decimal)(Original_distributed_actual_time_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_distributed_total_charge_amount));
+            else {
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((string)(Original_special_vehicle_kbn));
+            }
+            if ((Original_transport_lead_time_hours.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((int)(Original_transport_lead_time_hours.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[80].Value = ((decimal)(Original_distributed_base_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[81].Value = ((decimal)(Original_distributed_special_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[82].Value = ((decimal)(Original_distributed_stopping_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_distributed_cargo_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[84].Value = ((decimal)(Original_distributed_other_charge_amount));
+            this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_distributed_actual_km_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[86].Value = ((decimal)(Original_distributed_actual_time_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[87].Value = ((decimal)(Original_distributed_total_charge_amount));
             if ((Original_keisan_key == null)) {
                 throw new global::System.ArgumentNullException("Original_keisan_key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[86].Value = ((string)(Original_keisan_key));
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_keisan_key));
             }
             if ((Original_yuso_key == null)) {
                 throw new global::System.ArgumentNullException("Original_yuso_key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[87].Value = ((string)(Original_yuso_key));
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((string)(Original_yuso_key));
             }
             if ((Original_created_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[89].Value = ((System.DateTime)(Original_created_at.Value));
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((System.DateTime)(Original_created_at.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[89].Value = global::System.DBNull.Value;
-            }
-            if ((Original_created_user_id == null)) {
                 this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[91].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((string)(Original_created_user_id));
-            }
-            if ((Original_updated_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[93].Value = ((System.DateTime)(Original_updated_at.Value));
-            }
-            else {
+            if ((Original_created_user_id == null)) {
                 this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[93].Value = global::System.DBNull.Value;
             }
-            if ((Original_updated_user_id == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((string)(Original_created_user_id));
+            }
+            if ((Original_updated_at.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((System.DateTime)(Original_updated_at.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[95].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[95].Value = ((string)(Original_updated_user_id));
+            if ((Original_updated_user_id == null)) {
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[97].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[96].Value = ((decimal)(Original_distributed_actual_assist_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[97].Value = ((decimal)(Original_distributed_actual_load_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[98].Value = ((decimal)(Original_distributed_actual_stand_surcharge_amount));
-            this.Adapter.UpdateCommand.Parameters[99].Value = ((decimal)(Original_distributed_actual_wash_surcharge_amount));
+            else {
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((string)(Original_updated_user_id));
+            }
+            this.Adapter.UpdateCommand.Parameters[98].Value = ((decimal)(Original_distributed_actual_assist_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[99].Value = ((decimal)(Original_distributed_actual_load_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[100].Value = ((decimal)(Original_distributed_actual_stand_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[101].Value = ((decimal)(Original_distributed_actual_wash_surcharge_amount));
+            this.Adapter.UpdateCommand.Parameters[102].Value = ((decimal)(Original_distributed_total_amount));
+            this.Adapter.UpdateCommand.Parameters[103].Value = ((decimal)(Original_distributed_actual_adjust_surcharge_amount));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12661,8 +13104,8 @@ FROM                   t_detail_wk";
                     string dest_jis, 
                     string yuso_mode_kbn, 
                     string carrier_company_cd, 
-                    System.DateTime orig_date, 
-                    System.DateTime arriving_date, 
+                    string orig_date, 
+                    string arriving_date, 
                     string dest_cd, 
                     string slip_no, 
                     string slip_suffix_no, 
@@ -12694,6 +13137,8 @@ FROM                   t_detail_wk";
                     decimal distributed_actual_load_surcharge_amount, 
                     decimal distributed_actual_stand_surcharge_amount, 
                     decimal distributed_actual_wash_surcharge_amount, 
+                    decimal distributed_total_amount, 
+                    decimal distributed_actual_adjust_surcharge_amount, 
                     int Original_calc_no, 
                     long Original_detail_id, 
                     string Original_calc_ym, 
@@ -12707,8 +13152,8 @@ FROM                   t_detail_wk";
                     string Original_dest_jis, 
                     string Original_yuso_mode_kbn, 
                     string Original_carrier_company_cd, 
-                    System.DateTime Original_orig_date, 
-                    System.DateTime Original_arriving_date, 
+                    string Original_orig_date, 
+                    string Original_arriving_date, 
                     string Original_dest_cd, 
                     string Original_slip_no, 
                     string Original_slip_suffix_no, 
@@ -12739,8 +13184,10 @@ FROM                   t_detail_wk";
                     decimal Original_distributed_actual_assist_surcharge_amount, 
                     decimal Original_distributed_actual_load_surcharge_amount, 
                     decimal Original_distributed_actual_stand_surcharge_amount, 
-                    decimal Original_distributed_actual_wash_surcharge_amount) {
-            return this.Update(Original_calc_no, Original_detail_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_total_charge_amount, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, distributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, Original_calc_no, Original_detail_id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_warehouse_cd, Original_dest_jis, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_slip_no, Original_slip_suffix_no, Original_slip_detail_no, Original_item_cd, Original_item_kigo, Original_item_name, Original_item_quantity, Original_itme_unit, Original_item_weight_kg, Original_yuso_means_kbn, Original_special_vehicle_kbn, Original_transport_lead_time_hours, Original_distributed_base_charge_amount, Original_distributed_special_charge_amount, Original_distributed_stopping_charge_amount, Original_distributed_cargo_charge_amount, Original_distributed_other_charge_amount, Original_distributed_actual_km_surcharge_amount, Original_distributed_actual_time_surcharge_amount, Original_distributed_total_charge_amount, Original_keisan_key, Original_yuso_key, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id, Original_distributed_actual_assist_surcharge_amount, Original_distributed_actual_load_surcharge_amount, Original_distributed_actual_stand_surcharge_amount, Original_distributed_actual_wash_surcharge_amount);
+                    decimal Original_distributed_actual_wash_surcharge_amount, 
+                    decimal Original_distributed_total_amount, 
+                    decimal Original_distributed_actual_adjust_surcharge_amount) {
+            return this.Update(Original_calc_no, Original_detail_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_warehouse_cd, dest_jis, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_total_charge_amount, keisan_key, yuso_key, created_at, created_user_id, updated_at, updated_user_id, distributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_total_amount, distributed_actual_adjust_surcharge_amount, Original_calc_no, Original_detail_id, Original_calc_ym, Original_contract_type, Original_yuso_kbn, Original_orig_warehouse_block_cd, Original_orig_warehouse_cd, Original_terminal_id, Original_vehicle_id, Original_dest_warehouse_cd, Original_dest_jis, Original_yuso_mode_kbn, Original_carrier_company_cd, Original_orig_date, Original_arriving_date, Original_dest_cd, Original_slip_no, Original_slip_suffix_no, Original_slip_detail_no, Original_item_cd, Original_item_kigo, Original_item_name, Original_item_quantity, Original_itme_unit, Original_item_weight_kg, Original_yuso_means_kbn, Original_special_vehicle_kbn, Original_transport_lead_time_hours, Original_distributed_base_charge_amount, Original_distributed_special_charge_amount, Original_distributed_stopping_charge_amount, Original_distributed_cargo_charge_amount, Original_distributed_other_charge_amount, Original_distributed_actual_km_surcharge_amount, Original_distributed_actual_time_surcharge_amount, Original_distributed_total_charge_amount, Original_keisan_key, Original_yuso_key, Original_created_at, Original_created_user_id, Original_updated_at, Original_updated_user_id, Original_distributed_actual_assist_surcharge_amount, Original_distributed_actual_load_surcharge_amount, Original_distributed_actual_stand_surcharge_amount, Original_distributed_actual_wash_surcharge_amount, Original_distributed_total_amount, Original_distributed_actual_adjust_surcharge_amount);
         }
     }
     
@@ -13214,8 +13661,8 @@ FROM                   t_detail_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
-                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

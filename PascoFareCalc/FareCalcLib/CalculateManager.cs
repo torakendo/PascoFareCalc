@@ -303,6 +303,8 @@ namespace FareCalcLib
                             || colname == "distributed_actual_stand_surcharge_amount"
                             || colname == "distributed_actual_wash_surcharge_amount"
                             || colname == "distributed_total_charge_amount"
+                            || colname == "distributed_actual_adjust_surcharge_amount"
+                            || colname == "distributed_total_amount"
                             )
                             {
                                 newRow[colname] = 0;
@@ -703,6 +705,7 @@ namespace FareCalcLib
             {
                 // TODO: 値をトランにセット
                 // TODD: TranをUpdate
+
                 // update wk tables
                 var yusoWkAdp = new CalcWkTableAdapters.t_yuso_wkTableAdapter();
                 yusoWkAdp.Connection = Connection;
@@ -731,6 +734,181 @@ namespace FareCalcLib
                 var cntExCostWk = extraCostWkAdp.Update(CalcWkDs);
                 // TODO: debug code for p1
                 Console.WriteLine("t_extra_cost_wk COUNT = {0}", cntExCostWk);
+
+                // update Trn tables 
+                var yusoTrnAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
+                var keisanTrnAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
+                var detailTrnAdp = new CalcTrnTableAdapters.t_detailTableAdapter();
+
+                yusoTrnAdp.Connection = Connection;
+                keisanTrnAdp.Connection = Connection;
+                detailTrnAdp.Connection = Connection;
+
+                yusoTrnAdp.SetUpdateBatchSize(UpdateBatchSize);
+                keisanTrnAdp.SetUpdateBatchSize(UpdateBatchSize);
+                detailTrnAdp.SetUpdateBatchSize(UpdateBatchSize);
+
+
+                foreach (CalcWk.t_yuso_wkRow yusoWkRow in CalcWkDs.t_yuso_wk)
+                {
+                    // t_yuso 更新
+                    foreach (CalcTrn.t_yusoRow yusoRow in CalcTrnDs.t_yuso)
+                    {
+                        if (yusoRow.yuso_id == yusoWkRow.yuso_id)
+                        {
+                            yusoRow.calc_no = DataRow<int>(yusoWkRow, "calc_no");
+                            yusoRow.calc_ym = DataRow<string>(yusoWkRow, "calc_ym");
+                            yusoRow.contract_type = DataRow<string>(yusoWkRow, "contract_type");
+                            yusoRow.yuso_kbn = DataRow<string>(yusoWkRow, "yuso_kbn");
+                            yusoRow.orig_warehouse_block_cd = DataRow<string>(yusoWkRow, "orig_warehouse_block_cd");
+                            yusoRow.orig_warehouse_cd = DataRow<string>(yusoWkRow, "orig_warehouse_cd");
+                            yusoRow.terminal_id = DataRow<string>(yusoWkRow, "terminal_id");
+                            yusoRow.vehicle_id = DataRow<string>(yusoWkRow, "vehicle_id");
+                            yusoRow.dest_jis = DataRow<string>(yusoWkRow, "dest_jis");
+                            yusoRow.dest_warehouse_cd = DataRow<string>(yusoWkRow, "dest_warehouse_cd");
+                            yusoRow.yuso_mode_kbn = DataRow<string>(yusoWkRow, "yuso_mode_kbn");
+                            yusoRow.carrier_company_cd = DataRow<string>(yusoWkRow, "carrier_company_cd");
+                            yusoRow.orig_date = DataRow<string>(yusoWkRow, "orig_date");
+                            yusoRow.arriving_date = DataRow<string>(yusoWkRow, "arriving_date");
+                            yusoRow.dest_cd = DataRow<string>(yusoWkRow, "dest_cd");
+                            yusoRow.base_charge_amount = DataRow<decimal>(yusoWkRow, "base_charge_amount");
+                            yusoRow.special_charge_amount = DataRow<decimal>(yusoWkRow, "special_charge_amount");
+                            yusoRow.stopping_charge_amount = DataRow<decimal>(yusoWkRow, "stopping_charge_amount");
+                            yusoRow.cargo_charge_amount = DataRow<decimal>(yusoWkRow, "cargo_charge_amount");
+                            yusoRow.other_charge_amount = DataRow<decimal>(yusoWkRow, "other_charge_amount");
+                            yusoRow.actual_distance_km = DataRow<decimal>(yusoWkRow, "actual_distance_km");
+                            yusoRow.actual_distance_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_km_surcharge_amount");
+                            yusoRow.actual_time_mins = DataRow<decimal>(yusoWkRow, "actual_time_mins");
+                            yusoRow.actual_time_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_time_surcharge_amount");
+                            yusoRow.actual_assistant_count = DataRow<int>(yusoWkRow, "actual_assistant_count");
+                            yusoRow.actual_assist_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_assist_surcharge_amount");
+                            yusoRow.actual_load_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_load_surcharge_amount");
+                            yusoRow.actual_stand_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_stand_surcharge_amount");
+                            yusoRow.actual_wash_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_wash_surcharge_amount");
+                            yusoRow.total_charge_amount = DataRow<decimal>(yusoWkRow, "total_charge_amount");
+                            yusoRow.calc_status = DataRow<string>(yusoWkRow, "calc_status");
+                            yusoRow.verify_status = DataRow<string>(yusoWkRow, "verify_status");
+                            yusoRow.yuso_key = DataRow<string>(yusoWkRow, "yuso_key");
+                            yusoRow.verify_ymnd = DataRow<string>(yusoWkRow, "verify_ymnd");
+                            yusoRow.release_ymd = DataRow<string>(yusoWkRow, "release_ymd");
+                            yusoRow.last_calc_at = DataRow<DateTime>(yusoWkRow, "last_calc_at");
+                            yusoRow.BatchUpdateDay = DataRow<DateTime>(yusoWkRow, "BatchUpdateDay");
+                            //yusoRow.CreateDay = DataRow<DateTime>(yusoWkRow, "created_at");
+                            //yusoRow.CreateUserCode = DataRow<string>(yusoWkRow, "created_user_id");
+                            yusoRow.UpdateDay = DateTime.Now;// DataRow<DateTime>(yusoWkRow, "updated_at");
+                            yusoRow.UpdateUserCode = DataRow<string>(yusoWkRow, "updated_user_id");
+                        }
+                    }
+                }
+                foreach (CalcWk.t_keisan_wkRow keisanWkRow in CalcWkDs.t_keisan_wk)
+                {
+                    // t_keisan 更新
+                    foreach (CalcTrn.t_keisanRow keisanRow in CalcTrnDs.t_keisan)
+                    {
+                        if (keisanRow.keisan_id == keisanWkRow.keisan_id)
+                        {
+                            keisanRow.calc_ym = DataRow<string>(keisanWkRow, "calc_ym");
+                            keisanRow.contract_type = DataRow<string>(keisanWkRow, "contract_type");
+                            keisanRow.yuso_kbn = DataRow<string>(keisanWkRow, "yuso_kbn");
+                            keisanRow.orig_warehouse_block_cd = DataRow<string>(keisanWkRow, "orig_warehouse_block_cd");
+                            keisanRow.orig_warehouse_cd = DataRow<string>(keisanWkRow, "orig_warehouse_cd");
+                            keisanRow.terminal_id = DataRow<string>(keisanWkRow, "terminal_id");
+                            keisanRow.vehicle_id = DataRow<string>(keisanWkRow, "vehicle_id");
+                            keisanRow.dest_jis = DataRow<string>(keisanWkRow, "dest_jis");
+                            keisanRow.dest_warehouse_cd = DataRow<string>(keisanWkRow, "dest_warehouse_cd");
+                            keisanRow.yuso_mode_kbn = DataRow<string>(keisanWkRow, "yuso_mode_kbn");
+                            keisanRow.carrier_company_cd = DataRow<string>(keisanWkRow, "carrier_company_cd");
+                            keisanRow.orig_date = DataRow<string>(keisanWkRow, "orig_date");
+                            keisanRow.arriving_date = DataRow<string>(keisanWkRow, "arriving_date");
+                            keisanRow.dest_cd = DataRow<string>(keisanWkRow, "dest_cd");
+                            keisanRow.fare_tariff_id = DataRow<int>(keisanWkRow, "fare_tariff_id");
+                            keisanRow.special_tariff_id = DataRow<int>(keisanWkRow, "special_tariff_id");
+                            keisanRow.extra_cost_pattern_id = DataRow<int>(keisanWkRow, "extra_cost_pattern_id");
+                            keisanRow.distance_km = DataRow<int>(keisanWkRow, "distance_km");
+                            keisanRow.time_mins = DataRow<int>(keisanWkRow, "time_mins");
+                            keisanRow.fuel_cost_amount = DataRow<decimal>(keisanWkRow, "fuel_cost_amount");
+                            keisanRow.stopping_count = DataRow<short>(keisanWkRow, "stopping_count");
+                            keisanRow.special_tariff_start_md = DataRow<string>(keisanWkRow, "special_tariff_start_md");
+                            keisanRow.special_tariff_end_md = DataRow<string>(keisanWkRow, "special_tariff_end_md");
+                            keisanRow.base_charge_amount = DataRow<decimal>(keisanWkRow, "base_charge_amount");
+                            keisanRow.special_charge_amount = DataRow<decimal>(keisanWkRow, "special_charge_amount");
+                            keisanRow.yuso_means_kbn = DataRow<string>(keisanWkRow, "yuso_means_kbn");
+                            keisanRow.max_flg = DataRow<short>(keisanWkRow, "max_flg");
+                            keisanRow.keisan_key = DataRow<string>(keisanWkRow, "keisan_key");
+                            keisanRow.yuso_key = DataRow<string>(keisanWkRow, "yuso_key");
+                            //keisanRow.CreateDay = DataRow<DateTime>(keisanWkRow, "created_at");
+                            //keisanRow.CreateUserCode = DataRow<string>(keisanWkRow, "created_user_id");
+                            keisanRow.UpdateDay = DateTime.Now;// DataRow<DateTime>(keisanWkRow, "updated_at");
+                            keisanRow.UpdateUserCode = DataRow<string>(keisanWkRow, "updated_user_id");
+                        }
+
+                    }
+                }
+                foreach (CalcWk.t_detail_wkRow detailWkRow in CalcWkDs.t_detail_wk)
+                {
+                    // t_detail 更新
+                    foreach (CalcTrn.t_detailRow detailRow in CalcTrnDs.t_detail)
+                    {
+                        if (detailRow.detail_Id == detailWkRow.detail_id)
+                        {
+                            detailRow.calc_ym = DataRow<string>(detailWkRow, "calc_ym");
+                            detailRow.contract_type = DataRow<string>(detailWkRow, "contract_type");
+                            detailRow.yuso_kbn = DataRow<string>(detailWkRow, "yuso_kbn");
+                            detailRow.orig_warehouse_block_cd = DataRow<string>(detailWkRow, "orig_warehouse_block_cd");
+                            detailRow.orig_warehouse_cd = DataRow<string>(detailWkRow, "orig_warehouse_cd");
+                            detailRow.terminal_id = DataRow<string>(detailWkRow, "terminal_id");
+                            detailRow.vehicle_id = DataRow<string>(detailWkRow, "vehicle_id");
+                            detailRow.dest_jis = DataRow<string>(detailWkRow, "dest_jis");
+                            detailRow.dest_warehouse_cd = DataRow<string>(detailWkRow, "dest_warehouse_cd");
+                            detailRow.yuso_mode_kbn = DataRow<string>(detailWkRow, "yuso_mode_kbn");
+                            detailRow.carrier_company_cd = DataRow<string>(detailWkRow, "carrier_company_cd");
+                            detailRow.orig_date = DataRow<string>(detailWkRow, "orig_date");
+                            detailRow.arriving_date = DataRow<string>(detailWkRow, "arriving_date");
+                            detailRow.dest_cd = DataRow<string>(detailWkRow, "dest_cd");
+                            detailRow.slip_no = DataRow<string>(detailWkRow, "slip_no");
+                            detailRow.slip_suffix_no = DataRow<string>(detailWkRow, "slip_suffix_no");
+                            detailRow.slip_detail_no = DataRow<string>(detailWkRow, "slip_detail_no");
+                            detailRow.item_cd = DataRow<string>(detailWkRow, "item_cd");
+                            detailRow.item_kigo = DataRow<string>(detailWkRow, "item_kigo");
+                            detailRow.item_name = DataRow<string>(detailWkRow, "item_name");
+                            detailRow.item_quantity = DataRow<int>(detailWkRow, "item_quantity");
+                            detailRow.itme_unit = DataRow<string>(detailWkRow, "itme_unit");
+                            detailRow.item_weight_kg = DataRow<decimal>(detailWkRow, "item_weight_kg");
+                            detailRow.yuso_means_kbn = DataRow<string>(detailWkRow, "yuso_means_kbn");
+                            detailRow.special_vehicle_kbn = DataRow<string>(detailWkRow, "special_vehicle_kbn");
+                            detailRow.transport_lead_time_hours = DataRow<int>(detailWkRow, "transport_lead_time_hours");
+                            detailRow.distributed_base_charge_amount = DataRow<decimal>(detailWkRow, "distributed_base_charge_amount");
+                            detailRow.distributed_special_charge_amount = DataRow<decimal>(detailWkRow, "distributed_special_charge_amount");
+                            detailRow.distributed_stopping_charge_amount = DataRow<decimal>(detailWkRow, "distributed_stopping_charge_amount");
+                            detailRow.distributed_cargo_charge_amount = DataRow<decimal>(detailWkRow, "distributed_cargo_charge_amount");
+                            detailRow.distributed_other_charge_amount = DataRow<decimal>(detailWkRow, "distributed_other_charge_amount");
+                            detailRow.distributed_actual_km_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_km_surcharge_amount");
+                            detailRow.distributed_actual_time_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_time_surcharge_amount");
+                            detailRow.distributed_actual_assist_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_assist_surcharge_amount");
+                            detailRow.distributed_actual_load_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_load_surcharge_amount");
+                            detailRow.distributed_actual_stand_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_stand_surcharge_amount");
+                            detailRow.distributed_actual_wash_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_wash_surcharge_amount");
+                            detailRow.distributed_actual_adjust_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_adjust_surcharge_amount");
+                            detailRow.distributed_total_amount = DataRow<decimal>(detailWkRow, "distributed_total_amount");
+                            detailRow.keisan_key = DataRow<string>(detailWkRow, "keisan_key");
+                            detailRow.yuso_key = DataRow<string>(detailWkRow, "yuso_key");
+                            //detailRow.CreateDay = DataRow<DateTime>(detailWkRow, "created_at");
+                            //detailRow.CreateUserCode = DataRow<string>(detailWkRow, "created_user_id");
+                            detailRow.UpdateDay = DateTime.Now;// DataRow<DateTime>(detailWkRow, "updated_at");
+                            detailRow.UpdateUserCode = DataRow<string>(detailWkRow, "updated_user_id");
+                        }
+                    }
+                }
+
+                var cntYusoTrn = yusoTrnAdp.Update(this.CalcTrnDs);
+                var cntKeisanTrn = keisanTrnAdp.Update(this.CalcTrnDs);
+                var cntDetailTrn = detailTrnAdp.Update(CalcTrnDs);
+
+                // TODO: debug code for p1
+                Console.WriteLine("t_yuso UPDATE COUNT = {0}", cntYusoTrn);
+                Console.WriteLine("t_keisan UPDATE COUNT = {0}", cntKeisanTrn);
+                Console.WriteLine("t_detail UPDATE COUNT = {0}", cntDetailTrn);
+
             }
             catch (Exception ex)
             {
@@ -843,5 +1021,10 @@ namespace FareCalcLib
             }
         }
 
+        public static Type DataRow<Type>(DataRow dr, String columnName)
+        {
+            Type ret = (dr.IsNull(columnName)) ? default(Type) : dr.Field<Type>(columnName);
+            return ret;
+        }
     }
 }
