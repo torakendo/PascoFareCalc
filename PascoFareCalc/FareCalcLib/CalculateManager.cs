@@ -20,6 +20,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using FareCalcLib.Datasets.ExtraCostPatternTableAdapters;
 using System.Transactions;
+using FareCalcLib.Datasets.CalcWkTableAdapters;
 
 namespace FareCalcLib
 
@@ -67,6 +68,7 @@ namespace FareCalcLib
         }
         /// <summary>
         /// execute calculation 
+        ///   before calling this method make sure CalcNo and Connection to be set
         /// </summary>
         public void Calcurate()
         {
@@ -88,6 +90,15 @@ namespace FareCalcLib
 
                 throw;
             }
+        }
+
+        /// <summary>
+        /// execute re-calculation 
+        ///   before calling this method make sure CalcNo and Connection to be set
+        /// </summary>
+        public void ReCalcurate()
+        {
+            // TODO: high akema 実装　VN側と同じ環境で動くことを確認してからMergeする
         }
 
         private void SetResultToKeisanWk()
@@ -228,6 +239,9 @@ namespace FareCalcLib
                 detailAdp.Connection = Connection;
                 detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
 
+                var origDestAdp = new CalcWkTableAdapters.m_orig_dest_calcinfoTableAdapter();
+                origDestAdp.Connection = Connection;
+
                 /* --------------------------------------
                 * fill yuso_wk
                 * -------------------------------------- */
@@ -242,34 +256,78 @@ namespace FareCalcLib
                 // TODO:クエリーにするか検討
                 var colnameOfKeisanWk = Enumerable.Range(0, CalcWkDs.t_keisan_wk.Columns.Count)
                             .Select(i => CalcWkDs.t_keisan_wk.Columns[i].ColumnName).ToList();
-                CalcTrnDs.t_keisan.ToList().ForEach(r =>
+                foreach (var r in CalcTrnDs.t_keisan)
                 {
-                    var newRow = CalcWkDs.t_keisan_wk.NewRow();
+                    var newRow = CalcWkDs.t_keisan_wk.Newt_keisan_wkRow();
                     colnameOfKeisanWk.ForEach(colname =>
                     {
-                        if (CalcTrnDs.t_keisan.Columns.Contains(colname)) 
+                        if (CalcTrnDs.t_keisan.Columns.Contains(colname))
                         {
-                            if (colname == "special_charge_amount")
-                            {
-                                // TODO: urgent akema 値が入るデータを用意
-                                newRow[colname] = 0;
-                            }
-                            else if (colname == "fare_tariff_id") {
-                                // TODO: urgent1 endo apply_tariff_idにセットする値を確認
-                                //newRow["apply_tariff_id"] = r[colname];
-                                newRow["apply_tariff_id"] = 2;
-                            }
-                            else
-                            {
-                                newRow[colname] = r[colname];
-                            }
+                            newRow[colname] = r[colname];
                         }
-                        
+
                     });
+
+                    /* --------------------------------------
+                    * get calcinfo from m_orig_dest_calcinfo and set keisanWkRow
+                    * -------------------------------------- */
+                    var calcinfoDt = new CalcWk.m_orig_dest_calcinfoDataTable();
+                    var yusoModeKbn = r.contract_type == CnContractType.ByItem ? "" : r.yuso_mode_kbn;
+                    if (r.yuso_kbn == CnYusoKbn.Delivery)
+                    {
+                        calcinfoDt = origDestAdp.GetDataByDeliveryKey(
+                            r.orig_warehouse_block_cd,
+                            r.dest_jis,
+                            r.contract_type,
+                            r.yuso_kbn,
+                            r.carrier_company_cd,
+                            yusoModeKbn);
+                    }
+                    else
+                    {
+                        calcinfoDt = origDestAdp.GetDataByMoveKey(
+                            r.orig_warehouse_cd,
+                            r.dest_warehouse_cd,
+                            r.contract_type,
+                            r.yuso_kbn,
+                            r.carrier_company_cd,
+                            yusoModeKbn);
+                    }
+
+                    if (calcinfoDt.Count == 0)
+                    {
+                        // set err if no match data in calcinfo
+                        newRow.calc_err_flg = 1;
+                    } else if (calcinfoDt.Count >= 1)
+                    {
+                        var q = calcinfoDt.Where(calcinfo => calcinfo.carrier_company_cd == r.carrier_company_cd);
+                        if (q.Count() == 0)
+                        {
+                            q = calcinfoDt.Where(calcinfo => calcinfo.carrier_company_cd == "");
+                        }
+                        var calcinfoRow = q.First();
+                        newRow["fare_tariff_id"] = calcinfoRow["fare_tariff_id"];
+                        newRow["special_tariff_id"] = calcinfoRow["special_tariff_id"];
+                        newRow["apply_tariff_id"] =
+                            !calcinfoRow.Isspecial_tariff_idNull()
+                            && Int16.Parse(calcinfoRow.special_tariff_start_md) <= Int16.Parse(r.orig_date.Substring(2, 4))
+                            && Int16.Parse(calcinfoRow.special_tariff_end_md) >= Int16.Parse(r.orig_date.Substring(2, 4))
+                            ? calcinfoRow.special_tariff_id
+                            : calcinfoRow.fare_tariff_id;
+                        newRow["extra_cost_pattern_id"] = calcinfoRow["extra_cost_pattern_id"];
+                        newRow["distance_km"] = calcinfoRow["distance_km"];
+                        newRow["time_mins"] = calcinfoRow["time_mins"];
+                        newRow["fuel_cost_amount"] = calcinfoRow["fuel_cost_amount"];
+                        newRow["stopping_count"] = calcinfoRow["stopping_count"];
+                        newRow["special_tariff_start_md"] = calcinfoRow["special_tariff_start_md"];
+                        newRow["special_tariff_end_md"] = calcinfoRow["special_tariff_end_md"];
+                        newRow["calcinfo_carrier_company_cd"] = calcinfoRow["carrier_company_cd"];
+                    }
+
                     newRow["calc_no"] = CalcNo;
                     newRow["max_flg"] = 0;
                     CalcWkDs.t_keisan_wk.Rows.Add(newRow);
-                });
+                }
 
                 //  insert into keisan_wk
                 var keisanWkAdp = new CalcWkTableAdapters.t_keisan_wkTableAdapter();
@@ -329,12 +387,12 @@ namespace FareCalcLib
                 * set info to keisan_wk by server query
                 * -------------------------------------- */
                 // TODO: cancel 業者コードブランクの発着別に対応する。場合によっては1行ずつ適用   
-                // TODO: urgent1 endo keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
-                // TODO: urgent akema 適用開始終了　出庫日で判定
+                // TODO: done endo keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
+                // TODO: done akema 適用開始終了　出庫日で判定
                 // set calcinfo to keisan_wk by server update query
 
                 // TODO: done akema 以下が実行できなくなっているので確認する→クエリをFORMAT(orig_date, 'MMdd')→orig_dateに修正し解消
-                var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
+                //var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
                 // fill keisan_wk after update
                 keisanWkAdp.FillByCalcNo(CalcWkDs.t_keisan_wk, this.CalcNo);
@@ -377,17 +435,19 @@ namespace FareCalcLib
                         {
 
                             //create t_extra_cost data for each extra_cost_detail row
-                            exCostPtnDetailTbl.ToList().ForEach(r =>
+                            foreach (var r in exCostPtnDetailTbl)
                             {
                                 var newExCostWkRow = CalcWkDs.t_extra_cost_wk.Newt_extra_cost_wkRow();
 
                                 // set value from ex_cost_pattern row
-                                Enumerable.Range(0, exCostPtnDetailTbl.Columns.Count)
-                                    .Select(i => exCostPtnDetailTbl.Columns[i].ColumnName)
-                                    .ToList().ForEach(colname =>
-                                    {
-                                        newExCostWkRow[colname] = r[colname];
-                                    });
+                                string[] exCostCols = {
+                                    "extra_cost_pattern_id","extra_cost_detail_id","extra_cost_kind_kbn",
+                                    "calculate_type_kbn","tariff_id","adding_price","adding_ratio",
+                                    "applicable_start_md","applicable_end_md","extra_cost_pdfcol_kbn"};
+                                exCostCols.ToList().ForEach(colname =>
+                                {
+                                    newExCostWkRow[colname] = r[colname];
+                                });
 
                                 // set value from keisan_wk
                                 newExCostWkRow["calc_no"] = keisanWkRow["calc_no"];
@@ -419,8 +479,7 @@ namespace FareCalcLib
 
                                 // add row to ex_cost_wk
                                 CalcWkDs.t_extra_cost_wk.Addt_extra_cost_wkRow(newExCostWkRow);
-
-                            });
+                            }
                         });
 
                     });
@@ -438,6 +497,7 @@ namespace FareCalcLib
             try
             {
                 var query = this.CalcWkDs.t_keisan_wk.AsEnumerable()
+                    .Where(x => x.calc_err_flg == 0)
                     .OrderBy(x => x.apply_tariff_id)
                     .GroupBy(g => g.apply_tariff_id);
 
@@ -447,19 +507,28 @@ namespace FareCalcLib
                 foreach (var group in query)
                 {
                     var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
-
-                    foreach (var item in group)
+                    if (tariffDs.m_tariff_info.Count == 0 || tariffDs.m_tariff_detail.Count == 0)
                     {
-                        // set price to keisan_wk row
-                        var calcVar = new CalcVariables(item);
-                        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
-                        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
-                        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+                        foreach (var item in group)
+                        {
+                            item.calc_err_flg = 1;
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in group)
+                        {
+                            // set price to keisan_wk row
+                            var calcVar = new CalcVariables(item);
+                            item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
+                            item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                            item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
 
-                        // TODO: high akema 業者別調整率　適用した発着別の業者コードに指定がない時に適用　仕様4-2-2
-                        item.base_charge_amount = item.original_base_charge_amount;
+                            // TODO: high akema 業者別調整率　適用した発着別の業者コードに指定がない時に適用　仕様4-2-2
+                            item.base_charge_amount = item.original_base_charge_amount;
 
-                        // TODO: high akema 持ち戻り率適用　仕様4-2-3　base_charge_amount　にセット
+                            // TODO: high akema 持ち戻り率適用　仕様4-2-3　base_charge_amount　にセット
+                        }
                     }
                 }
             }

@@ -1911,8 +1911,8 @@ SELECT extra_cost_pattern_id, extra_cost_detail_Id, extra_cost_kind_kbn, calcula
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
-                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2475,30 +2475,30 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
                 "il_no] = @extra_cost_detail_no, [extra_cost_kind_kbn] = @extra_cost_kind_kbn, [c" +
                 "alculate_type_kbn] = @calculate_type_kbn, [tariff_Id] = @tariff_Id, [adding_pric" +
                 "e] = @adding_price, [adding_ratio] = @adding_ratio, [applicable_start_md] = @app" +
-                "licable_start_md, [applicable_end_md] = @applicable_end_md, [extra_cost__pdfcol_" +
-                "kbn] = @extra_cost_pdfcol_kbn, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateD" +
-                "ay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE" +
-                " (([extra_cost_detail_Id] = @Original_extra_cost_detail_Id) AND ([extra_cost_pat" +
-                "tern_id] = @Original_extra_cost_pattern_id) AND ([extra_cost_detail_no] = @Origi" +
-                "nal_extra_cost_detail_no) AND ([extra_cost_kind_kbn] = @Original_extra_cost_kind" +
-                "_kbn) AND ([calculate_type_kbn] = @Original_calculate_type_kbn) AND ((@IsNull_ta" +
-                "riff_Id = 1 AND [tariff_Id] IS NULL) OR ([tariff_Id] = @Original_tariff_Id)) AND" +
-                " ((@IsNull_adding_price = 1 AND [adding_price] IS NULL) OR ([adding_price] = @Or" +
-                "iginal_adding_price)) AND ((@IsNull_adding_ratio = 1 AND [adding_ratio] IS NULL)" +
-                " OR ([adding_ratio] = @Original_adding_ratio)) AND ([applicable_start_md] = @Ori" +
-                "ginal_applicable_start_md) AND ([applicable_end_md] = @Original_applicable_end_m" +
-                "d) AND ([extra_cost_pdfcol_kbn] = @Original_extra_cost_pdfcol_kbn) AND ((@IsNu" +
-                "ll_CreateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)" +
-                ") AND ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Origin" +
-                "al_UpdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR" +
-                " ([CreateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1" +
-                " AND [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode))" +
-                ");\r\nSELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, ex" +
-                "tra_cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, ap" +
-                "plicable_start_md, applicable_end_md, extra_cost_pdfcol_kbn, CreateDay, UpdateD" +
-                "ay, CreateUserCode, UpdateUserCode FROM m_extra_cost_pattern_detail WHERE (extra" +
-                "_cost_detail_Id = @extra_cost_detail_Id) AND (extra_cost_detail_no = @extra_cost" +
-                "_detail_no)";
+                "licable_start_md, [applicable_end_md] = @applicable_end_md, [extra_cost_pdfcol_k" +
+                "bn] = @extra_cost_pdfcol_kbn, [CreateDay] = @CreateDay, [UpdateDay] = @UpdateDay" +
+                ", [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @UpdateUserCode WHERE (" +
+                "([extra_cost_detail_Id] = @Original_extra_cost_detail_Id) AND ([extra_cost_patte" +
+                "rn_id] = @Original_extra_cost_pattern_id) AND ([extra_cost_detail_no] = @Origina" +
+                "l_extra_cost_detail_no) AND ([extra_cost_kind_kbn] = @Original_extra_cost_kind_k" +
+                "bn) AND ([calculate_type_kbn] = @Original_calculate_type_kbn) AND ((@IsNull_tari" +
+                "ff_Id = 1 AND [tariff_Id] IS NULL) OR ([tariff_Id] = @Original_tariff_Id)) AND (" +
+                "(@IsNull_adding_price = 1 AND [adding_price] IS NULL) OR ([adding_price] = @Orig" +
+                "inal_adding_price)) AND ((@IsNull_adding_ratio = 1 AND [adding_ratio] IS NULL) O" +
+                "R ([adding_ratio] = @Original_adding_ratio)) AND ([applicable_start_md] = @Origi" +
+                "nal_applicable_start_md) AND ([applicable_end_md] = @Original_applicable_end_md)" +
+                " AND ([extra_cost_pdfcol_kbn] = @Original_extra_cost_pdfcol_kbn) AND ((@IsNull_C" +
+                "reateDay = 1 AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AN" +
+                "D ((@IsNull_UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_U" +
+                "pdateDay)) AND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([C" +
+                "reateUserCode] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND" +
+                " [UpdateUserCode] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)));\r\n" +
+                "SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_" +
+                "cost_kind_kbn, calculate_type_kbn, tariff_Id, adding_price, adding_ratio, applic" +
+                "able_start_md, applicable_end_md, extra_cost_pdfcol_kbn, CreateDay, UpdateDay, C" +
+                "reateUserCode, UpdateUserCode FROM m_extra_cost_pattern_detail WHERE (extra_cost" +
+                "_detail_Id = @extra_cost_detail_Id) AND (extra_cost_detail_no = @extra_cost_deta" +
+                "il_no)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost_detail_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_detail_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extra_cost_pattern_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pattern_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2543,8 +2543,8 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
-                "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
+                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2557,8 +2557,9 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT adding_price, adding_ratio, applicable_end_md, applicable_start_md, calculate_type_kbn, extra_cost_detail_Id, extra_cost_kind_kbn, extra_cost_pattern_id, tariff_Id FROM m_extra_cost_pattern_detail WHERE (extra_cost_pattern_id = @Extra_cost_pattern_id)
-";
+            this._commandCollection[1].CommandText = @"SELECT               adding_price, adding_ratio, applicable_end_md, applicable_start_md, calculate_type_kbn, extra_cost_detail_Id, extra_cost_kind_kbn, extra_cost_pattern_id, tariff_Id, extra_cost_detail_no, extra_cost_pdfcol_kbn
+FROM                 m_extra_cost_pattern_detail
+WHERE                (extra_cost_pattern_id = @Extra_cost_pattern_id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Extra_cost_pattern_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "extra_cost_pattern_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -2585,20 +2586,6 @@ SELECT extra_cost_detail_Id, extra_cost_pattern_id, extra_cost_detail_no, extra_
             ExtraCostPattern.m_extra_cost_pattern_detailDataTable dataTable = new ExtraCostPattern.m_extra_cost_pattern_detailDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByExtraCostPatternId(ExtraCostPattern.m_extra_cost_pattern_detailDataTable dataTable, int Extra_cost_pattern_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Extra_cost_pattern_id));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

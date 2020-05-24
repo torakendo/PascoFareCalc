@@ -32,11 +32,6 @@ namespace FareCalcLib
             var cntInfo = tariffInfoAdp.FillByTariffInfoId(tariffDs.m_tariff_info, tariffId);
             var cntDetail = tariffDetailAdp.FillByTriffInfoId(tariffDs.m_tariff_detail, tariffId);
 
-            if(!(cntInfo > 0) || !(cntDetail > 0))
-            {
-                // TODO: master not exist error
-                throw new Exception("the master data does not exist");
-            }
             return tariffDs;
         }
 

@@ -13,19 +13,19 @@ namespace FareCalcLib
 
         private const string delim = "|";
         private static List<string> paramNames = new List<string>(){
-            "contract_type",
             "yuso_kbn",
+            "contract_type",
+            "orig_date",
+            "vehicle_id",
             "orig_warehouse_block_cd",
             "orig_warehouse_cd",
-            "terminal_id",
-            "vehicle_id",
-            "dest_warehouse_cd",
-            "dest_jis",
             "yuso_mode_kbn",
             "carrier_company_cd",
-            "orig_date",
-            "arriving_date",
-            "dest_cd"};
+            "dest_jis",
+            "dest_warehouse_cd",
+            "dest_cd",
+            "arriving_date"
+            };
 
         private SHA1Managed shHash;
 
@@ -67,15 +67,11 @@ namespace FareCalcLib
             {
                 // if ByVehicle set yusoKey
                 yusoKeyStr =
-                    paramTable["contract_type"].ToString() + delim +
                     paramTable["yuso_kbn"].ToString() + delim +
-                    paramTable["orig_warehouse_block_cd"].ToString() + delim +
-                    paramTable["orig_warehouse_cd"].ToString() + delim +
-                    paramTable["terminal_id"].ToString() + delim +
-                    paramTable["vehicle_id"].ToString() + delim +
-                    paramTable["yuso_mode_kbn"].ToString() + delim +
-                    paramTable["carrier_company_cd"].ToString() + delim +
-                    paramTable["orig_date"].ToString() + delim;
+                    paramTable["contract_type"].ToString() + delim +
+                    paramTable["orig_date"].ToString() + delim +
+                    paramTable["vehicle_id"].ToString()
+                    ;
             }
             else
             {
