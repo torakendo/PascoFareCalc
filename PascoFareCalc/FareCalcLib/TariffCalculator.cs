@@ -44,7 +44,20 @@ namespace FareCalcLib
         {
             // TODO: get info from m_tariff_info
             var tariffInfo = tariffDs.m_tariff_info.First();
-            var axisKbnColName = tariffAxisKbn.ToLower() + "_axis_kbn";
+
+            //var axisKbnColName = tariffAxisKbn.ToLower() + "_axis_kbn";
+
+            // TODO: urgent akema vertical_axis_kbn、vertical_axis_kbn、horizontal_axis_kbnの振り分け方法を確認
+            var axisKbnColName = "";
+            switch (tariffAxisKbn) {
+                case CnTariffAxisKbn.Vertical:
+                    axisKbnColName = "vertical_axis_kbn";
+                    break;
+                case CnTariffAxisKbn.Horizontal:
+                    axisKbnColName = "horizontal_axis_kbn";
+                    break;
+            }
+
             if (!tariffInfo.IsNull(axisKbnColName)) 
             {
                 string axisKvn = tariffInfo[axisKbnColName].ToString();

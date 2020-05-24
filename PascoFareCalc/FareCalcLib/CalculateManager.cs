@@ -251,8 +251,13 @@ namespace FareCalcLib
                         {
                             if (colname == "special_charge_amount")
                             {
-                                // TODO urgent akema 値が入るデータを用意
+                                // TODO: urgent akema 値が入るデータを用意
                                 newRow[colname] = 0;
+                            }
+                            else if (colname == "fare_tariff_id") {
+                                // TODO: urgent akema apply_tariff_idにセットする値を確認
+                                //newRow["apply_tariff_id"] = r[colname];
+                                newRow["apply_tariff_id"] = 2;
                             }
                             else
                             {
@@ -283,7 +288,7 @@ namespace FareCalcLib
                     {
                         if (CalcTrnDs.t_detail.Columns.Contains(colname))
                         {
-                            // TODO urgent akema 値が入るデータを用意
+                            // TODO: urgent akema 値が入るデータを用意
                             if (colname == "distributed_base_charge_amount"
                             || colname == "distributed_special_charge_amount"
                             || colname == "distributed_base_charge_amount"
@@ -436,25 +441,25 @@ namespace FareCalcLib
 
                 var tariffCalculator = new TariffCalculator(Connection);
 
-                // TODO: urgent akema GetTariffDataset()が取得できないので確認
-                //foreach (var group in query)
-                //{
-                //    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
+                // TODO: urgent akema GetTariffDataset()が取得できないので確認 → CnTariffAxisKbnの区分変更によるエラー修正
+                foreach (var group in query)
+                {
+                    var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
 
-                //    foreach (var item in group)
-                //    {
-                //        // set price to keisan_wk row
-                //        var calcVar = new CalcVariables(item);
-                //        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
-                //        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
-                //        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
+                    foreach (var item in group)
+                    {
+                        // set price to keisan_wk row
+                        var calcVar = new CalcVariables(item);
+                        item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
+                        item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                        item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
 
-                //        // TODO: high akema 業者別調整率
-                //        item.base_charge_amount = item.original_base_charge_amount;
+                        // TODO: high akema 業者別調整率
+                        item.base_charge_amount = item.original_base_charge_amount;
 
-                //        // TODO: high akema 持ち戻り率適用
-                //    }
-                //}
+                        // TODO: high akema 持ち戻り率適用
+                    }
+                }
             }
             catch (Exception ex)
             {
