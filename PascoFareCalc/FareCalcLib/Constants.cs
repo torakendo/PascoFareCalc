@@ -130,11 +130,16 @@ namespace FareCalcLib
             public const string OtherCharge = "99";
         }
 
-        public struct AxisKbn 
+        // 縦横軸区分
+        public struct AxisKbn
         {
+            /// <summary> 重量（kg） </summary>
             public const string WeightKg = "01";
+            /// <summary> 距離（km） </summary>
             public const string DistanceKm = "02";
+            /// <summary> 時間(分） </summary>
             public const string TimeMins = "03";
+            /// <summary> 輸送手段 </summary>
             public const string YusoMeans = "04";
         }
 
@@ -150,6 +155,35 @@ namespace FareCalcLib
         {
             public const string UnDone = "02";
             public const string Done = "01";
+        }
+
+        // 縦横軸繰返し区分
+        public struct AxisRepeatkbn
+        {
+            /// <summary> あり </summary>
+            public const string Yes = "01";
+            /// <summary> なし </summary>
+            public const string No = "02";
+        }
+
+        // タリフ軸目盛限度区分
+        public struct AxisStepToKbn
+        {
+            /// <summary> まで </summary>
+            public const string Until = "01";
+            /// <summary> 超過 </summary>
+            public const string Excess = "02";
+        }
+
+        // タリフ軸目盛末端区分
+        public struct AxisValueKbn
+        {
+            /// <summary> 金額 </summary>
+            public const string Money = "01";
+            /// <summary> 増分単価 </summary>
+            public const string UnitPrice = "02";
+            /// <summary> 繰返し </summary>
+            public const string Repetition = "03";
         }
     }
 }
