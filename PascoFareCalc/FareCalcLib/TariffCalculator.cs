@@ -147,6 +147,9 @@ namespace FareCalcLib
                 // 可算前 + 加算額合計
                 decimal total_adding_charge = base_charge_before_adding + adding_charge;
 
+
+                // TODO: high akema 繰返し範囲の時
+
                 return total_adding_charge;
             }
             else
