@@ -3,10 +3,10 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
 using System.Transactions;
-using FareCalcLib;
-using FareCalcLib.Datasets;
+using Pasco.FareCalcLib;
+using Pasco.FareCalcLib.Datasets;
 
-namespace FareCalcBatch
+namespace Pasco.FareCalcBatch
 {
     class Program
     {

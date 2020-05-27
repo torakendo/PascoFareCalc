@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Reflection;
 
-namespace FareCalcLib.Datasets
+namespace Pasco.FareCalcLib.Datasets
 {
     public class BaseAdapter : Component
     {

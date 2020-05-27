@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace FareCalcLib.Datasets {
+namespace Pasco.FareCalcLib.Datasets {
     
     
     /// <summary>
@@ -1721,7 +1721,7 @@ namespace FareCalcLib.Datasets {
         }
     }
 }
-namespace FareCalcLib.Datasets.ExtraCostPatternTableAdapters {
+namespace Pasco.FareCalcLib.Datasets.ExtraCostPatternTableAdapters {
     
     
     /// <summary>

@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace FareCalcLib.Datasets {
+namespace Pasco.FareCalcLib.Datasets {
     
     
     /// <summary>
@@ -1307,7 +1307,7 @@ namespace FareCalcLib.Datasets {
         }
     }
 }
-namespace FareCalcLib.Datasets.CalcNoTableAdapters {
+namespace Pasco.FareCalcLib.Datasets.CalcNoTableAdapters {
     
     
     /// <summary>
@@ -1319,7 +1319,7 @@ namespace FareCalcLib.Datasets.CalcNoTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class calc_noTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class calc_noTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         

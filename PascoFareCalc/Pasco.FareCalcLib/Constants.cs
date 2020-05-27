@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FareCalcLib
+namespace Pasco.FareCalcLib
 {
     public class Constants
     {
@@ -14,7 +14,7 @@ namespace FareCalcLib
         //    {"Done", 1 },
         //};
 
-        // TODO: urgent akema 計算区分に変更
+        // TODO: done akema 計算区分に変更
         public struct CnCalcStatus
         {
             // <summary> 空白 </summary>
@@ -27,7 +27,7 @@ namespace FareCalcLib
             public const string Doing = "03";
         }
 
-        // TODO: urgent akema 計算終了ステータス区分に変更
+        // TODO: done akema 計算終了ステータス区分に変更
         public enum CnEndStatus : short
         {
             Good = 1,
@@ -42,7 +42,7 @@ namespace FareCalcLib
         //    public const string Error = "03";
         //}
 
-        // TODO: urgent akema 契約種別に変更
+        // TODO: done akema 契約種別に変更
         public struct CnContractType
         {
             // <summary> 車建 </summary>
@@ -61,7 +61,7 @@ namespace FareCalcLib
             public const string Horizontal = "02";
         }
 
-        // TODO: urgent akema 輸送区分に変更
+        // TODO: done akema 輸送区分に変更
         public struct CnYusoKbn
         {
             // <summary> 移送 </summary>
@@ -80,7 +80,7 @@ namespace FareCalcLib
             public const string BringBack = "03";
         }
 
-        // TODO: urgent akema 確認区分に変更
+        // TODO: done akema 確認区分に変更
         public struct CnVerifyStatus
         {
             // <summary> 空白 </summary>
@@ -130,11 +130,16 @@ namespace FareCalcLib
             public const string OtherCharge = "99";
         }
 
-        public struct AxisKbn 
+        // 縦横軸区分
+        public struct AxisKbn
         {
+            /// <summary> 重量（kg） </summary>
             public const string WeightKg = "01";
+            /// <summary> 距離（km） </summary>
             public const string DistanceKm = "02";
+            /// <summary> 時間(分） </summary>
             public const string TimeMins = "03";
+            /// <summary> 輸送手段 </summary>
             public const string YusoMeans = "04";
         }
 
@@ -150,6 +155,35 @@ namespace FareCalcLib
         {
             public const string UnDone = "02";
             public const string Done = "01";
+        }
+
+        // 縦横軸繰返し区分
+        public struct AxisRepeatkbn
+        {
+            /// <summary> あり </summary>
+            public const string Yes = "01";
+            /// <summary> なし </summary>
+            public const string No = "02";
+        }
+
+        // タリフ軸目盛限度区分
+        public struct AxisStepToKbn
+        {
+            /// <summary> まで </summary>
+            public const string Until = "01";
+            /// <summary> 超過 </summary>
+            public const string Excess = "02";
+        }
+
+        // タリフ軸目盛末端区分
+        public struct AxisValueKbn
+        {
+            /// <summary> 金額 </summary>
+            public const string Money = "01";
+            /// <summary> 増分単価 </summary>
+            public const string UnitPrice = "02";
+            /// <summary> 繰返し </summary>
+            public const string Repetition = "03";
         }
     }
 }

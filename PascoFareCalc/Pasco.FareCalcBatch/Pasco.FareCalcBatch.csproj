@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Pasco.FareCalcBatch</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FareCalcLib\FareCalcLib.csproj" />
+    <ProjectReference Include="..\Pasco.FareCalcLib\Pasco.FareCalcLib.csproj" />
   </ItemGroup>
 
 </Project>

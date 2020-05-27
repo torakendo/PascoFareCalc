@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FareCalcLib
+namespace Pasco.FareCalcLib
 {
     public struct MonthlyVerifyKey
     {

@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace MakeCalcDataBatch.Datasets {
+namespace Pasco.MakeCalcDataBatch.Datasets {
     
     
     /// <summary>
@@ -15681,7 +15681,7 @@ namespace MakeCalcDataBatch.Datasets {
         }
     }
 }
-namespace MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters {
+namespace Pasco.MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters {
     
     
     /// <summary>
@@ -15693,7 +15693,7 @@ namespace MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_detail_oldTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_detail_oldTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -17442,7 +17442,7 @@ WHERE                  (slip_no = @slip_no) AND (slip_suffix_no = @slip_suffix_n
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_keisan_oldTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_keisan_oldTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -19166,7 +19166,7 @@ WHERE                  (keisan_key = @Keisan_key) AND (calc_ym = @Calc_ym)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yuso_oldTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yuso_oldTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -26203,7 +26203,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yusoTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yusoTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -27746,7 +27746,7 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_keisanTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_keisanTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -29208,7 +29208,7 @@ WHERE                  (keisan_key = @Keisan_key) AND (calc_ym = @Calc_ym)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_detailTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_detailTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         

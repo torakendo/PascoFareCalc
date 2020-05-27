@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace FareCalcLib.Datasets {
+namespace Pasco.FareCalcLib.Datasets {
     
     
     /// <summary>
@@ -5045,7 +5045,7 @@ namespace FareCalcLib.Datasets {
         }
     }
 }
-namespace FareCalcLib.Datasets.StartCalcTableAdapters {
+namespace Pasco.FareCalcLib.Datasets.StartCalcTableAdapters {
     
     
     /// <summary>
@@ -5057,7 +5057,7 @@ namespace FareCalcLib.Datasets.StartCalcTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yuso_oldTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yuso_oldTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -6695,7 +6695,7 @@ WHERE                (calc_no = @calcNo) AND (calc_status = @calc_status_doing)"
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yuso_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yuso_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -8302,7 +8302,7 @@ FROM                   t_yuso_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yusoTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yusoTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         

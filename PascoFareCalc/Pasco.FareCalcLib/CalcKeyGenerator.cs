@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using static FareCalcLib.Constants;
+using static Pasco.FareCalcLib.Constants;
 
-namespace FareCalcLib
+namespace Pasco.FareCalcLib
 {
     public class CalcKeyGenerator
     {

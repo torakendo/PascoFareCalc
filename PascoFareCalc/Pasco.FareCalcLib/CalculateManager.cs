@@ -1,16 +1,16 @@
-﻿using FareCalcLib.Datasets;
+﻿using Pasco.FareCalcLib.Datasets;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
-using StartCalcTableAdapters = FareCalcLib.Datasets.StartCalcTableAdapters;
-using CalcTrnTableAdapters = FareCalcLib.Datasets.CalcTrnTableAdapters;
-using CalcWkTableAdapters = FareCalcLib.Datasets.CalcWkTableAdapters;
-using FareCalcLib.Datasets.CalcNoTableAdapters;
-using FareCalcLib.Datasets.TariffTableAdapters;
+using StartCalcTableAdapters = Pasco.FareCalcLib.Datasets.StartCalcTableAdapters;
+using CalcTrnTableAdapters = Pasco.FareCalcLib.Datasets.CalcTrnTableAdapters;
+using CalcWkTableAdapters = Pasco.FareCalcLib.Datasets.CalcWkTableAdapters;
+using Pasco.FareCalcLib.Datasets.CalcNoTableAdapters;
+using Pasco.FareCalcLib.Datasets.TariffTableAdapters;
 
-using static FareCalcLib.Constants;
+using static Pasco.FareCalcLib.Constants;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
@@ -18,18 +18,18 @@ using System.Collections;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
-using FareCalcLib.Datasets.ExtraCostPatternTableAdapters;
+using Pasco.FareCalcLib.Datasets.ExtraCostPatternTableAdapters;
 using System.Transactions;
-using FareCalcLib.Datasets.CalcWkTableAdapters;
+using Pasco.FareCalcLib.Datasets.CalcWkTableAdapters;
 
-namespace FareCalcLib
+namespace Pasco.FareCalcLib
 
 
 {
     public class CalculateManager
     {
         // TODO: done akema 最新のテーブル定義に合わせる
-        // TODO: urgent akema 最新5/22のテーブル定義の変更分に対応
+        // TODO: done akema 最新5/22のテーブル定義の変更分に対応
 
         #region "fields"
         private int CalcNo = 0;
@@ -346,7 +346,7 @@ namespace FareCalcLib
                     {
                         if (CalcTrnDs.t_detail.Columns.Contains(colname))
                         {
-                            // TODO: urgent akema 値が入るデータを用意
+                            // TODO: done akema 値が入るデータを用意
                             if (colname == "distributed_base_charge_amount"
                             || colname == "distributed_special_charge_amount"
                             || colname == "distributed_base_charge_amount"
@@ -503,7 +503,7 @@ namespace FareCalcLib
 
                 var tariffCalculator = new TariffCalculator(Connection);
 
-                // TODO: urgent akema GetTariffDataset()が取得できないので確認 → CnTariffAxisKbnの区分変更によるエラー修正
+                // TODO: done akema GetTariffDataset()が取得できないので確認 → CnTariffAxisKbnの区分変更によるエラー修正
                 foreach (var group in query)
                 {
                     var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
@@ -1079,8 +1079,8 @@ namespace FareCalcLib
 
                     // set total amount
                     foreach (var detailRow in yusoKeyGroup)
-                    {
-                        detailRow.distributed_total_charge_amount = 0;  // TODO: Not Null制約入れる
+                    {// TODO: high akema Not Null制約入れる
+                        detailRow.distributed_total_charge_amount = 0;  
                         colNamesForDevide.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
                     }
                 }

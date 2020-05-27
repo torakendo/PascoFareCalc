@@ -1,6 +1,6 @@
-﻿using FareCalcLib;
-using MakeCalcDataBatch.Datasets;
-using MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters;
+﻿using Pasco.FareCalcLib;
+using Pasco.MakeCalcDataBatch.Datasets;
+using Pasco.MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -9,17 +9,17 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Transactions;
-using static FareCalcLib.Constants;
-using FareCalcLib.Datasets;
+using static Pasco.FareCalcLib.Constants;
+using Pasco.FareCalcLib.Datasets;
 using System.Text;
 using System.Net.Http.Headers;
 
-namespace MakeCalcDataBatch
+namespace Pasco.MakeCalcDataBatch
 {
     class Program
     {
         private static Dictionary<string,string> ColumnNameMap = new Dictionary<string, string>(){
-            // TODO: urgent akema 出庫実績トラン対応カラム名確認
+            // TODO: done akema 出庫実績トラン対応カラム名確認
             {"calc_ym", "scheduleactualdate" },
             {"contract_type","contracttype" },
             {"yuso_kbn","skbn" },

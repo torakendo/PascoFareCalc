@@ -1,10 +1,10 @@
-﻿using FareCalcLib.Datasets;
+﻿using Pasco.FareCalcLib.Datasets;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
 
-namespace FareCalcLib
+namespace Pasco.FareCalcLib
 {
     public struct CalcVariables
     {
