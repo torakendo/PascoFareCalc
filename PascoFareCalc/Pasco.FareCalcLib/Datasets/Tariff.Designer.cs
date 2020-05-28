@@ -5449,7 +5449,7 @@ SELECT tariff_info_id, tariff_name, yuso_mode_kbn, contract_type, vertical_axis_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -6221,7 +6221,7 @@ SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -6899,7 +6899,7 @@ SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, h
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -7640,7 +7640,7 @@ SELECT tariff_axis_id, tariff_info_id, tariff_axis_kbn, step_from, step_to, step
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -8290,7 +8290,7 @@ SELECT tariff_detail_id, tariff_info_id, vertical_step_from, vertical_step_to, h
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
@@ -8958,7 +8958,7 @@ SELECT tariff_info_id, tariff_info_user_id, tariff_name, yuso_kbn, contract_type
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-CDS82OS;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
+            this._connection.ConnectionString = "Data Source=AKEMA\\MSSQLSERVER03;Initial Catalog=pcs-calcdb;Integrated Security=Tr" +
                 "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
