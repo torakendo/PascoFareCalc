@@ -206,10 +206,8 @@ namespace Pasco.FareCalcLib
         {
             // TODO: normal-low akema タリフの契約種別とデータの契約種別が一致しない場合は計算エラー、エラーオブジェクト追加
             // get column value
-            //Decimal vertialValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Vertical);
-            //Decimal horizontalValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Horizontal);
-            Decimal vertialValue = 70;
-            Decimal horizontalValue = 120;
+            Decimal vertialValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Vertical);
+            Decimal horizontalValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Horizontal);
 
             decimal price = 0;
 
@@ -268,7 +266,6 @@ namespace Pasco.FareCalcLib
             else if (Repetition && UnitPrice)
             {
                 // TODO: urgent akema 繰返し範囲・加算ありの範囲の時、両端加算あり両方あるとき
-
                 return price;
             }
             else 
