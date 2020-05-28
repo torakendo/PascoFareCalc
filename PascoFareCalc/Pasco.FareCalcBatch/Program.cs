@@ -12,6 +12,11 @@ namespace Pasco.FareCalcBatch
     {
         static void Main(string[] args)
         {
+            FareCalcBatch();
+        }
+
+        public static void FareCalcBatch() 
+        {
             /*
              * prepare calcuration
              *  get new calc number

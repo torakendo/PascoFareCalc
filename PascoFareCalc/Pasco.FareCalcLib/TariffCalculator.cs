@@ -82,18 +82,24 @@ namespace Pasco.FareCalcLib
         }
 
 
-        public decimal GetRepetitionPrice(Tariff tariffDs, decimal Value, string tariffAxisKbn)
+        public void GetRepetitionPrice(Tariff tariffDs, decimal Value, string tariffAxisKbn 
+        , out decimal repetitionPrice
+        , out decimal step_to
+        )
         {
-
-            decimal repetitionPrice = 0;
+            repetitionPrice = 0;
+            step_to = 0;
 
             // タリフ軸マスタデータ取得
             var tariffAxisQuery = tariffDs.m_tariff_axis.Where(r => (r.tariff_axis_kbn == CnTariffAxisKbn.Vertical && r.value_kbn == AxisValueKbn.Repetition));
 
             if (tariffAxisQuery.Count() == 1)
             {
+                decimal price = 0;
+
                 // 繰り返し回数 ＆ 可算額取得
                 var tav = tariffAxisQuery.Select(tdr => tdr).ToArray()[0];
+                step_to = tav.step_to;
                 decimal repetitionCount = Math.Floor(Value / tav.step_to);
                 decimal num = Value % tav.step_to;
                 var numlist = new List<decimal>();
@@ -111,24 +117,24 @@ namespace Pasco.FareCalcLib
                     switch (tariffAxisKbn)
                     {
                         case CnTariffAxisKbn.Vertical:
-                            repetitionPrice += tariffDs.m_tariff_detail
+                            price += tariffDs.m_tariff_detail
                             .Where(r => (r.vertical_step_from < loopNum && r.vertical_step_to >= loopNum))
                             .OrderByDescending(x => x.tariff_price)
                             .Select(tdr => tdr).ToArray()[0].tariff_price;
                             break;
                         case CnTariffAxisKbn.Horizontal:
-                            repetitionPrice += tariffDs.m_tariff_detail
+                            price += tariffDs.m_tariff_detail
                             .Where(r => (r.horizontal_step_from < loopNum && r.horizontal_step_to >= loopNum))
                             .OrderByDescending(x => x.tariff_price)
                             .Select(tdr => tdr).ToArray()[0].tariff_price;
                             break;
                     }
                 });
+                repetitionPrice = price;
             }
-            return repetitionPrice;
         }
 
-        public void GetUnitPrice(Tariff tariffDs, decimal vertialValue, decimal horizontalValue
+        public void GetUnitPrice(EnumerableRowCollection<Tariff.m_tariff_detailRow> tariffDetailQuery, decimal vertialValue, decimal horizontalValue
             , out decimal base_charge_before_adding    // 可算前
             , out decimal vertical_adding_price        // 縦軸の加算額
             , out decimal horizontal_adding_price      // 横軸の加算額
@@ -148,16 +154,6 @@ namespace Pasco.FareCalcLib
             adding_charge = 0;                // 縦軸・横軸・両軸の加算額合計
             total_adding_charge = 0;          // 可算前 + 加算額合計
 
-            var tariffDetailQuery = tariffDs.m_tariff_detail
-            .Where(r =>
-            ((r.vertical_step_from < vertialValue && r.vertical_step_to >= vertialValue) ||
-            (r.vertical_step_from == vertialValue && r.vertical_step_to == vertialValue))
-            &&
-            ((r.horizontal_step_from < horizontalValue && r.horizontal_step_to >= horizontalValue) ||
-            (r.horizontal_step_from == horizontalValue && r.horizontal_step_to == horizontalValue))
-            );
-
-
             if (tariffDetailQuery.Count() == 1)
             {
                 var td = tariffDetailQuery.Select(tdr => tdr).ToArray()[0];
@@ -168,7 +164,7 @@ namespace Pasco.FareCalcLib
                 if (td.vertical_adding_flg == 1)
                 {
                     // 縦軸データ取得
-                    var vd = tariffDs.m_tariff_detail
+                    var vd = tariffDetailQuery
                     .Where(r => ((r.vertical_step_from == td.vertical_step_from && r.horizontal_step_to >= td.horizontal_step_from)))
                     .Select(tdr => tdr).ToArray()[0];
                     // タリフ縦増分数 = （縦軸値-タリフ縦軸目盛値FR）/ （タリフ縦増分値）
@@ -180,7 +176,7 @@ namespace Pasco.FareCalcLib
                 if (td.horizontal_adding_flg == 1)
                 {
                     // 横軸データ取得
-                    var hd = tariffDs.m_tariff_detail
+                    var hd = tariffDetailQuery
                     .Where(r => ((r.vertical_step_to == td.vertical_step_from && r.horizontal_step_from >= td.horizontal_step_from)))
                     .Select(tdr => tdr).ToArray()[0];
                     // タリフ横増分数 = （横軸値-タリフ横軸目盛値FR）/（タリフ横増分値）
@@ -219,46 +215,60 @@ namespace Pasco.FareCalcLib
 
             int tarifInfoId = tariffDs.m_tariff_info.Select(tdr => tdr).ToArray()[0].tariff_info_id;
 
+            //  繰返し・増分フラグ
             bool Repetition = 0 < tariffDs.m_tariff_axis.Where(r => (r.value_kbn == AxisValueKbn.Repetition)).Select(tdr => tdr).ToList().Count();
             bool UnitPrice = 0 < tariffDs.m_tariff_axis.Where(r => (r.value_kbn == AxisValueKbn.UnitPrice)).Select(tdr => tdr).ToList().Count();
 
-            // TODO: high akema 繰返し範囲の時
-            decimal verticalRepetitionPrice = GetRepetitionPrice(tariffDs, vertialValue, CnTariffAxisKbn.Vertical);
-            decimal horizontalRepetitionPrice = GetRepetitionPrice(tariffDs, horizontalValue, CnTariffAxisKbn.Horizontal);
+             GetRepetitionPrice(tariffDs, vertialValue, CnTariffAxisKbn.Vertical
+            , out decimal verticalRepetitionPrice
+            , out decimal verticalStepTo
+            );
+             GetRepetitionPrice(tariffDs, horizontalValue, CnTariffAxisKbn.Horizontal
+            , out decimal horizontalRepetitionPrice
+            , out decimal horizontalStepto
+             );
 
             // 繰返し範囲縦件数
             var verticalLoopCount = tariffDs.m_tariff_axis.Where(r => (r.tariff_axis_kbn == CnTariffAxisKbn.Vertical && r.value_kbn == AxisValueKbn.Repetition)).Select(tdr => tdr).ToList().Count();
             var horizontalLoopCount = tariffDs.m_tariff_axis.Where(r => (r.tariff_axis_kbn == CnTariffAxisKbn.Horizontal && r.value_kbn == AxisValueKbn.Repetition)).Select(tdr => tdr).ToList().Count();
 
-            // 増分範囲の時
-            GetUnitPrice(tariffDs, vertialValue, horizontalValue
-            , out decimal base_charge_before_adding    // 可算前
-            , out decimal vertical_adding_price        // 縦軸の加算額
-            , out decimal horizontal_adding_price      // 横軸の加算額
-            , out decimal vertical_adding_count        // タリフ縦増分数
-            , out decimal horizontalValue_adding_count // タリフ横増分数
-            , out decimal vh_adding_price              // 両軸の加算額
-            , out decimal adding_charge                // 縦軸・横軸・両軸の加算額合計
-            , out decimal total_adding_charge          // 可算前 + 加算額合計
-             );
-
-            if (Repetition && !UnitPrice) // 繰返し範囲の時
+            if (Repetition && !UnitPrice)
             {
+                // TODO: high akema 繰返し範囲の時
                 if (0 < verticalLoopCount) price += verticalRepetitionPrice;
                 if (0 < horizontalLoopCount) price += horizontalRepetitionPrice;
 
                 return price;
             }
-            else if (!Repetition && UnitPrice) // 増分範囲の時
+            else if (!Repetition && UnitPrice)
             {
+                // TODO: done akema 加算ありの範囲の時、両端加算ありの時
+                var tariffDetailQuery = tariffDs.m_tariff_detail
+                .Where(r =>
+                ((r.vertical_step_from < vertialValue && r.vertical_step_to >= vertialValue) ||
+                (r.vertical_step_from == vertialValue && r.vertical_step_to == vertialValue))
+                &&
+                ((r.horizontal_step_from < horizontalValue && r.horizontal_step_to >= horizontalValue) ||
+                (r.horizontal_step_from == horizontalValue && r.horizontal_step_to == horizontalValue))
+                );
+
+                GetUnitPrice(tariffDetailQuery, vertialValue, horizontalValue
+                , out decimal base_charge_before_adding    // 可算前
+                , out decimal vertical_adding_price        // 縦軸の加算額
+                , out decimal horizontal_adding_price      // 横軸の加算額
+                , out decimal vertical_adding_count        // タリフ縦増分数
+                , out decimal horizontalValue_adding_count // タリフ横増分数
+                , out decimal vh_adding_price              // 両軸の加算額
+                , out decimal adding_charge                // 縦軸・横軸・両軸の加算額合計
+                , out decimal total_adding_charge          // 可算前 + 加算額合計
+                    );
+
                 return total_adding_charge;
             }
-            else if (Repetition && UnitPrice) // 繰返し・増分範囲の時
+            else if (Repetition && UnitPrice)
             {
-                if (0 < verticalLoopCount) price += verticalRepetitionPrice;
-                if (0 < horizontalLoopCount) price += horizontalRepetitionPrice;
-                price += vertical_adding_price;
-                price += horizontalValue_adding_count;
+                // TODO: urgent akema 繰返し範囲・加算ありの範囲の時、両端加算あり両方あるとき
+
                 return price;
             }
             else 
