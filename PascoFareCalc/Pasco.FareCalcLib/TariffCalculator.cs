@@ -234,7 +234,7 @@ namespace Pasco.FareCalcLib
 
             if (Repetition && !UnitPrice)
             {
-                // TODO: high akema 繰返し範囲の時
+                // TODO: done akema 繰返し範囲の時
                 if (0 < verticalLoopCount) price += verticalRepetitionPrice;
                 if (0 < horizontalLoopCount) price += horizontalRepetitionPrice;
 
