@@ -7024,6 +7024,7 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
                 this.columnspecial_tariff_end_md.MaxLength = 4;
                 this.columnbase_charge_amount.AllowDBNull = false;
                 this.columnbase_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columnspecial_charge_amount.DefaultValue = ((decimal)(0m));
                 this.columnyuso_means_kbn.AllowDBNull = false;
                 this.columnyuso_means_kbn.MaxLength = 2;
                 this.columnmax_flg.AllowDBNull = false;
@@ -7256,6 +7257,8 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
             private global::System.Data.DataColumn columnCreateUserCode;
             
             private global::System.Data.DataColumn columnUpdateUserCode;
+            
+            private global::System.Data.DataColumn columndistributed_actual_load_surcharge_amount;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -7652,6 +7655,14 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn distributed_actual_load_surcharge_amountColumn {
+                get {
+                    return this.columndistributed_actual_load_surcharge_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7731,7 +7742,8 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
                         System.DateTime CreateDay, 
                         System.DateTime UpdateDay, 
                         string CreateUserCode, 
-                        string UpdateUserCode) {
+                        string UpdateUserCode, 
+                        string distributed_actual_load_surcharge_amount) {
                 t_detailRow rowt_detailRow = ((t_detailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7778,7 +7790,8 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
                         CreateDay,
                         UpdateDay,
                         CreateUserCode,
-                        UpdateUserCode};
+                        UpdateUserCode,
+                        distributed_actual_load_surcharge_amount};
                 rowt_detailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowt_detailRow);
                 return rowt_detailRow;
@@ -7853,6 +7866,7 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
                 this.columnUpdateDay = base.Columns["UpdateDay"];
                 this.columnCreateUserCode = base.Columns["CreateUserCode"];
                 this.columnUpdateUserCode = base.Columns["UpdateUserCode"];
+                this.columndistributed_actual_load_surcharge_amount = base.Columns["distributed_actual_load_surcharge_amount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7948,6 +7962,8 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
                 base.Columns.Add(this.columnCreateUserCode);
                 this.columnUpdateUserCode = new global::System.Data.DataColumn("UpdateUserCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUpdateUserCode);
+                this.columndistributed_actual_load_surcharge_amount = new global::System.Data.DataColumn("distributed_actual_load_surcharge_amount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndistributed_actual_load_surcharge_amount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columndetail_Id}, true));
                 this.columndetail_Id.AutoIncrement = true;
@@ -7996,12 +8012,25 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
                 this.columnitme_unit.MaxLength = 3;
                 this.columnyuso_means_kbn.MaxLength = 2;
                 this.columnspecial_vehicle_kbn.MaxLength = 2;
+                this.columndistributed_base_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_special_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_stopping_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_cargo_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_other_charge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_km_surcharge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_time_surcharge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_assist_surcharge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_stand_surcharge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_wash_surcharge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_actual_adjust_surcharge_amount.DefaultValue = ((decimal)(0m));
+                this.columndistributed_total_amount.DefaultValue = ((decimal)(0m));
                 this.columnkeisan_key.AllowDBNull = false;
                 this.columnkeisan_key.MaxLength = 40;
                 this.columnyuso_key.AllowDBNull = false;
                 this.columnyuso_key.MaxLength = 49;
                 this.columnCreateUserCode.MaxLength = 20;
                 this.columnUpdateUserCode.MaxLength = 20;
+                this.columndistributed_actual_load_surcharge_amount.DefaultValue = ((string)("0"));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15100,6 +15129,22 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string distributed_actual_load_surcharge_amount {
+                get {
+                    try {
+                        return ((string)(this[this.tablet_detail.distributed_actual_load_surcharge_amountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'t_detail\' にある列 \'distributed_actual_load_surcharge_amount\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tablet_detail.distributed_actual_load_surcharge_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isitem_cdNull() {
                 return this.IsNull(this.tablet_detail.item_cdColumn);
             }
@@ -15396,6 +15441,18 @@ namespace Pasco.MakeCalcDataBatch.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetUpdateUserCodeNull() {
                 this[this.tablet_detail.UpdateUserCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdistributed_actual_load_surcharge_amountNull() {
+                return this.IsNull(this.tablet_detail.distributed_actual_load_surcharge_amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdistributed_actual_load_surcharge_amountNull() {
+                this[this.tablet_detail.distributed_actual_load_surcharge_amountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16147,7 +16204,8 @@ namespace Pasco.MakeCalcDataBatch.Datasets.MakeCalcDsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17870,7 +17928,8 @@ WHERE                  (slip_no = @slip_no) AND (slip_suffix_no = @slip_suffix_n
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19571,7 +19630,8 @@ WHERE                  (keisan_key = @Keisan_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22005,7 +22065,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26602,7 +26663,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28087,7 +28149,8 @@ WHERE                  (yuso_key = @Yuso_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29727,7 +29790,8 @@ WHERE                  (keisan_key = @Keisan_key) AND (calc_ym = @Calc_ym)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29736,17 +29800,19 @@ WHERE                  (keisan_key = @Keisan_key) AND (calc_ym = @Calc_ym)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT                 detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, 
-                               carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn,
-                                special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, 
-                               distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, 
-                               distributed_actual_assist_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, 
-                               distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode
-FROM                   t_detail";
+            this._commandCollection[0].CommandText = @"SELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM t_detail";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT CreateDay, CreateUserCode, UpdateDay, UpdateUserCode, arriving_date, calc_ym, carrier_company_cd, contract_type, dest_cd, dest_jis, dest_warehouse_cd, detail_Id, distributed_actual_adjust_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actual_km_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_base_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_total_amount, item_cd, item_kigo, item_name, item_quantity, item_weight_kg, itme_unit, keisan_key, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, slip_detail_no, slip_no, slip_suffix_no, special_vehicle_kbn, terminal_id, transport_lead_time_hours, vehicle_id, yuso_kbn, yuso_key, yuso_means_kbn, yuso_mode_kbn FROM t_detail WHERE (slip_no = @slip_no) AND (slip_suffix_no = @slip_suffix_no) AND (slip_detail_no = @slip_detail_no)";
+            this._commandCollection[1].CommandText = @"SELECT                      CreateDay, CreateUserCode, UpdateDay, UpdateUserCode, arriving_date, calc_ym, carrier_company_cd, contract_type, dest_cd, dest_jis, dest_warehouse_cd, detail_Id, 
+                                      distributed_actual_adjust_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actual_km_surcharge_amount, 
+                                      distributed_actual_stand_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_base_charge_amount, 
+                                      distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_total_amount, 
+                                      item_cd, item_kigo, item_name, item_quantity, item_weight_kg, itme_unit, keisan_key, orig_date, orig_warehouse_block_cd, orig_warehouse_cd, slip_detail_no, slip_no, 
+                                      slip_suffix_no, special_vehicle_kbn, terminal_id, transport_lead_time_hours, vehicle_id, yuso_kbn, yuso_key, yuso_means_kbn, yuso_mode_kbn, 
+                                      distributed_actual_load_surcharge_amount
+FROM                         t_detail
+WHERE                       (slip_no = @slip_no) AND (slip_suffix_no = @slip_suffix_no) AND (slip_detail_no = @slip_detail_no)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_no", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_suffix_no", global::System.Data.SqlDbType.NVarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "slip_suffix_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
