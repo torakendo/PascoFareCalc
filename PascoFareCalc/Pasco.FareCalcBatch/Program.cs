@@ -13,11 +13,11 @@ namespace Pasco.FareCalcBatch
     {
         static void Main(string[] args)
         {
-            //FareCalcBatch();
+            FareCalcBatch();
 
             //StartCalcYusoKeyList();
 
-            StartCalcMonthlyVerifyKeyList();
+            //StartCalcMonthlyVerifyKeyList();
         }
 
         public static void FareCalcBatch() 
