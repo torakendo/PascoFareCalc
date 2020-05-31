@@ -5507,8 +5507,8 @@ namespace Pasco.FareCalcLib.Datasets.StartCalcTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7165,8 +7165,8 @@ WHERE                (calc_no = @calcNo) AND (calc_status = @calc_status_doing)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8749,14 +8749,14 @@ FROM                   t_yuso_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=;Initial Catalog=pcs-calcdb;Integrated Security=True;C" +
-                "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT yuso_id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, base_charge_amount, special_charge_amount, stopping_charge_amount, cargo_charge_amount, other_charge_amount, actual_distance_km, actual_distance_surcharge_amount, actual_time_mins, actual_time_surcharge_amount, actual_assistant_count, actual_assist_surcharge_amount, actual_load_surcharge_amount, actual_stand_surcharge_amount, actual_wash_surcharge_amount, total_charge_amount, verify_status, verify_ymnd, release_ymd, calc_status, calc_no, last_calc_at, yuso_key, BatchUpdateDay, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.t_yuso";
@@ -8789,15 +8789,27 @@ WHERE                           (calc_status = @current_calc_status);
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@current_calc_status", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"UPDATE                       t_yuso
-SET                                   calc_status = @calc_status_done, UpdateDay = @UpdateDay, UpdateUserCode = @UpdateUserCode
-WHERE                           (calc_status = @calc_status_doing) AND (calc_no = @calc_no);   ";
+            this._commandCollection[3].CommandText = "UPDATE                    t_yuso\r\nSET                              calc_status = " +
+                "@calc_status_doing, calc_no = @calc_no, UpdateDay = @UpdateDay, UpdateUserCode =" +
+                " @UpdateUserCode\r\nWHERE                       (yuso_id = @current_yuso_id);   \r\n" +
+                "";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_done", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@current_yuso_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "yuso_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"UPDATE                       t_yuso
+SET                                   calc_status = @calc_status_done, UpdateDay = @UpdateDay, UpdateUserCode = @UpdateUserCode
+WHERE                           (calc_status = @calc_status_doing) AND (calc_no = @calc_no);   ";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_done", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateDay", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_status_doing", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9915,8 +9927,51 @@ WHERE                           (calc_status = @calc_status_doing) AND (calc_no 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateCalcStatusDone(string calc_status_done, global::System.Nullable<global::System.DateTime> UpdateDay, string UpdateUserCode, string calc_status_doing, int calc_no) {
+        public virtual int UpdateCalcStatusById(string calc_status_doing, int calc_no, global::System.Nullable<global::System.DateTime> UpdateDay, string UpdateUserCode, int current_yuso_id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((calc_status_doing == null)) {
+                throw new global::System.ArgumentNullException("calc_status_doing");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(calc_status_doing));
+            }
+            command.Parameters[1].Value = ((int)(calc_no));
+            if ((UpdateDay.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(UpdateDay.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((UpdateUserCode == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(UpdateUserCode));
+            }
+            command.Parameters[4].Value = ((int)(current_yuso_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateCalcStatusDone(string calc_status_done, global::System.Nullable<global::System.DateTime> UpdateDay, string UpdateUserCode, string calc_status_doing, int calc_no) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((calc_status_done == null)) {
                 throw new global::System.ArgumentNullException("calc_status_done");
             }

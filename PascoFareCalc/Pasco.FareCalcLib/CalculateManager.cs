@@ -680,16 +680,54 @@ namespace Pasco.FareCalcLib
         /// <returns>calculate_no</returns>
         public static int StartCalc(SqlConnection sqlConn, List<string> yusoKeyList)
         {
-            // get new calc_no
-            var calcNoAdp = new calc_noTableAdapter();
-            calcNoAdp.Connection = sqlConn;
-            int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+            try
+            {
+                // get new calc_no
+                var calcNoAdp = new calc_noTableAdapter();
+                calcNoAdp.Connection = sqlConn;
+                int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
-            // TODO: high akema yusoKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
+                // TODO: high akema yusoKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
+                var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
+                var dsStartCalc = new StartCalc();
+                tYusoAdp.Connection = sqlConn;
+                tYusoAdp.Fill(dsStartCalc.t_yuso);
+                foreach (StartCalc.t_yusoRow yusoRow in dsStartCalc.t_yuso)
+                {
+                    foreach (string yuso_key in yusoKeyList) 
+                    {
+                        if (yusoRow.yuso_key == yuso_key)
+                        {
+                            tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", yusoRow.yuso_id);
+                        }
+                    }
+                }
 
-            // TODO: high akema t_yuso_wkデータ作成
+                // TODO: high akema t_yuso_wkデータ作成
+                //var colNamesOfYusoWk = Enumerable.Range(0, dsStartCalc.t_yuso_wk.Columns.Count)
+                //            .Select(i => dsStartCalc.t_yuso_wk.Columns[i].ColumnName).ToList();
+                //dsStartCalc.t_yuso.ToList().ForEach(r =>
+                //{
+                //    var newRow = dsStartCalc.t_yuso_wk.NewRow();
+                //    colNamesOfYusoWk.ForEach(colname =>
+                //    {
+                //        if (dsStartCalc.t_yuso.Columns.Contains(colname)) newRow[colname] = r[colname];
+                //    });
+                //    dsStartCalc.t_yuso_wk.Rows.Add(newRow);
+                //});
 
-            return newCalcNo;
+                //// wk table update(batch)
+                //var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
+                //adpYusoWk.Connection = sqlConn;
+                //adpYusoWk.SetUpdateBatchSize(100);
+                //var updYusoWkCnt = adpYusoWk.Update(dsStartCalc);
+
+                return newCalcNo;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -706,8 +744,45 @@ namespace Pasco.FareCalcLib
             int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
             // TODO: high akema monthlyVerifyKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
+            var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
+            var dsStartCalc = new StartCalc();
+            tYusoAdp.Connection = sqlConn;
+            tYusoAdp.Fill(dsStartCalc.t_yuso);
+            foreach (StartCalc.t_yusoRow yusoRow in dsStartCalc.t_yuso)
+            {
+                foreach (var yuso_key in monthlyVerifyKeyList.Select((v, i) => new { Value = v, Index = i }))
+                {
+                    if (yusoRow.calc_ym == monthlyVerifyKeyList[yuso_key.Index].CalcYm
+                     && yusoRow.calc_status == monthlyVerifyKeyList[yuso_key.Index].CalcStatus
+                     && yusoRow.yuso_kbn == monthlyVerifyKeyList[yuso_key.Index].YusoKbn
+                     && yusoRow.orig_warehouse_cd == monthlyVerifyKeyList[yuso_key.Index].OrigWarehouseCd
+                     && yusoRow.carrier_company_cd == monthlyVerifyKeyList[yuso_key.Index].CarrierCompanyCode
+                     && yusoRow.contract_type == monthlyVerifyKeyList[yuso_key.Index].ContractType
+                        )
+                    {
+                        tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", yusoRow.yuso_id);
+                    }
+                }
+            }
 
             // TODO: high akema t_yuso_wkデータ作成
+            //var colNamesOfYusoWk = Enumerable.Range(0, dsStartCalc.t_yuso_wk.Columns.Count)
+            //            .Select(i => dsStartCalc.t_yuso_wk.Columns[i].ColumnName).ToList();
+            //dsStartCalc.t_yuso.ToList().ForEach(r =>
+            //{
+            //    var newRow = dsStartCalc.t_yuso_wk.NewRow();
+            //    colNamesOfYusoWk.ForEach(colname =>
+            //    {
+            //        if (dsStartCalc.t_yuso.Columns.Contains(colname)) newRow[colname] = r[colname];
+            //    });
+            //    dsStartCalc.t_yuso_wk.Rows.Add(newRow);
+            //});
+
+            //// wk table update(batch)
+            //var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
+            //adpYusoWk.Connection = sqlConn;
+            //adpYusoWk.SetUpdateBatchSize(100);
+            //var updYusoWkCnt = adpYusoWk.Update(dsStartCalc);
 
             return newCalcNo;
 
@@ -856,7 +931,7 @@ namespace Pasco.FareCalcLib
                             yusoRow.actual_stand_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_stand_surcharge_amount");
                             yusoRow.actual_wash_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_wash_surcharge_amount");
                             yusoRow.total_charge_amount = DataRow<decimal>(yusoWkRow, "total_charge_amount");
-                            yusoRow.calc_status = DataRow<string>(yusoWkRow, "calc_status");
+                            yusoRow.calc_status = CnCalcStatus.Done;
                             yusoRow.verify_status = DataRow<string>(yusoWkRow, "verify_status");
                             yusoRow.yuso_key = DataRow<string>(yusoWkRow, "yuso_key");
                             yusoRow.verify_ymnd = DataRow<string>(yusoWkRow, "verify_ymnd");
