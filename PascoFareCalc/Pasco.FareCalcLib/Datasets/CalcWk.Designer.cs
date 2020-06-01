@@ -8839,7 +8839,7 @@ namespace Pasco.FareCalcLib.Datasets.CalcWkTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yuso_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yuso_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -9309,7 +9309,8 @@ namespace Pasco.FareCalcLib.Datasets.CalcWkTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10464,7 +10465,7 @@ FROM                   t_yuso_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_keisan_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_keisan_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -11090,7 +11091,8 @@ FROM                   t_yuso_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12755,7 +12757,7 @@ FROM                 t_keisan_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_detail_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_detail_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -13279,7 +13281,8 @@ FROM                 t_keisan_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14563,7 +14566,7 @@ FROM                   t_detail_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_extra_cost_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_extra_cost_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -15037,7 +15040,8 @@ FROM                   t_detail_wk";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16347,7 +16351,7 @@ FROM                 t_extra_cost_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class m_orig_dest_calcinfoTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
+    public partial class m_orig_dest_calcinfoTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -16655,7 +16659,8 @@ SELECT orig_dest_calcinfo_id, orig_warehouse_block_cd, orig_warehouse_cd, dest_w
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+            this._connection.ConnectionString = "Data Source=AKEMA\\SQLEXPRESS;Initial Catalog=pcs-calcdb;Integrated Security=True;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
