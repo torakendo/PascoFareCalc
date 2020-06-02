@@ -15,11 +15,9 @@ namespace Pasco.FareCalcBatch
         {
             FareCalcBatch();
 
-            //StartCalcYusoKeyList();
-
-            //StartCalcMonthlyVerifyKeyList();
-
-            //Calcurate();
+            // ReCalc Test
+            //TestStartCalcYusoKeyList();
+            //TestCalcurate(TestStartCalcMonthlyVerifyKeyList();
         }
 
         public static void FareCalcBatch() 
@@ -90,8 +88,9 @@ namespace Pasco.FareCalcBatch
         }
 
         // 計算指示（輸送キー）　車両別一覧と配送先別一覧の再計算時 テスト用
-        public static void StartCalcYusoKeyList() 
+        public static int TestStartCalcYusoKeyList() 
         {
+            var calcNo = 0;
             using (TransactionScope scope1 = new TransactionScope())
             {
                 using (SqlConnection conn = new SqlConnection(
@@ -101,16 +100,17 @@ namespace Pasco.FareCalcBatch
                     List<string> yusoKeyList = new List<string>();
                     yusoKeyList.Add("A40BCC7D862311C6A68396894B8A813D9C08ACC6");
                     yusoKeyList.Add("A362AF4500365229ACFB54DA9A9C909BF890FA65");
-                    var calcNo = CalculateManager.StartCalc(conn, yusoKeyList);
-                    Console.WriteLine("CalcNo = {0}", calcNo);
+                    calcNo = CalculateManager.StartCalc(conn, yusoKeyList);
                 }
                 scope1.Complete();
             }
+            return calcNo;
         }
 
         // 計算指示（月次確認キー）　月次確認登録画面の再計算時 テスト用
-        public static void StartCalcMonthlyVerifyKeyList() 
+        public static int TestStartCalcMonthlyVerifyKeyList() 
         {
+            var calcNo = 0;
             using (TransactionScope scope1 = new TransactionScope())
             {
                 using (SqlConnection conn = new SqlConnection(
@@ -120,31 +120,12 @@ namespace Pasco.FareCalcBatch
                     List<MonthlyVerifyKey> monthlyVerifyKeyList = new List<MonthlyVerifyKey>();
                     monthlyVerifyKeyList.Add(new MonthlyVerifyKey() { CalcYm = "201909", CalcStatus = "01", YusoKbn = "02", OrigWarehouseCd = "", CarrierCompanyCode = "4904", ContractType = "02" });
                     monthlyVerifyKeyList.Add(new MonthlyVerifyKey() { CalcYm = "201909", CalcStatus = "01", YusoKbn = "01", OrigWarehouseCd = "21", CarrierCompanyCode = "5310", ContractType = "01" });
-                    var calcNo = CalculateManager.StartCalc(conn, monthlyVerifyKeyList);
+                    calcNo = CalculateManager.StartCalc(conn, monthlyVerifyKeyList);
                     Console.WriteLine("CalcNo = {0}", calcNo);
                 }
                 scope1.Complete();
             }
+            return calcNo;
         }
-
-        // 計算実行 テスト用
-        public static void Calcurate() 
-        {
-            var calcNo = 0;
-            using (TransactionScope scope2 = new TransactionScope())
-            {
-                using (SqlConnection conn = new SqlConnection(
-                    ConfigurationManager.ConnectionStrings["PcsCalcdbConnectionString"].ConnectionString))
-                {
-                    conn.Open();
-                    var calcManager = new CalculateManager(calcNo);
-                    calcManager.Connection = conn;
-                    calcManager.Calcurate();
-                }
-                scope2.Complete();
-            }
-        }
-
-
     }
 }

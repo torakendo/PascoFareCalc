@@ -685,26 +685,83 @@ namespace Pasco.FareCalcLib
                 // get new calc_no
                 var calcNoAdp = new calc_noTableAdapter();
                 calcNoAdp.Connection = sqlConn;
-                int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+                //int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+                int calcNo = 0;
+                int updateCount = 0;
 
                 // TODO: high akema yusoKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
-                // TODO: high akema t_yuso_wkデータ作成
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 var dsStartCalc = new StartCalc();
                 tYusoAdp.Connection = sqlConn;
                 tYusoAdp.Fill(dsStartCalc.t_yuso);
+
+                var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
+                adpYusoWk.Connection = sqlConn;
+                adpYusoWk.SetUpdateBatchSize(100);
+                
                 foreach (StartCalc.t_yusoRow yusoRow in dsStartCalc.t_yuso)
                 {
                     foreach (string yuso_key in yusoKeyList) 
                     {
                         if (yusoRow.yuso_key == yuso_key)
                         {
-                            tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", yusoRow.yuso_id);
+                            calcNo = yusoRow.calc_no;
+
+                            updateCount = tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, yusoRow.calc_no, DateTime.Now, "", yusoRow.yuso_id);
+
+                            adpYusoWk.FillByPK(dsStartCalc.t_yuso_wk, yusoRow.calc_no,yusoRow.yuso_id);
+                            // TODO: high akema t_yuso_wkデータ作成
+                            var colNamesOfYusoWk = dsStartCalc.t_yuso.Where(r => (r.yuso_id == yusoRow.yuso_id) && (r.calc_no == calcNo))
+                                                        .Select(tdr => tdr).ToList();
+                            dsStartCalc.t_yuso_wk.ToList().ForEach(r =>
+                            {
+                                r.calc_ym = yusoRow.calc_ym;
+                                r.contract_type = yusoRow.contract_type;
+                                r.yuso_kbn = yusoRow.yuso_kbn;
+                                r.orig_warehouse_block_cd = yusoRow.orig_warehouse_block_cd;
+                                r.orig_warehouse_cd = yusoRow.orig_warehouse_cd;
+                                r.terminal_id = yusoRow.terminal_id;
+                                r.vehicle_id = yusoRow.vehicle_id;
+                                r.dest_jis = yusoRow.dest_jis;
+                                r.dest_warehouse_cd = yusoRow.dest_warehouse_cd;
+                                r.yuso_mode_kbn = yusoRow.yuso_mode_kbn;
+                                r.carrier_company_cd = yusoRow.carrier_company_cd;
+                                r.orig_date = yusoRow.orig_date;
+                                r.arriving_date = yusoRow.arriving_date;
+                                r.dest_cd = yusoRow.dest_cd;
+                                r.base_charge_amount = yusoRow.base_charge_amount;
+                                r.special_charge_amount = yusoRow.special_charge_amount;
+                                r.stopping_charge_amount = yusoRow.stopping_charge_amount;
+                                r.cargo_charge_amount = yusoRow.cargo_charge_amount;
+                                r.other_charge_amount = yusoRow.other_charge_amount;
+                                r.actual_distance_km = yusoRow.actual_distance_km;
+                                r.actual_km_surcharge_amount = yusoRow.actual_distance_surcharge_amount;
+                                r.actual_time_mins = yusoRow.actual_time_mins;
+                                r.actual_time_surcharge_amount = yusoRow.actual_time_surcharge_amount;
+                                r.actual_assistant_count = yusoRow.actual_assistant_count;
+                                r.actual_assist_surcharge_amount = yusoRow.actual_assist_surcharge_amount;
+                                r.actual_load_surcharge_amount = yusoRow.actual_load_surcharge_amount;
+                                r.actual_stand_surcharge_amount = yusoRow.actual_stand_surcharge_amount;
+                                r.actual_wash_surcharge_amount = yusoRow.actual_wash_surcharge_amount;
+                                r.total_charge_amount = yusoRow.total_charge_amount;
+                                r.calc_status = yusoRow.calc_status;
+                                r.verify_status = yusoRow.verify_status;
+                                r.yuso_key = yusoRow.yuso_key;
+                                r.updated_at = yusoRow.UpdateDay;
+                                r.updated_user_id = yusoRow.UpdateUserCode;
+                                r.BatchUpdateDay = yusoRow.BatchUpdateDay;
+                                r.last_calc_at = yusoRow.last_calc_at;
+                                r.release_ymd = yusoRow.release_ymd;
+                                r.verify_ymnd = yusoRow.verify_ymnd;
+                            });
+                            adpYusoWk.Update(dsStartCalc);
                         }
                     }
                 }
 
-                return newCalcNo;
+                Console.WriteLine("{1}update (calcNo={0})", calcNo, updateCount);
+
+                return calcNo;
             }
             catch (Exception)
             {
@@ -723,7 +780,9 @@ namespace Pasco.FareCalcLib
             // get new calc_no
             var calcNoAdp = new calc_noTableAdapter();
             calcNoAdp.Connection = sqlConn;
-            int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+            //int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
+            int calcNo = 0;
+            int updateCount = 0;
 
             // TODO: high akema monthlyVerifyKeyListのt_yusoの計算ステータスを計算中に更新. 条件に計算ステータス≠計算中を入れる
             // TODO: high akema t_yuso_wkデータ作成
@@ -731,6 +790,10 @@ namespace Pasco.FareCalcLib
             var dsStartCalc = new StartCalc();
             tYusoAdp.Connection = sqlConn;
             tYusoAdp.Fill(dsStartCalc.t_yuso);
+
+            var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
+            adpYusoWk.Connection = sqlConn;
+            adpYusoWk.SetUpdateBatchSize(100);
             foreach (StartCalc.t_yusoRow yusoRow in dsStartCalc.t_yuso)
             {
                 foreach (var yuso_key in monthlyVerifyKeyList.Select((v, i) => new { Value = v, Index = i }))
@@ -743,12 +806,61 @@ namespace Pasco.FareCalcLib
                      && yusoRow.contract_type == monthlyVerifyKeyList[yuso_key.Index].ContractType
                         )
                     {
-                        tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", yusoRow.yuso_id);
+                        calcNo = yusoRow.calc_no;
+                        updateCount = tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, yusoRow.calc_no, DateTime.Now, "", yusoRow.yuso_id);
+
+                        adpYusoWk.FillByPK(dsStartCalc.t_yuso_wk, yusoRow.calc_no, yusoRow.yuso_id);
+                        var colNamesOfYusoWk = dsStartCalc.t_yuso.Where(r => (r.yuso_id == yusoRow.yuso_id) && (r.calc_no == calcNo))
+                            .Select(tdr => tdr).ToList();
+                        dsStartCalc.t_yuso_wk.ToList().ForEach(r =>
+                        {
+                            r.calc_ym = yusoRow.calc_ym;
+                            r.contract_type = yusoRow.contract_type;
+                            r.yuso_kbn = yusoRow.yuso_kbn;
+                            r.orig_warehouse_block_cd = yusoRow.orig_warehouse_block_cd;
+                            r.orig_warehouse_cd = yusoRow.orig_warehouse_cd;
+                            r.terminal_id = yusoRow.terminal_id;
+                            r.vehicle_id = yusoRow.vehicle_id;
+                            r.dest_jis = yusoRow.dest_jis;
+                            r.dest_warehouse_cd = yusoRow.dest_warehouse_cd;
+                            r.yuso_mode_kbn = yusoRow.yuso_mode_kbn;
+                            r.carrier_company_cd = yusoRow.carrier_company_cd;
+                            r.orig_date = yusoRow.orig_date;
+                            r.arriving_date = yusoRow.arriving_date;
+                            r.dest_cd = yusoRow.dest_cd;
+                            r.base_charge_amount = yusoRow.base_charge_amount;
+                            r.special_charge_amount = yusoRow.special_charge_amount;
+                            r.stopping_charge_amount = yusoRow.stopping_charge_amount;
+                            r.cargo_charge_amount = yusoRow.cargo_charge_amount;
+                            r.other_charge_amount = yusoRow.other_charge_amount;
+                            r.actual_distance_km = yusoRow.actual_distance_km;
+                            r.actual_km_surcharge_amount = yusoRow.actual_distance_surcharge_amount;
+                            r.actual_time_mins = yusoRow.actual_time_mins;
+                            r.actual_time_surcharge_amount = yusoRow.actual_time_surcharge_amount;
+                            r.actual_assistant_count = yusoRow.actual_assistant_count;
+                            r.actual_assist_surcharge_amount = yusoRow.actual_assist_surcharge_amount;
+                            r.actual_load_surcharge_amount = yusoRow.actual_load_surcharge_amount;
+                            r.actual_stand_surcharge_amount = yusoRow.actual_stand_surcharge_amount;
+                            r.actual_wash_surcharge_amount = yusoRow.actual_wash_surcharge_amount;
+                            r.total_charge_amount = yusoRow.total_charge_amount;
+                            r.calc_status = yusoRow.calc_status;
+                            r.verify_status = yusoRow.verify_status;
+                            r.yuso_key = yusoRow.yuso_key;
+                            r.updated_at = yusoRow.UpdateDay;
+                            r.updated_user_id = yusoRow.UpdateUserCode;
+                            r.BatchUpdateDay = yusoRow.BatchUpdateDay;
+                            r.last_calc_at = yusoRow.last_calc_at;
+                            r.release_ymd = yusoRow.release_ymd;
+                            r.verify_ymnd = yusoRow.verify_ymnd;
+                        });
+                        adpYusoWk.Update(dsStartCalc);
                     }
                 }
             }
 
-            return newCalcNo;
+            Console.WriteLine("{1}update (calcNo={0})", calcNo, updateCount);
+
+            return calcNo;
         }
 
         /// <summary>
