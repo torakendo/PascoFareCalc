@@ -92,7 +92,7 @@ namespace Pasco.MakeCalcDataBatch
                         var shkJskAdp = new t_shk_jskTableAdapter();
                         shkJskAdp.Connection = conn;
 
-                        // get shipment data (not processed) 
+                        // 出荷データを取得する（未処理） get shipment data (not processed) 
                         var shkJskCnt = shkJskAdp.FillByInclKbn(makeCalcDs.t_shk_jsk, InclKbn.UnDone);
                         // TODO: debug code for p1
                         Console.WriteLine("retrieve from t_shk_jsk COUNT = {0}", shkJskCnt);
@@ -103,25 +103,26 @@ namespace Pasco.MakeCalcDataBatch
 
                         foreach (var shkJskRow in makeCalcDs.t_shk_jsk)
                         {
-                            // create new detailRow and set value from shkJskRow
+                            // 新しいdetailRowを作成し、shkJskRowから値を設定します create new detailRow and set value from shkJskRow
                             var detailRow = SetDetailDataFromShkJskData(makeCalcDs.t_detail.Newt_detailRow(), shkJskRow);
 
-                            /* --  generate keisanKey and yusoKey -- */
+                            // keisanKeyとyusoKeyを生成する generate keisanKey and yusoKey
                             var paramTable = calcKeyGen.GetParamTable();
                             // TODO: done 出荷実績のカラム名に変更する
                             // TODO: normal akema 輸送区分：持ち戻り、返品、引き取りに対応する
+
                             paramTable.Keys.ToList().ForEach(paramName => paramTable[paramName] = detailRow[paramName]);
                             // TODO: endo high　calcKeyGen 輸送キーの変更、持ち戻り輸送キー対応（？）
                             var calcKeys = calcKeyGen.getCalcKeys(paramTable);
 
-                            /* -- t_yuso insert or update -- */
-                            /* --    insert or update t_yuso. when update, check calc_status -- */
-                            
+                            // t_yuso挿入または更新 t_yuso insert or update
+                            // t_yusoを挿入または更新します。 更新時に、calc_statusを確認します insert or update t_yuso. when update, check calc_status
+
                             var yusoFillCnt = yusoAdp.FillByYusoKey(makeCalcDs.t_yuso, calcKeys.YusoKey, detailRow.calc_ym);
                             var yusoQ = makeCalcDs.t_yuso.Where(r => r.yuso_key == calcKeys.YusoKey);
                             if (yusoFillCnt == 0 && yusoQ.Count() == 0)
                             {
-                                // set data to yusoRow and insert
+                                // データをyusoRowに設定して挿入 set data to yusoRow and insert
                                 var newYusoRow = SetYusoDataFromShkJskData(makeCalcDs.t_yuso.Newt_yusoRow(), shkJskRow);
                                 newYusoRow.yuso_key = calcKeys.YusoKey;
                                 newYusoRow.calc_status = CnCalcStatus.UnCalc;
@@ -158,12 +159,12 @@ namespace Pasco.MakeCalcDataBatch
                                 }
                             }
 
-                            /* -- t_keisan insert or update -- */
+                            // t_keisan挿入または更新 t_keisan insert or update
                             var keisanFillCnt = keisanAdp.FillByKeisanKey(makeCalcDs.t_keisan, calcKeys.KeisanKey, detailRow.calc_ym);
                             var keisanQ = makeCalcDs.t_keisan.Where(r => r.keisan_key == calcKeys.KeisanKey);
                             if (keisanFillCnt == 0 && keisanQ.Count() == 0)
                             {
-                                // set data to keisanRow and insert
+                                // データをkeisanRowに設定して挿入 set data to keisanRow and insert
                                 var newKeisanRow = SetKeisanDataFromShkJskData(makeCalcDs.t_keisan.Newt_keisanRow(), shkJskRow);
                                 newKeisanRow.keisan_key = calcKeys.KeisanKey;
                                 newKeisanRow.yuso_key = calcKeys.YusoKey;
@@ -179,11 +180,11 @@ namespace Pasco.MakeCalcDataBatch
                                 keisanRow.UpdateDay = batchExecDate;
                             }
 
-                            /* -- t_denpyo insert or update -- */
+                            // t_denpyo挿入または更新 t_denpyo insert or update
                             // TODO: high akema 伝票単位のデータを作成する
 
-                            /* -- t_detail insert -- */
-                            // make sure there's no same data before insert
+                            // t_detail挿入 t_detail insert
+                            // 挿入する前に同じデータがないことを確認してください make sure there's no same data before insert
                             var detailFillCnt = detailAdp.FillBySlipKey(makeCalcDs.t_detail,
                                 shkJskRow.senderordcode.ToString(), shkJskRow.sendercodesubno, shkJskRow.senderorddtlcode);
                             var detailQ = makeCalcDs.t_detail.Where(
@@ -204,7 +205,7 @@ namespace Pasco.MakeCalcDataBatch
                             }
 
 
-                            // set inclKbn "Done"
+                            // inclKbn "完了"を設定 set inclKbn "Done"
                             shkJskRow.incl_kbn = InclKbn.Done;
                             // TODO: normal akema udpate_day更新
                         }

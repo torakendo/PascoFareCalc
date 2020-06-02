@@ -21,13 +21,9 @@ namespace Pasco.FareCalcBatch
 
         public static void FareCalcBatch() 
         {
-            /*
-             * prepare calcuration
-             *  get new calc number
-             *  get not-done list from yuso-table, and change status to doing
-             *  
-             *  
-             */
+            // 計算を準備する prepare calcuration
+            //  新しい計算番号を取得 get new calc number
+            // yuso-tableから未完了リストを取得し、ステータスを実行に変更 get not-done list from yuso-table, and change status to doing
 
             // TODO: normal akema log write
             Console.WriteLine("----- START FareCalcBatch -----");
@@ -72,6 +68,7 @@ namespace Pasco.FareCalcBatch
             }
             catch (Exception ex)
             {
+                // TODO: function akema ログ出力
                 // TODO: normal akema log
                 Console.WriteLine("Error occur (calcNo={0})", calcNo);
                 var stringBuilder = new StringBuilder();

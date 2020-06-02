@@ -158,7 +158,7 @@ namespace Pasco.FareCalcLib
             {
                 var td = tariffDetailQuery.Select(tdr => tdr).ToArray()[0];
 
-                // set the tariff price before adding
+                // 追加する前に関税価格を設定する set the tariff price before adding
                 base_charge_before_adding = td.tariff_price; // 可算前
 
                 if (td.vertical_adding_flg == 1)
@@ -204,8 +204,9 @@ namespace Pasco.FareCalcLib
 
         public decimal GetPrice(Tariff tariffDs, CalcVariables calcVariables)
         {
+
             // TODO: normal-low akema タリフの契約種別とデータの契約種別が一致しない場合は計算エラー、エラーオブジェクト追加
-            // get column value
+            // 列の値を取得する get column value
             Decimal vertialValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Vertical);
             Decimal horizontalValue = GetKeisanValue(tariffDs, calcVariables, CnTariffAxisKbn.Horizontal);
 

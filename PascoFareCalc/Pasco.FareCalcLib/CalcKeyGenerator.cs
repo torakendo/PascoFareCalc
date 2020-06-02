@@ -51,21 +51,25 @@ namespace Pasco.FareCalcLib
         {
             ArrayList paramValues = new ArrayList();
 
-            // check params
+            // パラメータをチェック check params
             foreach (var name in paramNames)
             {
                 if (!paramTable.ContainsKey(name) || paramTable[name] == null)
                 {
+                    // TODO: function akema 計算エラー出力
                     // TODO: エラー処理
                     throw new Exception(String.Format("{0}の値がNullです", name));
                 }
             }
 
+
             var keisanKeyStr = String.Join(delim, paramTable.Values);
             string yusoKeyStr = "";
             if (paramTable["contract_type"].Equals(CnContractType.ByVehicle))
             {
-                // if ByVehicle set yusoKey
+                // TODO: function akema 車建(移送)
+                // TODO: function akema 車建(配送)
+                // ByVehicleがyusoKeyを設定した場合
                 yusoKeyStr =
                     paramTable["yuso_kbn"].ToString() + delim +
                     paramTable["contract_type"].ToString() + delim +
@@ -75,12 +79,14 @@ namespace Pasco.FareCalcLib
             }
             else
             {
-                // if ByItem set keisanKey to yusoKey
+                // TODO: function akema 個建(移送)
+                // TODO: function akema 個建(配送)
+                // ByItemがkeisanKeyをyusoKeyに設定した場合
                 yusoKeyStr = keisanKeyStr;
             }
 
-            /* -- create hash -- */
-            //Create a new instance of the SHA1Managed class to create the hash value
+            // ハッシュを作成する create has
+            // SHA1Managedクラスの新しいインスタンスを作成してハッシュ値を作成します Create a new instance of the SHA1Managed class to create the hash value
 
             string GetSHA1HashedString(string value)
                => string.Join("", shHash.ComputeHash(Encoding.UTF8.GetBytes(value)).Select(x => $"{x:X2}"));

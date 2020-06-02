@@ -67,8 +67,8 @@ namespace Pasco.FareCalcLib
             CalcTrnDs = new CalcTrn();
         }
         /// <summary>
-        /// execute calculation 
-        ///   before calling this method make sure CalcNo and Connection to be set
+        /// 計算を実行する execute calculation 
+        /// このメソッドを呼び出す前に、CalcNoとConnectionが設定されていることを確認してください before calling this method make sure CalcNo and Connection to be set
         /// </summary>
         public void Calcurate()
         {
@@ -93,8 +93,8 @@ namespace Pasco.FareCalcLib
         }
 
         /// <summary>
-        /// execute re-calculation 
-        ///   before calling this method make sure CalcNo and Connection to be set
+        /// 再計算を実行する execute re-calculation 
+        /// このメソッドを呼び出す前に、CalcNoとConnectionが設定されていることを確認してください before calling this method make sure CalcNo and Connection to be set
         /// </summary>
         public void ReCalcurate()
         {
@@ -109,7 +109,7 @@ namespace Pasco.FareCalcLib
             CalcWkDs.t_keisan_wk.ToList().ForEach(keisanWkRow => 
             {
                 decimal totalExtraCost = 0;
-                // set extra_cost value to keisan_wk
+                // extra_cost値をkeisan_wkに設定します　set extra_cost value to keisan_wk
                 CalcWkDs.t_extra_cost_wk.Where(exCostWkRow =>
                                 exCostWkRow.calc_no == this.CalcNo &&
                                 exCostWkRow.keisan_key == keisanWkRow.keisan_key)
@@ -120,41 +120,48 @@ namespace Pasco.FareCalcLib
                                 switch (exCostWkRow.extra_cost_kind_kbn)
                                 {
                                     case extraCostKbn.StoppingCharge:
-                                        // 中継料 
+                                        // TODO: function akema 中継料
                                         keisanWkRow.stopping_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.CargoCharge:
-                                        // 航送料
+                                        // TODO: function akema 航送料
                                         keisanWkRow.cargo_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.DistanceCharge:
-                                        // 距離割増
+                                        // TODO: function akema 距離割増料
                                         keisanWkRow.actual_km_surcharge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.HelperCharge:
-                                        // 助手料
+                                        // TODO: function akema 助手料
                                         keisanWkRow.actual_assist_surcharge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.WashCharge:
-                                        // 洗浄料
+                                        // TODO: function akema 洗浄料
                                         keisanWkRow.actual_wash_surcharge_amount = exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.StandCharge:
-                                        // 台貫料
+                                        // TODO: function akema 台貫料
                                         keisanWkRow.actual_stand_surcharge_amount = exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.TollRoadCharge:
-                                        // 有料道路代
+                                        // TODO: function akema 有料道路代
                                         keisanWkRow.actual_load_surcharge_amount = exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.OtherCharge:
                                     case extraCostKbn.FuelCharge:
-                                        // 燃油料、その他
+                                        // TODO: function akema 燃油料
+                                        // TODO: function akema その他料金
                                         keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     default:
                                         keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
                                         break;
+                                        // TODO: function akema 時間割増料
+                                        // TODO: function akema 期間割増料
+                                        // TODO: function akema 地区割増料
+                                        // TODO: function akema 時間指定割増料
+                                        // TODO: function akema 特別作業割増料
+                                        // TODO: function akema 特殊車両割増料
                                 }
                                 totalExtraCost += exCostWkRow.extra_charge_amount;
                             });
@@ -169,18 +176,19 @@ namespace Pasco.FareCalcLib
         {
             // TODO: SQLに変更することを検討
             // TODO: spec endo 実績項目を上書きするのはまずいか
+            // TODO: function akema 実績調整額
             foreach (var yusoWkRow in this.CalcWkDs.t_yuso_wk)
             {
                 if (yusoWkRow.contract_type == CnContractType.ByItem) 
                 {
-                    // set keisan wk values to same key datarow of uso_wk when ByItem(ko-date)
-                    // get keisan_wk row at the same key
+                    // keisan wkの値を、ByItem（ko-date）のときにuso_wkの同じデータ行に設定する set keisan wk values to same key datarow of uso_wk when ByItem(ko-date)
+                    // 同じキーでkeisan_wk行を取得する get keisan_wk row at the same key
                     var keisanWkQuery =
                         this.CalcWkDs.t_keisan_wk
                             .Where(r => r.calc_no == CalcNo && r.yuso_key == yusoWkRow.yuso_key);
                     if (keisanWkQuery.Count() == 1)
                     {
-                        // set value to yusoWkRow
+                        // 値をyusoWkRowに設定します set value to yusoWkRow
                         var keisanWkRow = keisanWkQuery.First();
                         yusoWkRow.weight_sum_kg = keisanWkRow.weight_sum_kg;
                         yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);                       
@@ -191,7 +199,7 @@ namespace Pasco.FareCalcLib
 
                 } else if (yusoWkRow.contract_type == CnContractType.ByVehicle)
                 {
-                    // get max total_charge_amaunt row of keisan_wk by yuso key of ByVehicle(sha-date)
+                    // ByVehicle（sha-date）のyusoキーでkeisan_wkの最大total_charge_amaunt行を取得 get max total_charge_amaunt row of keisan_wk by yuso key of ByVehicle(sha-date)
                     var keisanWkRowQuery = this.CalcWkDs.t_keisan_wk
                             .Where(r =>
                                 r.calc_no == this.CalcNo &&
@@ -202,11 +210,11 @@ namespace Pasco.FareCalcLib
                     if (keisanWkRowQuery.Count() > 0 )
                     {
                         var keisanWkRow = keisanWkRowQuery.First();
-                        // set value to yusoWkRow
+                        // 値をyusoWkRowに設定します　set value to yusoWkRow
                         yusoWkRow.weight_sum_kg = keisanWkRow.weight_sum_kg;
                         yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);
 
-                        // set "on" to max_flg in keisanWkRow
+                        // keisanWkRowで「on」をmax_flgに設定　set "on" to max_flg in keisanWkRow
                         keisanWkRow.max_flg = 1;
 
                     } else
@@ -221,10 +229,7 @@ namespace Pasco.FareCalcLib
         {
             try
             {
-                /* --------------------------------------
-                * fill trn datatables by calcNo
-                * -------------------------------------- */
-                
+                // calcNoでtrnデータテーブルを埋める fill trn datatables by calcNo
                 var yusoAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 yusoAdp.Connection = Connection;
                 var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
@@ -242,17 +247,13 @@ namespace Pasco.FareCalcLib
                 var origDestAdp = new CalcWkTableAdapters.m_orig_dest_calcinfoTableAdapter();
                 origDestAdp.Connection = Connection;
 
-                /* --------------------------------------
-                * fill yuso_wk
-                * -------------------------------------- */
+                // yuso_wkを埋める fill yuso_wk
                 var yusoWkAdp = new CalcWkTableAdapters.t_yuso_wkTableAdapter();
                 yusoWkAdp.Connection = Connection;
                 yusoWkAdp.FillByCalcNo(this.CalcWkDs.t_yuso_wk, this.CalcNo);
 
-                /* --------------------------------------
-                * insert data to keisan_wk and detail_wk
-                * -------------------------------------- */
-                //  copy keisan_trn datatable to keisan_wk
+                // keisan_wkとdetail_wkにデータを挿入する insert data to keisan_wk and detail_wk
+                // keisan_trnデータテーブルをkeisan_wkにコピー copy keisan_trn datatable to keisan_wk
                 // TODO:クエリーにするか検討
                 var colnameOfKeisanWk = Enumerable.Range(0, CalcWkDs.t_keisan_wk.Columns.Count)
                             .Select(i => CalcWkDs.t_keisan_wk.Columns[i].ColumnName).ToList();
@@ -268,9 +269,8 @@ namespace Pasco.FareCalcLib
 
                     });
 
-                    /* --------------------------------------
-                    * get calcinfo from m_orig_dest_calcinfo and set keisanWkRow
-                    * -------------------------------------- */
+
+                    // m_orig_dest_calcinfoからcalcinfoを取得し、keisanWkRowを設定します get calcinfo from m_orig_dest_calcinfo and set keisanWkRow
                     var calcinfoDt = new CalcWk.m_orig_dest_calcinfoDataTable();
                     var yusoModeKbn = r.contract_type == CnContractType.ByItem ? "" : r.yuso_mode_kbn;
                     if (r.yuso_kbn == CnYusoKbn.Delivery)
@@ -329,13 +329,13 @@ namespace Pasco.FareCalcLib
                     CalcWkDs.t_keisan_wk.Rows.Add(newRow);
                 }
 
-                //  insert into keisan_wk
+                // keisan_wkに挿入 insert into keisan_wk
                 var keisanWkAdp = new CalcWkTableAdapters.t_keisan_wkTableAdapter();
                 keisanWkAdp.Connection = Connection;
                 keisanWkAdp.SetUpdateBatchSize(UpdateBatchSize);
                 keisanWkAdp.Update(this.CalcWkDs.t_keisan_wk);
 
-                //   copy detail_trn datatable to detail_wk
+                // detail_trnデータテーブルをdetail_wkにコピーします  copy detail_trn datatable to detail_wk
                 // TODO:クエリーにするか検討
                 var colnameOfDetailWk = Enumerable.Range(0, CalcWkDs.t_detail_wk.Columns.Count)
                             .Select(i => CalcWkDs.t_detail_wk.Columns[i].ColumnName).ToList();
@@ -377,34 +377,34 @@ namespace Pasco.FareCalcLib
                     CalcWkDs.t_detail_wk.Rows.Add(newRow);
                 });
 
-                // 　insert into detail_wk
+                // detail_wkに挿入insert into detail_wk
                 var detailWkAdp = new CalcWkTableAdapters.t_detail_wkTableAdapter();
                 detailWkAdp.Connection = Connection;
                 detailWkAdp.SetUpdateBatchSize(UpdateBatchSize);
                 detailWkAdp.Update(this.CalcWkDs.t_detail_wk);
 
-                /* --------------------------------------
-                * set info to keisan_wk by server query
-                * -------------------------------------- */
+
+                // サーバークエリによって情報をkeisan_wkに設定 set info to keisan_wk by server query
                 // TODO: cancel 業者コードブランクの発着別に対応する。場合によっては1行ずつ適用   
                 // TODO: done endo keisanWk の行ごとに、発着別のデータを取得し、業者コードが一致するデータあれば、それを使う。なければブランクのデータを使う
                 // TODO: done akema 適用開始終了　出庫日で判定
-                // set calcinfo to keisan_wk by server update query
+
+                // TODO: function akema 発着別運賃計算情報の適用期間
+                // TODO: function akema 付帯費用の適用期間
+
+                // サーバー更新クエリによってcalcinfoをkeisan_wkに設定　set calcinfo to keisan_wk by server update query
 
                 // TODO: done akema 以下が実行できなくなっているので確認する→クエリをFORMAT(orig_date, 'MMdd')→orig_dateに修正し解消
                 //var updCalcinfoCnt = keisanWkAdp.UpdateCalcInfo(DateTime.Now, "", this.CalcNo);
 
-                // fill keisan_wk after update
+                // 更新後にkeisan_wkを埋める fill keisan_wk after update
                 keisanWkAdp.FillByCalcNo(CalcWkDs.t_keisan_wk, this.CalcNo);
 
-                /* --------------------------------------
-                * set Sum of Weight to keisan_wk on server 
-                * -------------------------------------- */
+
+                // サーバーで重みの合計をkeisan_wkに設定します set Sum of Weight to keisan_wk on server 
                 SumWeightByKeisanUnit();
 
-                /* --------------------------------------
-                * create extra charge data on server 
-                * -------------------------------------- */
+                // サーバーに追加料金データを作成する create extra charge data on server 
                 CreateExtraChargeData();
             }
             catch (Exception ex)
@@ -434,12 +434,12 @@ namespace Pasco.FareCalcLib
                         group.ToList().ForEach(keisanWkRow =>
                         {
 
-                            //create t_extra_cost data for each extra_cost_detail row
+                            // extra_cost_detail行ごとにt_extra_costデータを作成する create t_extra_cost data for each extra_cost_detail row
                             foreach (var r in exCostPtnDetailTbl)
                             {
                                 var newExCostWkRow = CalcWkDs.t_extra_cost_wk.Newt_extra_cost_wkRow();
 
-                                // set value from ex_cost_pattern row
+                                // ex_cost_pattern行から値を設定します set value from ex_cost_pattern row
                                 string[] exCostCols = {
                                     "extra_cost_pattern_id","extra_cost_detail_id","extra_cost_kind_kbn",
                                     "calculate_type_kbn","tariff_id","adding_price","adding_ratio",
@@ -449,7 +449,7 @@ namespace Pasco.FareCalcLib
                                     newExCostWkRow[colname] = r[colname];
                                 });
 
-                                // set value from keisan_wk
+                                // keisan_wkから値を設定 set value from keisan_wk
                                 newExCostWkRow["calc_no"] = keisanWkRow["calc_no"];
                                 newExCostWkRow["calc_ym"] = keisanWkRow["calc_ym"];
                                 newExCostWkRow["contract_type"] = keisanWkRow["contract_type"];
@@ -477,7 +477,7 @@ namespace Pasco.FareCalcLib
                                 newExCostWkRow["base_charge_amount"] = keisanWkRow["base_charge_amount"];
                                 newExCostWkRow["extra_charge_amount"] = 0;
 
-                                // add row to ex_cost_wk
+                                // add row to ex_cost_wk add row to ex_cost_wk
                                 CalcWkDs.t_extra_cost_wk.Addt_extra_cost_wkRow(newExCostWkRow);
                             }
                         });
@@ -504,6 +504,7 @@ namespace Pasco.FareCalcLib
                 var tariffCalculator = new TariffCalculator(Connection);
 
                 // TODO: done akema GetTariffDataset()が取得できないので確認 → CnTariffAxisKbnの区分変更によるエラー修正
+                // TODO: function akema 特別タリフ
                 foreach (var group in query)
                 {
                     var tariffDs = tariffCalculator.GetTariffDataset(group.Key);
@@ -518,16 +519,19 @@ namespace Pasco.FareCalcLib
                     {
                         foreach (var item in group)
                         {
-                            // set price to keisan_wk row
+                            // 価格をkeisan_wk行に設定 set price to keisan_wk row
                             var calcVar = new CalcVariables(item);
                             item.apply_vertical_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Vertical);
                             item.apply_horizonatl_value = tariffCalculator.GetKeisanValue(tariffDs, calcVar, CnTariffAxisKbn.Horizontal);
+                            // TODO: function akema タリフの末端繰返し・増分単価
                             item.original_base_charge_amount = tariffCalculator.GetPrice(tariffDs, calcVar);
 
+                            // TODO: function akema 業者別調整率
                             // TODO: high akema 業者別調整率　適用した発着別の業者コードに指定がない時に適用　仕様4-2-2
                             item.base_charge_amount = item.original_base_charge_amount;
 
                             // TODO: high akema 持ち戻り率適用　仕様4-2-3　base_charge_amount　にセット
+                            // TODO: function akema 個建(配送・持ち戻り)
                         }
                     }
                 }
@@ -546,7 +550,7 @@ namespace Pasco.FareCalcLib
                 var tariffCalculator = new TariffCalculator(Connection);
                 foreach (var exCostRow in CalcWkDs.t_extra_cost_wk)
                 {
-                    // if not applicable, break
+                    // 該当しない場合は、break　 if not applicable, break
                     // TODO: high akema 適用期間チェック
                     // TODO: normal akema 時間割増料、期間割増料、地区割増、
                     // TODO: spec endo 時間指定割増料、特別作業割増、特殊車両割増
@@ -644,7 +648,7 @@ namespace Pasco.FareCalcLib
 
         private void SumWeightByKeisanUnit()
         {
-            // summmary weight of detail
+            // 合計重量をt_detailにセット summmary weight of t_detail
             var query = this.CalcWkDs.t_detail_wk
                 .GroupBy(x =>
                     new
@@ -673,7 +677,7 @@ namespace Pasco.FareCalcLib
         }
 
         /// <summary>
-        /// instruct calculation range by yuso_key and get calculate_no
+        /// yuso_keyで計算範囲を指示し、calculate_noを取得 instruct calculation range by yuso_key and get calculate_no
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <param name="yusoKeyList">list of yuso_key</param>
@@ -682,7 +686,7 @@ namespace Pasco.FareCalcLib
         {
             try
             {
-                // get new calc_no
+                // 新しいcalc_noを取得 get new calc_no
                 var calcNoAdp = new calc_noTableAdapter();
                 calcNoAdp.Connection = sqlConn;
                 //int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
@@ -770,14 +774,14 @@ namespace Pasco.FareCalcLib
         }
 
         /// <summary>
-        /// instruct calculation range by MonthlyVerifyKey and get calculate_no
+        /// MonthlyVerifyKeyで計算範囲を指示し、calculate_noを取得 instruct calculation range by MonthlyVerifyKey and get calculate_no
         /// </summary>
         /// <param name="sqlConn"></param>
         /// <param name="monthlyVerifyKeyList">list of MonthlyVerifyKey</param>
         /// <returns>calculate_no</returns>
         public static int StartCalc(SqlConnection sqlConn, List<MonthlyVerifyKey> monthlyVerifyKeyList)
         {
-            // get new calc_no
+            // 新しいcalc_noを取得 get new calc_no
             var calcNoAdp = new calc_noTableAdapter();
             calcNoAdp.Connection = sqlConn;
             //int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
@@ -863,22 +867,17 @@ namespace Pasco.FareCalcLib
             return calcNo;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sqlConn"></param>
-        /// <returns></returns>
         public static int StartCalcBatch(SqlConnection sqlConn)
         {
             try
             {
-                // get new calc_no
+                // 新しいcalc_noを取得 get new calc_no
                 var calcNoAdp = new calc_noTableAdapter();
                 calcNoAdp.Connection = sqlConn;
                 int newCalcNo = Convert.ToInt32(calcNoAdp.InsertNewNo(DateTime.Now));
 
-                // update calc_no and calc_status to "doing"
-                // TODO: create calcstatus index on t_yuso
+                // calc_noとcalc_statusを "doing"に更新します　update calc_no and calc_status to "doing"
+                // TODO: create calcstatus index on t_yuso　t_yusoにcalcstatusインデックスを作成します
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 tYusoAdp.Connection = sqlConn;
                 var rtn = tYusoAdp.UpdateCalcStatus(CnCalcStatus.Doing, newCalcNo, DateTime.Now, "", CnCalcStatus.UnCalc);
@@ -888,7 +887,7 @@ namespace Pasco.FareCalcLib
                 var cnt = tYusoAdp.FillByCalcNo(dsStartCalc.t_yuso, newCalcNo, CnCalcStatus.Doing);
 
                 // TODO: クエリに変更するかどうか検討
-                // copy tran to wk
+                // トランをワークにコピー
                 var colNamesOfYusoWk = Enumerable.Range(0, dsStartCalc.t_yuso_wk.Columns.Count)
                                             .Select(i => dsStartCalc.t_yuso_wk.Columns[i].ColumnName).ToList();
                 dsStartCalc.t_yuso.ToList().ForEach(r =>
@@ -901,7 +900,7 @@ namespace Pasco.FareCalcLib
                     dsStartCalc.t_yuso_wk.Rows.Add(newRow);
                 });
 
-                // wk table update(batch)
+                // wkテーブルの更新 wk table update(batch)
                 var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
                 adpYusoWk.Connection = sqlConn;
                 adpYusoWk.SetUpdateBatchSize(100);
@@ -926,7 +925,7 @@ namespace Pasco.FareCalcLib
                 // TODO: 値をトランにセット
                 // TODD: TranをUpdate
 
-                // update wk tables
+                // wkテーブルを更新する update wk tables
                 var yusoWkAdp = new CalcWkTableAdapters.t_yuso_wkTableAdapter();
                 yusoWkAdp.Connection = Connection;
                 yusoWkAdp.SetUpdateBatchSize(UpdateBatchSize);
@@ -955,7 +954,7 @@ namespace Pasco.FareCalcLib
                 // TODO: debug code for p1
                 Console.WriteLine("t_extra_cost_wk COUNT = {0}", cntExCostWk);
 
-                // update Trn tables 
+                // Trnテーブルを更新する update Trn tables 
                 var yusoTrnAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 var keisanTrnAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
                 var detailTrnAdp = new CalcTrnTableAdapters.t_detailTableAdapter();
@@ -1142,12 +1141,12 @@ namespace Pasco.FareCalcLib
             {
                 // TODO: エラー件数をカウント
 
-                // update calc_no end status
+                // calc_no終了ステータスを更新 update calc_no end status
                 var calcNoAdp = new calc_noTableAdapter();
                 calcNoAdp.Connection = Connection;
                 int newCalcNo = calcNoAdp.UpdateEndStatus(DateTime.Now, (short)CnEndStatus.Good, CalcNo);
 
-                // update calc_status to "done"
+                // calc_statusを "done"に更新します update calc_status to "done"
                 var tYusoAdp = new StartCalcTableAdapters.t_yusoTableAdapter();
                 tYusoAdp.Connection = Connection;
                 var rtn = tYusoAdp.UpdateCalcStatusDone(CnCalcStatus.Done, DateTime.Now, "", CnCalcStatus.Doing, CalcNo);
@@ -1170,7 +1169,7 @@ namespace Pasco.FareCalcLib
 
                 foreach (var yusoKeyGroup in query)
                 {
-                    // get yusoWkRow by group key
+                    // グループキーでyusoWkRowを取得 get yusoWkRow by group key
                     var yusoWkRowQuery = this.CalcWkDs.t_yuso_wk.Where(x =>
                         x.calc_ym == yusoKeyGroup.Key.calc_ym &&
                         x.yuso_key == yusoKeyGroup.Key.yuso_key);
@@ -1183,7 +1182,7 @@ namespace Pasco.FareCalcLib
                     var yusoWkRow = yusoWkRowQuery.First();
                     var sumAmounts = new Dictionary<String, Decimal>();
                     var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
-                    //initialize dictionary
+                    // 初期化 initialize dictionary
                     var colNamesForDevide = yusoWkColNames.Where(name => name != "total_charge_amount").ToList(); // totalは除く
                     colNamesForDevide.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
                     colNamesForDevide.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
@@ -1199,10 +1198,10 @@ namespace Pasco.FareCalcLib
                                                         (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
                                 detailRow[detailColName] = devidedlAmount;
 
-                                // add to summary
+                                // 合計に追加 add to summary
                                 sumAmounts[detailColName] += devidedlAmount;
 
-                                // set id and value if amount is greater than before
+                                // 金額が以前よりも大きい場合は、IDと値を設定します set id and value if amount is greater than before
                                 if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
                                 {
                                     maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
@@ -1212,7 +1211,7 @@ namespace Pasco.FareCalcLib
                     }
 
                     // TODO: urgent spec endo 基本設計書　重量按分を確認
-                    // compare yuso amount to max detail sum amount. if it's defferent, add the difference to row that has max amount
+                    // yusoの金額と最大詳細合計金額を比較します。 異なる場合は、最大量を持つ行に差を追加します compare yuso amount to max detail sum amount. if it's defferent, add the difference to row that has max amount
                     colNamesForDevide.ForEach(usoWkColname =>
                     {
                         if (!DBNull.Value.Equals(yusoWkRow[usoWkColname]))
@@ -1227,7 +1226,7 @@ namespace Pasco.FareCalcLib
                         }
                     });
 
-                    // set total amount
+                    // 合計金額を設定 set total amount
                     foreach (var detailRow in yusoKeyGroup)
                     {// TODO: high akema Not Null制約入れる
                         detailRow.distributed_total_charge_amount = 0;  
