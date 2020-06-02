@@ -8839,7 +8839,7 @@ namespace Pasco.FareCalcLib.Datasets.CalcWkTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_yuso_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_yuso_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -10465,7 +10465,7 @@ FROM                   t_yuso_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_keisan_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_keisan_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -12757,7 +12757,7 @@ FROM                 t_keisan_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_detail_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_detail_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -14566,7 +14566,7 @@ FROM                   t_detail_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t_extra_cost_wkTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class t_extra_cost_wkTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -16351,7 +16351,7 @@ FROM                 t_extra_cost_wk";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class m_orig_dest_calcinfoTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class m_orig_dest_calcinfoTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
