@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pasco.FareCalcBatch", "Pasco.FareCalcBatch\Pasco.FareCalcBatch.csproj", "{EB9BC80F-04E7-497E-B2DA-9F084796E1C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pasco.FareCalcBatch", "Pasco.FareCalcBatch\Pasco.FareCalcBatch.csproj", "{D20FD6E7-F75D-4AE4-8064-6ABE95FA9204}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pasco.FareCalcLib", "Pasco.FareCalcLib\Pasco.FareCalcLib.csproj", "{778A9410-BDA2-4BA0-8E26-20460E2C81B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pasco.FareCalcLib", "Pasco.FareCalcLib\Pasco.FareCalcLib.csproj", "{72227D90-B100-484D-AEF7-8FA1D882DA51}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pasco.MakeCalcDataBatch", "Pasco.MakeCalcDataBatch\Pasco.MakeCalcDataBatch.csproj", "{7406AAFC-0D8B-437F-9D5B-8B817C246EA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pasco.MakeCalcDataBatch", "Pasco.MakeCalcDataBatch\Pasco.MakeCalcDataBatch.csproj", "{1CB1D517-E9B1-491D-B677-CD586AA04B06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB9BC80F-04E7-497E-B2DA-9F084796E1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB9BC80F-04E7-497E-B2DA-9F084796E1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB9BC80F-04E7-497E-B2DA-9F084796E1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB9BC80F-04E7-497E-B2DA-9F084796E1C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{778A9410-BDA2-4BA0-8E26-20460E2C81B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{778A9410-BDA2-4BA0-8E26-20460E2C81B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{778A9410-BDA2-4BA0-8E26-20460E2C81B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{778A9410-BDA2-4BA0-8E26-20460E2C81B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7406AAFC-0D8B-437F-9D5B-8B817C246EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7406AAFC-0D8B-437F-9D5B-8B817C246EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7406AAFC-0D8B-437F-9D5B-8B817C246EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7406AAFC-0D8B-437F-9D5B-8B817C246EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D20FD6E7-F75D-4AE4-8064-6ABE95FA9204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20FD6E7-F75D-4AE4-8064-6ABE95FA9204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D20FD6E7-F75D-4AE4-8064-6ABE95FA9204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20FD6E7-F75D-4AE4-8064-6ABE95FA9204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72227D90-B100-484D-AEF7-8FA1D882DA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72227D90-B100-484D-AEF7-8FA1D882DA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72227D90-B100-484D-AEF7-8FA1D882DA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72227D90-B100-484D-AEF7-8FA1D882DA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB1D517-E9B1-491D-B677-CD586AA04B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB1D517-E9B1-491D-B677-CD586AA04B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB1D517-E9B1-491D-B677-CD586AA04B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB1D517-E9B1-491D-B677-CD586AA04B06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

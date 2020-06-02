@@ -19,7 +19,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using Pasco.FareCalcLib.Datasets.ExtraCostPatternTableAdapters;
-using System.Transactions;
+
 using Pasco.FareCalcLib.Datasets.CalcWkTableAdapters;
 
 namespace Pasco.FareCalcLib

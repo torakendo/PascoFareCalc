@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Transactions;
 using Pasco.FareCalcLib;
-using Pasco.FareCalcLib.Datasets;
 
 namespace Pasco.FareCalcBatch
 {
