@@ -98,37 +98,80 @@ namespace Pasco.FareCalcLib
             public const string AddingRatio = "03";
         }
 
+        // 付帯費用種別区分
         public struct extraCostKbn
         {
-            /// <summary> 中継料 </summary>
+            // <summary> 中継料</summary>
             public const string StoppingCharge = "01";
-            /// <summary> 航送料 </summary>
+            // <summary> 航送料</summary>
             public const string CargoCharge = "02";
-            /// <summary> 時間割増料 </summary>
-            public const string TimeCharge = "03";
-            /// <summary> 距離割増料 </summary>
-            public const string DistanceCharge = "04";
-            /// <summary> 助手料 </summary>
-            public const string HelperCharge = "05";
-            /// <summary> 燃油料 </summary>
-            public const string FuelCharge = "06";
-            /// <summary> 洗浄料 </summary>
-            public const string WashCharge = "07";
-            /// <summary> 台貫料 </summary>
-            public const string StandCharge = "08";
-            /// <summary> 有料道路代 </summary>
-            public const string TollRoadCharge = "09";
-            /// <summary> 期間割増 </summary>
-            public const string SeasonalCharge = "10";
-            /// <summary> 地区割増 </summary>
-            public const string AreaCharge = "11";
-            /// <summary> 休日割増 </summary>
-            public const string HolidayCharge = "12";
-            /// <summary> 特殊車両割増 </summary>
-            public const string SpecialVehicleCharge = "13";
-            /// <summary> その他 </summary>
-            public const string OtherCharge = "99";
+            // <summary> 冬期割増料</summary>
+            public const string WinterCharge = "03";
+            // <summary> 地区割増料</summary>
+            public const string AreaCharge = "04";
+            // <summary> 時間指定割増料</summary>
+            public const string TimeDesignationCharge = "05";
+            // <summary> 特別作業割増料</summary>
+            public const string SpecialWorkCharge = "06";
+            // <summary> 燃油料</summary>
+            public const string FuelCharge = "07";
+            // <summary> 特殊車両割増料</summary>
+            public const string SpecialVehicleCharge = "08";
+            // <summary> その他（タリフ） </summary>
+            public const string OtherTariff = "09";
+            // <summary> その他（率乗算） </summary>
+            public const string OtherRateMultiplication = "10";
+            // <summary> その他（単純加算） </summary>
+            public const string OtherSimpleAddition = "11";
+            // <summary> 時間割増料</summary>
+            public const string TimeCharge = "12";
+            // <summary> 距離割増料</summary>
+            public const string DistanceCharge = "13";
+            // <summary> 助手料</summary>
+            public const string HelperCharge = "14";
+            // <summary> 有料道路代</summary>
+            public const string TollRoadCharge = "15";
+            // <summary> 洗浄料</summary>
+            public const string WashCharge = "16";
+            // <summary> 台貫料</summary>
+            public const string StandCharge = "17";
+            // <summary> 期間割増料</summary>
+            public const string SeasonalCharge = "18";
+            // <summary> 休日割増料</summary>
+            public const string HolidayCharge = "19";
         }
+
+        //public struct extraCostKbn
+        //{
+        //    /// <summary> 中継料 </summary>
+        //    public const string StoppingCharge = "01";
+        //    /// <summary> 航送料 </summary>
+        //    public const string CargoCharge = "02";
+        //    /// <summary> 時間割増料 </summary>
+        //    public const string TimeCharge = "03";
+        //    /// <summary> 距離割増料 </summary>
+        //    public const string DistanceCharge = "04";
+        //    /// <summary> 助手料 </summary>
+        //    public const string HelperCharge = "05";
+        //    /// <summary> 燃油料 </summary>
+        //    public const string FuelCharge = "06";
+        //    /// <summary> 洗浄料 </summary>
+        //    public const string WashCharge = "07";
+        //    /// <summary> 台貫料 </summary>
+        //    public const string StandCharge = "08";
+        //    /// <summary> 有料道路代 </summary>
+        //    public const string TollRoadCharge = "09";
+        //    /// <summary> 期間割増 </summary>
+        //    public const string SeasonalCharge = "10";
+        //    /// <summary> 地区割増 </summary>
+        //    public const string AreaCharge = "11";
+        //    /// <summary> 休日割増 </summary>
+        //    public const string HolidayCharge = "12";
+        //    /// <summary> 特殊車両割増 </summary>
+        //    public const string SpecialVehicleCharge = "13";
+        //    /// <summary> その他 </summary>
+        //    public const string OtherCharge = "99";
+        //}
 
         // 縦横軸区分
         public struct AxisKbn
