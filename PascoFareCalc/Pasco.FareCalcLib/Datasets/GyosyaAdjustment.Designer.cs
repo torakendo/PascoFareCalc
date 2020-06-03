@@ -1067,7 +1067,7 @@ namespace Pasco.FareCalcLib.Datasets.GyosyaAdjustmentTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class m_gyosya_adjustmentTableAdapter : global::FareCalcLib.Datasets.BaseAdapter {
+    public partial class m_gyosya_adjustmentTableAdapter : global::Pasco.FareCalcLib.Datasets.BaseAdapter {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
