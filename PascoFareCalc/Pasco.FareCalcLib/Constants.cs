@@ -71,15 +71,30 @@ namespace Pasco.FareCalcLib
             // <summary> 支給 </summary>
             public const string Provision = "03";
             // <summary> 持戻 </summary>
-            public const string BringBack = "0";
+            public const string BringBack = "04";
         }
 
         // TODO: normal endo 正しいデータ分類にする
+        // データ分類
         public struct DataClass
         {
-            public const string Move = "01";
-            public const string Delivery = "02";
-            public const string BringBack = "03";
+            //public const string Move = "01";
+            //public const string Delivery = "02";
+            //public const string BringBack = "03";
+
+            // <summary> 配送_出荷実績（出荷）</summary>
+            public const string Shipment = "31";
+            // <summary> 移送_出荷実績（転送）</summary>
+            public const string Transfer = "32";
+            // <summary> 移送_出荷実績（返品発注）</summary>
+            public const string ReturnOrder = "33";
+            // <summary> 移送_出荷実績（支給）</summary>
+            public const string Supply = "34";
+            // <summary> 配送（持戻）_入庫実績（持戻・未出荷） </summary>
+            public const string BringBack = "55";
+            // <summary> 移送_入庫実績（引取り）</summary>
+            public const string TakingOver = "56";
+
         }
 
         // TODO: done akema 確認区分に変更

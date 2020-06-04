@@ -357,7 +357,34 @@ namespace Pasco.FareCalcLib
                     var newRow = CalcWkDs.t_detail_wk.NewRow();
                     colnameOfDetailWk.ForEach(colname =>
                     {
-                        if (CalcTrnDs.t_detail.Columns.Contains(colname)) newRow[colname] = r[colname];
+                        if (CalcTrnDs.t_detail.Columns.Contains(colname))
+                        {
+                            // TODO: done akema 値が入るデータを用意
+                            if (colname == "distributed_base_charge_amount"
+                            || colname == "distributed_special_charge_amount"
+                            || colname == "distributed_base_charge_amount"
+                            || colname == "distributed_special_charge_amount"
+                            || colname == "distributed_stopping_charge_amount"
+                            || colname == "distributed_cargo_charge_amount"
+                            || colname == "distributed_other_charge_amount"
+                            || colname == "distributed_actual_km_surcharge_amount"
+                            || colname == "distributed_actual_time_surcharge_amount"
+                            || colname == "distributed_actual_assist_surcharge_amount"
+                            || colname == "distributed_actual_load_surcharge_amount"
+                            || colname == "distributed_actual_stand_surcharge_amount"
+                            || colname == "distributed_actual_wash_surcharge_amount"
+                            || colname == "distributed_total_charge_amount"
+                            || colname == "distributed_actual_adjust_surcharge_amount"
+                            || colname == "distributed_total_amount"
+                            )
+                            {
+                                newRow[colname] = 0;
+                            }
+                            else
+                            {
+                                newRow[colname] = r[colname];
+                            }
+                        }
                     });
                     newRow["calc_no"] = CalcNo;
                     CalcWkDs.t_detail_wk.Rows.Add(newRow);
@@ -568,6 +595,11 @@ namespace Pasco.FareCalcLib
                     // TODO: function akema 付帯費用の適用期間
                     // TODO: function akema 実績調整額
                     var yusoWkquery = CalcWkDs.t_yuso_wk.Where(r => r.yuso_key == exCostRow.yuso_key);
+                    var gyosyaAdp = new GyosyaAdjustmentAdapters.m_gyosya_adjustmentTableAdapter();
+                    gyosyaAdp.Connection = Connection;
+                    var gyoshaDt = new GyosyaAdjustment.m_gyosya_adjustmentDataTable();
+                    gyoshaDt = gyosyaAdp.GetDataByPk(yusoWkquery.First().carrier_company_cd, yusoWkquery.First().yuso_kbn, yusoWkquery.First().orig_warehouse_block_cd);
+
                     switch (exCostRow.calculate_type_kbn)
                     {
                         case extraCostKbn.StoppingCharge:
@@ -581,10 +613,9 @@ namespace Pasco.FareCalcLib
                             exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
                             break;
                         case extraCostKbn.DistanceCharge:
-                            // 付帯費用一覧に「距離割増料」設定があり、（実績距離 － 基本距離）> 0 の場合
+                            // 距離割増　タリフ．金額 × 超過距離
                             if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_distance_kmNull()))
                             {
-                            // 距離割増　タリフ．金額 × 超過距離
                                 var actualDistanceKm = yusoWkquery.First().actual_distance_km;
                                 var calcVariables = new CalcVariables(exCostRow);
                                 calcVariables.DistanceKm = (actualDistanceKm - exCostRow.distance_km) > 0 ? (actualDistanceKm - exCostRow.distance_km) : 0;
@@ -639,17 +670,16 @@ namespace Pasco.FareCalcLib
                                 case CalculateTypeKbn.AddingRatio:
                                     // その他（単純加算）基本運賃 × 付帯費用設定．掛率　÷ 100
                                     // TODO: normal spec 業者別調整率適用前の金額を適用するでよいか。
-                                    exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * exCostRow.adding_ratio / 100);
+                                    exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * gyoshaDt.First().adjustment_rate / 100);
                                     break;
                                 default:
                                     break;
                             }
                             break;
                         case extraCostKbn.TimeCharge:
-                            // 付帯費用一覧に「時間割増料」設定があり、（実績時間 － 基本時間）> 0 の場合
+                            // 時間割増料 タリフ．金額 × 超過時間
                             if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_time_minsNull()))
                             {
-                                // 時間割増料 タリフ．金額 × 超過時間
                                 var actualTimeMins = yusoWkquery.First().actual_time_mins;
                                 var calcVariables = new CalcVariables(exCostRow);
                                 calcVariables.DistanceKm = (actualTimeMins - exCostRow.time_mins) > 0 ? (actualTimeMins - exCostRow.time_mins) : 0;
@@ -657,38 +687,40 @@ namespace Pasco.FareCalcLib
                             }
                             break;
                         case extraCostKbn.SeasonalCharge:
-                            // 付帯費用一覧に「期間割増料」設定があり、出庫日が適用期間内の場合
+                            // 期間割増料 タリフ．金額
                             if (Int16.Parse(exCostRow.applicable_start_md) <= Int16.Parse(exCostRow.orig_date.Substring(2, 4))
                              && Int16.Parse(exCostRow.applicable_end_md) >= Int16.Parse(exCostRow.orig_date.Substring(2, 4)))
                             {
-                            // 期間割増料 タリフ．金額
                                 exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
                             }
                             break;
                         case extraCostKbn.AreaCharge:
-                            // 付帯費用一覧に「地区割増料」設定がある場合
                             // 地区割増料 タリフ．金額	
-                            exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
+                            if (yusoWkquery.Count() == 1)
+                            {
+                                exCostRow.extra_charge_amount = tariffCalculator.GetPrice(exCostRow.tariff_id, new CalcVariables(exCostRow));
+                            }
                             break;
                         case extraCostKbn.TimeDesignationCharge:
-                            // 届先別割増適用マスタを出庫倉庫ブロック、届先コードで検索し、以下いずれかの場合
-                            // ①データが存在し、 届先別割増適用マスタ．指定時間 = 指定なし
-                            // ②データが存在し、 届先別割増適用マスタ．指定時間 ≠ 出荷実績．納品時間
-                            // ③データが存在せず、出荷実績．納品時間 ≠ 指定なし
-
                             // 時間指定割増料 基本運賃 × 業者別調整率．時間指定割増率 ÷ 100
-                            exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * exCostRow.adding_ratio / 100);
+                            if (yusoWkquery.Count() == 1) 
+                            { 
+                                exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * gyoshaDt.First().time_adjustment_rate / 100);
+                            }
                             break;
                         case extraCostKbn.SpecialWorkCharge:
-                            // 届先別割増適用マスタを出庫倉庫ブロック、届先コードで検索し、データが存在する場合
                             // 特別作業割増料 基本運賃 × 業者別調整率．特別作業割増率 ÷ 100
-                            exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * exCostRow.adding_ratio / 100);
-
+                            if (yusoWkquery.Count() == 1)
+                            { 
+                                exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * gyoshaDt.First().additional_work_rate / 100);
+                            }
                             break;
                         case extraCostKbn.SpecialVehicleCharge:
-                            // 付帯費用一覧に「特殊車両割増」があり、かつ出荷実績．特殊車両区分 ＝ 特殊車両 の場合
                             // 特殊車両割増料 付帯費用設定．加算額
-                            exCostRow.extra_charge_amount = exCostRow.adding_price;
+                            if (yusoWkquery.Count() == 1) 
+                            {
+                                exCostRow.extra_charge_amount = exCostRow.adding_price;
+                            }
                             break;
                         default:
                             break;
