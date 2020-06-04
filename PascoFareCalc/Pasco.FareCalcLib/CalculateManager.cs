@@ -516,18 +516,31 @@ namespace Pasco.FareCalcLib
                             // TODO: high akema 業者別調整率　適用した発着別の業者コードに指定がない時に適用　仕様4-2-2
                             // 計算情報．業者コードに業者の指定がない場合、業者別運賃調整率マスタより調整率取得
                             var gyoshaDt = new GyosyaAdjustment.m_gyosya_adjustmentDataTable();
+                                gyoshaDt = gyosyaAdp.GetDataByPk(item.carrier_company_cd, item.yuso_kbn, item.orig_warehouse_block_cd);
                             if (String.IsNullOrEmpty(item.carrier_company_cd))
                             {
-                                gyoshaDt = gyosyaAdp.GetDataByPk(item.carrier_company_cd, item.yuso_kbn, item.orig_warehouse_block_cd);
                                 item.base_charge_amount = Decimal.Floor(item.base_charge_amount * gyoshaDt.First().adjustment_rate / 100);
                             }
-                            else
+                            else if (item.yuso_kbn == CnYusoKbn.BringBack)
+                            {
+                                // TODO: high akema 持ち戻り率適用　仕様4-2-3　base_charge_amount　にセット
+                                // TODO: function akema 個建(配送・持ち戻り)
+                                // 計算単位．モード区分＝路線 の場合「持戻率（路線）」、それ以外の場合「持戻率（基本）」
+                                if (item.yuso_mode_kbn == YusoModeKbn.RegularFlights)
+                                {
+                                    item.base_charge_amount = Decimal.Floor(item.base_charge_amount * gyoshaDt.First().bring_back_rate_route / 100);
+                                }
+                                else
+                                    item.base_charge_amount = Decimal.Floor(item.base_charge_amount * gyoshaDt.First().bring_back_rate_base / 100);
+                                {
+                                }
+                            }
+                            else 
                             {
                                 item.base_charge_amount = item.original_base_charge_amount;
                             }
 
-                            // TODO: high akema 持ち戻り率適用　仕様4-2-3　base_charge_amount　にセット
-                            // TODO: function akema 個建(配送・持ち戻り)
+                            
                         }
                     }
                 }

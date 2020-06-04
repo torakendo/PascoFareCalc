@@ -70,6 +70,8 @@ namespace Pasco.FareCalcLib
             public const string Delivery = "02";
             // <summary> 支給 </summary>
             public const string Provision = "03";
+            // <summary> 持戻 </summary>
+            public const string BringBack = "0";
         }
 
         // TODO: normal endo 正しいデータ分類にする
@@ -227,6 +229,30 @@ namespace Pasco.FareCalcLib
             public const string UnitPrice = "02";
             /// <summary> 繰返し </summary>
             public const string Repetition = "03";
+        }
+
+        // 輸送モード区分
+        public struct YusoModeKbn
+        {
+            /// <summary>４ｔ保冷車</summary>
+            public const string Container = "01";
+            /// <summary>トラック</summary>
+            public const string Truck = "02";
+            /// <summary>トレーラー</summary>
+            public const string Trailer = "03";
+            /// <summary>フレート</summary>
+            public const string Freight = "04";
+            /// <summary>ローリー</summary>
+            public const string Lorry = "05";
+            /// <summary>海上コンテナ</summary>
+            public const string SeaContainer = "05";
+            /// <summary>海上トレーラー</summary>
+            public const string MaritimeTrailer = "06";
+            /// <summary>路線便</summary>
+            public const string RegularFlights = "07";
+            /// <summary>他</summary>
+            public const string Other = "08";
+
         }
     }
 }

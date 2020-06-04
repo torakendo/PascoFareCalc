@@ -47,9 +47,18 @@ namespace Pasco.MakeCalcDataBatch
             {"special_vehicle_kbn","specialvehiclekbn"}
         };
 
-        // TODO: high endo 持ち戻りのカラムマッピング
-        private static Dictionary<string, string> BringBackColumnNameMap = new Dictionary<string, string>()
-        { };
+        private static Dictionary<string, string> BringBackColumnNameMap = new Dictionary<string, string>() {
+            // TODO: high endo 持ち戻りのカラムマッピング
+            {"yuso_kbn","skbn" },// データ分類
+            {"contract_type","contracttype" },// 契約種別
+            {"orig_date","scheduleactualdate"},  // 出庫日
+            {"yuso_mode_kbn","transmodekbn"},// （発地）
+            {"orig_warehouse_block_cd","outblockcode"},// （着地）
+            {"dest_jis","municipalitycode"},// モード区分
+            {"carrier_company_cd","transcompanycode"},// 業者コード
+            {"dest_cd","shipcustcode"},// 届け先コード
+            {"arriving_date","rltunloaddate"},// 届け日
+        };
 
         private static string[] commonColNames = { "CreateDay", "UpdateDay", "CreateUserCode", "" };
 
