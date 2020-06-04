@@ -133,6 +133,66 @@ namespace Pasco.MakeCalcDataBatch
                             {
                                 // データをyusoRowに設定して挿入 set data to yusoRow and insert
                                 var newYusoRow = SetYusoDataFromShkJskData(makeCalcDs.t_yuso.Newt_yusoRow(), shkJskRow);
+
+                                // 値がNULLの場合に初期値をセットする
+                                newYusoRow.yuso_id = DataRow<int>(newYusoRow, "yuso_id");
+                                newYusoRow.calc_ym = DataRow<string>(newYusoRow, "calc_ym");
+                                newYusoRow.contract_type = DataRow<string>(newYusoRow, "contract_type");
+                                newYusoRow.yuso_kbn = DataRow<string>(newYusoRow, "yuso_kbn");
+                                newYusoRow.orig_warehouse_block_cd = DataRow<string>(newYusoRow, "orig_warehouse_block_cd");
+                                newYusoRow.orig_warehouse_cd = DataRow<string>(newYusoRow, "orig_warehouse_cd");
+                                newYusoRow.terminal_id = DataRow<string>(newYusoRow, "terminal_id");
+                                newYusoRow.vehicle_id = DataRow<string>(newYusoRow, "vehicle_id");
+                                newYusoRow.dest_jis = DataRow<string>(newYusoRow, "dest_jis");
+                                newYusoRow.dest_warehouse_cd = DataRow<string>(newYusoRow, "dest_warehouse_cd");
+                                newYusoRow.yuso_mode_kbn = DataRow<string>(newYusoRow, "yuso_mode_kbn");
+                                newYusoRow.carrier_company_cd = DataRow<string>(newYusoRow, "carrier_company_cd");
+                                newYusoRow.orig_date = DataRow<string>(newYusoRow, "orig_date");
+                                newYusoRow.arriving_date = DataRow<string>(newYusoRow, "arriving_date");
+                                newYusoRow.dest_cd = DataRow<string>(newYusoRow, "dest_cd");
+                                newYusoRow.distance_km = DataRow<int>(newYusoRow, "distance_km");
+                                newYusoRow.time_mins = DataRow<int>(newYusoRow, "time_mins");
+                                newYusoRow.fuel_cost_amount = DataRow<decimal>(newYusoRow, "fuel_cost_amount");
+                                newYusoRow.stopping_count = DataRow<short>(newYusoRow, "stopping_count");
+                                newYusoRow.weight_sum_kg = DataRow<decimal>(newYusoRow, "weight_sum_kg");
+                                newYusoRow.item_quantity_sum = DataRow<decimal>(newYusoRow, "item_quantity_sum");
+                                newYusoRow.base_charge_amount = DataRow<decimal>(newYusoRow, "base_charge_amount");
+                                newYusoRow.special_charge_amount = DataRow<decimal>(newYusoRow, "special_charge_amount");
+                                newYusoRow.stopping_charge_amount = DataRow<decimal>(newYusoRow, "stopping_charge_amount");
+                                newYusoRow.cargo_charge_amount = DataRow<decimal>(newYusoRow, "cargo_charge_amount");
+                                newYusoRow.other_charge_amount = DataRow<decimal>(newYusoRow, "other_charge_amount");
+                                newYusoRow.actual_distance_km = DataRow<decimal>(newYusoRow, "actual_distance_km");
+                                newYusoRow.actual_distance_surcharge_amount = DataRow<decimal>(newYusoRow, "actual_distance_surcharge_amount");
+                                newYusoRow.actual_time_mins = DataRow<decimal>(newYusoRow, "actual_time_mins");
+                                newYusoRow.actual_time_surcharge_amount = DataRow<decimal>(newYusoRow, "actual_time_surcharge_amount");
+                                newYusoRow.actual_assistant_count = DataRow<int>(newYusoRow, "actual_assistant_count");
+                                newYusoRow.actual_assist_surcharge_amount = DataRow<decimal>(newYusoRow, "actual_assist_surcharge_amount");
+                                newYusoRow.actual_load_surcharge_amount = DataRow<decimal>(newYusoRow, "actual_load_surcharge_amount");
+                                newYusoRow.actual_stand_surcharge_amount = DataRow<decimal>(newYusoRow, "actual_stand_surcharge_amount");
+                                newYusoRow.actual_wash_surcharge_amount = DataRow<decimal>(newYusoRow, "actual_wash_surcharge_amount");
+                                newYusoRow.total_charge_amount = DataRow<decimal>(newYusoRow, "total_charge_amount");
+                                newYusoRow.actual_chosei_sum_amount = DataRow<decimal>(newYusoRow, "actual_chosei_sum_amount");
+                                newYusoRow.chosei_total_charge_amount = DataRow<decimal>(newYusoRow, "chosei_total_charge_amount");
+                                newYusoRow.verify_status = DataRow<string>(newYusoRow, "verify_status");
+                                newYusoRow.verify_ymd = DataRow<string>(newYusoRow, "verify_ymd");
+                                newYusoRow.release_ymd = DataRow<string>(newYusoRow, "release_ymd");
+                                newYusoRow.yuso_means_kbn = DataRow<string>(newYusoRow, "yuso_means_kbn");
+                                newYusoRow.dest_nm = DataRow<string>(newYusoRow, "dest_nm");
+                                newYusoRow.calc_status = DataRow<string>(newYusoRow, "calc_status");
+                                newYusoRow.calc_no = DataRow<int>(newYusoRow, "calc_no");
+                                newYusoRow.last_calc_at = DataRowDateTime(newYusoRow, "last_calc_at");
+                                newYusoRow.send_flg = DataRow<short>(newYusoRow, "send_flg");
+                                newYusoRow.send_at = DataRowDateTime(newYusoRow, "send_at");
+                                newYusoRow.back_flg = DataRow<short>(newYusoRow, "back_flg");
+                                newYusoRow.calc_err_flg = DataRow<short>(newYusoRow, "calc_err_flg");
+                                newYusoRow.yuso_key = DataRow<string>(newYusoRow, "yuso_key");
+                                newYusoRow.BatchUpdateDay = DataRowDateTime(newYusoRow, "BatchUpdateDay");
+                                newYusoRow.CreateDay = DataRowDateTime(newYusoRow, "CreateDay");
+                                newYusoRow.UpdateDay = DataRowDateTime(newYusoRow, "UpdateDay");
+                                newYusoRow.CreateUserCode = DataRow<string>(newYusoRow, "CreateUserCode");
+                                newYusoRow.UpdateUserCode = DataRow<string>(newYusoRow, "UpdateUserCode");
+
+                                // 値セット
                                 newYusoRow.yuso_key = calcKeys.YusoKey;
                                 newYusoRow.calc_status = CnCalcStatus.UnCalc;
                                 newYusoRow.verify_status = CnVerifyStatus.NotVerified;
@@ -175,6 +235,48 @@ namespace Pasco.MakeCalcDataBatch
                             {
                                 // データをkeisanRowに設定して挿入 set data to keisanRow and insert
                                 var newKeisanRow = SetKeisanDataFromShkJskData(makeCalcDs.t_keisan.Newt_keisanRow(), shkJskRow);
+
+                                // 値がNULLの場合に初期値をセットする
+                                newKeisanRow.keisan_id = DataRow<int>(newKeisanRow, "keisan_id");
+                                newKeisanRow.calc_ym = DataRow<string>(newKeisanRow, "calc_ym");
+                                newKeisanRow.contract_type = DataRow<string>(newKeisanRow, "contract_type");
+                                newKeisanRow.yuso_kbn = DataRow<string>(newKeisanRow, "yuso_kbn");
+                                newKeisanRow.orig_warehouse_block_cd = DataRow<string>(newKeisanRow, "orig_warehouse_block_cd");
+                                newKeisanRow.orig_warehouse_cd = DataRow<string>(newKeisanRow, "orig_warehouse_cd");
+                                newKeisanRow.terminal_id = DataRow<string>(newKeisanRow, "terminal_id");
+                                newKeisanRow.vehicle_id = DataRow<string>(newKeisanRow, "vehicle_id");
+                                newKeisanRow.dest_jis = DataRow<string>(newKeisanRow, "dest_jis");
+                                newKeisanRow.dest_warehouse_cd = DataRow<string>(newKeisanRow, "dest_warehouse_cd");
+                                newKeisanRow.yuso_mode_kbn = DataRow<string>(newKeisanRow, "yuso_mode_kbn");
+                                newKeisanRow.carrier_company_cd = DataRow<string>(newKeisanRow, "carrier_company_cd");
+                                newKeisanRow.orig_date = DataRow<string>(newKeisanRow, "orig_date");
+                                newKeisanRow.arriving_date = DataRow<string>(newKeisanRow, "arriving_date");
+                                newKeisanRow.dest_cd = DataRow<string>(newKeisanRow, "dest_cd");
+                                newKeisanRow.fare_tariff_id = DataRow<int>(newKeisanRow, "fare_tariff_id");
+                                newKeisanRow.special_tariff_id = DataRow<int>(newKeisanRow, "special_tariff_id");
+                                newKeisanRow.extra_cost_pattern_id = DataRow<int>(newKeisanRow, "extra_cost_pattern_id");
+                                newKeisanRow.distance_km = DataRow<int>(newKeisanRow, "distance_km");
+                                newKeisanRow.time_mins = DataRow<int>(newKeisanRow, "time_mins");
+                                newKeisanRow.fuel_cost_amount = DataRow<int>(newKeisanRow, "fuel_cost_amount");
+                                newKeisanRow.stopping_count = DataRow<short>(newKeisanRow, "stopping_count");
+                                newKeisanRow.special_tariff_start_md = DataRow<string>(newKeisanRow, "special_tariff_start_md");
+                                newKeisanRow.special_tariff_end_md = DataRow<string>(newKeisanRow, "special_tariff_end_md");
+                                newKeisanRow.weight_sum_kg = DataRow<decimal>(newKeisanRow, "weight_sum_kg");
+                                newKeisanRow.item_quantity_sum = DataRow<decimal>(newKeisanRow, "item_quantity_sum");
+                                newKeisanRow.base_charge_amount = DataRow<decimal>(newKeisanRow, "base_charge_amount");
+                                newKeisanRow.special_charge_amount = DataRow<decimal>(newKeisanRow, "special_charge_amount");
+                                newKeisanRow.yuso_means_kbn = DataRow<string>(newKeisanRow, "yuso_means_kbn");
+                                newKeisanRow.dest_nm = DataRow<string>(newKeisanRow, "dest_nm");
+                                newKeisanRow.max_flg = DataRow<short>(newKeisanRow, "max_flg");
+                                newKeisanRow.back_flg = DataRow<short>(newKeisanRow, "back_flg");
+                                newKeisanRow.keisan_key = DataRow<string>(newKeisanRow, "keisan_key");
+                                newKeisanRow.yuso_key = DataRow<string>(newKeisanRow, "yuso_key");
+                                newKeisanRow.CreateDay = DataRowDateTime(newKeisanRow, "CreateDay");
+                                newKeisanRow.UpdateDay = DataRowDateTime(newKeisanRow, "UpdateDay");
+                                newKeisanRow.CreateUserCode = DataRow<string>(newKeisanRow, "CreateUserCode");
+                                newKeisanRow.UpdateUserCode = DataRow<string>(newKeisanRow, "UpdateUserCode");
+
+                                // 値セット
                                 newKeisanRow.keisan_key = calcKeys.KeisanKey;
                                 newKeisanRow.yuso_key = calcKeys.YusoKey;
                                 newKeisanRow.UpdateDay = batchExecDate;
@@ -313,6 +415,21 @@ namespace Pasco.MakeCalcDataBatch
                 default:
                     return shkJskRow[value];
             }
+        }
+
+        // 値がNULLの場合に初期値をセットする
+        public static Type DataRow<Type>(DataRow dr, String columnName)
+        {
+            Type ret = (dr.IsNull(columnName)) ? default(Type) : dr.Field<Type>(columnName);
+
+            return ret;
+        }
+
+        public static DateTime DataRowDateTime(DataRow dr, String columnName)
+        {
+            DateTime ret = (dr.IsNull(columnName)) ? DateTime.Now : dr.Field<DateTime>(columnName);
+
+            return ret;
         }
     }
 }
