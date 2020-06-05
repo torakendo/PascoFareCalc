@@ -61,12 +61,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalcTrn.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\CalcTrn_.cs">
-      <DependentUpon>CalcTrn_.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Datasets\CalcTrn_.Designer.cs">
-      <DependentUpon>CalcTrn_.cs</DependentUpon>
-    </Compile>
     <Compile Include="Datasets\CalcWk.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,15 +108,6 @@
     </None>
     <None Include="Datasets\CalcTrn.xss">
       <DependentUpon>CalcTrn.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\CalcTrn_.xsc">
-      <DependentUpon>CalcTrn_.xsd</DependentUpon>
-    </None>
-    <None Include="Datasets\CalcTrn_.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Datasets\CalcTrn_.xss">
-      <DependentUpon>CalcTrn_.xsd</DependentUpon>
     </None>
     <None Include="Datasets\CalcWk.xsc">
       <DependentUpon>CalcWk.xsd</DependentUpon>

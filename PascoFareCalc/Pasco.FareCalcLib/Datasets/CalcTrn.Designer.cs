@@ -10005,68 +10005,68 @@ WHERE                       (t_yuso_wk.calc_no = @calc_no) AND (t_yuso_wk.calc_s
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[t_detail] WHERE (([detail_Id] = @Original_detail_Id) AND ([cal" +
-                "c_ym] = @Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND (" +
-                "[yuso_kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig" +
-                "_warehouse_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND" +
-                " ([terminal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_i" +
-                "d) AND ([dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_de" +
-                "st_warehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_c" +
-                "ompany_cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_dat" +
-                "e) AND ([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_de" +
-                "st_cd) AND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Original_sli" +
-                "p_suffix_no) AND ([slip_detail_no] = @Original_slip_detail_no) AND ((@IsNull_ite" +
-                "m_cd = 1 AND [item_cd] IS NULL) OR ([item_cd] = @Original_item_cd)) AND ((@IsNul" +
-                "l_item_kigo = 1 AND [item_kigo] IS NULL) OR ([item_kigo] = @Original_item_kigo))" +
-                " AND ((@IsNull_item_name = 1 AND [item_name] IS NULL) OR ([item_name] = @Origina" +
-                "l_item_name)) AND ((@IsNull_item_quantity = 1 AND [item_quantity] IS NULL) OR ([" +
-                "item_quantity] = @Original_item_quantity)) AND ((@IsNull_itme_unit = 1 AND [itme" +
-                "_unit] IS NULL) OR ([itme_unit] = @Original_itme_unit)) AND ((@IsNull_item_weigh" +
-                "t_kg = 1 AND [item_weight_kg] IS NULL) OR ([item_weight_kg] = @Original_item_wei" +
-                "ght_kg)) AND ((@IsNull_yuso_means_kbn = 1 AND [yuso_means_kbn] IS NULL) OR ([yus" +
-                "o_means_kbn] = @Original_yuso_means_kbn)) AND ((@IsNull_special_vehicle_kbn = 1 " +
-                "AND [special_vehicle_kbn] IS NULL) OR ([special_vehicle_kbn] = @Original_special" +
-                "_vehicle_kbn)) AND ((@IsNull_transport_lead_time_hours = 1 AND [transport_lead_t" +
-                "ime_hours] IS NULL) OR ([transport_lead_time_hours] = @Original_transport_lead_t" +
-                "ime_hours)) AND ((@IsNull_distributed_base_charge_amoun = 1 AND [distributed_bas" +
-                "e_charge_amoun] IS NULL) OR ([distributed_base_charge_amoun] = @Original_distrib" +
-                "uted_base_charge_amoun)) AND ((@IsNull_distributed_special_charge_amount = 1 AND" +
-                " [distributed_special_charge_amount] IS NULL) OR ([distributed_special_charge_am" +
-                "ount] = @Original_distributed_special_charge_amount)) AND ((@IsNull_distributed_" +
-                "stopping_charge_amount = 1 AND [distributed_stopping_charge_amount] IS NULL) OR " +
-                "([distributed_stopping_charge_amount] = @Original_distributed_stopping_charge_am" +
-                "ount)) AND ((@IsNull_distributed_cargo_charge_amount = 1 AND [distributed_cargo_" +
-                "charge_amount] IS NULL) OR ([distributed_cargo_charge_amount] = @Original_distri" +
-                "buted_cargo_charge_amount)) AND ((@IsNull_distributed_other_charge_amount = 1 AN" +
-                "D [distributed_other_charge_amount] IS NULL) OR ([distributed_other_charge_amoun" +
-                "t] = @Original_distributed_other_charge_amount)) AND ((@IsNull_distributed_actua" +
-                "l_km_surcharge_amount = 1 AND [distributed_actual_km_surcharge_amount] IS NULL) " +
-                "OR ([distributed_actual_km_surcharge_amount] = @Original_distributed_actual_km_s" +
-                "urcharge_amount)) AND ((@IsNull_distributed_actual_time_surcharge_amount = 1 AND" +
-                " [distributed_actual_time_surcharge_amount] IS NULL) OR ([distributed_actual_tim" +
-                "e_surcharge_amount] = @Original_distributed_actual_time_surcharge_amount)) AND (" +
-                "(@IsNull_distributed_actual_assist_surcharge_amount = 1 AND [distributed_actual_" +
-                "assist_surcharge_amount] IS NULL) OR ([distributed_actual_assist_surcharge_amoun" +
-                "t] = @Original_distributed_actual_assist_surcharge_amount)) AND ((@IsNull_distri" +
-                "buted_actual_load_surcharge_amount = 1 AND [distributed_actual_load_surcharge_am" +
-                "ount] IS NULL) OR ([distributed_actual_load_surcharge_amount] = @Original_distri" +
-                "buted_actual_load_surcharge_amount)) AND ((@IsNull_distributed_actual_stand_surc" +
-                "harge_amount = 1 AND [distributed_actual_stand_surcharge_amount] IS NULL) OR ([d" +
-                "istributed_actual_stand_surcharge_amount] = @Original_distributed_actual_stand_s" +
-                "urcharge_amount)) AND ((@IsNull_distributed_actual_wash_surcharge_amount = 1 AND" +
-                " [distributed_actual_wash_surcharge_amount] IS NULL) OR ([distributed_actual_was" +
-                "h_surcharge_amount] = @Original_distributed_actual_wash_surcharge_amount)) AND (" +
-                "(@IsNull_distributed_actual_adjust_surcharge_amount = 1 AND [distributed_actual_" +
-                "adjust_surcharge_amount] IS NULL) OR ([distributed_actual_adjust_surcharge_amoun" +
-                "t] = @Original_distributed_actual_adjust_surcharge_amount)) AND ((@IsNull_distri" +
-                "buted_total_amount = 1 AND [distributed_total_amount] IS NULL) OR ([distributed_" +
-                "total_amount] = @Original_distributed_total_amount)) AND ([keisan_key] = @Origin" +
-                "al_keisan_key) AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_CreateDay = 1" +
-                " AND [CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_" +
-                "UpdateDay = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) A" +
-                "ND ((@IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCod" +
-                "e] = @Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUser" +
-                "Code] IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [t_detail] WHERE (([detail_Id] = @Original_detail_Id) AND ([calc_ym] " +
+                "= @Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_" +
+                "kbn] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_wareh" +
+                "ouse_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([ter" +
+                "minal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND" +
+                " ([dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_war" +
+                "ehouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company" +
+                "_cd] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND" +
+                " ([arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd)" +
+                " AND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Original_slip_suff" +
+                "ix_no) AND ([slip_detail_no] = @Original_slip_detail_no) AND ((@IsNull_item_cd =" +
+                " 1 AND [item_cd] IS NULL) OR ([item_cd] = @Original_item_cd)) AND ((@IsNull_item" +
+                "_kigo = 1 AND [item_kigo] IS NULL) OR ([item_kigo] = @Original_item_kigo)) AND (" +
+                "(@IsNull_item_name = 1 AND [item_name] IS NULL) OR ([item_name] = @Original_item" +
+                "_name)) AND ((@IsNull_item_quantity = 1 AND [item_quantity] IS NULL) OR ([item_q" +
+                "uantity] = @Original_item_quantity)) AND ((@IsNull_itme_unit = 1 AND [itme_unit]" +
+                " IS NULL) OR ([itme_unit] = @Original_itme_unit)) AND ((@IsNull_item_weight_kg =" +
+                " 1 AND [item_weight_kg] IS NULL) OR ([item_weight_kg] = @Original_item_weight_kg" +
+                ")) AND ((@IsNull_yuso_means_kbn = 1 AND [yuso_means_kbn] IS NULL) OR ([yuso_mean" +
+                "s_kbn] = @Original_yuso_means_kbn)) AND ((@IsNull_special_vehicle_kbn = 1 AND [s" +
+                "pecial_vehicle_kbn] IS NULL) OR ([special_vehicle_kbn] = @Original_special_vehic" +
+                "le_kbn)) AND ((@IsNull_transport_lead_time_hours = 1 AND [transport_lead_time_ho" +
+                "urs] IS NULL) OR ([transport_lead_time_hours] = @Original_transport_lead_time_ho" +
+                "urs)) AND ((@IsNull_distributed_base_charge_amoun = 1 AND [distributed_base_char" +
+                "ge_amoun] IS NULL) OR ([distributed_base_charge_amoun] = @Original_distributed_b" +
+                "ase_charge_amoun)) AND ((@IsNull_distributed_special_charge_amount = 1 AND [dist" +
+                "ributed_special_charge_amount] IS NULL) OR ([distributed_special_charge_amount] " +
+                "= @Original_distributed_special_charge_amount)) AND ((@IsNull_distributed_stoppi" +
+                "ng_charge_amount = 1 AND [distributed_stopping_charge_amount] IS NULL) OR ([dist" +
+                "ributed_stopping_charge_amount] = @Original_distributed_stopping_charge_amount))" +
+                " AND ((@IsNull_distributed_cargo_charge_amount = 1 AND [distributed_cargo_charge" +
+                "_amount] IS NULL) OR ([distributed_cargo_charge_amount] = @Original_distributed_" +
+                "cargo_charge_amount)) AND ((@IsNull_distributed_other_charge_amount = 1 AND [dis" +
+                "tributed_other_charge_amount] IS NULL) OR ([distributed_other_charge_amount] = @" +
+                "Original_distributed_other_charge_amount)) AND ((@IsNull_distributed_actual_km_s" +
+                "urcharge_amount = 1 AND [distributed_actual_km_surcharge_amount] IS NULL) OR ([d" +
+                "istributed_actual_km_surcharge_amount] = @Original_distributed_actual_km_surchar" +
+                "ge_amount)) AND ((@IsNull_distributed_actual_time_surcharge_amount = 1 AND [dist" +
+                "ributed_actual_time_surcharge_amount] IS NULL) OR ([distributed_actual_time_surc" +
+                "harge_amount] = @Original_distributed_actual_time_surcharge_amount)) AND ((@IsNu" +
+                "ll_distributed_actual_assist_surcharge_amount = 1 AND [distributed_actual_assist" +
+                "_surcharge_amount] IS NULL) OR ([distributed_actual_assist_surcharge_amount] = @" +
+                "Original_distributed_actual_assist_surcharge_amount)) AND ((@IsNull_distributed_" +
+                "actual_load_surcharge_amount = 1 AND [distributed_actual_load_surcharge_amount] " +
+                "IS NULL) OR ([distributed_actual_load_surcharge_amount] = @Original_distributed_" +
+                "actual_load_surcharge_amount)) AND ((@IsNull_distributed_actual_stand_surcharge_" +
+                "amount = 1 AND [distributed_actual_stand_surcharge_amount] IS NULL) OR ([distrib" +
+                "uted_actual_stand_surcharge_amount] = @Original_distributed_actual_stand_surchar" +
+                "ge_amount)) AND ((@IsNull_distributed_actual_wash_surcharge_amount = 1 AND [dist" +
+                "ributed_actual_wash_surcharge_amount] IS NULL) OR ([distributed_actual_wash_surc" +
+                "harge_amount] = @Original_distributed_actual_wash_surcharge_amount)) AND ((@IsNu" +
+                "ll_distributed_actual_adjust_surcharge_amount = 1 AND [distributed_actual_adjust" +
+                "_surcharge_amount] IS NULL) OR ([distributed_actual_adjust_surcharge_amount] = @" +
+                "Original_distributed_actual_adjust_surcharge_amount)) AND ((@IsNull_distributed_" +
+                "total_amount = 1 AND [distributed_total_amount] IS NULL) OR ([distributed_total_" +
+                "amount] = @Original_distributed_total_amount)) AND ([keisan_key] = @Original_kei" +
+                "san_key) AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_CreateDay = 1 AND [" +
+                "CreateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_Update" +
+                "Day = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@" +
+                "IsNull_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @" +
+                "Original_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] " +
+                "IS NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_detail_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "detail_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10142,45 +10142,45 @@ WHERE                       (t_yuso_wk.calc_no = @calc_no) AND (t_yuso_wk.calc_s
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_detail] ([calc_ym], [contract_type], [yuso_kbn], [orig_wareh" +
-                "ouse_block_cd], [orig_warehouse_cd], [terminal_id], [vehicle_id], [dest_jis], [d" +
-                "est_warehouse_cd], [yuso_mode_kbn], [carrier_company_cd], [orig_date], [arriving" +
-                "_date], [dest_cd], [slip_no], [slip_suffix_no], [slip_detail_no], [item_cd], [it" +
-                "em_kigo], [item_name], [item_quantity], [itme_unit], [item_weight_kg], [yuso_mea" +
-                "ns_kbn], [special_vehicle_kbn], [transport_lead_time_hours], [distributed_base_c" +
-                "harge_amoun], [distributed_special_charge_amount], [distributed_stopping_charge_" +
-                "amount], [distributed_cargo_charge_amount], [distributed_other_charge_amount], [" +
-                "distributed_actual_km_surcharge_amount], [distributed_actual_time_surcharge_amou" +
-                "nt], [distributed_actual_assist_surcharge_amount], [distributed_actual_load_surc" +
-                "harge_amount], [distributed_actual_stand_surcharge_amount], [distributed_actual_" +
-                "wash_surcharge_amount], [distributed_actual_adjust_surcharge_amount], [distribut" +
-                "ed_total_amount], [keisan_key], [yuso_key], [CreateDay], [UpdateDay], [CreateUse" +
-                "rCode], [UpdateUserCode]) VALUES (@calc_ym, @contract_type, @yuso_kbn, @orig_war" +
-                "ehouse_block_cd, @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_jis, @dest" +
-                "_warehouse_cd, @yuso_mode_kbn, @carrier_company_cd, @orig_date, @arriving_date, " +
-                "@dest_cd, @slip_no, @slip_suffix_no, @slip_detail_no, @item_cd, @item_kigo, @ite" +
-                "m_name, @item_quantity, @itme_unit, @item_weight_kg, @yuso_means_kbn, @special_v" +
-                "ehicle_kbn, @transport_lead_time_hours, @distributed_base_charge_amoun, @distrib" +
-                "uted_special_charge_amount, @distributed_stopping_charge_amount, @distributed_ca" +
-                "rgo_charge_amount, @distributed_other_charge_amount, @distributed_actual_km_surc" +
-                "harge_amount, @distributed_actual_time_surcharge_amount, @distributed_actual_ass" +
-                "ist_surcharge_amount, @distributed_actual_load_surcharge_amount, @distributed_ac" +
-                "tual_stand_surcharge_amount, @distributed_actual_wash_surcharge_amount, @distrib" +
-                "uted_actual_adjust_surcharge_amount, @distributed_total_amount, @keisan_key, @yu" +
-                "so_key, @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);\r\nSELECT detai" +
-                "l_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_" +
-                "cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier" +
-                "_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_de" +
-                "tail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg" +
-                ", yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_ba" +
-                "se_charge_amoun, distributed_special_charge_amount, distributed_stopping_charge_" +
-                "amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distri" +
-                "buted_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, dist" +
-                "ributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount" +
-                ", distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_a" +
-                "mount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, kei" +
-                "san_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM t_d" +
-                "etail WHERE (detail_Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [t_detail] ([calc_ym], [contract_type], [yuso_kbn], [orig_warehouse_b" +
+                "lock_cd], [orig_warehouse_cd], [terminal_id], [vehicle_id], [dest_jis], [dest_wa" +
+                "rehouse_cd], [yuso_mode_kbn], [carrier_company_cd], [orig_date], [arriving_date]" +
+                ", [dest_cd], [slip_no], [slip_suffix_no], [slip_detail_no], [item_cd], [item_kig" +
+                "o], [item_name], [item_quantity], [itme_unit], [item_weight_kg], [yuso_means_kbn" +
+                "], [special_vehicle_kbn], [transport_lead_time_hours], [distributed_base_charge_" +
+                "amoun], [distributed_special_charge_amount], [distributed_stopping_charge_amount" +
+                "], [distributed_cargo_charge_amount], [distributed_other_charge_amount], [distri" +
+                "buted_actual_km_surcharge_amount], [distributed_actual_time_surcharge_amount], [" +
+                "distributed_actual_assist_surcharge_amount], [distributed_actual_load_surcharge_" +
+                "amount], [distributed_actual_stand_surcharge_amount], [distributed_actual_wash_s" +
+                "urcharge_amount], [distributed_actual_adjust_surcharge_amount], [distributed_tot" +
+                "al_amount], [keisan_key], [yuso_key], [CreateDay], [UpdateDay], [CreateUserCode]" +
+                ", [UpdateUserCode]) VALUES (@calc_ym, @contract_type, @yuso_kbn, @orig_warehouse" +
+                "_block_cd, @orig_warehouse_cd, @terminal_id, @vehicle_id, @dest_jis, @dest_wareh" +
+                "ouse_cd, @yuso_mode_kbn, @carrier_company_cd, @orig_date, @arriving_date, @dest_" +
+                "cd, @slip_no, @slip_suffix_no, @slip_detail_no, @item_cd, @item_kigo, @item_name" +
+                ", @item_quantity, @itme_unit, @item_weight_kg, @yuso_means_kbn, @special_vehicle" +
+                "_kbn, @transport_lead_time_hours, @distributed_base_charge_amoun, @distributed_s" +
+                "pecial_charge_amount, @distributed_stopping_charge_amount, @distributed_cargo_ch" +
+                "arge_amount, @distributed_other_charge_amount, @distributed_actual_km_surcharge_" +
+                "amount, @distributed_actual_time_surcharge_amount, @distributed_actual_assist_su" +
+                "rcharge_amount, @distributed_actual_load_surcharge_amount, @distributed_actual_s" +
+                "tand_surcharge_amount, @distributed_actual_wash_surcharge_amount, @distributed_a" +
+                "ctual_adjust_surcharge_amount, @distributed_total_amount, @keisan_key, @yuso_key" +
+                ", @CreateDay, @UpdateDay, @CreateUserCode, @UpdateUserCode);\r\nSELECT detail_Id, " +
+                "calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, te" +
+                "rminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_compa" +
+                "ny_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_n" +
+                "o, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso" +
+                "_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_cha" +
+                "rge_amoun, distributed_special_charge_amount, distributed_stopping_charge_amount" +
+                ", distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_" +
+                "actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distribute" +
+                "d_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount, dist" +
+                "ributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount," +
+                " distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_ke" +
+                "y, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM t_detail " +
+                "WHERE (detail_Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10229,107 +10229,107 @@ WHERE                       (t_yuso_wk.calc_no = @calc_no) AND (t_yuso_wk.calc_s
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdateUserCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdateUserCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[t_detail] SET [calc_ym] = @calc_ym, [contract_type] = @contract_typ" +
-                "e, [yuso_kbn] = @yuso_kbn, [orig_warehouse_block_cd] = @orig_warehouse_block_cd," +
-                " [orig_warehouse_cd] = @orig_warehouse_cd, [terminal_id] = @terminal_id, [vehicl" +
-                "e_id] = @vehicle_id, [dest_jis] = @dest_jis, [dest_warehouse_cd] = @dest_warehou" +
-                "se_cd, [yuso_mode_kbn] = @yuso_mode_kbn, [carrier_company_cd] = @carrier_company" +
-                "_cd, [orig_date] = @orig_date, [arriving_date] = @arriving_date, [dest_cd] = @de" +
-                "st_cd, [slip_no] = @slip_no, [slip_suffix_no] = @slip_suffix_no, [slip_detail_no" +
-                "] = @slip_detail_no, [item_cd] = @item_cd, [item_kigo] = @item_kigo, [item_name]" +
-                " = @item_name, [item_quantity] = @item_quantity, [itme_unit] = @itme_unit, [item" +
-                "_weight_kg] = @item_weight_kg, [yuso_means_kbn] = @yuso_means_kbn, [special_vehi" +
-                "cle_kbn] = @special_vehicle_kbn, [transport_lead_time_hours] = @transport_lead_t" +
-                "ime_hours, [distributed_base_charge_amoun] = @distributed_base_charge_amoun, [di" +
-                "stributed_special_charge_amount] = @distributed_special_charge_amount, [distribu" +
-                "ted_stopping_charge_amount] = @distributed_stopping_charge_amount, [distributed_" +
-                "cargo_charge_amount] = @distributed_cargo_charge_amount, [distributed_other_char" +
-                "ge_amount] = @distributed_other_charge_amount, [distributed_actual_km_surcharge_" +
-                "amount] = @distributed_actual_km_surcharge_amount, [distributed_actual_time_surc" +
-                "harge_amount] = @distributed_actual_time_surcharge_amount, [distributed_actual_a" +
-                "ssist_surcharge_amount] = @distributed_actual_assist_surcharge_amount, [distribu" +
-                "ted_actual_load_surcharge_amount] = @distributed_actual_load_surcharge_amount, [" +
-                "distributed_actual_stand_surcharge_amount] = @distributed_actual_stand_surcharge" +
-                "_amount, [distributed_actual_wash_surcharge_amount] = @distributed_actual_wash_s" +
-                "urcharge_amount, [distributed_actual_adjust_surcharge_amount] = @distributed_act" +
-                "ual_adjust_surcharge_amount, [distributed_total_amount] = @distributed_total_amo" +
-                "unt, [keisan_key] = @keisan_key, [yuso_key] = @yuso_key, [CreateDay] = @CreateDa" +
-                "y, [UpdateDay] = @UpdateDay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode" +
-                "] = @UpdateUserCode WHERE (([detail_Id] = @Original_detail_Id) AND ([calc_ym] = " +
-                "@Original_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_kb" +
-                "n] = @Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_warehou" +
-                "se_block_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([termi" +
-                "nal_id] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND (" +
-                "[dest_jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_wareh" +
-                "ouse_cd) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company_c" +
-                "d] = @Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND (" +
-                "[arriving_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd) A" +
-                "ND ([slip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Original_slip_suffix" +
-                "_no) AND ([slip_detail_no] = @Original_slip_detail_no) AND ((@IsNull_item_cd = 1" +
-                " AND [item_cd] IS NULL) OR ([item_cd] = @Original_item_cd)) AND ((@IsNull_item_k" +
-                "igo = 1 AND [item_kigo] IS NULL) OR ([item_kigo] = @Original_item_kigo)) AND ((@" +
-                "IsNull_item_name = 1 AND [item_name] IS NULL) OR ([item_name] = @Original_item_n" +
-                "ame)) AND ((@IsNull_item_quantity = 1 AND [item_quantity] IS NULL) OR ([item_qua" +
-                "ntity] = @Original_item_quantity)) AND ((@IsNull_itme_unit = 1 AND [itme_unit] I" +
-                "S NULL) OR ([itme_unit] = @Original_itme_unit)) AND ((@IsNull_item_weight_kg = 1" +
-                " AND [item_weight_kg] IS NULL) OR ([item_weight_kg] = @Original_item_weight_kg))" +
-                " AND ((@IsNull_yuso_means_kbn = 1 AND [yuso_means_kbn] IS NULL) OR ([yuso_means_" +
-                "kbn] = @Original_yuso_means_kbn)) AND ((@IsNull_special_vehicle_kbn = 1 AND [spe" +
-                "cial_vehicle_kbn] IS NULL) OR ([special_vehicle_kbn] = @Original_special_vehicle" +
-                "_kbn)) AND ((@IsNull_transport_lead_time_hours = 1 AND [transport_lead_time_hour" +
-                "s] IS NULL) OR ([transport_lead_time_hours] = @Original_transport_lead_time_hour" +
-                "s)) AND ((@IsNull_distributed_base_charge_amoun = 1 AND [distributed_base_charge" +
-                "_amoun] IS NULL) OR ([distributed_base_charge_amoun] = @Original_distributed_bas" +
-                "e_charge_amoun)) AND ((@IsNull_distributed_special_charge_amount = 1 AND [distri" +
-                "buted_special_charge_amount] IS NULL) OR ([distributed_special_charge_amount] = " +
-                "@Original_distributed_special_charge_amount)) AND ((@IsNull_distributed_stopping" +
-                "_charge_amount = 1 AND [distributed_stopping_charge_amount] IS NULL) OR ([distri" +
-                "buted_stopping_charge_amount] = @Original_distributed_stopping_charge_amount)) A" +
-                "ND ((@IsNull_distributed_cargo_charge_amount = 1 AND [distributed_cargo_charge_a" +
-                "mount] IS NULL) OR ([distributed_cargo_charge_amount] = @Original_distributed_ca" +
-                "rgo_charge_amount)) AND ((@IsNull_distributed_other_charge_amount = 1 AND [distr" +
-                "ibuted_other_charge_amount] IS NULL) OR ([distributed_other_charge_amount] = @Or" +
-                "iginal_distributed_other_charge_amount)) AND ((@IsNull_distributed_actual_km_sur" +
-                "charge_amount = 1 AND [distributed_actual_km_surcharge_amount] IS NULL) OR ([dis" +
-                "tributed_actual_km_surcharge_amount] = @Original_distributed_actual_km_surcharge" +
-                "_amount)) AND ((@IsNull_distributed_actual_time_surcharge_amount = 1 AND [distri" +
-                "buted_actual_time_surcharge_amount] IS NULL) OR ([distributed_actual_time_surcha" +
-                "rge_amount] = @Original_distributed_actual_time_surcharge_amount)) AND ((@IsNull" +
-                "_distributed_actual_assist_surcharge_amount = 1 AND [distributed_actual_assist_s" +
-                "urcharge_amount] IS NULL) OR ([distributed_actual_assist_surcharge_amount] = @Or" +
-                "iginal_distributed_actual_assist_surcharge_amount)) AND ((@IsNull_distributed_ac" +
-                "tual_load_surcharge_amount = 1 AND [distributed_actual_load_surcharge_amount] IS" +
-                " NULL) OR ([distributed_actual_load_surcharge_amount] = @Original_distributed_ac" +
-                "tual_load_surcharge_amount)) AND ((@IsNull_distributed_actual_stand_surcharge_am" +
-                "ount = 1 AND [distributed_actual_stand_surcharge_amount] IS NULL) OR ([distribut" +
-                "ed_actual_stand_surcharge_amount] = @Original_distributed_actual_stand_surcharge" +
-                "_amount)) AND ((@IsNull_distributed_actual_wash_surcharge_amount = 1 AND [distri" +
-                "buted_actual_wash_surcharge_amount] IS NULL) OR ([distributed_actual_wash_surcha" +
-                "rge_amount] = @Original_distributed_actual_wash_surcharge_amount)) AND ((@IsNull" +
-                "_distributed_actual_adjust_surcharge_amount = 1 AND [distributed_actual_adjust_s" +
-                "urcharge_amount] IS NULL) OR ([distributed_actual_adjust_surcharge_amount] = @Or" +
-                "iginal_distributed_actual_adjust_surcharge_amount)) AND ((@IsNull_distributed_to" +
-                "tal_amount = 1 AND [distributed_total_amount] IS NULL) OR ([distributed_total_am" +
-                "ount] = @Original_distributed_total_amount)) AND ([keisan_key] = @Original_keisa" +
-                "n_key) AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_CreateDay = 1 AND [Cr" +
-                "eateDay] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDa" +
-                "y = 1 AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@Is" +
-                "Null_CreateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Or" +
-                "iginal_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS" +
-                " NULL) OR ([UpdateUserCode] = @Original_UpdateUserCode)));\r\nSELECT detail_Id, ca" +
-                "lc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, term" +
-                "inal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company" +
-                "_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no," +
-                " item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_m" +
-                "eans_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charg" +
-                "e_amoun, distributed_special_charge_amount, distributed_stopping_charge_amount, " +
-                "distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_ac" +
-                "tual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_" +
-                "actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount, distri" +
-                "buted_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, d" +
-                "istributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key," +
-                " yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM t_detail WH" +
-                "ERE (detail_Id = @detail_Id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [t_detail] SET [calc_ym] = @calc_ym, [contract_type] = @contract_type, [yu" +
+                "so_kbn] = @yuso_kbn, [orig_warehouse_block_cd] = @orig_warehouse_block_cd, [orig" +
+                "_warehouse_cd] = @orig_warehouse_cd, [terminal_id] = @terminal_id, [vehicle_id] " +
+                "= @vehicle_id, [dest_jis] = @dest_jis, [dest_warehouse_cd] = @dest_warehouse_cd," +
+                " [yuso_mode_kbn] = @yuso_mode_kbn, [carrier_company_cd] = @carrier_company_cd, [" +
+                "orig_date] = @orig_date, [arriving_date] = @arriving_date, [dest_cd] = @dest_cd," +
+                " [slip_no] = @slip_no, [slip_suffix_no] = @slip_suffix_no, [slip_detail_no] = @s" +
+                "lip_detail_no, [item_cd] = @item_cd, [item_kigo] = @item_kigo, [item_name] = @it" +
+                "em_name, [item_quantity] = @item_quantity, [itme_unit] = @itme_unit, [item_weigh" +
+                "t_kg] = @item_weight_kg, [yuso_means_kbn] = @yuso_means_kbn, [special_vehicle_kb" +
+                "n] = @special_vehicle_kbn, [transport_lead_time_hours] = @transport_lead_time_ho" +
+                "urs, [distributed_base_charge_amoun] = @distributed_base_charge_amoun, [distribu" +
+                "ted_special_charge_amount] = @distributed_special_charge_amount, [distributed_st" +
+                "opping_charge_amount] = @distributed_stopping_charge_amount, [distributed_cargo_" +
+                "charge_amount] = @distributed_cargo_charge_amount, [distributed_other_charge_amo" +
+                "unt] = @distributed_other_charge_amount, [distributed_actual_km_surcharge_amount" +
+                "] = @distributed_actual_km_surcharge_amount, [distributed_actual_time_surcharge_" +
+                "amount] = @distributed_actual_time_surcharge_amount, [distributed_actual_assist_" +
+                "surcharge_amount] = @distributed_actual_assist_surcharge_amount, [distributed_ac" +
+                "tual_load_surcharge_amount] = @distributed_actual_load_surcharge_amount, [distri" +
+                "buted_actual_stand_surcharge_amount] = @distributed_actual_stand_surcharge_amoun" +
+                "t, [distributed_actual_wash_surcharge_amount] = @distributed_actual_wash_surchar" +
+                "ge_amount, [distributed_actual_adjust_surcharge_amount] = @distributed_actual_ad" +
+                "just_surcharge_amount, [distributed_total_amount] = @distributed_total_amount, [" +
+                "keisan_key] = @keisan_key, [yuso_key] = @yuso_key, [CreateDay] = @CreateDay, [Up" +
+                "dateDay] = @UpdateDay, [CreateUserCode] = @CreateUserCode, [UpdateUserCode] = @U" +
+                "pdateUserCode WHERE (([detail_Id] = @Original_detail_Id) AND ([calc_ym] = @Origi" +
+                "nal_calc_ym) AND ([contract_type] = @Original_contract_type) AND ([yuso_kbn] = @" +
+                "Original_yuso_kbn) AND ([orig_warehouse_block_cd] = @Original_orig_warehouse_blo" +
+                "ck_cd) AND ([orig_warehouse_cd] = @Original_orig_warehouse_cd) AND ([terminal_id" +
+                "] = @Original_terminal_id) AND ([vehicle_id] = @Original_vehicle_id) AND ([dest_" +
+                "jis] = @Original_dest_jis) AND ([dest_warehouse_cd] = @Original_dest_warehouse_c" +
+                "d) AND ([yuso_mode_kbn] = @Original_yuso_mode_kbn) AND ([carrier_company_cd] = @" +
+                "Original_carrier_company_cd) AND ([orig_date] = @Original_orig_date) AND ([arriv" +
+                "ing_date] = @Original_arriving_date) AND ([dest_cd] = @Original_dest_cd) AND ([s" +
+                "lip_no] = @Original_slip_no) AND ([slip_suffix_no] = @Original_slip_suffix_no) A" +
+                "ND ([slip_detail_no] = @Original_slip_detail_no) AND ((@IsNull_item_cd = 1 AND [" +
+                "item_cd] IS NULL) OR ([item_cd] = @Original_item_cd)) AND ((@IsNull_item_kigo = " +
+                "1 AND [item_kigo] IS NULL) OR ([item_kigo] = @Original_item_kigo)) AND ((@IsNull" +
+                "_item_name = 1 AND [item_name] IS NULL) OR ([item_name] = @Original_item_name)) " +
+                "AND ((@IsNull_item_quantity = 1 AND [item_quantity] IS NULL) OR ([item_quantity]" +
+                " = @Original_item_quantity)) AND ((@IsNull_itme_unit = 1 AND [itme_unit] IS NULL" +
+                ") OR ([itme_unit] = @Original_itme_unit)) AND ((@IsNull_item_weight_kg = 1 AND [" +
+                "item_weight_kg] IS NULL) OR ([item_weight_kg] = @Original_item_weight_kg)) AND (" +
+                "(@IsNull_yuso_means_kbn = 1 AND [yuso_means_kbn] IS NULL) OR ([yuso_means_kbn] =" +
+                " @Original_yuso_means_kbn)) AND ((@IsNull_special_vehicle_kbn = 1 AND [special_v" +
+                "ehicle_kbn] IS NULL) OR ([special_vehicle_kbn] = @Original_special_vehicle_kbn))" +
+                " AND ((@IsNull_transport_lead_time_hours = 1 AND [transport_lead_time_hours] IS " +
+                "NULL) OR ([transport_lead_time_hours] = @Original_transport_lead_time_hours)) AN" +
+                "D ((@IsNull_distributed_base_charge_amoun = 1 AND [distributed_base_charge_amoun" +
+                "] IS NULL) OR ([distributed_base_charge_amoun] = @Original_distributed_base_char" +
+                "ge_amoun)) AND ((@IsNull_distributed_special_charge_amount = 1 AND [distributed_" +
+                "special_charge_amount] IS NULL) OR ([distributed_special_charge_amount] = @Origi" +
+                "nal_distributed_special_charge_amount)) AND ((@IsNull_distributed_stopping_charg" +
+                "e_amount = 1 AND [distributed_stopping_charge_amount] IS NULL) OR ([distributed_" +
+                "stopping_charge_amount] = @Original_distributed_stopping_charge_amount)) AND ((@" +
+                "IsNull_distributed_cargo_charge_amount = 1 AND [distributed_cargo_charge_amount]" +
+                " IS NULL) OR ([distributed_cargo_charge_amount] = @Original_distributed_cargo_ch" +
+                "arge_amount)) AND ((@IsNull_distributed_other_charge_amount = 1 AND [distributed" +
+                "_other_charge_amount] IS NULL) OR ([distributed_other_charge_amount] = @Original" +
+                "_distributed_other_charge_amount)) AND ((@IsNull_distributed_actual_km_surcharge" +
+                "_amount = 1 AND [distributed_actual_km_surcharge_amount] IS NULL) OR ([distribut" +
+                "ed_actual_km_surcharge_amount] = @Original_distributed_actual_km_surcharge_amoun" +
+                "t)) AND ((@IsNull_distributed_actual_time_surcharge_amount = 1 AND [distributed_" +
+                "actual_time_surcharge_amount] IS NULL) OR ([distributed_actual_time_surcharge_am" +
+                "ount] = @Original_distributed_actual_time_surcharge_amount)) AND ((@IsNull_distr" +
+                "ibuted_actual_assist_surcharge_amount = 1 AND [distributed_actual_assist_surchar" +
+                "ge_amount] IS NULL) OR ([distributed_actual_assist_surcharge_amount] = @Original" +
+                "_distributed_actual_assist_surcharge_amount)) AND ((@IsNull_distributed_actual_l" +
+                "oad_surcharge_amount = 1 AND [distributed_actual_load_surcharge_amount] IS NULL)" +
+                " OR ([distributed_actual_load_surcharge_amount] = @Original_distributed_actual_l" +
+                "oad_surcharge_amount)) AND ((@IsNull_distributed_actual_stand_surcharge_amount =" +
+                " 1 AND [distributed_actual_stand_surcharge_amount] IS NULL) OR ([distributed_act" +
+                "ual_stand_surcharge_amount] = @Original_distributed_actual_stand_surcharge_amoun" +
+                "t)) AND ((@IsNull_distributed_actual_wash_surcharge_amount = 1 AND [distributed_" +
+                "actual_wash_surcharge_amount] IS NULL) OR ([distributed_actual_wash_surcharge_am" +
+                "ount] = @Original_distributed_actual_wash_surcharge_amount)) AND ((@IsNull_distr" +
+                "ibuted_actual_adjust_surcharge_amount = 1 AND [distributed_actual_adjust_surchar" +
+                "ge_amount] IS NULL) OR ([distributed_actual_adjust_surcharge_amount] = @Original" +
+                "_distributed_actual_adjust_surcharge_amount)) AND ((@IsNull_distributed_total_am" +
+                "ount = 1 AND [distributed_total_amount] IS NULL) OR ([distributed_total_amount] " +
+                "= @Original_distributed_total_amount)) AND ([keisan_key] = @Original_keisan_key)" +
+                " AND ([yuso_key] = @Original_yuso_key) AND ((@IsNull_CreateDay = 1 AND [CreateDa" +
+                "y] IS NULL) OR ([CreateDay] = @Original_CreateDay)) AND ((@IsNull_UpdateDay = 1 " +
+                "AND [UpdateDay] IS NULL) OR ([UpdateDay] = @Original_UpdateDay)) AND ((@IsNull_C" +
+                "reateUserCode = 1 AND [CreateUserCode] IS NULL) OR ([CreateUserCode] = @Original" +
+                "_CreateUserCode)) AND ((@IsNull_UpdateUserCode = 1 AND [UpdateUserCode] IS NULL)" +
+                " OR ([UpdateUserCode] = @Original_UpdateUserCode)));\r\nSELECT detail_Id, calc_ym," +
+                " contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_i" +
+                "d, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, o" +
+                "rig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_" +
+                "cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_k" +
+                "bn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amou" +
+                "n, distributed_special_charge_amount, distributed_stopping_charge_amount, distri" +
+                "buted_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_k" +
+                "m_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual" +
+                "_assist_surcharge_amount, distributed_actual_load_surcharge_amount, distributed_" +
+                "actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distrib" +
+                "uted_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_" +
+                "key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM t_detail WHERE (d" +
+                "etail_Id = @detail_Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calc_ym", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calc_ym", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contract_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contract_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10464,35 +10464,36 @@ WHERE                       (t_yuso_wk.calc_no = @calc_no) AND (t_yuso_wk.calc_s
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn, special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amoun, distributed_special_charge_amount, distributed_stopping_charge_amount, distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, distributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode FROM dbo.t_detail";
+            this._commandCollection[0].CommandText = @"SELECT                 detail_Id, calc_ym, contract_type, yuso_kbn, orig_warehouse_block_cd, orig_warehouse_cd, terminal_id, vehicle_id, dest_jis, dest_warehouse_cd, yuso_mode_kbn, 
+                               carrier_company_cd, orig_date, arriving_date, dest_cd, slip_no, slip_suffix_no, slip_detail_no, item_cd, item_kigo, item_name, item_quantity, itme_unit, item_weight_kg, yuso_means_kbn,
+                                special_vehicle_kbn, transport_lead_time_hours, distributed_base_charge_amoun, distributed_special_charge_amount, distributed_stopping_charge_amount, 
+                               distributed_cargo_charge_amount, distributed_other_charge_amount, distributed_actual_km_surcharge_amount, distributed_actual_time_surcharge_amount, 
+                               distributed_actual_assist_surcharge_amount, distributed_actual_load_surcharge_amount, distributed_actual_stand_surcharge_amount, distributed_actual_wash_surcharge_amount, 
+                               distributed_actual_adjust_surcharge_amount, distributed_total_amount, keisan_key, yuso_key, CreateDay, UpdateDay, CreateUserCode, UpdateUserCode
+FROM                   t_detail";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT                      t_detail.detail_Id, t_detail.calc_ym, t_detail.contra" +
-                "ct_type, t_detail.yuso_kbn, t_detail.orig_warehouse_block_cd, t_detail.orig_ware" +
-                "house_cd, t_detail.terminal_id, \r\n                                      t_detail" +
-                ".vehicle_id, t_detail.dest_jis, t_detail.dest_warehouse_cd, t_detail.yuso_mode_k" +
-                "bn, t_detail.carrier_company_cd, t_detail.orig_date, t_detail.arriving_date, \r\n " +
-                "                                     t_detail.dest_cd, t_detail.slip_no, t_detai" +
-                "l.slip_suffix_no, t_detail.slip_detail_no, t_detail.item_cd, t_detail.item_kigo," +
-                " t_detail.item_name, t_detail.item_quantity, \r\n                                 " +
-                "     t_detail.itme_unit, t_detail.item_weight_kg, t_detail.yuso_means_kbn, t_det" +
-                "ail.special_vehicle_kbn, t_detail.transport_lead_time_hours, \r\n                 " +
-                "                     t_detail.distributed_base_charge_amoun, t_detail.distribute" +
-                "d_special_charge_amount, t_detail.distributed_stopping_charge_amount, t_detail.d" +
-                "istributed_cargo_charge_amount,\r\n                                       t_detail" +
-                ".distributed_other_charge_amount, t_detail.distributed_actual_km_surcharge_amoun" +
-                "t, t_detail.distributed_actual_time_surcharge_amount, \r\n                        " +
-                "              t_detail.distributed_actual_assist_surcharge_amount, t_detail.dist" +
-                "ributed_actual_load_surcharge_amount, t_detail.distributed_actual_stand_surcharg" +
-                "e_amount, \r\n                                      t_detail.distributed_actual_wa" +
-                "sh_surcharge_amount, t_detail.distributed_actual_adjust_surcharge_amount, t_deta" +
-                "il.distributed_total_amount, t_detail.keisan_key, \r\n                            " +
-                "          t_detail.yuso_key, t_detail.CreateDay, t_detail.UpdateDay, t_detail.Cr" +
-                "eateUserCode, t_detail.UpdateUserCode\r\nFROM                         t_detail INN" +
-                "ER JOIN\r\n                                      t_yuso_wk ON t_detail.yuso_key = " +
-                "t_yuso_wk.yuso_key\r\nWHERE                       (t_yuso_wk.calc_no = @Calc_no) A" +
-                "ND (t_yuso_wk.calc_status = @Calc_status_doing)";
+            this._commandCollection[1].CommandText = "SELECT t_detail.CreateDay, t_detail.CreateUserCode, t_detail.UpdateDay, t_detail." +
+                "UpdateUserCode, t_detail.arriving_date, t_detail.calc_ym, t_detail.carrier_compa" +
+                "ny_cd, t_detail.contract_type, t_detail.dest_cd, t_detail.dest_jis, t_detail.des" +
+                "t_warehouse_cd, t_detail.detail_Id, t_detail.distributed_actual_adjust_surcharge" +
+                "_amount, t_detail.distributed_actual_assist_surcharge_amount, t_detail.distribut" +
+                "ed_actual_km_surcharge_amount, t_detail.distributed_actual_load_surcharge_amount" +
+                ", t_detail.distributed_actual_stand_surcharge_amount, t_detail.distributed_actua" +
+                "l_time_surcharge_amount, t_detail.distributed_actual_wash_surcharge_amount, t_de" +
+                "tail.distributed_base_charge_amoun, t_detail.distributed_cargo_charge_amount, t_" +
+                "detail.distributed_other_charge_amount, t_detail.distributed_special_charge_amou" +
+                "nt, t_detail.distributed_stopping_charge_amount, t_detail.distributed_total_amou" +
+                "nt, t_detail.item_cd, t_detail.item_kigo, t_detail.item_name, t_detail.item_quan" +
+                "tity, t_detail.item_weight_kg, t_detail.itme_unit, t_detail.keisan_key, t_detail" +
+                ".orig_date, t_detail.orig_warehouse_block_cd, t_detail.orig_warehouse_cd, t_deta" +
+                "il.slip_detail_no, t_detail.slip_no, t_detail.slip_suffix_no, t_detail.special_v" +
+                "ehicle_kbn, t_detail.terminal_id, t_detail.transport_lead_time_hours, t_detail.v" +
+                "ehicle_id, t_detail.yuso_kbn, t_detail.yuso_key, t_detail.yuso_means_kbn, t_deta" +
+                "il.yuso_mode_kbn FROM t_detail INNER JOIN t_yuso_wk ON t_detail.yuso_key = t_yus" +
+                "o_wk.yuso_key WHERE (t_yuso_wk.calc_no = @Calc_no) AND (t_yuso_wk.calc_status = " +
+                "@Calc_status_doing)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "calc_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calc_status_doing", global::System.Data.SqlDbType.NVarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "calc_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

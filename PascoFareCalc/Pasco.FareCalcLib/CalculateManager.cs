@@ -130,7 +130,7 @@ namespace Pasco.FareCalcLib
                                         break;
                                     case extraCostKbn.DistanceCharge:
                                         // TODO: function akema 距離割増料
-                                        keisanWkRow.actual_km_surcharge_amount += exCostWkRow.extra_charge_amount;
+                                        keisanWkRow.actual_distance_surcharge_amount += exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.HelperCharge:
                                         // TODO: function akema 助手料
@@ -348,7 +348,7 @@ namespace Pasco.FareCalcLib
                     newRow["stopping_charge_amount"] = 0;
                     newRow["cargo_charge_amount"] = 0;
                     newRow["other_charge_amount"] = 0;
-                    newRow["actual_km_surcharge_amount"] = 0;
+                    newRow["actual_distance_surcharge_amount"] = 0;
                     newRow["actual_time_surcharge_amount"] = 0;
                     newRow["actual_assist_surcharge_amount"] = 0;
                     newRow["actual_load_surcharge_amount"] = 0;
@@ -384,7 +384,7 @@ namespace Pasco.FareCalcLib
                             || colname == "distributed_stopping_charge_amount"
                             || colname == "distributed_cargo_charge_amount"
                             || colname == "distributed_other_charge_amount"
-                            || colname == "distributed_actual_km_surcharge_amount"
+                            || colname == "distributed_actual_distance_surcharge_amount"
                             || colname == "distributed_actual_time_surcharge_amount"
                             || colname == "distributed_actual_assist_surcharge_amount"
                             || colname == "distributed_actual_load_surcharge_amount"
@@ -1093,21 +1093,21 @@ namespace Pasco.FareCalcLib
                     {
                         if (yusoRow.yuso_id == yusoWkRow.yuso_id)
                         {
-                            yusoRow.yuso_id = DataRow<int>(yusoWkRow, "yuso_id");
-                            yusoRow.calc_ym = DataRow<string>(yusoWkRow, "calc_ym");
-                            yusoRow.contract_type = DataRow<string>(yusoWkRow, "contract_type");
-                            yusoRow.yuso_kbn = DataRow<string>(yusoWkRow, "yuso_kbn");
-                            yusoRow.orig_warehouse_block_cd = DataRow<string>(yusoWkRow, "orig_warehouse_block_cd");
-                            yusoRow.orig_warehouse_cd = DataRow<string>(yusoWkRow, "orig_warehouse_cd");
-                            yusoRow.terminal_id = DataRow<string>(yusoWkRow, "terminal_id");
-                            yusoRow.vehicle_id = DataRow<string>(yusoWkRow, "vehicle_id");
-                            yusoRow.dest_jis = DataRow<string>(yusoWkRow, "dest_jis");
-                            yusoRow.dest_warehouse_cd = DataRow<string>(yusoWkRow, "dest_warehouse_cd");
-                            yusoRow.yuso_mode_kbn = DataRow<string>(yusoWkRow, "yuso_mode_kbn");
-                            yusoRow.carrier_company_cd = DataRow<string>(yusoWkRow, "carrier_company_cd");
-                            yusoRow.orig_date = DataRow<string>(yusoWkRow, "orig_date");
-                            yusoRow.arriving_date = DataRow<string>(yusoWkRow, "arriving_date");
-                            yusoRow.dest_cd = DataRow<string>(yusoWkRow, "dest_cd");
+                            //yusoRow.yuso_id = DataRow<int>(yusoWkRow, "yuso_id");
+                            //yusoRow.calc_ym = DataRow<string>(yusoWkRow, "calc_ym");
+                            //yusoRow.contract_type = DataRow<string>(yusoWkRow, "contract_type");
+                            //yusoRow.yuso_kbn = DataRow<string>(yusoWkRow, "yuso_kbn");
+                            //yusoRow.orig_warehouse_block_cd = DataRow<string>(yusoWkRow, "orig_warehouse_block_cd");
+                            //yusoRow.orig_warehouse_cd = DataRow<string>(yusoWkRow, "orig_warehouse_cd");
+                            //yusoRow.terminal_id = DataRow<string>(yusoWkRow, "terminal_id");
+                            //yusoRow.vehicle_id = DataRow<string>(yusoWkRow, "vehicle_id");
+                            //yusoRow.dest_jis = DataRow<string>(yusoWkRow, "dest_jis");
+                            //yusoRow.dest_warehouse_cd = DataRow<string>(yusoWkRow, "dest_warehouse_cd");
+                            //yusoRow.yuso_mode_kbn = DataRow<string>(yusoWkRow, "yuso_mode_kbn");
+                            //yusoRow.carrier_company_cd = DataRow<string>(yusoWkRow, "carrier_company_cd");
+                            //yusoRow.orig_date = DataRow<string>(yusoWkRow, "orig_date");
+                            //yusoRow.arriving_date = DataRow<string>(yusoWkRow, "arriving_date");
+                            //yusoRow.dest_cd = DataRow<string>(yusoWkRow, "dest_cd");
                             yusoRow.distance_km = DataRow<int>(yusoWkRow, "distance_km");
                             yusoRow.time_mins = DataRow<int>(yusoWkRow, "time_mins");
                             yusoRow.fuel_cost_amount = DataRow<decimal>(yusoWkRow, "fuel_cost_amount");
@@ -1136,14 +1136,14 @@ namespace Pasco.FareCalcLib
                             yusoRow.release_ymd = DataRow<string>(yusoWkRow, "release_ymd");
                             yusoRow.yuso_means_kbn = DataRow<string>(yusoWkRow, "yuso_means_kbn");
                             yusoRow.dest_nm = DataRow<string>(yusoWkRow, "dest_nm");
-                            yusoRow.calc_status = DataRow<string>(yusoWkRow, "calc_status");
-                            yusoRow.calc_no = DataRow<int>(yusoWkRow, "calc_no");
-                            yusoRow.last_calc_at = DataRowDateTime(yusoWkRow, "last_calc_at");
-                            yusoRow.send_flg = DataRow<short>(yusoWkRow, "send_flg");
-                            yusoRow.send_at = DataRowDateTime(yusoWkRow, "send_at");
-                            yusoRow.back_flg = DataRow<short>(yusoWkRow, "back_flg");
+                            //yusoRow.calc_status = DataRow<string>(yusoWkRow, "calc_status");
+                            //yusoRow.calc_no = DataRow<int>(yusoWkRow, "calc_no");
+                            //yusoRow.last_calc_at = DataRowDateTime(yusoWkRow, "last_calc_at");
+                            //yusoRow.send_flg = DataRow<short>(yusoWkRow, "send_flg");
+                            //yusoRow.send_at = DataRowDateTime(yusoWkRow, "send_at");
+                            //yusoRow.back_flg = DataRow<short>(yusoWkRow, "back_flg");
                             yusoRow.calc_err_flg = DataRow<short>(yusoWkRow, "calc_err_flg");
-                            yusoRow.yuso_key = DataRow<string>(yusoWkRow, "yuso_key");
+                            //yusoRow.yuso_key = DataRow<string>(yusoWkRow, "yuso_key");
                             yusoRow.BatchUpdateDay = DataRowDateTime(yusoWkRow, "BatchUpdateDay");
                             //yusoRow.CreateDay = DataRowDateTime(yusoWkRow, "CreateDay");
                             //yusoRow.CreateUserCode = DataRow<string>(yusoWkRow, "CreateUserCode");
@@ -1159,27 +1159,27 @@ namespace Pasco.FareCalcLib
                     {
                         if (keisanRow.keisan_id == keisanWkRow.keisan_id)
                         {
-                            keisanRow.keisan_id = DataRow<int>(keisanWkRow, "keisan_id");
-                            keisanRow.calc_ym = DataRow<string>(keisanWkRow, "calc_ym");
-                            keisanRow.contract_type = DataRow<string>(keisanWkRow, "contract_type");
-                            keisanRow.yuso_kbn = DataRow<string>(keisanWkRow, "yuso_kbn");
-                            keisanRow.orig_warehouse_block_cd = DataRow<string>(keisanWkRow, "orig_warehouse_block_cd");
-                            keisanRow.orig_warehouse_cd = DataRow<string>(keisanWkRow, "orig_warehouse_cd");
-                            keisanRow.terminal_id = DataRow<string>(keisanWkRow, "terminal_id");
-                            keisanRow.vehicle_id = DataRow<string>(keisanWkRow, "vehicle_id");
-                            keisanRow.dest_jis = DataRow<string>(keisanWkRow, "dest_jis");
-                            keisanRow.dest_warehouse_cd = DataRow<string>(keisanWkRow, "dest_warehouse_cd");
-                            keisanRow.yuso_mode_kbn = DataRow<string>(keisanWkRow, "yuso_mode_kbn");
-                            keisanRow.carrier_company_cd = DataRow<string>(keisanWkRow, "carrier_company_cd");
-                            keisanRow.orig_date = DataRow<string>(keisanWkRow, "orig_date");
-                            keisanRow.arriving_date = DataRow<string>(keisanWkRow, "arriving_date");
-                            keisanRow.dest_cd = DataRow<string>(keisanWkRow, "dest_cd");
+                            //keisanRow.keisan_id = DataRow<int>(keisanWkRow, "keisan_id");
+                            //keisanRow.calc_ym = DataRow<string>(keisanWkRow, "calc_ym");
+                            //keisanRow.contract_type = DataRow<string>(keisanWkRow, "contract_type");
+                            //keisanRow.yuso_kbn = DataRow<string>(keisanWkRow, "yuso_kbn");
+                            //keisanRow.orig_warehouse_block_cd = DataRow<string>(keisanWkRow, "orig_warehouse_block_cd");
+                            //keisanRow.orig_warehouse_cd = DataRow<string>(keisanWkRow, "orig_warehouse_cd");
+                            //keisanRow.terminal_id = DataRow<string>(keisanWkRow, "terminal_id");
+                            //keisanRow.vehicle_id = DataRow<string>(keisanWkRow, "vehicle_id");
+                            //keisanRow.dest_jis = DataRow<string>(keisanWkRow, "dest_jis");
+                            //keisanRow.dest_warehouse_cd = DataRow<string>(keisanWkRow, "dest_warehouse_cd");
+                            //keisanRow.yuso_mode_kbn = DataRow<string>(keisanWkRow, "yuso_mode_kbn");
+                            //keisanRow.carrier_company_cd = DataRow<string>(keisanWkRow, "carrier_company_cd");
+                            //keisanRow.orig_date = DataRow<string>(keisanWkRow, "orig_date");
+                            //keisanRow.arriving_date = DataRow<string>(keisanWkRow, "arriving_date");
+                            //keisanRow.dest_cd = DataRow<string>(keisanWkRow, "dest_cd");
                             keisanRow.fare_tariff_id = DataRow<int>(keisanWkRow, "fare_tariff_id");
                             keisanRow.special_tariff_id = DataRow<int>(keisanWkRow, "special_tariff_id");
                             keisanRow.extra_cost_pattern_id = DataRow<int>(keisanWkRow, "extra_cost_pattern_id");
                             keisanRow.distance_km = DataRow<int>(keisanWkRow, "distance_km");
                             keisanRow.time_mins = DataRow<int>(keisanWkRow, "time_mins");
-                            keisanRow.fuel_cost_amount = DataRow<int>(keisanWkRow, "fuel_cost_amount");
+                            keisanRow.fuel_cost_amount = DataRow<decimal>(keisanWkRow, "fuel_cost_amount");
                             keisanRow.stopping_count = DataRow<short>(keisanWkRow, "stopping_count");
                             keisanRow.special_tariff_start_md = DataRow<string>(keisanWkRow, "special_tariff_start_md");
                             keisanRow.special_tariff_end_md = DataRow<string>(keisanWkRow, "special_tariff_end_md");
@@ -1190,11 +1190,11 @@ namespace Pasco.FareCalcLib
                             keisanRow.yuso_means_kbn = DataRow<string>(keisanWkRow, "yuso_means_kbn");
                             keisanRow.dest_nm = DataRow<string>(keisanWkRow, "dest_nm");
                             keisanRow.max_flg = DataRow<short>(keisanWkRow, "max_flg");
-                            keisanRow.back_flg = DataRow<short>(keisanWkRow, "back_flg");
-                            keisanRow.keisan_key = DataRow<string>(keisanWkRow, "keisan_key");
-                            keisanRow.yuso_key = DataRow<string>(keisanWkRow, "yuso_key");
+                            //keisanRow.back_flg = DataRow<short>(keisanWkRow, "back_flg");
+                            //keisanRow.keisan_key = DataRow<string>(keisanWkRow, "keisan_key");
+                            //keisanRow.yuso_key = DataRow<string>(keisanWkRow, "yuso_key");
                             //keisanRow.CreateDay = DataRowDateTime(keisanWkRow, "CreateDay");
-                            //keisanRow.UpdateDay = DataRowDateTime(keisanWkRow, "UpdateDay");
+                            keisanRow.UpdateDay = DataRowDateTime(keisanWkRow, "UpdateDay");
                             keisanRow.CreateUserCode = DataRow<string>(keisanWkRow, "CreateUserCode");
                             keisanRow.UpdateUserCode = DataRow<string>(keisanWkRow, "UpdateUserCode");
                         }
@@ -1208,39 +1208,39 @@ namespace Pasco.FareCalcLib
                     {
                         if (detailRow.detail_Id == detailWkRow.detail_Id)
                         {
-                            detailRow.detail_Id = DataRow<int>(detailWkRow, "detail_Id");
-                            detailRow.calc_ym = DataRow<string>(detailWkRow, "calc_ym");
-                            detailRow.contract_type = DataRow<string>(detailWkRow, "contract_type");
-                            detailRow.yuso_kbn = DataRow<string>(detailWkRow, "yuso_kbn");
-                            detailRow.orig_warehouse_block_cd = DataRow<string>(detailWkRow, "orig_warehouse_block_cd");
-                            detailRow.orig_warehouse_cd = DataRow<string>(detailWkRow, "orig_warehouse_cd");
-                            detailRow.terminal_id = DataRow<string>(detailWkRow, "terminal_id");
-                            detailRow.vehicle_id = DataRow<string>(detailWkRow, "vehicle_id");
-                            detailRow.dest_jis = DataRow<string>(detailWkRow, "dest_jis");
-                            detailRow.dest_warehouse_cd = DataRow<string>(detailWkRow, "dest_warehouse_cd");
-                            detailRow.yuso_mode_kbn = DataRow<string>(detailWkRow, "yuso_mode_kbn");
-                            detailRow.carrier_company_cd = DataRow<string>(detailWkRow, "carrier_company_cd");
-                            detailRow.orig_date = DataRow<string>(detailWkRow, "orig_date");
-                            detailRow.arriving_date = DataRow<string>(detailWkRow, "arriving_date");
-                            detailRow.dest_cd = DataRow<string>(detailWkRow, "dest_cd");
-                            detailRow.slip_no = DataRow<string>(detailWkRow, "slip_no");
-                            detailRow.slip_suffix_no = DataRow<string>(detailWkRow, "slip_suffix_no");
-                            detailRow.slip_detail_no = DataRow<string>(detailWkRow, "slip_detail_no");
-                            detailRow.item_cd = DataRow<string>(detailWkRow, "item_cd");
-                            detailRow.item_kigo = DataRow<string>(detailWkRow, "item_kigo");
-                            detailRow.item_name = DataRow<string>(detailWkRow, "item_name");
-                            detailRow.item_quantity = DataRow<int>(detailWkRow, "item_quantity");
-                            detailRow.itme_unit = DataRow<string>(detailWkRow, "itme_unit");
-                            detailRow.item_weight_kg = DataRow<decimal>(detailWkRow, "item_weight_kg");
-                            detailRow.yuso_means_kbn = DataRow<string>(detailWkRow, "yuso_means_kbn");
-                            detailRow.special_vehicle_kbn = DataRow<string>(detailWkRow, "special_vehicle_kbn");
+                            //detailRow.detail_Id = DataRow<int>(detailWkRow, "detail_Id");
+                            //detailRow.calc_ym = DataRow<string>(detailWkRow, "calc_ym");
+                            //detailRow.contract_type = DataRow<string>(detailWkRow, "contract_type");
+                            //detailRow.yuso_kbn = DataRow<string>(detailWkRow, "yuso_kbn");
+                            //detailRow.orig_warehouse_block_cd = DataRow<string>(detailWkRow, "orig_warehouse_block_cd");
+                            //detailRow.orig_warehouse_cd = DataRow<string>(detailWkRow, "orig_warehouse_cd");
+                            //detailRow.terminal_id = DataRow<string>(detailWkRow, "terminal_id");
+                            //detailRow.vehicle_id = DataRow<string>(detailWkRow, "vehicle_id");
+                            //detailRow.dest_jis = DataRow<string>(detailWkRow, "dest_jis");
+                            //detailRow.dest_warehouse_cd = DataRow<string>(detailWkRow, "dest_warehouse_cd");
+                            //detailRow.yuso_mode_kbn = DataRow<string>(detailWkRow, "yuso_mode_kbn");
+                            //detailRow.carrier_company_cd = DataRow<string>(detailWkRow, "carrier_company_cd");
+                            //detailRow.orig_date = DataRow<string>(detailWkRow, "orig_date");
+                            //detailRow.arriving_date = DataRow<string>(detailWkRow, "arriving_date");
+                            //detailRow.dest_cd = DataRow<string>(detailWkRow, "dest_cd");
+                            //detailRow.slip_no = DataRow<string>(detailWkRow, "slip_no");
+                            //detailRow.slip_suffix_no = DataRow<string>(detailWkRow, "slip_suffix_no");
+                            //detailRow.slip_detail_no = DataRow<string>(detailWkRow, "slip_detail_no");
+                            //detailRow.item_cd = DataRow<string>(detailWkRow, "item_cd");
+                            //detailRow.item_kigo = DataRow<string>(detailWkRow, "item_kigo");
+                            //detailRow.item_name = DataRow<string>(detailWkRow, "item_name");
+                            //detailRow.item_quantity = DataRow<int>(detailWkRow, "item_quantity");
+                            //detailRow.itme_unit = DataRow<string>(detailWkRow, "itme_unit");
+                            //detailRow.item_weight_kg = DataRow<decimal>(detailWkRow, "item_weight_kg");
+                            //detailRow.yuso_means_kbn = DataRow<string>(detailWkRow, "yuso_means_kbn");
+                            //detailRow.special_vehicle_kbn = DataRow<string>(detailWkRow, "special_vehicle_kbn");
                             detailRow.transport_lead_time_hours = DataRow<string>(detailWkRow, "transport_lead_time_hours");
                             detailRow.distributed_base_charge_amoun = DataRow<decimal>(detailWkRow, "distributed_base_charge_amoun");
                             detailRow.distributed_special_charge_amount = DataRow<decimal>(detailWkRow, "distributed_special_charge_amount");
                             detailRow.distributed_stopping_charge_amount = DataRow<decimal>(detailWkRow, "distributed_stopping_charge_amount");
                             detailRow.distributed_cargo_charge_amount = DataRow<decimal>(detailWkRow, "distributed_cargo_charge_amount");
                             detailRow.distributed_other_charge_amount = DataRow<decimal>(detailWkRow, "distributed_other_charge_amount");
-                            detailRow.distributed_actual_km_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_km_surcharge_amount");
+                            detailRow.distributed_actual_km_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_distance_surcharge_amount");
                             detailRow.distributed_actual_time_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_time_surcharge_amount");
                             detailRow.distributed_actual_assist_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_assist_surcharge_amount");
                             detailRow.distributed_actual_load_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_load_surcharge_amount");
@@ -1248,8 +1248,8 @@ namespace Pasco.FareCalcLib
                             detailRow.distributed_actual_wash_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_wash_surcharge_amount");
                             detailRow.distributed_actual_adjust_surcharge_amount = DataRow<decimal>(detailWkRow, "distributed_actual_adjust_surcharge_amount");
                             detailRow.distributed_total_amount = DataRow<decimal>(detailWkRow, "distributed_total_amount");
-                            detailRow.keisan_key = DataRow<string>(detailWkRow, "keisan_key");
-                            detailRow.yuso_key = DataRow<string>(detailWkRow, "yuso_key");
+                            //detailRow.keisan_key = DataRow<string>(detailWkRow, "keisan_key");
+                            //detailRow.yuso_key = DataRow<string>(detailWkRow, "yuso_key");
                             //detailRow.CreateDay = DataRowDateTime(detailWkRow, "CreateDay");
                             //detailRow.CreateUserCode = DataRow<string>(detailWkRow, "CreateUserCode");
                             detailRow.UpdateDay = DataRowDateTime(detailWkRow, "UpdateDay");
@@ -1322,10 +1322,15 @@ namespace Pasco.FareCalcLib
                     var yusoWkRow = yusoWkRowQuery.First();
                     var sumAmounts = new Dictionary<String, Decimal>();
                     var maxAmountInfo = new Dictionary<String, Dictionary<String, Decimal>>();
+                    var colNameMap = new Dictionary<String, String>();
                     // 初期化 initialize dictionary
                     var colNamesForDevide = yusoWkColNames.Where(name => name != "total_charge_amount").ToList(); // totalは除く
-                    colNamesForDevide.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
-                    colNamesForDevide.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
+                    // TODO: high akema base_charge_amount　カラム名変更対応
+                    colNamesForDevide.ForEach(name => colNameMap.Add(name, name == "base_charge_amount" ? "distributed_base_charge_amoun" : "distributed_" + name));
+                    colNameMap.Values.ToList().ForEach(detailColName => sumAmounts.Add(detailColName, 0));
+                    colNameMap.Values.ToList().ForEach(detailColName => maxAmountInfo.Add(detailColName, null));
+                    //colNamesForDevide.ForEach(name => sumAmounts.Add("distributed_" + name, 0));
+                    //colNamesForDevide.ForEach(name => maxAmountInfo.Add("distributed_" + name, null));
 
                     foreach (var detailRow in yusoKeyGroup)
                     {
@@ -1333,7 +1338,8 @@ namespace Pasco.FareCalcLib
                         {
                             if (!DBNull.Value.Equals(yusoWkRow.weight_sum_kg) && !yusoWkRow.weight_sum_kg.Equals(0))
                             {
-                                var detailColName = "distributed_" + usoWkColname;
+                                //var detailColName = "distributed_" + usoWkColname;
+                                var detailColName = colNameMap[usoWkColname];
                                 var devidedlAmount = Decimal.Floor(
                                                         (decimal)yusoWkRow[usoWkColname] * detailRow.item_weight_kg / yusoWkRow.weight_sum_kg);
                                 detailRow[detailColName] = devidedlAmount;
@@ -1356,7 +1362,8 @@ namespace Pasco.FareCalcLib
                     {
                         if (!DBNull.Value.Equals(yusoWkRow[usoWkColname]))
                         {
-                            var detailColName = "distributed_" + usoWkColname;
+                            //var detailColName = "distributed_" + usoWkColname;
+                            var detailColName = colNameMap[usoWkColname];
                             var defference = Decimal.Parse(yusoWkRow[usoWkColname].ToString()) - sumAmounts[detailColName];
                             if (defference != 0)
                             {
@@ -1370,7 +1377,7 @@ namespace Pasco.FareCalcLib
                     foreach (var detailRow in yusoKeyGroup)
                     {// TODO: high akema Not Null制約入れる
                         detailRow.distributed_total_charge_amount = 0;
-                        colNamesForDevide.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
+                        colNamesForDevide.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow[colNameMap[name]]);
                     }
                 }
             }
