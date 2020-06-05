@@ -46,7 +46,7 @@ namespace Pasco.FareCalcLib
                         "stopping_charge_amount",
                         "cargo_charge_amount",
                         "other_charge_amount",
-                        "actual_km_surcharge_amount",
+                        "actual_distance_surcharge_amount",
                         "actual_time_surcharge_amount",
                         "actual_assist_surcharge_amount",
                         "actual_load_surcharge_amount",
@@ -107,7 +107,7 @@ namespace Pasco.FareCalcLib
             // TODO: normal akema 時間割増料、期間割増料、地区割増、
             // TODO: spec endo 時間指定割増料、特別作業割増、特殊車両割増
             // 基本運賃と付帯費用項目のトータル金額を算出して、セット
-            CalcWkDs.t_keisan_wk.ToList().ForEach(keisanWkRow => 
+            CalcWkDs.t_keisan_wk.ToList().ForEach(keisanWkRow =>
             {
                 decimal totalExtraCost = 0;
                 // extra_cost値をkeisan_wkに設定します　set extra_cost value to keisan_wk
@@ -149,26 +149,26 @@ namespace Pasco.FareCalcLib
                                         keisanWkRow.actual_load_surcharge_amount = exCostWkRow.extra_charge_amount;
                                         break;
                                     case extraCostKbn.FuelCharge:
-                                        // TODO: function akema 燃油料
+                                    // TODO: function akema 燃油料
                                     case extraCostKbn.OtherTariff:
-                                        // TODO: function akema その他料金
-                                        // その他（タリフ）
+                                    // TODO: function akema その他料金
+                                    // その他（タリフ）
                                     case extraCostKbn.OtherRateMultiplication:
-                                        // TODO: function akema その他料金
-                                        // その他（率乗算）
+                                    // TODO: function akema その他料金
+                                    // その他（率乗算）
                                     case extraCostKbn.OtherSimpleAddition:
-                                        // TODO: function akema その他料金
-                                        // その他（単純加算）
+                                    // TODO: function akema その他料金
+                                    // その他（単純加算）
                                     case extraCostKbn.TimeCharge:
-                                        // TODO: function akema 時間割増料
+                                    // TODO: function akema 時間割増料
                                     case extraCostKbn.SeasonalCharge:
-                                        // TODO: function akema 期間割増料
+                                    // TODO: function akema 期間割増料
                                     case extraCostKbn.AreaCharge:
-                                        // TODO: function akema 地区割増料
+                                    // TODO: function akema 地区割増料
                                     case extraCostKbn.TimeDesignationCharge:
-                                        // TODO: function akema 時間指定割増料
+                                    // TODO: function akema 時間指定割増料
                                     case extraCostKbn.SpecialWorkCharge:
-                                        // TODO: function akema 特別作業割増料
+                                    // TODO: function akema 特別作業割増料
                                     case extraCostKbn.SpecialVehicleCharge:
                                         // TODO: function akema 特殊車両割増料
                                         keisanWkRow.other_charge_amount += exCostWkRow.extra_charge_amount;
@@ -183,7 +183,7 @@ namespace Pasco.FareCalcLib
                 keisanWkRow.total_charge_amount =
                                 keisanWkRow.base_charge_amount + totalExtraCost;
             }
-            );            
+            );
         }
 
         private void SetResultToYusoWk()
@@ -192,7 +192,7 @@ namespace Pasco.FareCalcLib
             // TODO: spec endo 実績項目を上書きするのはまずいか
             foreach (var yusoWkRow in this.CalcWkDs.t_yuso_wk)
             {
-                if (yusoWkRow.contract_type == CnContractType.ByItem) 
+                if (yusoWkRow.contract_type == CnContractType.ByItem)
                 {
                     // keisan wkの値を、ByItem（ko-date）のときにuso_wkの同じデータ行に設定する set keisan wk values to same key datarow of uso_wk when ByItem(ko-date)
                     // 同じキーでkeisan_wk行を取得する get keisan_wk row at the same key
@@ -204,13 +204,15 @@ namespace Pasco.FareCalcLib
                         // 値をyusoWkRowに設定します set value to yusoWkRow
                         var keisanWkRow = keisanWkQuery.First();
                         yusoWkRow.weight_sum_kg = keisanWkRow.weight_sum_kg;
-                        yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);                       
-                    } else
+                        yusoWkColNames.ForEach(colname => yusoWkRow[colname] = keisanWkRow[colname]);
+                    }
+                    else
                     {
                         // TODO: 想定外データ不整合err
                     }
 
-                } else if (yusoWkRow.contract_type == CnContractType.ByVehicle)
+                }
+                else if (yusoWkRow.contract_type == CnContractType.ByVehicle)
                 {
                     // ByVehicle（sha-date）のyusoキーでkeisan_wkの最大total_charge_amaunt行を取得 get max total_charge_amaunt row of keisan_wk by yuso key of ByVehicle(sha-date)
                     var keisanWkRowQuery = this.CalcWkDs.t_keisan_wk
@@ -218,9 +220,9 @@ namespace Pasco.FareCalcLib
                                 r.calc_no == this.CalcNo &&
                                 r.yuso_key == yusoWkRow.yuso_key)
                             .OrderByDescending(r => r.total_charge_amount);
-                            
 
-                    if (keisanWkRowQuery.Count() > 0 )
+
+                    if (keisanWkRowQuery.Count() > 0)
                     {
                         var keisanWkRow = keisanWkRowQuery.First();
                         // 値をyusoWkRowに設定します　set value to yusoWkRow
@@ -230,7 +232,8 @@ namespace Pasco.FareCalcLib
                         // keisanWkRowで「on」をmax_flgに設定　set "on" to max_flg in keisanWkRow
                         keisanWkRow.max_flg = 1;
 
-                    } else
+                    }
+                    else
                     {
                         // TODO: 想定外データ不整合err
                     }
@@ -245,17 +248,17 @@ namespace Pasco.FareCalcLib
                 // calcNoでtrnデータテーブルを埋める fill trn datatables by calcNo
                 var yusoAdp = new CalcTrnTableAdapters.t_yusoTableAdapter();
                 yusoAdp.Connection = Connection;
-                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
+                var yusoRowCnt = yusoAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_yuso, this.CalcNo, CnCalcStatus.Doing);
                 // TODO: debug code for p1
                 Console.WriteLine("retrieve from t_yuso COUNT = {0}", yusoRowCnt);
 
                 var keisanAdp = new CalcTrnTableAdapters.t_keisanTableAdapter();
                 keisanAdp.Connection = Connection;
-                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
+                keisanAdp.FillOriginalDataByCalcNo(this.CalcTrnDs.t_keisan, this.CalcNo, CnCalcStatus.Doing);
 
                 var detailAdp = new CalcTrnTableAdapters.t_detailTableAdapter();
                 detailAdp.Connection = Connection;
-                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, (short)int.Parse(CnCalcStatus.Doing));
+                detailAdp.FillOrigialDataByCalcNo(this.CalcTrnDs.t_detail, this.CalcNo, CnCalcStatus.Doing);
 
                 var origDestAdp = new CalcWkTableAdapters.m_orig_dest_calcinfoTableAdapter();
                 origDestAdp.Connection = Connection;
@@ -281,6 +284,7 @@ namespace Pasco.FareCalcLib
                         }
 
                     });
+
 
 
                     // m_orig_dest_calcinfoからcalcinfoを取得し、keisanWkRowを設定します get calcinfo from m_orig_dest_calcinfo and set keisanWkRow
@@ -311,7 +315,8 @@ namespace Pasco.FareCalcLib
                     {
                         // set err if no match data in calcinfo
                         newRow.calc_err_flg = 1;
-                    } else if (calcinfoDt.Count >= 1)
+                    }
+                    else if (calcinfoDt.Count >= 1)
                     {
                         var q = calcinfoDt.Where(calcinfo => calcinfo.carrier_company_cd == r.carrier_company_cd);
                         if (q.Count() == 0)
@@ -339,6 +344,19 @@ namespace Pasco.FareCalcLib
 
                     newRow["calc_no"] = CalcNo;
                     newRow["max_flg"] = 0;
+                    newRow["original_base_charge_amount"] = 0;
+                    newRow["stopping_charge_amount"] = 0;
+                    newRow["cargo_charge_amount"] = 0;
+                    newRow["other_charge_amount"] = 0;
+                    newRow["actual_km_surcharge_amount"] = 0;
+                    newRow["actual_time_surcharge_amount"] = 0;
+                    newRow["actual_assist_surcharge_amount"] = 0;
+                    newRow["actual_load_surcharge_amount"] = 0;
+                    newRow["actual_stand_surcharge_amount"] = 0;
+                    newRow["actual_wash_surcharge_amount"] = 0;
+                    newRow["total_charge_amount"] = 0;
+                    newRow["back_flg"] = 0;
+                    newRow["calc_err_flg"] = 0;
                     CalcWkDs.t_keisan_wk.Rows.Add(newRow);
                 }
 
@@ -360,9 +378,8 @@ namespace Pasco.FareCalcLib
                         if (CalcTrnDs.t_detail.Columns.Contains(colname))
                         {
                             // TODO: done akema 値が入るデータを用意
-                            if (colname == "distributed_base_charge_amount"
+                            if (colname == "distributed_base_charge_amoun"
                             || colname == "distributed_special_charge_amount"
-                            || colname == "distributed_base_charge_amount"
                             || colname == "distributed_special_charge_amount"
                             || colname == "distributed_stopping_charge_amount"
                             || colname == "distributed_cargo_charge_amount"
@@ -487,6 +504,13 @@ namespace Pasco.FareCalcLib
                                 newExCostWkRow["base_charge_amount"] = keisanWkRow["base_charge_amount"];
                                 newExCostWkRow["extra_charge_amount"] = 0;
 
+                                newExCostWkRow["keisan_id"] = keisanWkRow["keisan_id"];
+                                newExCostWkRow["extra_seq"] = 0;
+                                newExCostWkRow["extra_cost_amount"] = 0;
+                                newExCostWkRow["extra_cost_other_kbn"] = "";
+                                newExCostWkRow["yuso_means_kbn"] = "";
+                                newExCostWkRow["extra_cost_detail_id"] = 0;
+
                                 // add row to ex_cost_wk add row to ex_cost_wk
                                 CalcWkDs.t_extra_cost_wk.Addt_extra_cost_wkRow(newExCostWkRow);
                             }
@@ -543,7 +567,7 @@ namespace Pasco.FareCalcLib
                             // TODO: high akema 業者別調整率　適用した発着別の業者コードに指定がない時に適用　仕様4-2-2
                             // 計算情報．業者コードに業者の指定がない場合、業者別運賃調整率マスタより調整率取得
                             var gyoshaDt = new GyosyaAdjustment.m_gyosya_adjustmentDataTable();
-                                gyoshaDt = gyosyaAdp.GetDataByPk(item.carrier_company_cd, item.yuso_kbn, item.orig_warehouse_block_cd);
+                            gyoshaDt = gyosyaAdp.GetDataByPk(item.carrier_company_cd, item.yuso_kbn, item.orig_warehouse_block_cd);
                             if (String.IsNullOrEmpty(item.carrier_company_cd))
                             {
                                 item.base_charge_amount = Decimal.Floor(item.base_charge_amount * gyoshaDt.First().adjustment_rate / 100);
@@ -562,12 +586,12 @@ namespace Pasco.FareCalcLib
                                 {
                                 }
                             }
-                            else 
+                            else
                             {
                                 item.base_charge_amount = item.original_base_charge_amount;
                             }
 
-                            
+
                         }
                     }
                 }
@@ -614,7 +638,7 @@ namespace Pasco.FareCalcLib
                             break;
                         case extraCostKbn.DistanceCharge:
                             // 距離割増　タリフ．金額 × 超過距離
-                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_distance_kmNull()))
+                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().actual_distance_km == 0))
                             {
                                 var actualDistanceKm = yusoWkquery.First().actual_distance_km;
                                 var calcVariables = new CalcVariables(exCostRow);
@@ -624,7 +648,7 @@ namespace Pasco.FareCalcLib
                             break;
                         case extraCostKbn.HelperCharge:
                             // 助手料　助手料 × 助手人数 助手料(=付帯費用パターン明細金額)＊人数
-                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_assistant_countNull()))
+                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().actual_assistant_count == 0))
                             {
                                 exCostRow.extra_charge_amount = exCostRow.adding_price * yusoWkquery.First().actual_assistant_count;
                             }
@@ -655,7 +679,7 @@ namespace Pasco.FareCalcLib
                             }
                             break;
                         case extraCostKbn.OtherTariff:
-                        case extraCostKbn.OtherRateMultiplication:                   
+                        case extraCostKbn.OtherRateMultiplication:
                         case extraCostKbn.OtherSimpleAddition:
                             switch (exCostRow.calculate_type_kbn)
                             {
@@ -678,7 +702,7 @@ namespace Pasco.FareCalcLib
                             break;
                         case extraCostKbn.TimeCharge:
                             // 時間割増料 タリフ．金額 × 超過時間
-                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().Isactual_time_minsNull()))
+                            if (yusoWkquery.Count() == 1 && !(yusoWkquery.First().actual_time_mins == 0))
                             {
                                 var actualTimeMins = yusoWkquery.First().actual_time_mins;
                                 var calcVariables = new CalcVariables(exCostRow);
@@ -703,21 +727,21 @@ namespace Pasco.FareCalcLib
                             break;
                         case extraCostKbn.TimeDesignationCharge:
                             // 時間指定割増料 基本運賃 × 業者別調整率．時間指定割増率 ÷ 100
-                            if (yusoWkquery.Count() == 1) 
-                            { 
+                            if (yusoWkquery.Count() == 1)
+                            {
                                 exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * gyoshaDt.First().time_adjustment_rate / 100);
                             }
                             break;
                         case extraCostKbn.SpecialWorkCharge:
                             // 特別作業割増料 基本運賃 × 業者別調整率．特別作業割増率 ÷ 100
                             if (yusoWkquery.Count() == 1)
-                            { 
+                            {
                                 exCostRow.extra_charge_amount = Decimal.Floor(exCostRow.base_charge_amount * gyoshaDt.First().additional_work_rate / 100);
                             }
                             break;
                         case extraCostKbn.SpecialVehicleCharge:
                             // 特殊車両割増料 付帯費用設定．加算額
-                            if (yusoWkquery.Count() == 1) 
+                            if (yusoWkquery.Count() == 1)
                             {
                                 exCostRow.extra_charge_amount = exCostRow.adding_price;
                             }
@@ -737,7 +761,7 @@ namespace Pasco.FareCalcLib
         {
             // TODO: low endo 参照されていないので削除
             // TODO: get info from m_tariff_info
-            return tariffAxisKbn == CnTariffAxisKbn.Vertical ? "yuso_means_kbn" : "distance_km"; 
+            return tariffAxisKbn == CnTariffAxisKbn.Vertical ? "yuso_means_kbn" : "distance_km";
         }
 
         private void SumWeightByKeisanUnit()
@@ -755,7 +779,7 @@ namespace Pasco.FareCalcLib
             foreach (var group in query)
             {
                 var keisanWkQuery = this.CalcWkDs.t_keisan_wk
-                    .Where(r => 
+                    .Where(r =>
                         r.calc_ym == group.Keys.calc_ym &&
                         r.keisan_key == group.Keys.keisan_key);
                 if (keisanWkQuery.Count() == 1)
@@ -796,10 +820,10 @@ namespace Pasco.FareCalcLib
                 var adpYusoWk = new StartCalcTableAdapters.t_yuso_wkTableAdapter();
                 adpYusoWk.Connection = sqlConn;
                 adpYusoWk.SetUpdateBatchSize(100);
-                
+
                 foreach (StartCalc.t_yusoRow yusoRow in dsStartCalc.t_yuso)
                 {
-                    foreach (string yuso_key in yusoKeyList) 
+                    foreach (string yuso_key in yusoKeyList)
                     {
                         if (yusoRow.yuso_key == yuso_key)
                         {
@@ -807,7 +831,7 @@ namespace Pasco.FareCalcLib
 
                             updateCount = tYusoAdp.UpdateCalcStatusById(CnCalcStatus.Doing, yusoRow.calc_no, DateTime.Now, "", yusoRow.yuso_id);
 
-                            adpYusoWk.FillByPK(dsStartCalc.t_yuso_wk, yusoRow.calc_no,yusoRow.yuso_id);
+                            adpYusoWk.FillByPK(dsStartCalc.t_yuso_wk, yusoRow.calc_no, yusoRow.yuso_id);
                             // TODO: high akema t_yuso_wkデータ作成
                             var colNamesOfYusoWk = dsStartCalc.t_yuso.Where(r => (r.yuso_id == yusoRow.yuso_id) && (r.calc_no == calcNo))
                                                         .Select(tdr => tdr).ToList();
@@ -833,7 +857,7 @@ namespace Pasco.FareCalcLib
                                 r.cargo_charge_amount = yusoRow.cargo_charge_amount;
                                 r.other_charge_amount = yusoRow.other_charge_amount;
                                 r.actual_distance_km = yusoRow.actual_distance_km;
-                                r.actual_km_surcharge_amount = yusoRow.actual_distance_surcharge_amount;
+                                r.actual_distance_surcharge_amount = yusoRow.actual_distance_surcharge_amount;
                                 r.actual_time_mins = yusoRow.actual_time_mins;
                                 r.actual_time_surcharge_amount = yusoRow.actual_time_surcharge_amount;
                                 r.actual_assistant_count = yusoRow.actual_assistant_count;
@@ -845,12 +869,12 @@ namespace Pasco.FareCalcLib
                                 r.calc_status = yusoRow.calc_status;
                                 r.verify_status = yusoRow.verify_status;
                                 r.yuso_key = yusoRow.yuso_key;
-                                r.updated_at = yusoRow.UpdateDay;
-                                r.updated_user_id = yusoRow.UpdateUserCode;
+                                r.UpdateDay = yusoRow.UpdateDay;
+                                r.UpdateUserCode = yusoRow.UpdateUserCode;
                                 r.BatchUpdateDay = yusoRow.BatchUpdateDay;
                                 r.last_calc_at = yusoRow.last_calc_at;
                                 r.release_ymd = yusoRow.release_ymd;
-                                r.verify_ymnd = yusoRow.verify_ymnd;
+                                r.verify_ymd = yusoRow.verify_ymd;
                             });
                             adpYusoWk.Update(dsStartCalc);
                         }
@@ -932,7 +956,7 @@ namespace Pasco.FareCalcLib
                             r.cargo_charge_amount = yusoRow.cargo_charge_amount;
                             r.other_charge_amount = yusoRow.other_charge_amount;
                             r.actual_distance_km = yusoRow.actual_distance_km;
-                            r.actual_km_surcharge_amount = yusoRow.actual_distance_surcharge_amount;
+                            r.actual_distance_surcharge_amount = yusoRow.actual_distance_surcharge_amount;
                             r.actual_time_mins = yusoRow.actual_time_mins;
                             r.actual_time_surcharge_amount = yusoRow.actual_time_surcharge_amount;
                             r.actual_assistant_count = yusoRow.actual_assistant_count;
@@ -944,12 +968,12 @@ namespace Pasco.FareCalcLib
                             r.calc_status = yusoRow.calc_status;
                             r.verify_status = yusoRow.verify_status;
                             r.yuso_key = yusoRow.yuso_key;
-                            r.updated_at = yusoRow.UpdateDay;
-                            r.updated_user_id = yusoRow.UpdateUserCode;
+                            r.UpdateDay = yusoRow.UpdateDay;
+                            r.UpdateUserCode = yusoRow.UpdateUserCode;
                             r.BatchUpdateDay = yusoRow.BatchUpdateDay;
                             r.last_calc_at = yusoRow.last_calc_at;
                             r.release_ymd = yusoRow.release_ymd;
-                            r.verify_ymnd = yusoRow.verify_ymnd;
+                            r.verify_ymd = yusoRow.verify_ymd;
                         });
                         adpYusoWk.Update(dsStartCalc);
                     }
@@ -1069,7 +1093,7 @@ namespace Pasco.FareCalcLib
                     {
                         if (yusoRow.yuso_id == yusoWkRow.yuso_id)
                         {
-                            yusoRow.calc_no = DataRow<int>(yusoWkRow, "calc_no");
+                            yusoRow.yuso_id = DataRow<int>(yusoWkRow, "yuso_id");
                             yusoRow.calc_ym = DataRow<string>(yusoWkRow, "calc_ym");
                             yusoRow.contract_type = DataRow<string>(yusoWkRow, "contract_type");
                             yusoRow.yuso_kbn = DataRow<string>(yusoWkRow, "yuso_kbn");
@@ -1084,13 +1108,19 @@ namespace Pasco.FareCalcLib
                             yusoRow.orig_date = DataRow<string>(yusoWkRow, "orig_date");
                             yusoRow.arriving_date = DataRow<string>(yusoWkRow, "arriving_date");
                             yusoRow.dest_cd = DataRow<string>(yusoWkRow, "dest_cd");
+                            yusoRow.distance_km = DataRow<int>(yusoWkRow, "distance_km");
+                            yusoRow.time_mins = DataRow<int>(yusoWkRow, "time_mins");
+                            yusoRow.fuel_cost_amount = DataRow<decimal>(yusoWkRow, "fuel_cost_amount");
+                            yusoRow.stopping_count = DataRow<short>(yusoWkRow, "stopping_count");
+                            yusoRow.weight_sum_kg = DataRow<decimal>(yusoWkRow, "weight_sum_kg");
+                            yusoRow.item_quantity_sum = DataRow<decimal>(yusoWkRow, "item_quantity_sum");
                             yusoRow.base_charge_amount = DataRow<decimal>(yusoWkRow, "base_charge_amount");
                             yusoRow.special_charge_amount = DataRow<decimal>(yusoWkRow, "special_charge_amount");
                             yusoRow.stopping_charge_amount = DataRow<decimal>(yusoWkRow, "stopping_charge_amount");
                             yusoRow.cargo_charge_amount = DataRow<decimal>(yusoWkRow, "cargo_charge_amount");
                             yusoRow.other_charge_amount = DataRow<decimal>(yusoWkRow, "other_charge_amount");
                             yusoRow.actual_distance_km = DataRow<decimal>(yusoWkRow, "actual_distance_km");
-                            yusoRow.actual_distance_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_km_surcharge_amount");
+                            yusoRow.actual_distance_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_distance_surcharge_amount");
                             yusoRow.actual_time_mins = DataRow<decimal>(yusoWkRow, "actual_time_mins");
                             yusoRow.actual_time_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_time_surcharge_amount");
                             yusoRow.actual_assistant_count = DataRow<int>(yusoWkRow, "actual_assistant_count");
@@ -1099,17 +1129,26 @@ namespace Pasco.FareCalcLib
                             yusoRow.actual_stand_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_stand_surcharge_amount");
                             yusoRow.actual_wash_surcharge_amount = DataRow<decimal>(yusoWkRow, "actual_wash_surcharge_amount");
                             yusoRow.total_charge_amount = DataRow<decimal>(yusoWkRow, "total_charge_amount");
-                            yusoRow.calc_status = CnCalcStatus.Done;
+                            yusoRow.actual_chosei_sum_amount = DataRow<decimal>(yusoWkRow, "actual_chosei_sum_amount");
+                            yusoRow.chosei_total_charge_amount = DataRow<decimal>(yusoWkRow, "chosei_total_charge_amount");
                             yusoRow.verify_status = DataRow<string>(yusoWkRow, "verify_status");
-                            yusoRow.yuso_key = DataRow<string>(yusoWkRow, "yuso_key");
-                            yusoRow.verify_ymnd = DataRow<string>(yusoWkRow, "verify_ymnd");
+                            yusoRow.verify_ymd = DataRow<string>(yusoWkRow, "verify_ymd");
                             yusoRow.release_ymd = DataRow<string>(yusoWkRow, "release_ymd");
-                            yusoRow.last_calc_at = DataRow<DateTime>(yusoWkRow, "last_calc_at");
-                            yusoRow.BatchUpdateDay = DataRow<DateTime>(yusoWkRow, "BatchUpdateDay");
-                            //yusoRow.CreateDay = DataRow<DateTime>(yusoWkRow, "created_at");
-                            //yusoRow.CreateUserCode = DataRow<string>(yusoWkRow, "created_user_id");
-                            yusoRow.UpdateDay = DateTime.Now;// DataRow<DateTime>(yusoWkRow, "updated_at");
-                            yusoRow.UpdateUserCode = DataRow<string>(yusoWkRow, "updated_user_id");
+                            yusoRow.yuso_means_kbn = DataRow<string>(yusoWkRow, "yuso_means_kbn");
+                            yusoRow.dest_nm = DataRow<string>(yusoWkRow, "dest_nm");
+                            yusoRow.calc_status = DataRow<string>(yusoWkRow, "calc_status");
+                            yusoRow.calc_no = DataRow<int>(yusoWkRow, "calc_no");
+                            yusoRow.last_calc_at = DataRowDateTime(yusoWkRow, "last_calc_at");
+                            yusoRow.send_flg = DataRow<short>(yusoWkRow, "send_flg");
+                            yusoRow.send_at = DataRowDateTime(yusoWkRow, "send_at");
+                            yusoRow.back_flg = DataRow<short>(yusoWkRow, "back_flg");
+                            yusoRow.calc_err_flg = DataRow<short>(yusoWkRow, "calc_err_flg");
+                            yusoRow.yuso_key = DataRow<string>(yusoWkRow, "yuso_key");
+                            yusoRow.BatchUpdateDay = DataRowDateTime(yusoWkRow, "BatchUpdateDay");
+                            //yusoRow.CreateDay = DataRowDateTime(yusoWkRow, "CreateDay");
+                            //yusoRow.CreateUserCode = DataRow<string>(yusoWkRow, "CreateUserCode");
+                            yusoRow.UpdateDay = DataRowDateTime(yusoWkRow, "UpdateDay");
+                            yusoRow.UpdateUserCode = DataRow<string>(yusoWkRow, "UpdateUserCode");
                         }
                     }
                 }
@@ -1120,6 +1159,7 @@ namespace Pasco.FareCalcLib
                     {
                         if (keisanRow.keisan_id == keisanWkRow.keisan_id)
                         {
+                            keisanRow.keisan_id = DataRow<int>(keisanWkRow, "keisan_id");
                             keisanRow.calc_ym = DataRow<string>(keisanWkRow, "calc_ym");
                             keisanRow.contract_type = DataRow<string>(keisanWkRow, "contract_type");
                             keisanRow.yuso_kbn = DataRow<string>(keisanWkRow, "yuso_kbn");
@@ -1139,20 +1179,24 @@ namespace Pasco.FareCalcLib
                             keisanRow.extra_cost_pattern_id = DataRow<int>(keisanWkRow, "extra_cost_pattern_id");
                             keisanRow.distance_km = DataRow<int>(keisanWkRow, "distance_km");
                             keisanRow.time_mins = DataRow<int>(keisanWkRow, "time_mins");
-                            keisanRow.fuel_cost_amount = DataRow<decimal>(keisanWkRow, "fuel_cost_amount");
+                            keisanRow.fuel_cost_amount = DataRow<int>(keisanWkRow, "fuel_cost_amount");
                             keisanRow.stopping_count = DataRow<short>(keisanWkRow, "stopping_count");
                             keisanRow.special_tariff_start_md = DataRow<string>(keisanWkRow, "special_tariff_start_md");
                             keisanRow.special_tariff_end_md = DataRow<string>(keisanWkRow, "special_tariff_end_md");
+                            keisanRow.weight_sum_kg = DataRow<decimal>(keisanWkRow, "weight_sum_kg");
+                            keisanRow.item_quantity_sum = DataRow<decimal>(keisanWkRow, "item_quantity_sum");
                             keisanRow.base_charge_amount = DataRow<decimal>(keisanWkRow, "base_charge_amount");
                             keisanRow.special_charge_amount = DataRow<decimal>(keisanWkRow, "special_charge_amount");
                             keisanRow.yuso_means_kbn = DataRow<string>(keisanWkRow, "yuso_means_kbn");
+                            keisanRow.dest_nm = DataRow<string>(keisanWkRow, "dest_nm");
                             keisanRow.max_flg = DataRow<short>(keisanWkRow, "max_flg");
+                            keisanRow.back_flg = DataRow<short>(keisanWkRow, "back_flg");
                             keisanRow.keisan_key = DataRow<string>(keisanWkRow, "keisan_key");
                             keisanRow.yuso_key = DataRow<string>(keisanWkRow, "yuso_key");
-                            //keisanRow.CreateDay = DataRow<DateTime>(keisanWkRow, "created_at");
-                            //keisanRow.CreateUserCode = DataRow<string>(keisanWkRow, "created_user_id");
-                            keisanRow.UpdateDay = DateTime.Now;// DataRow<DateTime>(keisanWkRow, "updated_at");
-                            keisanRow.UpdateUserCode = DataRow<string>(keisanWkRow, "updated_user_id");
+                            //keisanRow.CreateDay = DataRowDateTime(keisanWkRow, "CreateDay");
+                            //keisanRow.UpdateDay = DataRowDateTime(keisanWkRow, "UpdateDay");
+                            keisanRow.CreateUserCode = DataRow<string>(keisanWkRow, "CreateUserCode");
+                            keisanRow.UpdateUserCode = DataRow<string>(keisanWkRow, "UpdateUserCode");
                         }
 
                     }
@@ -1162,8 +1206,9 @@ namespace Pasco.FareCalcLib
                     // t_detail 更新
                     foreach (CalcTrn.t_detailRow detailRow in CalcTrnDs.t_detail)
                     {
-                        if (detailRow.detail_Id == detailWkRow.detail_id)
+                        if (detailRow.detail_Id == detailWkRow.detail_Id)
                         {
+                            detailRow.detail_Id = DataRow<int>(detailWkRow, "detail_Id");
                             detailRow.calc_ym = DataRow<string>(detailWkRow, "calc_ym");
                             detailRow.contract_type = DataRow<string>(detailWkRow, "contract_type");
                             detailRow.yuso_kbn = DataRow<string>(detailWkRow, "yuso_kbn");
@@ -1189,8 +1234,8 @@ namespace Pasco.FareCalcLib
                             detailRow.item_weight_kg = DataRow<decimal>(detailWkRow, "item_weight_kg");
                             detailRow.yuso_means_kbn = DataRow<string>(detailWkRow, "yuso_means_kbn");
                             detailRow.special_vehicle_kbn = DataRow<string>(detailWkRow, "special_vehicle_kbn");
-                            detailRow.transport_lead_time_hours = DataRow<int>(detailWkRow, "transport_lead_time_hours");
-                            detailRow.distributed_base_charge_amount = DataRow<decimal>(detailWkRow, "distributed_base_charge_amount");
+                            detailRow.transport_lead_time_hours = DataRow<string>(detailWkRow, "transport_lead_time_hours");
+                            detailRow.distributed_base_charge_amoun = DataRow<decimal>(detailWkRow, "distributed_base_charge_amoun");
                             detailRow.distributed_special_charge_amount = DataRow<decimal>(detailWkRow, "distributed_special_charge_amount");
                             detailRow.distributed_stopping_charge_amount = DataRow<decimal>(detailWkRow, "distributed_stopping_charge_amount");
                             detailRow.distributed_cargo_charge_amount = DataRow<decimal>(detailWkRow, "distributed_cargo_charge_amount");
@@ -1205,10 +1250,10 @@ namespace Pasco.FareCalcLib
                             detailRow.distributed_total_amount = DataRow<decimal>(detailWkRow, "distributed_total_amount");
                             detailRow.keisan_key = DataRow<string>(detailWkRow, "keisan_key");
                             detailRow.yuso_key = DataRow<string>(detailWkRow, "yuso_key");
-                            //detailRow.CreateDay = DataRow<DateTime>(detailWkRow, "created_at");
-                            //detailRow.CreateUserCode = DataRow<string>(detailWkRow, "created_user_id");
-                            detailRow.UpdateDay = DateTime.Now;// DataRow<DateTime>(detailWkRow, "updated_at");
-                            detailRow.UpdateUserCode = DataRow<string>(detailWkRow, "updated_user_id");
+                            //detailRow.CreateDay = DataRowDateTime(detailWkRow, "CreateDay");
+                            //detailRow.CreateUserCode = DataRow<string>(detailWkRow, "CreateUserCode");
+                            detailRow.UpdateDay = DataRowDateTime(detailWkRow, "UpdateDay");
+                            detailRow.UpdateUserCode = DataRow<string>(detailWkRow, "UpdateUserCode");
                         }
                     }
                 }
@@ -1256,7 +1301,8 @@ namespace Pasco.FareCalcLib
             try
             {
                 var query = this.CalcWkDs.t_detail_wk
-                    .GroupBy(x => new {
+                    .GroupBy(x => new
+                    {
                         x.calc_ym,
                         x.yuso_key
                     });
@@ -1298,7 +1344,7 @@ namespace Pasco.FareCalcLib
                                 // 金額が以前よりも大きい場合は、IDと値を設定します set id and value if amount is greater than before
                                 if (maxAmountInfo[detailColName] == null || maxAmountInfo[detailColName]["Amount"] < devidedlAmount)
                                 {
-                                    maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_id }, { "Amount", devidedlAmount } };
+                                    maxAmountInfo[detailColName] = new Dictionary<String, Decimal>() { { "DetailId", detailRow.detail_Id }, { "Amount", devidedlAmount } };
                                 }
                             }
                         });
@@ -1314,7 +1360,7 @@ namespace Pasco.FareCalcLib
                             var defference = Decimal.Parse(yusoWkRow[usoWkColname].ToString()) - sumAmounts[detailColName];
                             if (defference != 0)
                             {
-                                var maxAmountRow = yusoKeyGroup.Where(x => x.detail_id == maxAmountInfo[detailColName]["DetailId"]).FirstOrDefault();
+                                var maxAmountRow = yusoKeyGroup.Where(x => x.detail_Id == maxAmountInfo[detailColName]["DetailId"]).FirstOrDefault();
                                 maxAmountRow[detailColName] = Decimal.Parse(maxAmountRow[detailColName].ToString()) + defference;
                             }
                         }
@@ -1323,7 +1369,7 @@ namespace Pasco.FareCalcLib
                     // 合計金額を設定 set total amount
                     foreach (var detailRow in yusoKeyGroup)
                     {// TODO: high akema Not Null制約入れる
-                        detailRow.distributed_total_charge_amount = 0;  
+                        detailRow.distributed_total_charge_amount = 0;
                         colNamesForDevide.ForEach(name => detailRow.distributed_total_charge_amount += (decimal)detailRow["distributed_" + name]);
                     }
                 }
@@ -1334,10 +1380,20 @@ namespace Pasco.FareCalcLib
             }
         }
 
+        // 値がNULLの場合に初期値をセットする
         public static Type DataRow<Type>(DataRow dr, String columnName)
         {
             Type ret = (dr.IsNull(columnName)) ? default(Type) : dr.Field<Type>(columnName);
+
+            return ret;
+        }
+
+        public static DateTime DataRowDateTime(DataRow dr, String columnName)
+        {
+            DateTime ret = (dr.IsNull(columnName)) ? DateTime.Now : dr.Field<DateTime>(columnName);
+
             return ret;
         }
     }
+
 }

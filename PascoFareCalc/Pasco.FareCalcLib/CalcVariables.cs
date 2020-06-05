@@ -34,7 +34,7 @@ namespace Pasco.FareCalcLib
             DistanceKm = keisanWkRow.distance_km;
             WeightKg = keisanWkRow.Isweight_sum_kgNull() ? 0 : keisanWkRow.weight_sum_kg;
             TimeMinutes = keisanWkRow.Istime_minsNull() ? 0 : keisanWkRow.time_mins;
-            YusoMeansKbn = keisanWkRow.Isyuso_means_kbnNull() ? "" : keisanWkRow.yuso_means_kbn;
+            YusoMeansKbn = String.IsNullOrEmpty(keisanWkRow.yuso_means_kbn) ? "" : keisanWkRow.yuso_means_kbn;
         }
     }
 }

@@ -56,17 +56,21 @@
     <Compile Include="Datasets\CalcNo.Designer.cs">
       <DependentUpon>CalcNo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\CalcTrn.cs">
+    <Compile Include="Datasets\CalcTrn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>CalcTrn.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\CalcTrn.Designer.cs">
-      <DependentUpon>CalcTrn.cs</DependentUpon>
+    <Compile Include="Datasets\CalcTrn_.cs">
+      <DependentUpon>CalcTrn_.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\CalcWk.cs">
-      <DependentUpon>CalcWk.xsd</DependentUpon>
+    <Compile Include="Datasets\CalcTrn_.Designer.cs">
+      <DependentUpon>CalcTrn_.cs</DependentUpon>
     </Compile>
     <Compile Include="Datasets\CalcWk.Designer.cs">
-      <DependentUpon>CalcWk.cs</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalcWk.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\ExtraCostPattern.Designer.cs" />
     <Compile Include="Datasets\GyosyaAdjustment.Designer.cs">
@@ -74,7 +78,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GyosyaAdjustment.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\StartCalc.Designer.cs" />
+    <Compile Include="Datasets\StartCalc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartCalc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\StartCalc_.Designer.cs" />
     <Compile Include="Datasets\Tariff.Designer.cs" />
     <Compile Include="MonthlyVerifyKey.cs" />
     <Compile Include="Program.cs" />
@@ -100,15 +109,28 @@
     </None>
     <None Include="Datasets\CalcTrn.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcTrn.Designer.cs</LastGenOutput>
     </None>
     <None Include="Datasets\CalcTrn.xss">
       <DependentUpon>CalcTrn.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcTrn_.xsc">
+      <DependentUpon>CalcTrn_.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcTrn_.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\CalcTrn_.xss">
+      <DependentUpon>CalcTrn_.xsd</DependentUpon>
     </None>
     <None Include="Datasets\CalcWk.xsc">
       <DependentUpon>CalcWk.xsd</DependentUpon>
     </None>
     <None Include="Datasets\CalcWk.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcWk.Designer.cs</LastGenOutput>
     </None>
     <None Include="Datasets\CalcWk.xss">
       <DependentUpon>CalcWk.xsd</DependentUpon>
@@ -136,9 +158,20 @@
     </None>
     <None Include="Datasets\StartCalc.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StartCalc.Designer.cs</LastGenOutput>
     </None>
     <None Include="Datasets\StartCalc.xss">
       <DependentUpon>StartCalc.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\StartCalc_.xsc">
+      <DependentUpon>StartCalc_.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\StartCalc_.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\StartCalc_.xss">
+      <DependentUpon>StartCalc_.xsd</DependentUpon>
     </None>
     <None Include="Datasets\Tariff.xsc">
       <DependentUpon>Tariff.xsd</DependentUpon>
