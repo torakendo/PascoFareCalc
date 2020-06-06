@@ -344,19 +344,6 @@ namespace Pasco.FareCalcLib
 
                     newRow["calc_no"] = CalcNo;
                     newRow["max_flg"] = 0;
-                    newRow["original_base_charge_amount"] = 0;
-                    newRow["stopping_charge_amount"] = 0;
-                    newRow["cargo_charge_amount"] = 0;
-                    newRow["other_charge_amount"] = 0;
-                    newRow["actual_distance_surcharge_amount"] = 0;
-                    newRow["actual_time_surcharge_amount"] = 0;
-                    newRow["actual_assist_surcharge_amount"] = 0;
-                    newRow["actual_load_surcharge_amount"] = 0;
-                    newRow["actual_stand_surcharge_amount"] = 0;
-                    newRow["actual_wash_surcharge_amount"] = 0;
-                    newRow["total_charge_amount"] = 0;
-                    newRow["back_flg"] = 0;
-                    newRow["calc_err_flg"] = 0;
                     CalcWkDs.t_keisan_wk.Rows.Add(newRow);
                 }
 
@@ -503,13 +490,6 @@ namespace Pasco.FareCalcLib
                                 newExCostWkRow["weight_sum_kg"] = keisanWkRow["weight_sum_kg"];
                                 newExCostWkRow["base_charge_amount"] = keisanWkRow["base_charge_amount"];
                                 newExCostWkRow["extra_charge_amount"] = 0;
-
-                                newExCostWkRow["keisan_id"] = keisanWkRow["keisan_id"];
-                                newExCostWkRow["extra_seq"] = 0;
-                                newExCostWkRow["extra_cost_amount"] = 0;
-                                newExCostWkRow["extra_cost_other_kbn"] = "";
-                                newExCostWkRow["yuso_means_kbn"] = "";
-                                newExCostWkRow["extra_cost_detail_id"] = 0;
 
                                 // add row to ex_cost_wk add row to ex_cost_wk
                                 CalcWkDs.t_extra_cost_wk.Addt_extra_cost_wkRow(newExCostWkRow);

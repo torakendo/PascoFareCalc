@@ -67,6 +67,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalcTrn.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\CalcWk.cs">
+      <DependentUpon>CalcWk.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\CalcWk.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
