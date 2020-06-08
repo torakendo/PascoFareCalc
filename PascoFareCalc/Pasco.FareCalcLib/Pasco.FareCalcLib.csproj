@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72227D90-B100-484D-AEF7-8FA1D882DA51}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Pasco.FareCalcLib</RootNamespace>
+    <AssemblyName>Pasco.FareCalcLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.1\lib\net46\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalcKeyGenerator.cs" />
+    <Compile Include="CalculateManager.cs" />
+    <Compile Include="CalcVariables.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Datasets\BaseAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Datasets\CalcNo.cs">
+      <DependentUpon>CalcNo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\CalcNo.Designer.cs">
+      <DependentUpon>CalcNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\CalcTrn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalcTrn.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\CalcWk.cs">
+      <DependentUpon>CalcWk.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\CalcWk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalcWk.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\ExtraCostPattern.Designer.cs" />
+    <Compile Include="Datasets\GyosyaAdjustment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GyosyaAdjustment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\StartCalc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartCalc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\StartCalc_.Designer.cs" />
+    <Compile Include="Datasets\Tariff.Designer.cs" />
+    <Compile Include="MonthlyVerifyKey.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TariffCalculator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Datasets\CalcNo.xsc">
+      <DependentUpon>CalcNo.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcNo.xsd" />
+    <None Include="Datasets\CalcNo.xss">
+      <DependentUpon>CalcNo.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcTrn.xsc">
+      <DependentUpon>CalcTrn.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcTrn.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcTrn.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\CalcTrn.xss">
+      <DependentUpon>CalcTrn.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcWk.xsc">
+      <DependentUpon>CalcWk.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\CalcWk.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalcWk.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\CalcWk.xss">
+      <DependentUpon>CalcWk.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ExtraCostPattern.xsc">
+      <DependentUpon>ExtraCostPattern.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ExtraCostPattern.xsd" />
+    <None Include="Datasets\ExtraCostPattern.xss">
+      <DependentUpon>ExtraCostPattern.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\GyosyaAdjustment.xsc">
+      <DependentUpon>GyosyaAdjustment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\GyosyaAdjustment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GyosyaAdjustment.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\GyosyaAdjustment.xss">
+      <DependentUpon>GyosyaAdjustment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\StartCalc.xsc">
+      <DependentUpon>StartCalc.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\StartCalc.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StartCalc.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\StartCalc.xss">
+      <DependentUpon>StartCalc.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\StartCalc_.xsc">
+      <DependentUpon>StartCalc_.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\StartCalc_.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\StartCalc_.xss">
+      <DependentUpon>StartCalc_.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Tariff.xsc">
+      <DependentUpon>Tariff.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Tariff.xsd" />
+    <None Include="Datasets\Tariff.xss">
+      <DependentUpon>Tariff.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
